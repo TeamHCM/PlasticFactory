@@ -1,0 +1,717 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PlasticFactoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sex" Type="nvarchar" MaxLength="5" />
+          <Property Name="Phone" Type="nchar" MaxLength="15" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="isDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="MSNV" />
+          </Key>
+          <Property Name="MSNV" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Hoten" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ngaysinh" Type="datetime" />
+          <Property Name="Gioitinh" Type="nvarchar" MaxLength="50" />
+          <Property Name="Diachi" Type="nvarchar" MaxLength="50" />
+          <Property Name="SDT" Type="nchar" MaxLength="15" />
+          <Property Name="CMND" Type="nchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="PaymentInput">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="MSDH" Type="int" />
+          <Property Name="Payment" Type="int" />
+          <Property Name="Own" Type="int" />
+          <Property Name="isDelete" Type="bit" />
+        </EntityType>
+        <EntityType Name="PaymentOutput">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="MSDH" Type="int" />
+          <Property Name="Payment" Type="int" />
+          <Property Name="Own" Type="int" />
+          <Property Name="isDelete" Type="bit" />
+        </EntityType>
+        <EntityType Name="ProductInput">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="MSKH" Type="int" Nullable="false" />
+          <Property Name="MSXE" Type="text" />
+          <Property Name="TruckWeight" Type="int" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductWeight" Type="int" />
+          <Property Name="ProductPrice" Type="int" />
+          <Property Name="TotalAmount" Type="int" />
+          <Property Name="Payed" Type="int" Nullable="false" />
+          <Property Name="Own" Type="int" />
+          <Property Name="Paid" Type="bit" Nullable="false" />
+          <Property Name="TotalWeight" Type="int" />
+          <Property Name="isDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductIP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="int" />
+          <Property Name="isDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductOP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="int" />
+          <Property Name="isDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductOutput">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="MSKH" Type="int" />
+          <Property Name="MSXE" Type="text" />
+          <Property Name="TruckWeight" Type="int" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductWeight" Type="int" />
+          <Property Name="ProductPrice" Type="int" />
+          <Property Name="TotalAmount" Type="int" />
+          <Property Name="Payed" Type="int" Nullable="false" />
+          <Property Name="Own" Type="int" />
+          <Property Name="Paid" Type="bit" Nullable="false" />
+          <Property Name="TotalWeight" Type="int" Nullable="false" />
+          <Property Name="isDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Timekeeping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="MSNV" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="TimeStart" Type="text" />
+          <Property Name="TimeEnd" Type="text" />
+          <Property Name="Time" Type="float" />
+          <Property Name="Weight" Type="int" />
+          <Property Name="Type" Type="int" />
+          <Property Name="TotalWeight" Type="nchar" MaxLength="10" />
+          <Property Name="AdvancePayment" Type="int" />
+          <Property Name="Note" Type="nvarchar" MaxLength="200" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="isDelete" Type="bit" />
+        </EntityType>
+        <EntityType Name="TypeofCustomer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="isDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeWeight">
+          <Key>
+            <PropertyRef Name="Type" />
+          </Key>
+          <Property Name="Type" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KG" Type="int" />
+        </EntityType>
+        <EntityType Name="Truck">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LicencePlate" Type="nchar" MaxLength="10" />
+          <Property Name="Weight" Type="int" />
+          <Property Name="MSKH" Type="int" Nullable="false" />
+          <Property Name="isDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Customer_TypeofCustomer">
+          <End Role="TypeofCustomer" Type="Self.TypeofCustomer" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeofCustomer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaymentInput_ProductInput">
+          <End Role="ProductInput" Type="Self.ProductInput" Multiplicity="0..1" />
+          <End Role="PaymentInput" Type="Self.PaymentInput" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductInput">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PaymentInput">
+              <PropertyRef Name="MSDH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaymentOutput_ProductOutput">
+          <End Role="ProductOutput" Type="Self.ProductOutput" Multiplicity="0..1" />
+          <End Role="PaymentOutput" Type="Self.PaymentOutput" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductOutput">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PaymentOutput">
+              <PropertyRef Name="MSDH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductInput_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="ProductInput" Type="Self.ProductInput" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductInput">
+              <PropertyRef Name="MSKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductOutput_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="ProductOutput" Type="Self.ProductOutput" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductOutput">
+              <PropertyRef Name="MSKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Truck_Truck">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Truck" Type="Self.Truck" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Truck">
+              <PropertyRef Name="MSKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="AutoIdEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="PlasticFactoryModelStoreContainer">
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentInput" EntityType="Self.PaymentInput" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentOutput" EntityType="Self.PaymentOutput" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductInput" EntityType="Self.ProductInput" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductIP" EntityType="Self.ProductIP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductOP" EntityType="Self.ProductOP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductOutput" EntityType="Self.ProductOutput" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Timekeeping" EntityType="Self.Timekeeping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeofCustomer" EntityType="Self.TypeofCustomer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeWeight" EntityType="Self.TypeWeight" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Truck" EntityType="Self.Truck" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Customer_TypeofCustomer" Association="Self.FK_Customer_TypeofCustomer">
+            <End Role="TypeofCustomer" EntitySet="TypeofCustomer" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaymentInput_ProductInput" Association="Self.FK_PaymentInput_ProductInput">
+            <End Role="ProductInput" EntitySet="ProductInput" />
+            <End Role="PaymentInput" EntitySet="PaymentInput" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaymentOutput_ProductOutput" Association="Self.FK_PaymentOutput_ProductOutput">
+            <End Role="ProductOutput" EntitySet="ProductOutput" />
+            <End Role="PaymentOutput" EntitySet="PaymentOutput" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductInput_Customer" Association="Self.FK_ProductInput_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="ProductInput" EntitySet="ProductInput" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductOutput_Customer" Association="Self.FK_ProductOutput_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="ProductOutput" EntitySet="ProductOutput" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Truck_Truck" Association="Self.FK_Truck_Truck">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Truck" EntitySet="Truck" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PlasticFactoryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sex" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="isDelete" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TypeofCustomer" Relationship="Self.FK_Customer_TypeofCustomer" FromRole="Customer" ToRole="TypeofCustomer" />
+          <NavigationProperty Name="ProductInputs" Relationship="Self.FK_ProductInput_Customer" FromRole="Customer" ToRole="ProductInput" />
+          <NavigationProperty Name="ProductOutputs" Relationship="Self.FK_ProductOutput_Customer" FromRole="Customer" ToRole="ProductOutput" />
+          <NavigationProperty Name="Trucks" Relationship="Self.FK_Truck_Truck" FromRole="Customer" ToRole="Truck" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="MSNV" />
+          </Key>
+          <Property Name="MSNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Hoten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ngaysinh" Type="DateTime" Precision="3" />
+          <Property Name="Gioitinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SDT" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="CMND" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PaymentInput">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="MSDH" Type="Int32" />
+          <Property Name="Payment" Type="Int32" />
+          <Property Name="Own" Type="Int32" />
+          <Property Name="isDelete" Type="Boolean" />
+          <NavigationProperty Name="ProductInput" Relationship="Self.FK_PaymentInput_ProductInput" FromRole="PaymentInput" ToRole="ProductInput" />
+        </EntityType>
+        <EntityType Name="PaymentOutput">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="MSDH" Type="Int32" />
+          <Property Name="Payment" Type="Int32" />
+          <Property Name="Own" Type="Int32" />
+          <Property Name="isDelete" Type="Boolean" />
+          <NavigationProperty Name="ProductOutput" Relationship="Self.FK_PaymentOutput_ProductOutput" FromRole="PaymentOutput" ToRole="ProductOutput" />
+        </EntityType>
+        <EntityType Name="ProductInput">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="MSKH" Type="Int32" Nullable="false" />
+          <Property Name="MSXE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TruckWeight" Type="Int32" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductWeight" Type="Int32" />
+          <Property Name="ProductPrice" Type="Int32" />
+          <Property Name="TotalAmount" Type="Int32" />
+          <Property Name="Payed" Type="Int32" Nullable="false" />
+          <Property Name="Own" Type="Int32" />
+          <Property Name="Paid" Type="Boolean" Nullable="false" />
+          <Property Name="TotalWeight" Type="Int32" />
+          <Property Name="isDelete" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_ProductInput_Customer" FromRole="ProductInput" ToRole="Customer" />
+          <NavigationProperty Name="PaymentInputs" Relationship="Self.FK_PaymentInput_ProductInput" FromRole="ProductInput" ToRole="PaymentInput" />
+        </EntityType>
+        <EntityType Name="ProductIP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="isDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductOP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="isDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductOutput">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="MSKH" Type="Int32" />
+          <Property Name="MSXE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TruckWeight" Type="Int32" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductWeight" Type="Int32" />
+          <Property Name="ProductPrice" Type="Int32" />
+          <Property Name="TotalAmount" Type="Int32" />
+          <Property Name="Payed" Type="Int32" Nullable="false" />
+          <Property Name="Own" Type="Int32" />
+          <Property Name="Paid" Type="Boolean" Nullable="false" />
+          <Property Name="TotalWeight" Type="Int32" Nullable="false" />
+          <Property Name="isDelete" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_ProductOutput_Customer" FromRole="ProductOutput" ToRole="Customer" />
+          <NavigationProperty Name="PaymentOutputs" Relationship="Self.FK_PaymentOutput_ProductOutput" FromRole="ProductOutput" ToRole="PaymentOutput" />
+        </EntityType>
+        <EntityType Name="Timekeeping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="MSNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="TimeStart" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TimeEnd" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Time" Type="Double" />
+          <Property Name="Weight" Type="Int32" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="TotalWeight" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="AdvancePayment" Type="Int32" />
+          <Property Name="Note" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="isDelete" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TypeofCustomer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isDelete" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_TypeofCustomer" FromRole="TypeofCustomer" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="TypeWeight">
+          <Key>
+            <PropertyRef Name="Type" />
+          </Key>
+          <Property Name="Type" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KG" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Truck">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LicencePlate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Weight" Type="Int32" />
+          <Property Name="MSKH" Type="Int32" Nullable="false" />
+          <Property Name="isDelete" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Truck_Truck" FromRole="Truck" ToRole="Customer" />
+        </EntityType>
+        <Association Name="FK_Customer_TypeofCustomer">
+          <End Role="TypeofCustomer" Type="Self.TypeofCustomer" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeofCustomer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductInput_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="ProductInput" Type="Self.ProductInput" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductInput">
+              <PropertyRef Name="MSKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductOutput_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="ProductOutput" Type="Self.ProductOutput" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductOutput">
+              <PropertyRef Name="MSKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Truck_Truck">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Truck" Type="Self.Truck" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Truck">
+              <PropertyRef Name="MSKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaymentInput_ProductInput">
+          <End Role="ProductInput" Type="Self.ProductInput" Multiplicity="0..1" />
+          <End Role="PaymentInput" Type="Self.PaymentInput" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductInput">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PaymentInput">
+              <PropertyRef Name="MSDH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaymentOutput_ProductOutput">
+          <End Role="ProductOutput" Type="Self.ProductOutput" Multiplicity="0..1" />
+          <End Role="PaymentOutput" Type="Self.PaymentOutput" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductOutput">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PaymentOutput">
+              <PropertyRef Name="MSDH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PlasticFactoryEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="PaymentInputs" EntityType="Self.PaymentInput" />
+          <EntitySet Name="PaymentOutputs" EntityType="Self.PaymentOutput" />
+          <EntitySet Name="ProductInputs" EntityType="Self.ProductInput" />
+          <EntitySet Name="ProductIPs" EntityType="Self.ProductIP" />
+          <EntitySet Name="ProductOPs" EntityType="Self.ProductOP" />
+          <EntitySet Name="ProductOutputs" EntityType="Self.ProductOutput" />
+          <EntitySet Name="Timekeepings" EntityType="Self.Timekeeping" />
+          <EntitySet Name="TypeofCustomers" EntityType="Self.TypeofCustomer" />
+          <EntitySet Name="TypeWeights" EntityType="Self.TypeWeight" />
+          <EntitySet Name="Trucks" EntityType="Self.Truck" />
+          <AssociationSet Name="FK_Customer_TypeofCustomer" Association="Self.FK_Customer_TypeofCustomer">
+            <End Role="TypeofCustomer" EntitySet="TypeofCustomers" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductInput_Customer" Association="Self.FK_ProductInput_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="ProductInput" EntitySet="ProductInputs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductOutput_Customer" Association="Self.FK_ProductOutput_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="ProductOutput" EntitySet="ProductOutputs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Truck_Truck" Association="Self.FK_Truck_Truck">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Truck" EntitySet="Trucks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaymentInput_ProductInput" Association="Self.FK_PaymentInput_ProductInput">
+            <End Role="ProductInput" EntitySet="ProductInputs" />
+            <End Role="PaymentInput" EntitySet="PaymentInputs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaymentOutput_ProductOutput" Association="Self.FK_PaymentOutput_ProductOutput">
+            <End Role="ProductOutput" EntitySet="ProductOutputs" />
+            <End Role="PaymentOutput" EntitySet="PaymentOutputs" />
+          </AssociationSet>
+          <FunctionImport Name="AutoIdEmployee" ReturnType="Collection(String)" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PlasticFactoryModelStoreContainer" CdmEntityContainer="PlasticFactoryEntities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="PlasticFactoryModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="PlasticFactoryModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="MSNV" ColumnName="MSNV" />
+                <ScalarProperty Name="Hoten" ColumnName="Hoten" />
+                <ScalarProperty Name="Ngaysinh" ColumnName="Ngaysinh" />
+                <ScalarProperty Name="Gioitinh" ColumnName="Gioitinh" />
+                <ScalarProperty Name="Diachi" ColumnName="Diachi" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentInputs">
+            <EntityTypeMapping TypeName="PlasticFactoryModel.PaymentInput">
+              <MappingFragment StoreEntitySet="PaymentInput">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="MSDH" ColumnName="MSDH" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="Own" ColumnName="Own" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentOutputs">
+            <EntityTypeMapping TypeName="PlasticFactoryModel.PaymentOutput">
+              <MappingFragment StoreEntitySet="PaymentOutput">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="MSDH" ColumnName="MSDH" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="Own" ColumnName="Own" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductInputs">
+            <EntityTypeMapping TypeName="PlasticFactoryModel.ProductInput">
+              <MappingFragment StoreEntitySet="ProductInput">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="MSKH" ColumnName="MSKH" />
+                <ScalarProperty Name="MSXE" ColumnName="MSXE" />
+                <ScalarProperty Name="TruckWeight" ColumnName="TruckWeight" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductWeight" ColumnName="ProductWeight" />
+                <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="Payed" ColumnName="Payed" />
+                <ScalarProperty Name="Own" ColumnName="Own" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="TotalWeight" ColumnName="TotalWeight" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductIPs">
+            <EntityTypeMapping TypeName="PlasticFactoryModel.ProductIP">
+              <MappingFragment StoreEntitySet="ProductIP">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductOPs">
+            <EntityTypeMapping TypeName="PlasticFactoryModel.ProductOP">
+              <MappingFragment StoreEntitySet="ProductOP">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductOutputs">
+            <EntityTypeMapping TypeName="PlasticFactoryModel.ProductOutput">
+              <MappingFragment StoreEntitySet="ProductOutput">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="MSKH" ColumnName="MSKH" />
+                <ScalarProperty Name="MSXE" ColumnName="MSXE" />
+                <ScalarProperty Name="TruckWeight" ColumnName="TruckWeight" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductWeight" ColumnName="ProductWeight" />
+                <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="Payed" ColumnName="Payed" />
+                <ScalarProperty Name="Own" ColumnName="Own" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="TotalWeight" ColumnName="TotalWeight" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Timekeepings">
+            <EntityTypeMapping TypeName="PlasticFactoryModel.Timekeeping">
+              <MappingFragment StoreEntitySet="Timekeeping">
+                <ScalarProperty Name="MSNV" ColumnName="MSNV" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
+                <ScalarProperty Name="TimeEnd" ColumnName="TimeEnd" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="TotalWeight" ColumnName="TotalWeight" />
+                <ScalarProperty Name="AdvancePayment" ColumnName="AdvancePayment" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeofCustomers">
+            <EntityTypeMapping TypeName="PlasticFactoryModel.TypeofCustomer">
+              <MappingFragment StoreEntitySet="TypeofCustomer">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeWeights">
+            <EntityTypeMapping TypeName="PlasticFactoryModel.TypeWeight">
+              <MappingFragment StoreEntitySet="TypeWeight">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="KG" ColumnName="KG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trucks">
+            <EntityTypeMapping TypeName="PlasticFactoryModel.Truck">
+              <MappingFragment StoreEntitySet="Truck">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LicencePlate" ColumnName="LicencePlate" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="MSKH" ColumnName="MSKH" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AutoIdEmployee" FunctionName="PlasticFactoryModel.Store.AutoIdEmployee" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

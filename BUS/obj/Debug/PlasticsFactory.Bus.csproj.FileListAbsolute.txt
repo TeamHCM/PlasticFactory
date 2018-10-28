@@ -1,0 +1,57 @@
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\BUS\bin\Debug\BUS.dll.config
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\BUS\bin\Debug\BUS.dll
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\BUS\bin\Debug\BUS.pdb
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\BUS\bin\Debug\EntityFramework.dll
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\BUS\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\BUS\bin\Debug\PlasticsFactory.Data.dll
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\BUS\bin\Debug\PlasticsFactory.Data.pdb
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\BUS\bin\Debug\EntityFramework.xml
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\BUS\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\BUS\obj\Debug\PlasticsFactory.Bus.csprojResolveAssemblyReference.cache
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\BUS\obj\Debug\BUS.dll
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\BUS\obj\Debug\BUS.pdb
+F:\PlasticsFactory\BUS\bin\Debug\BUS.dll.config
+F:\PlasticsFactory\BUS\bin\Debug\BUS.dll
+F:\PlasticsFactory\BUS\bin\Debug\BUS.pdb
+F:\PlasticsFactory\BUS\bin\Debug\EntityFramework.dll
+F:\PlasticsFactory\BUS\bin\Debug\EntityFramework.SqlServer.dll
+F:\PlasticsFactory\BUS\bin\Debug\PlasticsFactory.Data.dll
+F:\PlasticsFactory\BUS\bin\Debug\PlasticsFactory.Data.pdb
+F:\PlasticsFactory\BUS\bin\Debug\PlasticsFactory.Data.dll.config
+F:\PlasticsFactory\BUS\bin\Debug\EntityFramework.xml
+F:\PlasticsFactory\BUS\bin\Debug\EntityFramework.SqlServer.xml
+F:\PlasticsFactory\BUS\obj\Debug\PlasticsFactory.Bus.csprojAssemblyReference.cache
+F:\PlasticsFactory\BUS\obj\Debug\PlasticsFactory.Bus.csproj.CoreCompileInputs.cache
+F:\PlasticsFactory\BUS\obj\Debug\PlasticsFactory.Bus.csproj.CopyComplete
+F:\PlasticsFactory\BUS\obj\Debug\BUS.dll
+F:\PlasticsFactory\BUS\obj\Debug\BUS.pdb
+C:\Users\thien\Desktop\PlasticsFactory\BUS\bin\Debug\BUS.dll.config
+C:\Users\thien\Desktop\PlasticsFactory\BUS\bin\Debug\BUS.dll
+C:\Users\thien\Desktop\PlasticsFactory\BUS\bin\Debug\BUS.pdb
+C:\Users\thien\Desktop\PlasticsFactory\BUS\bin\Debug\EntityFramework.dll
+C:\Users\thien\Desktop\PlasticsFactory\BUS\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\thien\Desktop\PlasticsFactory\BUS\bin\Debug\PlasticsFactory.Data.dll
+C:\Users\thien\Desktop\PlasticsFactory\BUS\bin\Debug\PlasticsFactory.Data.pdb
+C:\Users\thien\Desktop\PlasticsFactory\BUS\bin\Debug\PlasticsFactory.Data.dll.config
+C:\Users\thien\Desktop\PlasticsFactory\BUS\bin\Debug\EntityFramework.xml
+C:\Users\thien\Desktop\PlasticsFactory\BUS\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\thien\Desktop\PlasticsFactory\BUS\obj\Debug\PlasticsFactory.Bus.csprojAssemblyReference.cache
+C:\Users\thien\Desktop\PlasticsFactory\BUS\obj\Debug\PlasticsFactory.Bus.csproj.CoreCompileInputs.cache
+C:\Users\thien\Desktop\PlasticsFactory\BUS\obj\Debug\PlasticsFactory.Bus.csproj.CopyComplete
+C:\Users\thien\Desktop\PlasticsFactory\BUS\obj\Debug\BUS.dll
+C:\Users\thien\Desktop\PlasticsFactory\BUS\obj\Debug\BUS.pdb
+C:\Users\thien\Desktop\PlasticFactory\BUS\bin\Debug\BUS.dll.config
+C:\Users\thien\Desktop\PlasticFactory\BUS\bin\Debug\BUS.dll
+C:\Users\thien\Desktop\PlasticFactory\BUS\bin\Debug\BUS.pdb
+C:\Users\thien\Desktop\PlasticFactory\BUS\bin\Debug\EntityFramework.dll
+C:\Users\thien\Desktop\PlasticFactory\BUS\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\thien\Desktop\PlasticFactory\BUS\bin\Debug\PlasticsFactory.Data.dll
+C:\Users\thien\Desktop\PlasticFactory\BUS\bin\Debug\PlasticsFactory.Data.pdb
+C:\Users\thien\Desktop\PlasticFactory\BUS\bin\Debug\PlasticsFactory.Data.dll.config
+C:\Users\thien\Desktop\PlasticFactory\BUS\bin\Debug\EntityFramework.xml
+C:\Users\thien\Desktop\PlasticFactory\BUS\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\thien\Desktop\PlasticFactory\BUS\obj\Debug\PlasticsFactory.Bus.csprojAssemblyReference.cache
+C:\Users\thien\Desktop\PlasticFactory\BUS\obj\Debug\PlasticsFactory.Bus.csproj.CoreCompileInputs.cache
+C:\Users\thien\Desktop\PlasticFactory\BUS\obj\Debug\PlasticsFactory.Bus.csproj.CopyComplete
+C:\Users\thien\Desktop\PlasticFactory\BUS\obj\Debug\BUS.dll
+C:\Users\thien\Desktop\PlasticFactory\BUS\obj\Debug\BUS.pdb

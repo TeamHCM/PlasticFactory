@@ -1,0 +1,610 @@
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\PlasticsFactory.exe.config
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\PlasticsFactory.exe
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\PlasticsFactory.pdb
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.csprojResolveAssemblyReference.cache
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.frmLayout.resources
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.Properties.Resources.resources
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.csproj.GenerateResource.Cache
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.exe
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.pdb
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Data.v18.1.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Printing.v18.1.Core.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Utils.v18.1.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraEditors.v18.1.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraLayout.v18.1.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraWizard.v18.1.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Pdf.v18.1.Core.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Sparkline.v18.1.Core.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Data.v18.1.xml
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Printing.v18.1.Core.xml
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Utils.v18.1.xml
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraEditors.v18.1.xml
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraLayout.v18.1.xml
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraWizard.v18.1.xml
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Pdf.v18.1.Core.xml
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Sparkline.v18.1.Core.xml
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.Data.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.Data.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Data.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Data.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.Printing.v18.1.Core.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.Printing.v18.1.Core.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Printing.v18.1.Core.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Printing.v18.1.Core.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.Utils.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.Utils.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Utils.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Utils.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraEditors.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraEditors.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraEditors.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraEditors.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraLayout.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraLayout.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraLayout.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraLayout.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraWizard.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraWizard.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraWizard.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraWizard.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.Pdf.v18.1.Core.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.Pdf.v18.1.Core.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Pdf.v18.1.Core.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Pdf.v18.1.Core.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.Sparkline.v18.1.Core.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.Sparkline.v18.1.Core.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Sparkline.v18.1.Core.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Sparkline.v18.1.Core.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.exe.licenses
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraBars.v18.1.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraNavBar.v18.1.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraBars.v18.1.xml
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraNavBar.v18.1.xml
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraBars.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraBars.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraBars.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraBars.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraNavBar.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraNavBar.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraNavBar.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraNavBar.v18.1.resources.dll
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCEmployee.MCEAdd.resources
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.PreferenceMenu.PMEmployee.resources
+c:\users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCEmployee.MCEmployeeManagement.resources
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\PlasticsFactory.Data.dll
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\EntityFramework.dll
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\PlasticsFactory.Data.pdb
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\EntityFramework.xml
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\BUS.dll
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\BUS.pdb
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.PreferenceMenu.PMChamcong.resources
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCChamcong.MCAll.resources
+F:\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.csprojAssemblyReference.cache
+F:\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.frmLayout.resources
+F:\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.Properties.Resources.resources
+F:\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCChamcong.MCAll.resources
+F:\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCEmployee.MCEAdd.resources
+F:\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCEmployee.MCEmployeeManagement.resources
+F:\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.PreferenceMenu.PMChamcong.resources
+F:\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.PreferenceMenu.PMEmployee.resources
+F:\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.csproj.GenerateResource.cache
+F:\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.exe
+F:\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.pdb
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\PlasticsFactory.exe.config
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\PlasticsFactory.exe
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\PlasticsFactory.pdb
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\BUS.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\EntityFramework.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\EntityFramework.SqlServer.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\PlasticsFactory.Data.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Pdf.v18.1.Core.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Sparkline.v18.1.Core.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\BUS.pdb
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\BUS.dll.config
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\PlasticsFactory.Data.pdb
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\PlasticsFactory.Data.dll.config
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Data.v18.1.xml
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Printing.v18.1.Core.xml
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Utils.v18.1.xml
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraBars.v18.1.xml
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraEditors.v18.1.xml
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraLayout.v18.1.xml
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraNavBar.v18.1.xml
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraWizard.v18.1.xml
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\EntityFramework.xml
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\EntityFramework.SqlServer.xml
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Pdf.v18.1.Core.xml
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Sparkline.v18.1.Core.xml
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.Data.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.Data.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Data.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Data.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.Printing.v18.1.Core.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.Printing.v18.1.Core.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Printing.v18.1.Core.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Printing.v18.1.Core.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.Utils.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.Utils.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Utils.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Utils.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraBars.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraBars.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraBars.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraBars.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraEditors.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraEditors.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraEditors.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraEditors.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraLayout.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraLayout.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraLayout.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraLayout.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraNavBar.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraNavBar.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraNavBar.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraNavBar.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraWizard.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraWizard.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraWizard.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraWizard.v18.1.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.Pdf.v18.1.Core.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.Pdf.v18.1.Core.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Pdf.v18.1.Core.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Pdf.v18.1.Core.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.Sparkline.v18.1.Core.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.Sparkline.v18.1.Core.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Sparkline.v18.1.Core.resources.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Sparkline.v18.1.Core.resources.dll
+F:\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.csproj.CoreCompileInputs.cache
+F:\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.csproj.CopyComplete
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Data.v18.1.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Printing.v18.1.Core.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Utils.v18.1.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraBars.v18.1.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraEditors.v18.1.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraLayout.v18.1.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraNavBar.v18.1.dll
+F:\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraWizard.v18.1.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\PlasticsFactory.exe
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\BUS.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\PlasticsFactory.Data.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\Bunifu_UI_v1.5.3.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Data.v15.1.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Data.v18.1.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.PivotGrid.v15.1.Core.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Printing.v15.1.Core.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Printing.v18.1.Core.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Utils.v15.1.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Utils.v18.1.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraBars.v18.1.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraEditors.v15.1.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraEditors.v18.1.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraGrid.v15.1.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraGrid.v18.1.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraLayout.v15.1.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraLayout.v18.1.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraNavBar.v18.1.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraPivotGrid.v15.1.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraPrinting.v15.1.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraPrinting.v18.1.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraVerticalGrid.v15.1.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraWizard.v18.1.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\EntityFramework.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Pdf.v18.1.Core.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Sparkline.v15.1.Core.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Sparkline.v18.1.Core.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.RichEdit.v15.1.Core.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraBars.v15.1.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraTreeList.v15.1.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.RichEdit.v18.1.Core.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraTreeList.v18.1.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Office.v15.1.Core.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Office.v18.1.Core.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Images.v18.1.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\BUS.pdb
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\BUS.dll.config
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\PlasticsFactory.Data.pdb
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\PlasticsFactory.Data.dll.config
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Data.v15.1.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Data.v18.1.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.PivotGrid.v15.1.Core.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Printing.v15.1.Core.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Printing.v18.1.Core.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Utils.v15.1.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Utils.v18.1.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraBars.v18.1.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraEditors.v15.1.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraEditors.v18.1.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraGrid.v15.1.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraGrid.v18.1.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraLayout.v15.1.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraLayout.v18.1.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraNavBar.v18.1.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraPivotGrid.v15.1.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraPrinting.v15.1.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraPrinting.v18.1.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraVerticalGrid.v15.1.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraWizard.v18.1.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\EntityFramework.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Pdf.v18.1.Core.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Sparkline.v15.1.Core.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Sparkline.v18.1.Core.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.RichEdit.v15.1.Core.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraBars.v15.1.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraTreeList.v15.1.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.RichEdit.v18.1.Core.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.XtraTreeList.v18.1.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Office.v15.1.Core.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\DevExpress.Office.v18.1.Core.xml
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.Data.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.Data.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Data.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Data.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.Data.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.Data.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Data.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Data.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.PivotGrid.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.PivotGrid.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.PivotGrid.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.PivotGrid.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.Printing.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.Printing.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Printing.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Printing.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.Printing.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.Printing.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Printing.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Printing.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.Utils.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.Utils.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Utils.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Utils.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.Utils.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.Utils.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Utils.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Utils.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraBars.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraBars.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraBars.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraBars.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraEditors.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraEditors.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraEditors.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraEditors.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraEditors.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraEditors.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraEditors.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraEditors.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraGrid.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraGrid.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraGrid.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraGrid.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraLayout.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraLayout.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraLayout.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraLayout.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraLayout.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraLayout.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraLayout.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraLayout.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraPivotGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraPivotGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraPivotGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraPivotGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraPrinting.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraPrinting.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraPrinting.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraPrinting.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraVerticalGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraVerticalGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraVerticalGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraVerticalGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraWizard.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraWizard.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraWizard.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraWizard.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.Sparkline.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.Sparkline.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Sparkline.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Sparkline.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.RichEdit.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.RichEdit.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.RichEdit.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.RichEdit.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraBars.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraBars.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraBars.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraBars.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraTreeList.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraTreeList.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraTreeList.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraTreeList.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.Office.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.Office.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Office.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Office.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\de\DevExpress.Office.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\es\DevExpress.Office.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Office.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Office.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.csprojAssemblyReference.cache
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.frmEdit.resources
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.frmEditProduct.resources
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.frmLayout.resources
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.Properties.Resources.resources
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCChamcong.Management.resources
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCChamcong.MCAll.resources
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCCustomer.MCADDKhachhang.resources
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCCustomer.MCThanhtoan.resources
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCEmployee.MCEAdd.resources
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCEmployee.MCEmployeeManagement.resources
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCProduct.ProductInput.resources
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCProduct.ProductManage.resources
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCProduct.ProductOutput.resources
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.PreferenceMenu.PMChamcong.resources
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.PreferenceMenu.PMCustomer.resources
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.PreferenceMenu.PMEmployee.resources
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.PreferenceMenu.PMProduct.resources
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.csproj.GenerateResource.cache
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.exe.licenses
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.csproj.CoreCompileInputs.cache
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.exe
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.pdb
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\PlasticsFactory.exe.config
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\bin\Debug\PlasticsFactory.pdb
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.csproj.CopyComplete
+C:\Users\thien\Desktop\PlasticsFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCCustomer.MCCustomerMG.resources
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\PlasticsFactory.exe.config
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\PlasticsFactory.exe
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\PlasticsFactory.pdb
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\BUS.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\EntityFramework.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\PlasticsFactory.Data.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Pdf.v18.1.Core.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Sparkline.v15.1.Core.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Sparkline.v18.1.Core.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.RichEdit.v15.1.Core.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraBars.v15.1.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraTreeList.v15.1.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.RichEdit.v18.1.Core.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraTreeList.v18.1.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Office.v15.1.Core.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Office.v18.1.Core.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Images.v18.1.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\BUS.pdb
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\BUS.dll.config
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\PlasticsFactory.Data.pdb
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\PlasticsFactory.Data.dll.config
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Data.v15.1.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Data.v18.1.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.PivotGrid.v15.1.Core.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Printing.v15.1.Core.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Printing.v18.1.Core.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Utils.v15.1.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Utils.v18.1.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraBars.v18.1.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraEditors.v15.1.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraEditors.v18.1.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraGrid.v15.1.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraGrid.v18.1.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraLayout.v15.1.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraLayout.v18.1.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraNavBar.v18.1.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraPivotGrid.v15.1.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraPrinting.v15.1.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraPrinting.v18.1.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraVerticalGrid.v15.1.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraWizard.v18.1.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\EntityFramework.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Pdf.v18.1.Core.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Sparkline.v15.1.Core.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Sparkline.v18.1.Core.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.RichEdit.v15.1.Core.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraBars.v15.1.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraTreeList.v15.1.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.RichEdit.v18.1.Core.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraTreeList.v18.1.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Office.v15.1.Core.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Office.v18.1.Core.xml
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.Data.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.Data.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Data.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Data.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.Data.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.Data.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Data.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Data.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.PivotGrid.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.PivotGrid.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.PivotGrid.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.PivotGrid.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.Printing.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.Printing.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Printing.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Printing.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.Printing.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.Printing.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Printing.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Printing.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.Utils.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.Utils.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Utils.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Utils.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.Utils.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.Utils.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Utils.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Utils.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraBars.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraBars.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraBars.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraBars.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraEditors.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraEditors.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraEditors.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraEditors.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraEditors.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraEditors.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraEditors.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraEditors.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraGrid.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraGrid.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraGrid.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraGrid.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraLayout.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraLayout.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraLayout.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraLayout.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraLayout.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraLayout.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraLayout.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraLayout.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraNavBar.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraPivotGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraPivotGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraPivotGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraPivotGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraPrinting.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraPrinting.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraPrinting.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraPrinting.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraPrinting.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraVerticalGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraVerticalGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraVerticalGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraVerticalGrid.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraWizard.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraWizard.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraWizard.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraWizard.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Pdf.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.Sparkline.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.Sparkline.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Sparkline.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Sparkline.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Sparkline.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.RichEdit.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.RichEdit.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.RichEdit.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.RichEdit.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraBars.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraBars.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraBars.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraBars.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraTreeList.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraTreeList.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraTreeList.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraTreeList.v15.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.RichEdit.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.XtraTreeList.v18.1.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.Office.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.Office.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Office.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Office.v15.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\de\DevExpress.Office.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.Office.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Office.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Office.v18.1.Core.resources.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.csprojAssemblyReference.cache
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.frmEdit.resources
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.frmEditProduct.resources
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.frmLayout.resources
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.Properties.Resources.resources
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCChamcong.Management.resources
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCChamcong.MCAll.resources
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCCustomer.MCADDKhachhang.resources
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCCustomer.MCCustomerMG.resources
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCCustomer.MCThanhtoan.resources
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCEmployee.MCEAdd.resources
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCEmployee.MCEmployeeManagement.resources
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCProduct.ProductInput.resources
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCProduct.ProductManage.resources
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCProduct.ProductOutput.resources
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.PreferenceMenu.PMChamcong.resources
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.PreferenceMenu.PMCustomer.resources
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.PreferenceMenu.PMEmployee.resources
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.PreferenceMenu.PMProduct.resources
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.csproj.GenerateResource.cache
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.exe.licenses
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.csproj.CoreCompileInputs.cache
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.csproj.CopyComplete
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.exe
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.pdb
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.frmEditCustomerPay.resources
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\Bunifu_UI_v1.5.3.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Data.v15.1.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Data.v18.1.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.PivotGrid.v15.1.Core.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Printing.v15.1.Core.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Printing.v18.1.Core.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Utils.v15.1.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Utils.v18.1.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraBars.v18.1.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraEditors.v15.1.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraEditors.v18.1.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraGrid.v15.1.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraGrid.v18.1.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraLayout.v15.1.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraLayout.v18.1.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraNavBar.v18.1.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraPivotGrid.v15.1.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraPrinting.v15.1.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraPrinting.v18.1.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraVerticalGrid.v15.1.dll
+C:\Users\thien\Desktop\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraWizard.v18.1.dll

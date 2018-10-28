@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PlasticFactoryModelStoreContainer" CdmEntityContainer="PlasticFactoryEntities">
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="PlasticFactoryModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="PlasticFactoryModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="MSNV" ColumnName="MSNV" />
+          <ScalarProperty Name="Hoten" ColumnName="Hoten" />
+          <ScalarProperty Name="Ngaysinh" ColumnName="Ngaysinh" />
+          <ScalarProperty Name="Gioitinh" ColumnName="Gioitinh" />
+          <ScalarProperty Name="Diachi" ColumnName="Diachi" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentInputs">
+      <EntityTypeMapping TypeName="PlasticFactoryModel.PaymentInput">
+        <MappingFragment StoreEntitySet="PaymentInput">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="MSDH" ColumnName="MSDH" />
+          <ScalarProperty Name="Payment" ColumnName="Payment" />
+          <ScalarProperty Name="Own" ColumnName="Own" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentOutputs">
+      <EntityTypeMapping TypeName="PlasticFactoryModel.PaymentOutput">
+        <MappingFragment StoreEntitySet="PaymentOutput">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="MSDH" ColumnName="MSDH" />
+          <ScalarProperty Name="Payment" ColumnName="Payment" />
+          <ScalarProperty Name="Own" ColumnName="Own" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductInputs">
+      <EntityTypeMapping TypeName="PlasticFactoryModel.ProductInput">
+        <MappingFragment StoreEntitySet="ProductInput">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="MSKH" ColumnName="MSKH" />
+          <ScalarProperty Name="MSXE" ColumnName="MSXE" />
+          <ScalarProperty Name="TruckWeight" ColumnName="TruckWeight" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductWeight" ColumnName="ProductWeight" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="Payed" ColumnName="Payed" />
+          <ScalarProperty Name="Own" ColumnName="Own" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="TotalWeight" ColumnName="TotalWeight" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductIPs">
+      <EntityTypeMapping TypeName="PlasticFactoryModel.ProductIP">
+        <MappingFragment StoreEntitySet="ProductIP">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductOPs">
+      <EntityTypeMapping TypeName="PlasticFactoryModel.ProductOP">
+        <MappingFragment StoreEntitySet="ProductOP">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductOutputs">
+      <EntityTypeMapping TypeName="PlasticFactoryModel.ProductOutput">
+        <MappingFragment StoreEntitySet="ProductOutput">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="MSKH" ColumnName="MSKH" />
+          <ScalarProperty Name="MSXE" ColumnName="MSXE" />
+          <ScalarProperty Name="TruckWeight" ColumnName="TruckWeight" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductWeight" ColumnName="ProductWeight" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="Payed" ColumnName="Payed" />
+          <ScalarProperty Name="Own" ColumnName="Own" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="TotalWeight" ColumnName="TotalWeight" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Timekeepings">
+      <EntityTypeMapping TypeName="PlasticFactoryModel.Timekeeping">
+        <MappingFragment StoreEntitySet="Timekeeping">
+          <ScalarProperty Name="MSNV" ColumnName="MSNV" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
+          <ScalarProperty Name="TimeEnd" ColumnName="TimeEnd" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="TotalWeight" ColumnName="TotalWeight" />
+          <ScalarProperty Name="AdvancePayment" ColumnName="AdvancePayment" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeofCustomers">
+      <EntityTypeMapping TypeName="PlasticFactoryModel.TypeofCustomer">
+        <MappingFragment StoreEntitySet="TypeofCustomer">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeWeights">
+      <EntityTypeMapping TypeName="PlasticFactoryModel.TypeWeight">
+        <MappingFragment StoreEntitySet="TypeWeight">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="KG" ColumnName="KG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trucks">
+      <EntityTypeMapping TypeName="PlasticFactoryModel.Truck">
+        <MappingFragment StoreEntitySet="Truck">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LicencePlate" ColumnName="LicencePlate" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="MSKH" ColumnName="MSKH" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AutoIdEmployee" FunctionName="PlasticFactoryModel.Store.AutoIdEmployee" />
+  </EntityContainerMapping>
+</Mapping>

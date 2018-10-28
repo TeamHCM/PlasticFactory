@@ -1,0 +1,14 @@
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\Demo\bin\Debug\Demo.exe.config
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\Demo\obj\Debug\Demo.csprojResolveAssemblyReference.cache
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\Demo\bin\Debug\Demo.exe
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\Demo\bin\Debug\Demo.pdb
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\Demo\bin\Debug\EntityFramework.dll
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\Demo\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\Demo\bin\Debug\PlasticsFactory.Data.dll
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\Demo\bin\Debug\PlasticsFactory.Data.pdb
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\Demo\bin\Debug\EntityFramework.xml
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\Demo\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\Demo\obj\Debug\Demo.exe
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\Demo\obj\Debug\Demo.pdb
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\Demo\bin\Debug\BUS.dll
+C:\Users\thien\documents\visual studio 2015\Projects\PlasticsFactory\Demo\bin\Debug\BUS.pdb
