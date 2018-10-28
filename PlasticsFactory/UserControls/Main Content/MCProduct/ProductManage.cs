@@ -1,21 +1,15 @@
-﻿using System;
+﻿using BUS.Business;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using PlasticsFactory.Data;
-using BUS.Business;
 
 namespace PlasticsFactory.UserControls.Main_Content.MCProduct
 {
     public partial class ProductManage : UserControl
     {
-
         #region Generate Field
+
         public ProductBO productIpBO = new ProductBO();
         public ProductInputBO productInputBO = new ProductInputBO();
         public ProductOBO productOBO = new ProductOBO();
@@ -24,9 +18,11 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
         public CustomerTypeBO customerTypeBO = new CustomerTypeBO();
         public static int MSHD = 0;
         public static bool Input = false;
-        #endregion
+
+        #endregion Generate Field
 
         #region Support
+
         private void loadCustomerType()
         {
             txtCustomerType.Items.Clear();
@@ -37,6 +33,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
             }
             txtCustomerType.Text = listDB.First().Type;
         }
+
         private void loadCustomerName()
         {
             txtCustomerName.Items.Clear();
@@ -48,6 +45,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
             txtCustomerName.Items.Add("All");
             txtCustomerName.Text = "All";
         }
+
         private void loadProductType()
         {
             var customerType = customerTypeBO.GetData(u => u.isDelete == false);
@@ -74,6 +72,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
                 txtProductType.Text = "All";
             }
         }
+
         public void loadDay(int month, int year)
         {
             int day = DateTime.DaysInMonth(year, month);
@@ -90,6 +89,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
             }
             txtDay.Items.Add("");
         }
+
         public void loadMonth()
         {
             txtMonth.Items.Clear();
@@ -99,6 +99,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
             }
             txtMonth.Items.Add("");
         }
+
         public void loadYear()
         {
             int Year = DateTime.Now.Year;
@@ -107,6 +108,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
                 txtYear.Items.Add(i);
             }
         }
+
         public void loadDayMonthYear()
         {
             txtDay.Text = DateTime.Now.Day.ToString();
@@ -118,6 +120,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
             loadMonth();
             loadYear();
         }
+
         public void loadInputDG(List<Data.ProductInput> list)
         {
             int i = 0;
@@ -139,6 +142,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
                 i++;
             }
         }
+
         public void loadOutputDG(List<Data.ProductOutput> list)
         {
             int i = 0;
@@ -160,6 +164,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
                 i++;
             }
         }
+
         public void loadTotalWeightInput(List<Data.ProductInput> list)
         {
             Int64 result = 0;
@@ -167,8 +172,9 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
             {
                 result += item.ProductWeight.Value;
             }
-            txtTotalWeight.Text = string.Format("{0:#,##0.##}", result)+" (KG)";
+            txtTotalWeight.Text = string.Format("{0:#,##0.##}", result) + " (KG)";
         }
+
         public void loadTotalAmountInput(List<Data.ProductInput> list)
         {
             Int64 result = 0;
@@ -176,8 +182,9 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
             {
                 result += item.TotalAmount.Value;
             }
-            txtTotalAmount.Text = string.Format("{0:#,##0.##}", result)+" (VNĐ)";
+            txtTotalAmount.Text = string.Format("{0:#,##0.##}", result) + " (VNĐ)";
         }
+
         public void loadTotalWeightOutput(List<Data.ProductOutput> list)
         {
             Int64 result = 0;
@@ -187,6 +194,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
             }
             txtTotalWeight.Text = string.Format("{0:#,##0.##}", result) + " (KG)";
         }
+
         public void loadTotalAmountOutput(List<Data.ProductOutput> list)
         {
             Int64 result = 0;
@@ -196,7 +204,9 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
             }
             txtTotalAmount.Text = string.Format("{0:#,##0.##}", result) + " (VNĐ)";
         }
-        #endregion
+
+        #endregion Support
+
         public ProductManage()
         {
             InitializeComponent();
@@ -968,7 +978,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
-
         }
     }
 }

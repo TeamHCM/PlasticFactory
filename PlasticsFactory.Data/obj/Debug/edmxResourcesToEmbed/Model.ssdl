@@ -15,13 +15,14 @@
     <Key>
       <PropertyRef Name="MSNV" />
     </Key>
-    <Property Name="MSNV" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="MSNV" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="Hoten" Type="nvarchar" MaxLength="50" />
     <Property Name="Ngaysinh" Type="datetime" />
     <Property Name="Gioitinh" Type="nvarchar" MaxLength="50" />
     <Property Name="Diachi" Type="nvarchar" MaxLength="50" />
     <Property Name="SDT" Type="nchar" MaxLength="15" />
     <Property Name="CMND" Type="nchar" MaxLength="15" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="PaymentInput">
     <Key>
@@ -58,7 +59,7 @@
     <Property Name="ProductWeight" Type="int" />
     <Property Name="ProductPrice" Type="int" />
     <Property Name="TotalAmount" Type="int" />
-    <Property Name="Payed" Type="int" Nullable="false" />
+    <Property Name="Payed" Type="int" />
     <Property Name="Own" Type="int" />
     <Property Name="Paid" Type="bit" Nullable="false" />
     <Property Name="TotalWeight" Type="int" />

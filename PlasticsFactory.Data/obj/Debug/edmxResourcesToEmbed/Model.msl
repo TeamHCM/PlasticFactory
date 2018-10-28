@@ -23,6 +23,7 @@
           <ScalarProperty Name="Diachi" ColumnName="Diachi" />
           <ScalarProperty Name="SDT" ColumnName="SDT" />
           <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

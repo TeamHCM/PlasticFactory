@@ -8,6 +8,7 @@ namespace PlasticsFactory.UserControls.PreferenceMenu
     {
         private MCEAdd mceAdd = new MCEAdd();
         private MCEmployeeManagement mceManage = new MCEmployeeManagement();
+        private MCPayment mcPayment = new MCPayment();
 
         public PMEmployee()
         {
@@ -24,6 +25,12 @@ namespace PlasticsFactory.UserControls.PreferenceMenu
         {
             frmLayout.panelContents.Controls.Clear();
             frmLayout.panelContents.Controls.Add(mceAdd);
+        }
+
+        private void btnPayment_Click(object sender, EventArgs e)
+        {
+            frmLayout.panelContents.Controls.Clear();
+            frmLayout.panelContents.Controls.Add(mcPayment);
         }
     }
 }

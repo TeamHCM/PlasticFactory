@@ -29,7 +29,7 @@ namespace PlasticsFactory.Data
         public Nullable<int> ProductWeight { get; set; }
         public Nullable<int> ProductPrice { get; set; }
         public Nullable<int> TotalAmount { get; set; }
-        public int Payed { get; set; }
+        public Nullable<int> Payed { get; set; }
         public Nullable<int> Own { get; set; }
         public bool Paid { get; set; }
         public Nullable<int> TotalWeight { get; set; }

@@ -38,10 +38,10 @@ namespace PlasticsFactory.UserControls.Main_Content.MCCustomer
             int Amount = 0;
             if (txtCustomerType.Text == "Nhập hàng")
             {
-                Amount = productInputBO.GetData(u => u.isDelete == false && u.ID == GetMSDH(txtMSDH.Text)).First().TotalAmount.Value - productInputBO.GetData(u => u.isDelete == false && u.ID == GetMSDH(txtMSDH.Text)).First().Payed;
+                Amount = productInputBO.GetData(u => u.isDelete == false && u.ID == GetMSDH(txtMSDH.Text)).First().TotalAmount.Value - productInputBO.GetData(u => u.isDelete == false && u.ID == GetMSDH(txtMSDH.Text)).First().Payed.Value;
                 if (listInput.Where(u => u.MSDH == GetMSDH(txtMSDH.Text)).FirstOrDefault() != null)
                 {
-                    Amount = productInputBO.GetData(u => u.isDelete == false && u.ID == GetMSDH(txtMSDH.Text)).First().TotalAmount.Value - productInputBO.GetData(u => u.isDelete == false && u.ID == GetMSDH(txtMSDH.Text)).First().Payed - listInput.Where(u => u.MSDH == GetMSDH(txtMSDH.Text)).Sum(u => u.Payment).Value;
+                    Amount = productInputBO.GetData(u => u.isDelete == false && u.ID == GetMSDH(txtMSDH.Text)).First().TotalAmount.Value - productInputBO.GetData(u => u.isDelete == false && u.ID == GetMSDH(txtMSDH.Text)).First().Payed.Value - listInput.Where(u => u.MSDH == GetMSDH(txtMSDH.Text)).Sum(u => u.Payment).Value;
                 }
                 return Amount;
             }

@@ -21,5 +21,6 @@ namespace PlasticsFactory.Data
         public string Diachi { get; set; }
         public string SDT { get; set; }
         public string CMND { get; set; }
+        public bool isDelete { get; set; }
     }
 }

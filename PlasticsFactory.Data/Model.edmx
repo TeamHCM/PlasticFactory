@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="PlasticFactoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="PlasticFactoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="ID" />
@@ -20,13 +20,14 @@
           <Key>
             <PropertyRef Name="MSNV" />
           </Key>
-          <Property Name="MSNV" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MSNV" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Hoten" Type="nvarchar" MaxLength="50" />
           <Property Name="Ngaysinh" Type="datetime" />
           <Property Name="Gioitinh" Type="nvarchar" MaxLength="50" />
           <Property Name="Diachi" Type="nvarchar" MaxLength="50" />
           <Property Name="SDT" Type="nchar" MaxLength="15" />
           <Property Name="CMND" Type="nchar" MaxLength="15" />
+          <Property Name="isDelete" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="PaymentInput">
           <Key>
@@ -63,7 +64,7 @@
           <Property Name="ProductWeight" Type="int" />
           <Property Name="ProductPrice" Type="int" />
           <Property Name="TotalAmount" Type="int" />
-          <Property Name="Payed" Type="int" Nullable="false" />
+          <Property Name="Payed" Type="int" />
           <Property Name="Own" Type="int" />
           <Property Name="Paid" Type="bit" Nullable="false" />
           <Property Name="TotalWeight" Type="int" />
@@ -259,7 +260,8 @@
             <End Role="Truck" EntitySet="Truck" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PlasticFactoryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -282,13 +284,14 @@
           <Key>
             <PropertyRef Name="MSNV" />
           </Key>
-          <Property Name="MSNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MSNV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Hoten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Ngaysinh" Type="DateTime" Precision="3" />
           <Property Name="Gioitinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SDT" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
           <Property Name="CMND" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="isDelete" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="PaymentInput">
           <Key>
@@ -306,7 +309,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="MSDH" Type="Int32" />
           <Property Name="Payment" Type="Int32" />
@@ -318,7 +321,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="MSKH" Type="Int32" Nullable="false" />
           <Property Name="MSXE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -327,7 +330,7 @@
           <Property Name="ProductWeight" Type="Int32" />
           <Property Name="ProductPrice" Type="Int32" />
           <Property Name="TotalAmount" Type="Int32" />
-          <Property Name="Payed" Type="Int32" Nullable="false" />
+          <Property Name="Payed" Type="Int32" />
           <Property Name="Own" Type="Int32" />
           <Property Name="Paid" Type="Boolean" Nullable="false" />
           <Property Name="TotalWeight" Type="Int32" />
@@ -557,6 +560,7 @@
                 <ScalarProperty Name="Diachi" ColumnName="Diachi" />
                 <ScalarProperty Name="SDT" ColumnName="SDT" />
                 <ScalarProperty Name="CMND" ColumnName="CMND" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

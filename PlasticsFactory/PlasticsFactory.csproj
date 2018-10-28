@@ -148,6 +148,12 @@
     <Compile Include="UserControls\Main Content\MCEmployee\MCEmployeeManagement.Designer.cs">
       <DependentUpon>MCEmployeeManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Main Content\MCEmployee\MCPayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Main Content\MCEmployee\MCPayment.Designer.cs">
+      <DependentUpon>MCPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Main Content\MCProduct\ProductInput.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -233,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Main Content\MCEmployee\MCEmployeeManagement.resx">
       <DependentUpon>MCEmployeeManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Main Content\MCEmployee\MCPayment.resx">
+      <DependentUpon>MCPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Main Content\MCProduct\ProductInput.resx">
       <DependentUpon>ProductInput.cs</DependentUpon>

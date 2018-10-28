@@ -12,12 +12,12 @@ namespace BUS.Business
     {
         public int GetID()
         {
-            int count = GetData(u => u.isDelete == false).ToList().Count();
+            int count = GetData(u => u.isDelete == false || u.isDelete == true).ToList().Count();
             if (count == 0)
             {
                 return 1;
             }
-            return GetData(u => u.isDelete == false).ToList().Last().ID + 1;
+            return GetData(u => u.isDelete == false || u.isDelete == true).ToList().Last().ID + 1;
         }
 
         public bool isDelete(int ID)
