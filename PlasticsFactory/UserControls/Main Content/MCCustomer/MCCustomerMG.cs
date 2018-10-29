@@ -20,12 +20,15 @@ namespace PlasticsFactory.UserControls.Main_Content.MCCustomer
         public CustomerTypeBO customerTypeBO = new CustomerTypeBO();
         public static int DoubleClickRow = 0;
         public int curMSTT = 0;
+
         public struct Parameter
         {
             public int MSTT { get; set; }
             public string MSHDOfType { get; set; }
         }
+
         private Parameter parameter = new Parameter();
+
         #endregion Generate Fiedld
 
         #region Support
@@ -1053,7 +1056,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCCustomer
         }
 
         #endregion Date
-        
+
         private void dataDS_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             frmEditCustomerPay frmEditCustomerPay = new frmEditCustomerPay();
@@ -1066,7 +1069,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCCustomer
             int ProductWeigth = int.Parse(dataDS.Rows[e.RowIndex].Cells[7].Value.ToString());
             int Amount = int.Parse(dataDS.Rows[e.RowIndex].Cells[9].Value.ToString());
             int Payed = int.Parse(dataDS.Rows[e.RowIndex].Cells[11].Value.ToString());
-            frmEditCustomerPay.Sender(MSTT,Date,MSHD,MSKH,CustomerName,ProductNames,ProductWeigth,Amount,Payed);
+            frmEditCustomerPay.Sender(MSTT, Date, MSHD, MSKH, CustomerName, ProductNames, ProductWeigth, Amount, Payed);
             frmEditCustomerPay.ShowDialog();
             txtCustomerName_SelectedValueChanged(sender, e);
         }
@@ -1080,7 +1083,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCCustomer
                     //curMSTT = int.Parse(dataDS.Rows[e.RowIndex].Cells[0].Value.ToString().Trim().Substring(2));
                     parameter = new Parameter();
                     parameter.MSTT = int.Parse(dataDS.Rows[e.RowIndex].Cells[0].Value.ToString().Trim().Substring(2));
-                    parameter.MSHDOfType = dataDS.Rows[e.RowIndex].Cells[4].Value.ToString().Trim().Substring(0,2);
+                    parameter.MSHDOfType = dataDS.Rows[e.RowIndex].Cells[4].Value.ToString().Trim().Substring(0, 2);
                 }
             }
             catch { }
@@ -1088,17 +1091,16 @@ namespace PlasticsFactory.UserControls.Main_Content.MCCustomer
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if(parameter.MSHDOfType!=string.Empty&&parameter.MSTT!=0)
+            if (parameter.MSHDOfType != string.Empty && parameter.MSTT != 0)
             {
                 string Type = parameter.MSHDOfType;
-                if(Type=="NH")
+                if (Type == "NH")
                 {
                     string masseage = "Bạn có muốn xóa hóa đơn thanh toán TT" + parameter.MSTT.ToString("d6") + " không ?";
                     string Title = "Chú ý";
                     DialogResult result = MessageBox.Show(masseage, Title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                     if (result == DialogResult.Yes)
                     {
-
                         paymentInputBO.isDelete(parameter.MSTT);
                     }
                 }
@@ -1109,7 +1111,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCCustomer
                     DialogResult result = MessageBox.Show(masseage, Title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                     if (result == DialogResult.Yes)
                     {
-
                         paymentOutputBO.isDelete(parameter.MSTT);
                     }
                 }
