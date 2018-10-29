@@ -14,6 +14,12 @@ namespace PlasticsFactory.Data
     
     public partial class Employee
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Employee()
+        {
+            this.EmployeePayments = new HashSet<EmployeePayment>();
+        }
+    
         public string MSNV { get; set; }
         public string Hoten { get; set; }
         public Nullable<System.DateTime> Ngaysinh { get; set; }
@@ -22,5 +28,8 @@ namespace PlasticsFactory.Data
         public string SDT { get; set; }
         public string CMND { get; set; }
         public bool isDelete { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EmployeePayment> EmployeePayments { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace PlasticsFactory.UserControls.PreferenceMenu
     {
         private MCEAdd mceAdd = new MCEAdd();
         private MCEmployeeManagement mceManage = new MCEmployeeManagement();
-        private MCPayment mcPayment = new MCPayment();
+        private MCPaymentEmployee mcPayment = new MCPaymentEmployee();
 
         public PMEmployee()
         {

@@ -30,7 +30,10 @@ namespace PlasticsFactory.Data
                 .ToList();
             return list;
         }
-
+        public void sqlQuery(string query)
+        {
+            dbSet.SqlQuery(query);
+        }
 
         #region Insert,Update
         public bool Add(T item)

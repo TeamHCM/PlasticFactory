@@ -23,6 +23,9 @@
         <AssociationConnector Association="PlasticFactoryModel.FK_Truck_Truck" ManuallyRouted="false" />
         <AssociationConnector Association="PlasticFactoryModel.FK_PaymentInput_ProductInput" ManuallyRouted="false" />
         <AssociationConnector Association="PlasticFactoryModel.FK_PaymentOutput_ProductOutput" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PlasticFactoryModel.PreferceProductPrice" Width="1.5" PointX="7.375" PointY="11.75" />
+        <EntityTypeShape EntityType="PlasticFactoryModel.EmployeePayment" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="PlasticFactoryModel.FK_EmployeePayment_Employee" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

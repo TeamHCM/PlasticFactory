@@ -647,7 +647,6 @@ C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Debug\Plastic
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.csproj.CopyComplete
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.exe
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.pdb
-C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCEmployee.MCPayment.resources
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Data.v15.1.dll
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Data.v18.1.dll
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.PivotGrid.v15.1.Core.dll
@@ -829,3 +828,4 @@ C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\de\DevE
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\es\DevExpress.Office.v18.1.Core.resources.dll
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\ja\DevExpress.Office.v18.1.Core.resources.dll
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevExpress.Office.v18.1.Core.resources.dll
+C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCEmployee.MCPaymentEmployee.resources

@@ -19,7 +19,7 @@
     <Key>
       <PropertyRef Name="MSNV" />
     </Key>
-    <Property Name="MSNV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="MSNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="Hoten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Ngaysinh" Type="DateTime" Precision="3" />
     <Property Name="Gioitinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -27,6 +27,7 @@
     <Property Name="SDT" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
     <Property Name="CMND" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
     <Property Name="isDelete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="EmployeePayments" Relationship="PlasticFactoryModel.FK_EmployeePayment_Employee" FromRole="Employee" ToRole="EmployeePayment" />
   </EntityType>
   <EntityType Name="PaymentInput">
     <Key>
@@ -266,5 +267,43 @@
       <End Role="PaymentOutput" EntitySet="PaymentOutputs" />
     </AssociationSet>
     <FunctionImport Name="AutoIdEmployee" ReturnType="Collection(String)" />
+    <EntitySet Name="PreferceProductPrices" EntityType="PlasticFactoryModel.PreferceProductPrice" />
+    <EntitySet Name="EmployeePayments" EntityType="PlasticFactoryModel.EmployeePayment" />
+    <AssociationSet Name="FK_EmployeePayment_Employee" Association="PlasticFactoryModel.FK_EmployeePayment_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="EmployeePayment" EntitySet="EmployeePayments" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="PreferceProductPrice">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Int32" />
+  </EntityType>
+  <EntityType Name="EmployeePayment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="DATE" Type="DateTime" Precision="0" />
+    <Property Name="MSNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="PAY" Type="Int32" Nullable="false" />
+    <Property Name="NEBT" Type="Int32" Nullable="false" />
+    <Property Name="isDelete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="PlasticFactoryModel.FK_EmployeePayment_Employee" FromRole="EmployeePayment" ToRole="Employee" />
+  </EntityType>
+  <Association Name="FK_EmployeePayment_Employee">
+    <End Type="PlasticFactoryModel.Employee" Role="Employee" Multiplicity="0..1" />
+    <End Type="PlasticFactoryModel.EmployeePayment" Role="EmployeePayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="MSNV" />
+      </Principal>
+      <Dependent Role="EmployeePayment">
+        <PropertyRef Name="MSNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

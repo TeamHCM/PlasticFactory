@@ -52,8 +52,10 @@
     <Compile Include="Business\CustomerBO.cs" />
     <Compile Include="Business\CustomerTypeBO.cs" />
     <Compile Include="Business\EmployeeBO.cs" />
+    <Compile Include="Business\EmployeePaymentBO.cs" />
     <Compile Include="Business\PaymentInputBO.cs" />
     <Compile Include="Business\PaymentOutputBO.cs" />
+    <Compile Include="Business\PreferceProductPriceBO.cs" />
     <Compile Include="Business\ProductBO.cs" />
     <Compile Include="Business\ProductInputBO.cs" />
     <Compile Include="Business\ProductOBO.cs" />
@@ -63,7 +65,9 @@
     <Compile Include="Interface\ICustomer.cs" />
     <Compile Include="Interface\ICustomerType.cs" />
     <Compile Include="Interface\IEmployee.cs" />
+    <Compile Include="Interface\IEmployeePayment.cs" />
     <Compile Include="Interface\IPaymentInput.cs" />
+    <Compile Include="Interface\IPreferceProductPrice.cs" />
     <Compile Include="Interface\IProduct.cs" />
     <Compile Include="Interface\IProductInput.cs" />
     <Compile Include="Interface\IProductO.cs" />

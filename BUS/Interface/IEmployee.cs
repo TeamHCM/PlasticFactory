@@ -9,5 +9,6 @@ namespace BUS.Interface
     interface IEmployee
     {
         string AutoGetMSNV();
+        string GetNameByID(string ID);
     }
 }

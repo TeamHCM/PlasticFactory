@@ -18,7 +18,10 @@ namespace BUS.Business
                 return db.AutoIdEmployee().FirstOrDefault();
             }
         }
-        
+        public string GetNameByID(string ID)
+        {
+            return GetData(u => u.MSNV == ID && u.isDelete == false).First().Hoten;
+        }
     }
     public class EmployeeComparer : IComparer<Employee>
     {

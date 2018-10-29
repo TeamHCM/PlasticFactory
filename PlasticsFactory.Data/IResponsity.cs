@@ -11,6 +11,7 @@ namespace PlasticsFactory.Data
     {
         IList<T> GetData(Func<T, bool> where, params Expression<Func<T, object>>[] navigations);
         bool Update(T item);
+        void sqlQuery(string query);
         bool Add(IList<T> item);
         bool Add(T item);
         bool Delete(int ID);
