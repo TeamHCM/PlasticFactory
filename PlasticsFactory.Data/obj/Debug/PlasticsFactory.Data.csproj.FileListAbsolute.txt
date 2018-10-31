@@ -33,3 +33,4 @@ C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory.Data\obj\Debug\Pl
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory.Data\obj\Debug\PlasticsFactory.Data.csproj.CopyComplete
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory.Data\obj\Debug\PlasticsFactory.Data.dll
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory.Data\obj\Debug\PlasticsFactory.Data.pdb
+C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory.Data\obj\Debug\PlasticsFactory.Data.csprojAssemblyReference.cache

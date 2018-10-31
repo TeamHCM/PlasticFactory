@@ -34,6 +34,10 @@
     <Property Name="PAY" Type="int" Nullable="false" />
     <Property Name="NEBT" Type="int" Nullable="false" />
     <Property Name="isDelete" Type="bit" Nullable="false" />
+    <Property Name="ProductPrice" Type="int" Nullable="false" />
+    <Property Name="TimePrice" Type="int" Nullable="false" />
+    <Property Name="Wage" Type="int" Nullable="false" />
+    <Property Name="Cash" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="PaymentInput">
     <Key>

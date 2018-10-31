@@ -40,13 +40,13 @@ namespace PlasticsFactory.Data
         {
             try
             {
-                db.Entry(item).State = EntityState.Added;
+                dbSet.Add(item);
                 db.SaveChanges();
                 return true;
             }
             catch
             {
-                throw;
+                return false;
             }
         }
         public bool Add(IList<T> item)

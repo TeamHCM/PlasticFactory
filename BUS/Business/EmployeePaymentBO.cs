@@ -23,5 +23,41 @@ namespace BUS.Business
                return GetData(u => u.isDelete == false || u.isDelete == true).Last().ID+1;
             }
         }
+
+        public bool Update(EmployeePayment item)
+        {
+            using (var db = new PlasticFactoryEntities())
+            {
+                try
+                {
+                    EmployeePayment employeePayment = db.EmployeePayments.Find(item.ID);
+                    employeePayment.PAY = item.PAY;
+                    employeePayment.DATE = item.DATE.Value;
+                    db.SaveChanges();
+                    return true;
+                }
+                catch {
+                    throw;
+                        }
+            }
+        }
+
+        public bool isDelete(int ID)
+        {
+            using (var db = new PlasticFactoryEntities())
+            {
+                try
+                {
+                    EmployeePayment employeePayment = db.EmployeePayments.Find(ID);
+                    employeePayment.isDelete = true;
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
     }
 }

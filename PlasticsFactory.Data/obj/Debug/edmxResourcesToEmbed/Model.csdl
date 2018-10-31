@@ -293,6 +293,10 @@
     <Property Name="NEBT" Type="Int32" Nullable="false" />
     <Property Name="isDelete" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Employee" Relationship="PlasticFactoryModel.FK_EmployeePayment_Employee" FromRole="EmployeePayment" ToRole="Employee" />
+    <Property Name="ProductPrice" Type="Int32" Nullable="false" />
+    <Property Name="TimePrice" Type="Int32" Nullable="false" />
+    <Property Name="Wage" Type="Int32" Nullable="false" />
+    <Property Name="Cash" Type="Int32" Nullable="false" />
   </EntityType>
   <Association Name="FK_EmployeePayment_Employee">
     <End Type="PlasticFactoryModel.Employee" Role="Employee" Multiplicity="0..1" />

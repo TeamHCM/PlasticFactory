@@ -170,6 +170,10 @@
     <EntitySetMapping Name="EmployeePayments">
       <EntityTypeMapping TypeName="PlasticFactoryModel.EmployeePayment">
         <MappingFragment StoreEntitySet="EmployeePayment">
+          <ScalarProperty Name="Cash" ColumnName="Cash" />
+          <ScalarProperty Name="Wage" ColumnName="Wage" />
+          <ScalarProperty Name="TimePrice" ColumnName="TimePrice" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
           <ScalarProperty Name="isDelete" ColumnName="isDelete" />
           <ScalarProperty Name="NEBT" ColumnName="NEBT" />
           <ScalarProperty Name="PAY" ColumnName="PAY" />

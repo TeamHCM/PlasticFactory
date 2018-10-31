@@ -20,6 +20,10 @@ namespace PlasticsFactory.Data
         public int PAY { get; set; }
         public int NEBT { get; set; }
         public bool isDelete { get; set; }
+        public int ProductPrice { get; set; }
+        public int TimePrice { get; set; }
+        public int Wage { get; set; }
+        public int Cash { get; set; }
     
         public virtual Employee Employee { get; set; }
     }
