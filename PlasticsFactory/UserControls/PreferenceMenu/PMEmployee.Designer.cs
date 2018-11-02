@@ -33,7 +33,6 @@
             this.btnManage = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnPayment = new System.Windows.Forms.Button();
-            this.btnPaymentMG = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,7 +77,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.panel1.Controls.Add(this.btnPaymentMG);
             this.panel1.Controls.Add(this.btnPayment);
             this.panel1.Controls.Add(this.btnManage);
             this.panel1.Controls.Add(this.btnAdd);
@@ -107,24 +105,6 @@
             this.btnPayment.UseVisualStyleBackColor = true;
             this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
-            // btnPaymentMG
-            // 
-            this.btnPaymentMG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPaymentMG.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnPaymentMG.FlatAppearance.BorderSize = 0;
-            this.btnPaymentMG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPaymentMG.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPaymentMG.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnPaymentMG.Image = ((System.Drawing.Image)(resources.GetObject("btnPaymentMG.Image")));
-            this.btnPaymentMG.Location = new System.Drawing.Point(247, 3);
-            this.btnPaymentMG.Name = "btnPaymentMG";
-            this.btnPaymentMG.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnPaymentMG.Size = new System.Drawing.Size(75, 67);
-            this.btnPaymentMG.TabIndex = 5;
-            this.btnPaymentMG.Text = "Quản lý TT";
-            this.btnPaymentMG.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnPaymentMG.UseVisualStyleBackColor = true;
-            // 
             // PMEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,7 +122,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnManage;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnPaymentMG;
         private System.Windows.Forms.Button btnPayment;
     }
 }

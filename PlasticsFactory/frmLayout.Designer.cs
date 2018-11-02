@@ -33,10 +33,8 @@
             this.chấmCôngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hàngHóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelPreference = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
-            this.panelPreference.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -46,7 +44,8 @@
             this.toolEmployee,
             this.chấmCôngToolStripMenuItem,
             this.kháchHàngToolStripMenuItem,
-            this.hàngHóaToolStripMenuItem});
+            this.hàngHóaToolStripMenuItem,
+            this.thốngKêToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(1364, 24);
@@ -81,22 +80,12 @@
             this.hàngHóaToolStripMenuItem.Text = "Hàng Hóa";
             this.hàngHóaToolStripMenuItem.Click += new System.EventHandler(this.hàngHóaToolStripMenuItem_Click);
             // 
-            // panelPreference
+            // thốngKêToolStripMenuItem
             // 
-            this.panelPreference.BackColor = System.Drawing.Color.Azure;
-            this.panelPreference.Controls.Add(this.panel2);
-            this.panelPreference.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPreference.Location = new System.Drawing.Point(0, 24);
-            this.panelPreference.Name = "panelPreference";
-            this.panelPreference.Size = new System.Drawing.Size(1364, 73);
-            this.panelPreference.TabIndex = 3;
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(0, 76);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 100);
-            this.panel2.TabIndex = 4;
+            this.thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
+            this.thốngKêToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.thốngKêToolStripMenuItem.Text = "Thống kê";
+            this.thốngKêToolStripMenuItem.Click += new System.EventHandler(this.thốngKêToolStripMenuItem_Click);
             // 
             // frmLayout
             // 
@@ -104,7 +93,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(1364, 749);
-            this.Controls.Add(this.panelPreference);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.Name = "frmLayout";
@@ -112,7 +100,6 @@
             this.Load += new System.EventHandler(this.frmLayout_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
-            this.panelPreference.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,8 +112,7 @@
         private System.Windows.Forms.ToolStripMenuItem chấmCôngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kháchHàngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hàngHóaToolStripMenuItem;
-        private System.Windows.Forms.Panel panelPreference;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ToolStripMenuItem thốngKêToolStripMenuItem;
     }
 }
 

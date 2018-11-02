@@ -196,7 +196,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCCustomer
             int result = 0;
             foreach (var item in list)
             {
-                result += item.TotalAmount.Value;
+                result += item.TotalAmount;
             }
             txtTotalAmount.Text = string.Format("{0:#,##0.##}", result) + " (VNĐ)";
         }

@@ -1,4 +1,6 @@
-﻿namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
+﻿using DevExpress.XtraEditors;
+
+namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
 {
     partial class MCPaymentEmployee
     {
@@ -28,10 +30,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MCPaymentEmployee));
             this.txtID = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -40,7 +43,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnEdit = new System.Windows.Forms.Button();
             this.txtPay = new System.Windows.Forms.TextBox();
-            this.txtEmployeeName = new System.Windows.Forms.ComboBox();
             this.txtMoneyOfProduct = new System.Windows.Forms.ComboBox();
             this.txtDate = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -74,8 +76,7 @@
             this.ung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Debt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Timekeep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtMoneyOfTime = new System.Windows.Forms.ComboBox();
             this.txtTime = new System.Windows.Forms.Label();
             this.txtProduct = new System.Windows.Forms.Label();
@@ -92,6 +93,10 @@
             this.txtDebt = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.txtMSNV = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtEmployeeName = new DevExpress.XtraEditors.ImageComboBoxEdit();
+            this.imageListCB = new System.Windows.Forms.ImageList(this.components);
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataDetailWork)).BeginInit();
@@ -99,6 +104,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmployeeName.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtID
@@ -174,18 +180,6 @@
             this.txtPay.Size = new System.Drawing.Size(434, 31);
             this.txtPay.TabIndex = 174;
             // 
-            // txtEmployeeName
-            // 
-            this.txtEmployeeName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtEmployeeName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.txtEmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmployeeName.FormattingEnabled = true;
-            this.txtEmployeeName.Location = new System.Drawing.Point(238, 107);
-            this.txtEmployeeName.Name = "txtEmployeeName";
-            this.txtEmployeeName.Size = new System.Drawing.Size(256, 24);
-            this.txtEmployeeName.TabIndex = 173;
-            this.txtEmployeeName.SelectedValueChanged += new System.EventHandler(this.txtEmployeeName_SelectedValueChanged);
-            // 
             // txtMoneyOfProduct
             // 
             this.txtMoneyOfProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -197,10 +191,11 @@
             // 
             // txtDate
             // 
-            this.txtDate.Location = new System.Drawing.Point(236, 163);
+            this.txtDate.Location = new System.Drawing.Point(238, 163);
             this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(258, 20);
+            this.txtDate.Size = new System.Drawing.Size(256, 20);
             this.txtDate.TabIndex = 176;
+            this.txtDate.ValueChanged += new System.EventHandler(this.txtDate_ValueChanged);
             // 
             // panel2
             // 
@@ -333,7 +328,7 @@
             this.panel1.Controls.Add(this.label9);
             this.panel1.Location = new System.Drawing.Point(34, 267);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(776, 29);
+            this.panel1.Size = new System.Drawing.Size(795, 29);
             this.panel1.TabIndex = 160;
             // 
             // label9
@@ -411,14 +406,14 @@
             // 
             // dataDS
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataDS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataDS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MSTT,
@@ -428,30 +423,31 @@
             this.tiencong,
             this.ung,
             this.paid,
-            this.Debt});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataDS.DefaultCellStyle = dataGridViewCellStyle10;
+            this.Debt,
+            this.Timekeep});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataDS.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataDS.Location = new System.Drawing.Point(34, 298);
             this.dataDS.Name = "dataDS";
             this.dataDS.ReadOnly = true;
             this.dataDS.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataDS.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataDS.RowsDefaultCellStyle = dataGridViewCellStyle12;
-            this.dataDS.Size = new System.Drawing.Size(776, 244);
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDS.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataDS.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.dataDS.Size = new System.Drawing.Size(795, 244);
             this.dataDS.TabIndex = 159;
             this.dataDS.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDS_CellDoubleClick);
             this.dataDS.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDS_CellEnter);
@@ -461,7 +457,7 @@
             this.MSTT.HeaderText = "MSTT";
             this.MSTT.Name = "MSTT";
             this.MSTT.ReadOnly = true;
-            this.MSTT.Width = 70;
+            this.MSTT.Width = 50;
             // 
             // NgayNhap
             // 
@@ -482,7 +478,6 @@
             this.Hoten.HeaderText = "Họ và tên";
             this.Hoten.Name = "Hoten";
             this.Hoten.ReadOnly = true;
-            this.Hoten.Width = 120;
             // 
             // tiencong
             // 
@@ -508,26 +503,12 @@
             this.Debt.Name = "Debt";
             this.Debt.ReadOnly = true;
             // 
-            // pictureBox2
+            // Timekeep
             // 
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(34, 33);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(25, 22);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 183;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(34, 56);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(173, 195);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 165;
-            this.pictureBox1.TabStop = false;
+            this.Timekeep.HeaderText = "Chấm công";
+            this.Timekeep.Name = "Timekeep";
+            this.Timekeep.ReadOnly = true;
+            this.Timekeep.Width = 50;
             // 
             // txtMoneyOfTime
             // 
@@ -678,12 +659,50 @@
             // 
             // txtMSNV
             // 
-            this.txtMSNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMSNV.Enabled = false;
             this.txtMSNV.Location = new System.Drawing.Point(238, 57);
             this.txtMSNV.Name = "txtMSNV";
             this.txtMSNV.ReadOnly = true;
-            this.txtMSNV.Size = new System.Drawing.Size(256, 22);
+            this.txtMSNV.Size = new System.Drawing.Size(256, 20);
             this.txtMSNV.TabIndex = 204;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(34, 33);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(25, 22);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 183;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(34, 56);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(173, 195);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 165;
+            this.pictureBox1.TabStop = false;
+            // 
+            // txtEmployeeName
+            // 
+            this.txtEmployeeName.Location = new System.Drawing.Point(238, 109);
+            this.txtEmployeeName.Name = "txtEmployeeName";
+            this.txtEmployeeName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtEmployeeName.Properties.SmallImages = this.imageListCB;
+            this.txtEmployeeName.Size = new System.Drawing.Size(256, 20);
+            this.txtEmployeeName.TabIndex = 206;
+            this.txtEmployeeName.SelectedIndexChanged += new System.EventHandler(this.txtEmployeeName_SelectedIndexChanged);
+            // 
+            // imageListCB
+            // 
+            this.imageListCB.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListCB.ImageStream")));
+            this.imageListCB.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListCB.Images.SetKeyName(0, "flag.png");
             // 
             // MCPaymentEmployee
             // 
@@ -712,7 +731,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.txtPay);
-            this.Controls.Add(this.txtEmployeeName);
             this.Controls.Add(this.txtMoneyOfProduct);
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.panel2);
@@ -729,6 +747,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dataDS);
+            this.Controls.Add(this.txtEmployeeName);
             this.Name = "MCPaymentEmployee";
             this.Size = new System.Drawing.Size(1364, 652);
             this.Load += new System.EventHandler(this.MCPaymentEmployee_Load);
@@ -742,6 +761,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmployeeName.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -757,7 +777,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.TextBox txtPay;
-        private System.Windows.Forms.ComboBox txtEmployeeName;
         private System.Windows.Forms.ComboBox txtMoneyOfProduct;
         private System.Windows.Forms.DateTimePicker txtDate;
         private System.Windows.Forms.Panel panel2;
@@ -799,6 +818,9 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label txtDebt;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtMSNV;
+        private ImageComboBoxEdit txtEmployeeName;
+        private System.Windows.Forms.ImageList imageListCB;
         private System.Windows.Forms.DataGridViewTextBoxColumn MSTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayNhap;
         private System.Windows.Forms.DataGridViewTextBoxColumn MSKH;
@@ -807,6 +829,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ung;
         private System.Windows.Forms.DataGridViewTextBoxColumn paid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Debt;
-        private System.Windows.Forms.TextBox txtMSNV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Timekeep;
     }
 }

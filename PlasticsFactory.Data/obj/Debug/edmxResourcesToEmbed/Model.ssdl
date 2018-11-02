@@ -31,13 +31,16 @@
     <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="DATE" Type="date" />
     <Property Name="MSNV" Type="char" MaxLength="10" />
-    <Property Name="PAY" Type="int" Nullable="false" />
-    <Property Name="NEBT" Type="int" Nullable="false" />
+    <Property Name="PAY" Type="float" Nullable="false" />
+    <Property Name="NEBT" Type="float" Nullable="false" />
     <Property Name="isDelete" Type="bit" Nullable="false" />
     <Property Name="ProductPrice" Type="int" Nullable="false" />
     <Property Name="TimePrice" Type="int" Nullable="false" />
-    <Property Name="Wage" Type="int" Nullable="false" />
-    <Property Name="Cash" Type="int" Nullable="false" />
+    <Property Name="Wage" Type="float" Nullable="false" />
+    <Property Name="Cash" Type="float" Nullable="false" />
+    <Property Name="isPayed" Type="bit" Nullable="false" />
+    <Property Name="MonthOfPay" Type="int" Nullable="false" />
+    <Property Name="YearOfPay" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="PaymentInput">
     <Key>
@@ -81,11 +84,11 @@
     <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
     <Property Name="ProductWeight" Type="int" />
     <Property Name="ProductPrice" Type="int" />
-    <Property Name="TotalAmount" Type="int" />
-    <Property Name="Payed" Type="int" />
-    <Property Name="Own" Type="int" />
+    <Property Name="TotalAmount" Type="int" Nullable="false" />
+    <Property Name="Payed" Type="int" Nullable="false" />
+    <Property Name="Own" Type="int" Nullable="false" />
     <Property Name="Paid" Type="bit" Nullable="false" />
-    <Property Name="TotalWeight" Type="int" />
+    <Property Name="TotalWeight" Type="int" Nullable="false" />
     <Property Name="isDelete" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="ProductIP">
@@ -120,7 +123,7 @@
     <Property Name="ProductPrice" Type="int" />
     <Property Name="TotalAmount" Type="int" />
     <Property Name="Payed" Type="int" Nullable="false" />
-    <Property Name="Own" Type="int" />
+    <Property Name="Own" Type="int" Nullable="false" />
     <Property Name="Paid" Type="bit" Nullable="false" />
     <Property Name="TotalWeight" Type="int" Nullable="false" />
     <Property Name="isDelete" Type="bit" Nullable="false" />
@@ -133,11 +136,11 @@
     <Property Name="Date" Type="date" />
     <Property Name="TimeStart" Type="text" />
     <Property Name="TimeEnd" Type="text" />
-    <Property Name="Time" Type="float" />
+    <Property Name="Time" Type="float" Nullable="false" />
     <Property Name="Weight" Type="int" />
     <Property Name="Type" Type="int" />
-    <Property Name="TotalWeight" Type="nchar" MaxLength="10" />
-    <Property Name="AdvancePayment" Type="int" />
+    <Property Name="TotalWeight" Type="int" />
+    <Property Name="AdvancePayment" Type="float" />
     <Property Name="Note" Type="nvarchar" MaxLength="200" />
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="isDelete" Type="bit" />

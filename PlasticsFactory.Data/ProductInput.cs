@@ -28,11 +28,11 @@ namespace PlasticsFactory.Data
         public string ProductName { get; set; }
         public Nullable<int> ProductWeight { get; set; }
         public Nullable<int> ProductPrice { get; set; }
-        public Nullable<int> TotalAmount { get; set; }
-        public Nullable<int> Payed { get; set; }
-        public Nullable<int> Own { get; set; }
+        public int TotalAmount { get; set; }
+        public int Payed { get; set; }
+        public int Own { get; set; }
         public bool Paid { get; set; }
-        public Nullable<int> TotalWeight { get; set; }
+        public int TotalWeight { get; set; }
         public bool isDelete { get; set; }
     
         public virtual Customer Customer { get; set; }

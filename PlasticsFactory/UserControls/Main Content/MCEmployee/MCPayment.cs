@@ -9,32 +9,42 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
     public partial class MCPaymentEmployee : UserControl
     {
         #region Generate Field
-        TimekeepingBO timekeepingBO = new TimekeepingBO();
-        EmployeePaymentBO employeePaymentBO = new EmployeePaymentBO();
-        PreferceProductPriceBO preferceProductPriceBO = new PreferceProductPriceBO();
-        Data.EmployeePayment employeePayment = new Data.EmployeePayment();
-        EmployeeBO employeeBO = new EmployeeBO();
-        List<Data.Timekeeping> listTime = new List<Data.Timekeeping>();
-        List<Data.EmployeePayment> listEpay = new List<Data.EmployeePayment>();
-        int Month = 0;
-        int Year = 0;
-        struct Payment
-        { 
-           public int pay { get; set; }
-           public int payed { get; set; }
-           public int wage { get; set; }
-           public int cash { get; set; }
+
+        private TimekeepingBO timekeepingBO = new TimekeepingBO();
+        private EmployeePaymentBO employeePaymentBO = new EmployeePaymentBO();
+        private PreferceProductPriceBO preferceProductPriceBO = new PreferceProductPriceBO();
+        private Data.EmployeePayment employeePayment = new Data.EmployeePayment();
+        private EmployeeBO employeeBO = new EmployeeBO();
+        private List<Data.Timekeeping> listTime = new List<Data.Timekeeping>();
+        private List<Data.EmployeePayment> listEpay = new List<Data.EmployeePayment>();
+        private int Month = 0;
+        private int Year = 0;
+
+        private struct Payment
+        {
+            public double pay { get; set; }
+            public double payed { get; set; }
+            public double wage { get; set; }
+            public double cash { get; set; }
+
             //Nợ tháng trước
-           public int debtAgo { get; set; }
-           public int debtNow { get; set; }
+            public double debtAgo { get; set; }
+
+            public double debtNow { get; set; }
         }
-        Payment payment = new Payment();
+
+        private Payment payment = new Payment();
         private string MSNV = "";
         private int btnDoubleGrid = 0;
         private int removeMSTT = 0;
-        #endregion
+        private string TimeKeepDate = "";
+        private int MonthDS = 0;
+        private int YearDS = 0;
+
+        #endregion Generate Field
 
         #region Support
+
         private void loadMonth()
         {
             txtMonth.Items.Clear();
@@ -78,42 +88,60 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         private void loadEmployeeName()
         {
             var listDB = employeeBO.GetData(u => u.isDelete == false);
-            txtEmployeeName.Items.Clear();
+            txtEmployeeName.Properties.Items.Clear();
+            int i = 0;
             foreach (var item in listDB)
             {
-                txtEmployeeName.Items.Add(item.Hoten);
+                int count = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == item.MSNV && u.MonthOfPay == Month && u.YearOfPay == Year).Count;
+                if (count != 0)
+                {
+                    bool isPayed = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == item.MSNV && u.MonthOfPay == Month && u.YearOfPay == Year).First().isPayed;
+                    if (isPayed == true)
+                    {
+                        txtEmployeeName.Properties.Items.Add(item.Hoten, item.Hoten, 0);
+                    }
+                    else
+                    {
+                        txtEmployeeName.Properties.Items.Add(item.Hoten, item.Hoten, -1);
+                    }
+                }
+                else
+                {
+                    txtEmployeeName.Properties.Items.Add(item.Hoten, item.Hoten, -1);
+                }
+                i++;
             }
         }
 
         private void loadTotalOFDetail()
         {
             payment = new Payment();
-            int Time = (int)listTime.Sum(u => u.Time);
-            int Product = (int)listTime.Sum(u => long.Parse(u.TotalWeight.ToString()));
+            double Time = (double)listTime.Sum(u => u.Time);
+            double Product = (double)listTime.Sum(u => long.Parse(u.TotalWeight.ToString()));
             payment.cash = (int)listTime.Sum(u => u.AdvancePayment);
-            payment.payed = listEpay.Where(u => u.DATE.Value.Month == Month && u.DATE.Value.Year == Year).Sum(u => u.PAY);
+            payment.payed = listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).Sum(u => u.PAY);
             txtTime.Text = Time.ToString();
             txtProduct.Text = Product.ToString();
             txtCash.Text = payment.cash.ToString();
             //GetTime month ago =>Debt
             if (Month == 1)
             {
-                int count = listEpay.Where(u => u.DATE.Value.Month == 12 && u.DATE.Value.Year == Year - 1).Count();
+                int count = listEpay.Where(u => u.MonthOfPay == 12 && u.YearOfPay == Year - 1).Count();
                 if (count != 0)
                 {
-                    payment.debtAgo = listEpay.Where(u => u.DATE.Value.Month == 12 && u.DATE.Value.Year == Year - 1).First().NEBT;
+                    payment.debtAgo = listEpay.Where(u => u.MonthOfPay == 12 && u.YearOfPay == Year - 1).First().NEBT;
                 }
             }
             else
             {
-                int count = listEpay.Where(u => u.DATE.Value.Month == Month-1 && u.DATE.Value.Year == Year).Count();
+                int count = listEpay.Where(u => u.DATE.Value.Month == Month - 1 && u.DATE.Value.Year == Year).Count();
                 if (count != 0)
                 {
-                    payment.debtAgo = listEpay.Where(u => u.DATE.Value.Month == Month-1 && u.DATE.Value.Year == Year).First().NEBT;
+                    payment.debtAgo = listEpay.Where(u => u.MonthOfPay == Month - 1 && u.YearOfPay == Year).First().NEBT;
                 }
             }
-            txtDebt.Text =payment.debtAgo.ToString();
-            payment.pay = Time * int.Parse(txtMoneyOfTime.Text) + Product * int.Parse(txtMoneyOfProduct.Text) - payment.cash - payment.debtAgo - payment.payed;
+            txtDebt.Text = payment.debtAgo.ToString();
+            payment.pay = (int)(Time * double.Parse(txtMoneyOfTime.Text) + Product * double.Parse(txtMoneyOfProduct.Text) - payment.cash - payment.debtAgo - payment.payed);
             //MessageBox.Show("Pay dau :" + payment.pay);
             if (payment.pay > 0)
             {
@@ -123,7 +151,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             if (payment.pay < 0)
             {
                 //kiem tra da luu hoa dơn chua nợ chưa
-                int tCount = listEpay.Where(u => u.DATE.Value.Month == Month && u.DATE.Value.Year == Year).Count();
+                int tCount = listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).Count();
                 payment.debtNow = payment.pay * (-1);
                 txtPay.Text = "0";
                 txtNoteMoney.Text = "0";
@@ -153,20 +181,20 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             {
                 dataDetailWork.Rows.Add();
                 //color
-                if (payment.pay > 0 && listEpay.Where(u => u.DATE.Value.Month == Month && u.DATE.Value.Year == Year).Count() != 0)
+                if (payment.pay > 0 && listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).Count() != 0)
                 {
                     dataDetailWork.Rows[i].Cells[0].Style.BackColor = System.Drawing.Color.Orange;
                 }
                 if (payment.pay < 0)
                 {
                     //kiem tra da luu hoa dơn chua nợ chưa
-                    int tCount = listEpay.Where(u => u.DATE.Value.Month == Month && u.DATE.Value.Year == Year).Count();
+                    int tCount = listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).Count();
                     if (tCount != 0)
                     {
                         dataDetailWork.Rows[i].Cells[0].Style.BackColor = System.Drawing.Color.Green;
                     }
                 }
-                if (payment.pay == 0 && listEpay.Where(u => u.DATE.Value.Month == Month && u.DATE.Value.Year == Year).Count() != 0)
+                if (payment.pay == 0 && listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).Count() != 0)
                 {
                     dataDetailWork.Rows[i].Cells[0].Style.BackColor = System.Drawing.Color.Green;
                 }
@@ -178,12 +206,13 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                 dataDetailWork.Rows[i].Cells[4].Value = listDB[i].AdvancePayment;
                 dataDetailWork.Rows[i].Cells[5].Value = listDB[i].Note;
             }
+            txtDayWork.Text = listDB.Count().ToString();
         }
 
         private void loadDG()
         {
             dataDS.Rows.Clear();
-            var listDB = employeePaymentBO.GetData(u => u.isDelete == false && u.DATE.Value.Month == Month && u.DATE.Value.Year == Year);
+            var listDB = employeePaymentBO.GetData(u => u.isDelete == false && u.DATE.Value.Month == MonthDS && u.DATE.Value.Year == YearDS);
             int i = 0;
             foreach (var item in listDB)
             {
@@ -196,13 +225,14 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                 dataDS.Rows[i].Cells[5].Value = item.Cash;
                 dataDS.Rows[i].Cells[6].Value = item.PAY;
                 dataDS.Rows[i].Cells[7].Value = item.NEBT;
+                dataDS.Rows[i].Cells[8].Value = item.MonthOfPay + "/" + item.YearOfPay;
                 i++;
             }
         }
 
         private Data.EmployeePayment InputEmployeePayment()
         {
-            int Time = int.Parse(txtTime.Text);
+            double Time = double.Parse(txtTime.Text);
             int Product = int.Parse(txtProduct.Text);
             employeePayment = new Data.EmployeePayment();
             employeePayment.ID = int.Parse(txtID.Text.ToString().Substring(2));
@@ -212,8 +242,10 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             employeePayment.NEBT = payment.debtNow;
             employeePayment.ProductPrice = int.Parse(txtMoneyOfProduct.Text);
             employeePayment.TimePrice = int.Parse(txtMoneyOfTime.Text);
-            employeePayment.Wage = Time * int.Parse(txtMoneyOfTime.Text) + Product * int.Parse(txtMoneyOfProduct.Text);
+            employeePayment.Wage = (int)(Time * int.Parse(txtMoneyOfTime.Text) + Product * int.Parse(txtMoneyOfProduct.Text));
             employeePayment.Cash = payment.cash;
+            employeePayment.MonthOfPay = Month;
+            employeePayment.YearOfPay = Year;
             return employeePayment;
         }
 
@@ -236,9 +268,13 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             txtDebt.Text = "0";
             txtCash.Text = "0";
             MSNV = "";
+            txtDayWork.Text = "0";
+            loadEmployeeName();
             dataDetailWork.Rows.Clear();
         }
-        #endregion
+
+        #endregion Support
+
         public MCPaymentEmployee()
         {
             InitializeComponent();
@@ -246,6 +282,10 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
 
         private void MCPaymentEmployee_Load(object sender, EventArgs e)
         {
+            //lấy thời gian cho dataDS
+            MonthDS = txtDate.Value.Month;
+            YearDS = txtDate.Value.Year;
+            //
             txtID.Text = "TT" + employeePaymentBO.GetID().ToString("D6");
             loadMonth();
             loadYear();
@@ -257,36 +297,32 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
 
         #region Event GetInformation
 
-        private void txtEmployeeName_SelectedValueChanged(object sender, EventArgs e)
+        private void txtEmployeeName_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
+                loadEmployeeName();
                 string Name = txtEmployeeName.Text;
-                txtMSNV.Text = employeeBO.GetData(u => u.isDelete == false && u.Hoten == Name).Select(u => u.MSNV).ToList()[0];
+                txtMSNV.Text = employeeBO.GetData(u => u.isDelete == false && u.Hoten.Trim() == Name.Trim()).Select(u => u.MSNV).ToList()[0];
                 MSNV = txtMSNV.Text;
-                txtEmployeeName.Text = employeeBO.GetData(u => u.isDelete == false && u.MSNV == MSNV).Select(u => u.Hoten).ToList()[0];
                 listTime = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == MSNV && u.Date.Value.Month == Month && u.Date.Value.Year == Year).ToList();
                 listEpay = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == MSNV).ToList();
-                loadDetail();
                 loadTotalOFDetail();
+                loadDetail();
             }
             catch { }
         }
 
-        private void txtMSNV_TextChanged(object sender, EventArgs e)
-        {
-            //txtMSNV_SelectedValueChanged(sender, e);
-        }
-
-        #endregion
+        #endregion Event GetInformation
 
         #region Month,Year
+
         private void txtMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 Month = int.Parse(txtMonth.Text);
-                txtEmployeeName_SelectedValueChanged(sender, e);
+                txtEmployeeName_SelectedIndexChanged(sender, e);
                 loadDG();
             }
             catch
@@ -297,25 +333,27 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         private void txtYear_SelectedIndexChanged(object sender, EventArgs e)
         {
             Year = int.Parse(txtYear.Text);
-            txtEmployeeName_SelectedValueChanged(sender, e);
+            txtEmployeeName_SelectedIndexChanged(sender, e);
             loadDG();
         }
-        #endregion
+
+        #endregion Month,Year
 
         #region Button
+
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (txtMSNV.Text !="" && txtPay.Text != string.Empty&&listTime.Count()!=0)
+            if (txtMSNV.Text != "" && txtPay.Text != string.Empty && listTime.Count() != 0)
             {
                 if (payment.pay != 0)
                 {
-                    if (payment.pay < 0 && listEpay.Where(u => u.DATE.Value.Month == Month && u.DATE.Value.Year == Year).Count() == 0)
+                    if (payment.pay < 0 && listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).Count() == 0)
                     {
                         //cho thanh toan
                         int intPay = int.Parse(txtPay.Text);
                         if (intPay != 0)
                         {
-                            MessageBox.Show("Nhân viên nợ công ty với số tiền là " +payment.debtNow + "nên số tiền thành toán là 0 đồng");
+                            MessageBox.Show("Nhân viên nợ công ty với số tiền là " + payment.debtNow + "nên số tiền thành toán là 0 đồng");
                             txtPay.Text = "0";
                         }
                         else
@@ -324,7 +362,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                             AddPayment();
                         }
                     }
-                    if (payment.pay < 0 && listEpay.Where(u => u.DATE.Value.Month == Month && u.DATE.Value.Year == Year).Count() != 0)
+                    if (payment.pay < 0 && listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).Count() != 0)
                     {
                         //da thanh toan roi
                         MessageBox.Show("Nhân viên này đã thanh toán rồi. Vui lòng kiểm tra lại");
@@ -334,16 +372,16 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                     {
                         //cho thanh toan
                         int intPay = int.Parse(txtPay.Text);
-                        if (intPay >payment.pay)
+                        if (intPay > payment.pay)
                         {
-                            MessageBox.Show("Bạn chỉ cần thanh toán" +payment.pay + "là đủ");
+                            MessageBox.Show("Bạn chỉ cần thanh toán" + payment.pay + "là đủ");
                             txtPay.Text = payment.pay.ToString();
                         }
-                        if(intPay==0)
+                        if (intPay == 0)
                         {
                             MessageBox.Show("Vui lòng điền giá tiền");
                         }
-                        if(intPay <= payment.pay)
+                        if (intPay <= payment.pay)
                         {
                             //cho thanh toan
                             AddPayment();
@@ -352,7 +390,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                 }
                 if (payment.pay == 0)
                 {
-                    if (listEpay.Where(u => u.DATE.Value.Month == Month && u.DATE.Value.Year == Year).Count() != 0)
+                    if (listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).Count() != 0)
                     {
                         MessageBox.Show("Nhân viên này đã thanh toán rồi. Vui lòng kiểm tra lại");
                         ResetForm();
@@ -364,7 +402,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                         if (intPay != 0)
                         {
                             MessageBox.Show("Bạn chỉ cần thanh toán" + payment.pay + "là đủ");
-                            txtPay.Text =payment.pay.ToString();
+                            txtPay.Text = payment.pay.ToString();
                         }
                         else
                         {
@@ -378,73 +416,22 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             {
                 MessageBox.Show("Không hợp lệ");
             }
-
         }
 
-        #endregion
-
-        private void dataDS_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void btnRemove_Click(object sender, EventArgs e)
         {
-            if(e.RowIndex<dataDS.Rows.Count-1)
+            if (removeMSTT != 0)
             {
-                switch (btnDoubleGrid)
+                string masseage = "Bạn có muốn xóa  TT" + removeMSTT.ToString("D6") + "không ?";
+                string Title = "Chú ý";
+                DialogResult result = MessageBox.Show(masseage, Title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                if (result == DialogResult.Yes)
                 {
-                    case 0:
-                        try
-                        {
-                            btnEdit.Visible = true;
-                            int ID = int.Parse(dataDS.Rows[e.RowIndex].Cells[0].Value.ToString().Substring(2));
-                            string strMSNV = dataDS.Rows[e.RowIndex].Cells[2].Value.ToString();
-                            txtID.Text = dataDS.Rows[e.RowIndex].Cells[0].Value.ToString();
-                            txtDate.Text = dataDS.Rows[e.RowIndex].Cells[1].Value.ToString();
-                            txtMSNV.Text = dataDS.Rows[e.RowIndex].Cells[2].Value.ToString();
-                            txtEmployeeName.Text = dataDS.Rows[e.RowIndex].Cells[3].Value.ToString();
-                            txtTime.Text = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == strMSNV && u.Date.Value.Month == Month && u.Date.Value.Year == Year).Sum(u => u.Time).ToString();
-                            txtProduct.Text = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == strMSNV && u.Date.Value.Month == Month && u.Date.Value.Year == Year).Sum(u => int.Parse(u.TotalWeight)).ToString();
-                            txtMoneyOfTime.Text = employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().TimePrice.ToString();
-                            txtMoneyOfProduct.Text = employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().ProductPrice.ToString();
-                            int tempDebt = 0;
-                            if (Month == 1)
-                            {
-                                int count = listEpay.Where(u => u.DATE.Value.Month == 12 && u.DATE.Value.Year == Year - 1).Count();
-                                if (count != 0)
-                                {
-                                    tempDebt = listEpay.Where(u => u.DATE.Value.Month == 12 && u.DATE.Value.Year == Year - 1).First().NEBT;
-                                }
-                            }
-                            else
-                            {
-                                int count = listEpay.Where(u => u.DATE.Value.Month == Month - 1 && u.DATE.Value.Year == Year).Count();
-                                if (count != 0)
-                                {
-                                    tempDebt = listEpay.Where(u => u.DATE.Value.Month == Month - 1 && u.DATE.Value.Year == Year).First().NEBT;
-                                }
-                            }
-                            txtDebt.Text = tempDebt.ToString();
-                            txtCash.Text =timekeepingBO.GetData(u=>u.isDelete==false&&u.MSNV==strMSNV&&u.Date.Value.Month==Month&&u.Date.Value.Year==Year).Sum(u=>u.AdvancePayment).ToString();
-                            txtPay.Text = employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().PAY.ToString();
-                            txtNoteMoney.Text = employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().PAY.ToString();
-                            btnRemove.Enabled = false;
-                            btnSave.Enabled = false;
-                        }
-                        catch
-                        {
-                        }
-                        
-                        btnDoubleGrid = 1;
-                        break;
-
-                    case 1:
-                       
-                        btnRemove.Enabled = true;
-                        btnSave.Enabled = true;
-                        ResetForm();
-                        btnEdit.Visible = false;
-                        btnDoubleGrid = 0;
-                        btnThem.Visible = true;
-                        break;
+                    employeePaymentBO.isDelete(removeMSTT);
+                    loadDG();
+                    loadEmployeeName();
+                    removeMSTT = 0;
                 }
-              
             }
         }
 
@@ -452,30 +439,32 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         {
             int ID = int.Parse(txtID.Text.Substring(2));
             Payment Editpayment = new Payment();
-            int Time = (int)listTime.Sum(u => u.Time);
-            int Product = (int)listTime.Sum(u => long.Parse(u.TotalWeight.ToString()));
-            Editpayment.cash = (int)listTime.Sum(u => u.AdvancePayment);
-            Editpayment.payed = employeePaymentBO.GetData(u=>u.isDelete==false&&u.MSNV==txtMSNV.Text).Where(u => u.DATE.Value.Month == Month && u.DATE.Value.Year == Year&&u.ID!=ID).Sum(u => u.PAY);
+            double Time = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == MSNV && u.Date.Value.Month == DateTime.Parse(TimeKeepDate).Month && u.Date.Value.Year == DateTime.Parse(TimeKeepDate).Year).Sum(u => u.Time);
+            int Product = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == MSNV && u.Date.Value.Month == DateTime.Parse(TimeKeepDate).Month && u.Date.Value.Year == DateTime.Parse(TimeKeepDate).Year).Sum(u => u.TotalWeight).Value;
+            Editpayment.cash = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == MSNV && u.Date.Value.Month == DateTime.Parse(TimeKeepDate).Month && u.Date.Value.Year == DateTime.Parse(TimeKeepDate).Year).Sum(u => u.AdvancePayment).Value;
+            Editpayment.payed = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == txtMSNV.Text).Where(u => u.DATE.Value.Month == Month && u.DATE.Value.Year == Year && u.MonthOfPay == DateTime.Parse(TimeKeepDate).Month && u.YearOfPay == DateTime.Parse(TimeKeepDate).Year && u.ID != ID).Sum(u => u.PAY);
+
             //GetTime month ago =>Debt
             if (Month == 1)
             {
-                int count = listEpay.Where(u => u.DATE.Value.Month == 12 && u.DATE.Value.Year == Year - 1).Count();
+                int count = listEpay.Where(u => u.MonthOfPay == 12 && u.YearOfPay == Year - 1).Count();
                 if (count != 0)
                 {
-                    Editpayment.debtAgo = listEpay.Where(u => u.DATE.Value.Month == 12 && u.DATE.Value.Year == Year - 1).First().NEBT;
+                    Editpayment.debtAgo = listEpay.Where(u => u.MonthOfPay == 12 && u.YearOfPay == Year - 1).First().NEBT;
                 }
             }
             else
             {
-                int count = listEpay.Where(u => u.DATE.Value.Month == Month - 1 && u.DATE.Value.Year == Year).Count();
+                int count = listEpay.Where(u => u.MonthOfPay == Month - 1 && u.YearOfPay == Year).Count();
                 if (count != 0)
                 {
-                    Editpayment.debtAgo = listEpay.Where(u => u.DATE.Value.Month == Month - 1 && u.DATE.Value.Year == Year).First().NEBT;
+                    Editpayment.debtAgo = listEpay.Where(u => u.MonthOfPay == Month - 1 && u.YearOfPay == Year).First().NEBT;
                 }
             }
             Editpayment.pay = Time * int.Parse(txtMoneyOfTime.Text) + Product * int.Parse(txtMoneyOfProduct.Text) - Editpayment.cash - Editpayment.debtAgo - Editpayment.payed;
+
             //MessageBox.Show("Pay dau :" + payment.pay);
-            int intPay = int.Parse(txtPay.Text);
+            double intPay = double.Parse(txtPay.Text);
             if (Editpayment.pay < 0)
             {
                 Editpayment.pay = 0;
@@ -495,6 +484,78 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                 btnSave.Enabled = true;
                 btnEdit.Visible = false;
                 btnThem.Visible = true;
+                TimeKeepDate = "";
+            }
+        }
+
+        #endregion Button
+
+        #region DataDS
+
+        private void dataDS_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < dataDS.Rows.Count - 1)
+            {
+                switch (btnDoubleGrid)
+                {
+                    case 0:
+                        try
+                        {
+                            btnEdit.Visible = true;
+                            int ID = int.Parse(dataDS.Rows[e.RowIndex].Cells[0].Value.ToString().Substring(2));
+                            string strMSNV = dataDS.Rows[e.RowIndex].Cells[2].Value.ToString();
+                            txtID.Text = dataDS.Rows[e.RowIndex].Cells[0].Value.ToString();
+                            txtDate.Text = dataDS.Rows[e.RowIndex].Cells[1].Value.ToString();
+                            txtMSNV.Text = dataDS.Rows[e.RowIndex].Cells[2].Value.ToString();
+                            txtEmployeeName.Text = dataDS.Rows[e.RowIndex].Cells[3].Value.ToString();
+                            txtTime.Text = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == strMSNV && u.Date.Value.Month == Month && u.Date.Value.Year == Year).Sum(u => u.Time).ToString();
+                            txtProduct.Text = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == strMSNV && u.Date.Value.Month == Month && u.Date.Value.Year == Year).Sum(u => u.TotalWeight).ToString();
+                            txtMoneyOfTime.Text = employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().TimePrice.ToString();
+                            txtMoneyOfProduct.Text = employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().ProductPrice.ToString();
+                            TimeKeepDate = dataDS.Rows[e.RowIndex].Cells[8].Value.ToString();
+                            double tempDebt = 0;
+                            if (Month == 1)
+                            {
+                                int count = listEpay.Where(u => u.MonthOfPay == 12 && u.YearOfPay == Year - 1).Count();
+                                if (count != 0)
+                                {
+                                    tempDebt = listEpay.Where(u => u.MonthOfPay == 12 && u.YearOfPay == Year - 1).First().NEBT;
+                                }
+                            }
+                            else
+                            {
+                                int count = listEpay.Where(u => u.MonthOfPay == Month - 1 && u.YearOfPay == Year).Count();
+                                if (count != 0)
+                                {
+                                    tempDebt = listEpay.Where(u => u.MonthOfPay == Month - 1 && u.YearOfPay == Year).First().NEBT;
+                                }
+                            }
+                            txtDebt.Text = tempDebt.ToString();
+                            txtCash.Text = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == strMSNV && u.Date.Value.Month == Month && u.Date.Value.Year == Year).Sum(u => u.AdvancePayment).ToString();
+                            txtPay.Text = employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().PAY.ToString();
+                            txtNoteMoney.Text = employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().PAY.ToString();
+                            txtMonth.Text = dataDS.Rows[e.RowIndex].Cells[8].Value.ToString().Split('/')[0];
+                            btnRemove.Enabled = false;
+                            btnSave.Enabled = false;
+                        }
+                        catch
+                        {
+                        }
+
+                        btnDoubleGrid = 1;
+                        break;
+
+                    case 1:
+
+                        btnRemove.Enabled = true;
+                        btnSave.Enabled = true;
+                        ResetForm();
+                        btnEdit.Visible = false;
+                        btnDoubleGrid = 0;
+                        btnThem.Visible = true;
+                        TimeKeepDate = "";
+                        break;
+                }
             }
         }
 
@@ -510,20 +571,17 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             catch { }
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
+        #endregion DataDS
+
+        private void txtDate_ValueChanged(object sender, EventArgs e)
         {
-            if (removeMSTT != 0)
+            try
             {
-                string masseage = "Bạn có muốn xóa  TT" + removeMSTT.ToString("D6") + "không ?";
-                string Title = "Chú ý";
-                DialogResult result = MessageBox.Show(masseage, Title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                if (result == DialogResult.Yes)
-                {
-                    employeePaymentBO.isDelete(removeMSTT);
-                    loadDG();
-                    removeMSTT = 0;
-                }
+                MonthDS = txtDate.Value.Month;
+                YearDS = txtDate.Value.Year;
+                loadDG();
             }
+            catch { }
         }
     }
 }

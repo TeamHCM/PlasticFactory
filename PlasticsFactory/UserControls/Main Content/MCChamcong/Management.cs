@@ -16,10 +16,11 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
         public TimekeepingBO timekeepingBO = new TimekeepingBO();
         public static Timekeeping tempUpdate = new Timekeeping();
         public Timekeeping tempDelete = new Timekeeping();
-        public int totalCashAdvance = 0;
+        public double totalCashAdvance = 0;
         public int totalWeight = 0;
         private string tempMSNV = "";
-
+        public delegate void Transport(string EmployeeName, string MSNV, int Month, int Year);
+        public Transport Sender;
         #endregion Generate Field
 
         #region Support
@@ -46,7 +47,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 dataDS.Rows[i].Cells[9].Value = item.AdvancePayment;
                 dataDS.Rows[i].Cells[10].Value = item.Note;
                 totalCashAdvance += item.AdvancePayment.Value;
-                totalWeight += int.Parse(item.TotalWeight);
+                totalWeight += item.TotalWeight.Value;
                 i++;
             }
             lbCashAdvance.Text = string.Format("{0:0,0 (VNĐ)}", totalCashAdvance);
@@ -206,7 +207,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             return result.Trim();
         }
 
-        public string UnitMoney(int money)
+        public string UnitMoney(double money)
         {
             string[] strUnit = { " đồng ", "", " trăm ", " nghìn ", "", " trăm ", " triệu ", "", " trăm ", " tỷ ", "", " trăm " };
             string result = "";
@@ -313,9 +314,16 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
         public Management()
         {
             InitializeComponent();
+            Sender = new Transport(loadTransport);
         }
-
-        private void Management_Load(object sender, EventArgs e)
+        private void loadTransport(string EmployeeName, string MSNV, int Month, int Year)
+        {
+            txtMSNV.Text = MSNV;
+            txtEmployee.Text = EmployeeName;
+            txtMonth.Text = Month.ToString();
+            txtYear.Text = Year.ToString();
+        }
+        public void Management_Load(object sender, EventArgs e)
         {
             lbCashAdvance.Text = "";
             lbTotalWeight.Text = "";
@@ -604,7 +612,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 tempDelete.Time = float.Parse(dataDS.Rows[e.RowIndex].Cells[5].Value.ToString());
                 tempDelete.Weight = int.Parse(dataDS.Rows[e.RowIndex].Cells[6].Value.ToString());
                 tempDelete.Type = int.Parse(dataDS.Rows[e.RowIndex].Cells[7].Value.ToString());
-                tempDelete.TotalWeight = dataDS.Rows[e.RowIndex].Cells[8].Value.ToString();
+                tempDelete.TotalWeight = int.Parse(dataDS.Rows[e.RowIndex].Cells[8].Value.ToString());
                 tempDelete.AdvancePayment = int.Parse(dataDS.Rows[e.RowIndex].Cells[9].Value.ToString());
                 tempDelete.Note = dataDS.Rows[e.RowIndex].Cells[10].Value.ToString();
                 tempDelete.isDelete = true;

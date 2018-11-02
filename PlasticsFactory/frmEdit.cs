@@ -392,12 +392,12 @@ namespace PlasticsFactory
             if (txtWeight.Text.Equals(""))
             {
                 timekeeping.Weight = 0;
-                timekeeping.TotalWeight = "0";
+                timekeeping.TotalWeight = 0;
             }
             else
             {
                 timekeeping.Weight = int.Parse(txtWeight.Text);
-                timekeeping.TotalWeight = (int.Parse(txtWeight.Text) * int.Parse(txtTypeWeight.Text)).ToString();
+                timekeeping.TotalWeight = int.Parse(txtWeight.Text) * int.Parse(txtTypeWeight.Text);
             }
             timekeeping.Type = int.Parse(txtTypeWeight.Text);
             if (txtCashAdvance.Text.Equals(""))

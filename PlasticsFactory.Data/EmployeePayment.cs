@@ -17,13 +17,16 @@ namespace PlasticsFactory.Data
         public int ID { get; set; }
         public Nullable<System.DateTime> DATE { get; set; }
         public string MSNV { get; set; }
-        public int PAY { get; set; }
-        public int NEBT { get; set; }
+        public double PAY { get; set; }
+        public double NEBT { get; set; }
         public bool isDelete { get; set; }
         public int ProductPrice { get; set; }
         public int TimePrice { get; set; }
-        public int Wage { get; set; }
-        public int Cash { get; set; }
+        public double Wage { get; set; }
+        public double Cash { get; set; }
+        public bool isPayed { get; set; }
+        public int MonthOfPay { get; set; }
+        public int YearOfPay { get; set; }
     
         public virtual Employee Employee { get; set; }
     }

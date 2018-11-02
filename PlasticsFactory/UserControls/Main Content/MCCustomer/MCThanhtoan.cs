@@ -38,10 +38,11 @@ namespace PlasticsFactory.UserControls.Main_Content.MCCustomer
             int Amount = 0;
             if (txtCustomerType.Text == "Nhập hàng")
             {
-                Amount = productInputBO.GetData(u => u.isDelete == false && u.ID == GetMSDH(txtMSDH.Text)).First().TotalAmount.Value - productInputBO.GetData(u => u.isDelete == false && u.ID == GetMSDH(txtMSDH.Text)).First().Payed.Value;
+                Amount = productInputBO.GetData(u => u.isDelete == false && u.ID == GetMSDH(txtMSDH.Text)).Select(u=>u.TotalAmount).ToList()[0] - productInputBO.GetData(u => u.isDelete == false && u.ID == GetMSDH(txtMSDH.Text)).Select(u=>u.Payed).ToList()[0];
                 if (listInput.Where(u => u.MSDH == GetMSDH(txtMSDH.Text)).FirstOrDefault() != null)
                 {
-                    Amount = productInputBO.GetData(u => u.isDelete == false && u.ID == GetMSDH(txtMSDH.Text)).First().TotalAmount.Value - productInputBO.GetData(u => u.isDelete == false && u.ID == GetMSDH(txtMSDH.Text)).First().Payed.Value - listInput.Where(u => u.MSDH == GetMSDH(txtMSDH.Text)).Sum(u => u.Payment).Value;
+                    Amount = productInputBO.GetData(u => u.isDelete == false && u.ID == GetMSDH(txtMSDH.Text)).First().TotalAmount - productInputBO.GetData(u => u.isDelete == false && u.ID == GetMSDH(txtMSDH.Text)).First().Payed - 
+                        listInput.Where(u => u.MSDH == GetMSDH(txtMSDH.Text)).Sum(u => u.Payment).Value;
                 }
                 return Amount;
             }
@@ -273,7 +274,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCCustomer
                         dataHD.Rows.Add();
                         dataHD.Rows[i].Cells[0].Value = "HD" + item.ID.ToString("d6");
                         //color
-                        if (listInput.Count != 0)
+                        if (listInput.Count()!=0)
                         {
                             int Payment = listInput.Where(u => u.MSDH == item.ID).Sum(u => u.Payment).Value;
                             if (Payment == item.TotalAmount - item.Payed)
@@ -292,6 +293,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCCustomer
                         dataHD.Rows[i].Cells[4].Value = item.ProductWeight;
                         dataHD.Rows[i].Cells[5].Value = item.ProductPrice;
                         dataHD.Rows[i].Cells[6].Value = item.TotalAmount - item.Payed;
+                        MessageBox.Show("amount:" + item.TotalAmount + "payed:" + item.Payed);
                         i++;
                     }
                 }
@@ -353,7 +355,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCCustomer
                 //{
                 msdh = msdh.Split('D')[1];
                 int mshd = int.Parse(msdh);
-                int amount = productInputBO.GetData(u => u.isDelete == false && u.ID == mshd).First().TotalAmount.Value;
+                int amount = productInputBO.GetData(u => u.isDelete == false && u.ID == mshd).First().TotalAmount;
                 int paid = paymentInputBO.GetData(u => u.isDelete == false && u.MSDH == mshd).ToList().Sum(u => u.Payment).Value;
                 return amount - paid;
                 //}

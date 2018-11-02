@@ -36,13 +36,16 @@
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="DATE" Type="date" />
           <Property Name="MSNV" Type="char" MaxLength="10" />
-          <Property Name="PAY" Type="int" Nullable="false" />
-          <Property Name="NEBT" Type="int" Nullable="false" />
+          <Property Name="PAY" Type="float" Nullable="false" />
+          <Property Name="NEBT" Type="float" Nullable="false" />
           <Property Name="isDelete" Type="bit" Nullable="false" />
           <Property Name="ProductPrice" Type="int" Nullable="false" />
           <Property Name="TimePrice" Type="int" Nullable="false" />
-          <Property Name="Wage" Type="int" Nullable="false" />
-          <Property Name="Cash" Type="int" Nullable="false" />
+          <Property Name="Wage" Type="float" Nullable="false" />
+          <Property Name="Cash" Type="float" Nullable="false" />
+          <Property Name="isPayed" Type="bit" Nullable="false" />
+          <Property Name="MonthOfPay" Type="int" Nullable="false" />
+          <Property Name="YearOfPay" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="PaymentInput">
           <Key>
@@ -86,11 +89,11 @@
           <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
           <Property Name="ProductWeight" Type="int" />
           <Property Name="ProductPrice" Type="int" />
-          <Property Name="TotalAmount" Type="int" />
-          <Property Name="Payed" Type="int" />
-          <Property Name="Own" Type="int" />
+          <Property Name="TotalAmount" Type="int" Nullable="false" />
+          <Property Name="Payed" Type="int" Nullable="false" />
+          <Property Name="Own" Type="int" Nullable="false" />
           <Property Name="Paid" Type="bit" Nullable="false" />
-          <Property Name="TotalWeight" Type="int" />
+          <Property Name="TotalWeight" Type="int" Nullable="false" />
           <Property Name="isDelete" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="ProductIP">
@@ -125,7 +128,7 @@
           <Property Name="ProductPrice" Type="int" />
           <Property Name="TotalAmount" Type="int" />
           <Property Name="Payed" Type="int" Nullable="false" />
-          <Property Name="Own" Type="int" />
+          <Property Name="Own" Type="int" Nullable="false" />
           <Property Name="Paid" Type="bit" Nullable="false" />
           <Property Name="TotalWeight" Type="int" Nullable="false" />
           <Property Name="isDelete" Type="bit" Nullable="false" />
@@ -138,11 +141,11 @@
           <Property Name="Date" Type="date" />
           <Property Name="TimeStart" Type="text" />
           <Property Name="TimeEnd" Type="text" />
-          <Property Name="Time" Type="float" />
+          <Property Name="Time" Type="float" Nullable="false" />
           <Property Name="Weight" Type="int" />
           <Property Name="Type" Type="int" />
-          <Property Name="TotalWeight" Type="nchar" MaxLength="10" />
-          <Property Name="AdvancePayment" Type="int" />
+          <Property Name="TotalWeight" Type="int" />
+          <Property Name="AdvancePayment" Type="float" />
           <Property Name="Note" Type="nvarchar" MaxLength="200" />
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="isDelete" Type="bit" />
@@ -317,8 +320,8 @@
           <Property Name="isDelete" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="TypeofCustomer" Relationship="Self.FK_Customer_TypeofCustomer" FromRole="Customer" ToRole="TypeofCustomer" />
           <NavigationProperty Name="ProductInputs" Relationship="Self.FK_ProductInput_Customer" FromRole="Customer" ToRole="ProductInput" />
-          <NavigationProperty Name="ProductOutputs" Relationship="Self.FK_ProductOutput_Customer" FromRole="Customer" ToRole="ProductOutput" />
           <NavigationProperty Name="Trucks" Relationship="Self.FK_Truck_Truck" FromRole="Customer" ToRole="Truck" />
+          <NavigationProperty Name="ProductOutputs" Relationship="PlasticFactoryModel.FK_ProductOutput_Customer" FromRole="Customer" ToRole="ProductOutput" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -332,7 +335,26 @@
           <Property Name="SDT" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
           <Property Name="CMND" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
           <Property Name="isDelete" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="EmployeePayments" Relationship="PlasticFactoryModel.FK_EmployeePayment_Employee" FromRole="Employee" ToRole="EmployeePayment" />
+          <NavigationProperty Name="EmployeePayments" Relationship="Self.FK_EmployeePayment_Employee" FromRole="Employee" ToRole="EmployeePayment" />
+        </EntityType>
+        <EntityType Name="EmployeePayment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="DATE" Type="DateTime" Precision="0" />
+          <Property Name="MSNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="PAY" Type="Double" Nullable="false" />
+          <Property Name="NEBT" Type="Double" Nullable="false" />
+          <Property Name="isDelete" Type="Boolean" Nullable="false" />
+          <Property Name="ProductPrice" Type="Int32" Nullable="false" />
+          <Property Name="TimePrice" Type="Int32" Nullable="false" />
+          <Property Name="Wage" Type="Double" Nullable="false" />
+          <Property Name="Cash" Type="Double" Nullable="false" />
+          <Property Name="isPayed" Type="Boolean" Nullable="false" />
+          <Property Name="MonthOfPay" Type="Int32" Nullable="false" />
+          <Property Name="YearOfPay" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_EmployeePayment_Employee" FromRole="EmployeePayment" ToRole="Employee" />
         </EntityType>
         <EntityType Name="PaymentInput">
           <Key>
@@ -358,6 +380,14 @@
           <Property Name="isDelete" Type="Boolean" />
           <NavigationProperty Name="ProductOutput" Relationship="Self.FK_PaymentOutput_ProductOutput" FromRole="PaymentOutput" ToRole="ProductOutput" />
         </EntityType>
+        <EntityType Name="PreferceProductPrice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Int32" />
+        </EntityType>
         <EntityType Name="ProductInput">
           <Key>
             <PropertyRef Name="ID" />
@@ -370,11 +400,11 @@
           <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ProductWeight" Type="Int32" />
           <Property Name="ProductPrice" Type="Int32" />
-          <Property Name="TotalAmount" Type="Int32" />
-          <Property Name="Payed" Type="Int32" />
-          <Property Name="Own" Type="Int32" />
+          <Property Name="TotalAmount" Type="Int32" Nullable="false" />
+          <Property Name="Payed" Type="Int32" Nullable="false" />
+          <Property Name="Own" Type="Int32" Nullable="false" />
           <Property Name="Paid" Type="Boolean" Nullable="false" />
-          <Property Name="TotalWeight" Type="Int32" />
+          <Property Name="TotalWeight" Type="Int32" Nullable="false" />
           <Property Name="isDelete" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Customer" Relationship="Self.FK_ProductInput_Customer" FromRole="ProductInput" ToRole="Customer" />
           <NavigationProperty Name="PaymentInputs" Relationship="Self.FK_PaymentInput_ProductInput" FromRole="ProductInput" ToRole="PaymentInput" />
@@ -411,12 +441,12 @@
           <Property Name="ProductPrice" Type="Int32" />
           <Property Name="TotalAmount" Type="Int32" />
           <Property Name="Payed" Type="Int32" Nullable="false" />
-          <Property Name="Own" Type="Int32" />
+          <Property Name="Own" Type="Int32" Nullable="false" />
           <Property Name="Paid" Type="Boolean" Nullable="false" />
           <Property Name="TotalWeight" Type="Int32" Nullable="false" />
           <Property Name="isDelete" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK_ProductOutput_Customer" FromRole="ProductOutput" ToRole="Customer" />
           <NavigationProperty Name="PaymentOutputs" Relationship="Self.FK_PaymentOutput_ProductOutput" FromRole="ProductOutput" ToRole="PaymentOutput" />
+          <NavigationProperty Name="Customer" Relationship="PlasticFactoryModel.FK_ProductOutput_Customer" FromRole="ProductOutput" ToRole="Customer" />
         </EntityType>
         <EntityType Name="Timekeeping">
           <Key>
@@ -426,11 +456,11 @@
           <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="TimeStart" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="TimeEnd" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Time" Type="Double" />
+          <Property Name="Time" Type="Double" Nullable="false" />
           <Property Name="Weight" Type="Int32" />
           <Property Name="Type" Type="Int32" />
-          <Property Name="TotalWeight" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="AdvancePayment" Type="Int32" />
+          <Property Name="TotalWeight" Type="Int32" />
+          <Property Name="AdvancePayment" Type="Double" />
           <Property Name="Note" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="isDelete" Type="Boolean" />
@@ -486,18 +516,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProductOutput_Customer">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
-          <End Role="ProductOutput" Type="Self.ProductOutput" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="ProductOutput">
-              <PropertyRef Name="MSKH" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Truck_Truck">
           <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
           <End Role="Truck" Type="Self.Truck" Multiplicity="*" />
@@ -507,6 +525,18 @@
             </Principal>
             <Dependent Role="Truck">
               <PropertyRef Name="MSKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeePayment_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="EmployeePayment" Type="Self.EmployeePayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="MSNV" />
+            </Principal>
+            <Dependent Role="EmployeePayment">
+              <PropertyRef Name="MSNV" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -537,8 +567,10 @@
         <EntityContainer Name="PlasticFactoryEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="EmployeePayments" EntityType="Self.EmployeePayment" />
           <EntitySet Name="PaymentInputs" EntityType="Self.PaymentInput" />
           <EntitySet Name="PaymentOutputs" EntityType="Self.PaymentOutput" />
+          <EntitySet Name="PreferceProductPrices" EntityType="Self.PreferceProductPrice" />
           <EntitySet Name="ProductInputs" EntityType="Self.ProductInput" />
           <EntitySet Name="ProductIPs" EntityType="Self.ProductIP" />
           <EntitySet Name="ProductOPs" EntityType="Self.ProductOP" />
@@ -555,13 +587,13 @@
             <End Role="Customer" EntitySet="Customers" />
             <End Role="ProductInput" EntitySet="ProductInputs" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProductOutput_Customer" Association="Self.FK_ProductOutput_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="ProductOutput" EntitySet="ProductOutputs" />
-          </AssociationSet>
           <AssociationSet Name="FK_Truck_Truck" Association="Self.FK_Truck_Truck">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Truck" EntitySet="Trucks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePayment_Employee" Association="Self.FK_EmployeePayment_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="EmployeePayment" EntitySet="EmployeePayments" />
           </AssociationSet>
           <AssociationSet Name="FK_PaymentInput_ProductInput" Association="Self.FK_PaymentInput_ProductInput">
             <End Role="ProductInput" EntitySet="ProductInputs" />
@@ -572,46 +604,20 @@
             <End Role="PaymentOutput" EntitySet="PaymentOutputs" />
           </AssociationSet>
           <FunctionImport Name="AutoIdEmployee" ReturnType="Collection(String)" />
-          <EntitySet Name="PreferceProductPrices" EntityType="PlasticFactoryModel.PreferceProductPrice" />
-          <EntitySet Name="EmployeePayments" EntityType="PlasticFactoryModel.EmployeePayment" />
-          <AssociationSet Name="FK_EmployeePayment_Employee" Association="PlasticFactoryModel.FK_EmployeePayment_Employee">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="EmployeePayment" EntitySet="EmployeePayments" />
+          <AssociationSet Name="FK_ProductOutput_Customer" Association="PlasticFactoryModel.FK_ProductOutput_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="ProductOutput" EntitySet="ProductOutputs" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="PreferceProductPrice">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Int32" />
-        </EntityType>
-        <EntityType Name="EmployeePayment">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="DATE" Type="DateTime" Precision="0" />
-          <Property Name="MSNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="PAY" Type="Int32" Nullable="false" />
-          <Property Name="NEBT" Type="Int32" Nullable="false" />
-          <Property Name="isDelete" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Employee" Relationship="PlasticFactoryModel.FK_EmployeePayment_Employee" FromRole="EmployeePayment" ToRole="Employee" />
-          <Property Name="ProductPrice" Type="Int32" Nullable="false" />
-          <Property Name="TimePrice" Type="Int32" Nullable="false" />
-          <Property Name="Wage" Type="Int32" Nullable="false" />
-          <Property Name="Cash" Type="Int32" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_EmployeePayment_Employee">
-          <End Type="PlasticFactoryModel.Employee" Role="Employee" Multiplicity="0..1" />
-          <End Type="PlasticFactoryModel.EmployeePayment" Role="EmployeePayment" Multiplicity="*" />
+        <Association Name="FK_ProductOutput_Customer">
+          <End Type="PlasticFactoryModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="PlasticFactoryModel.ProductOutput" Role="ProductOutput" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="MSNV" />
+            <Principal Role="Customer">
+              <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="EmployeePayment">
-              <PropertyRef Name="MSNV" />
+            <Dependent Role="ProductOutput">
+              <PropertyRef Name="MSKH" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -647,6 +653,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="EmployeePayments">
+            <EntityTypeMapping TypeName="PlasticFactoryModel.EmployeePayment">
+              <MappingFragment StoreEntitySet="EmployeePayment">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DATE" ColumnName="DATE" />
+                <ScalarProperty Name="MSNV" ColumnName="MSNV" />
+                <ScalarProperty Name="PAY" ColumnName="PAY" />
+                <ScalarProperty Name="NEBT" ColumnName="NEBT" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+                <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+                <ScalarProperty Name="TimePrice" ColumnName="TimePrice" />
+                <ScalarProperty Name="Wage" ColumnName="Wage" />
+                <ScalarProperty Name="Cash" ColumnName="Cash" />
+                <ScalarProperty Name="isPayed" ColumnName="isPayed" />
+                <ScalarProperty Name="MonthOfPay" ColumnName="MonthOfPay" />
+                <ScalarProperty Name="YearOfPay" ColumnName="YearOfPay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="PaymentInputs">
             <EntityTypeMapping TypeName="PlasticFactoryModel.PaymentInput">
               <MappingFragment StoreEntitySet="PaymentInput">
@@ -668,6 +693,15 @@
                 <ScalarProperty Name="Payment" ColumnName="Payment" />
                 <ScalarProperty Name="Own" ColumnName="Own" />
                 <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PreferceProductPrices">
+            <EntityTypeMapping TypeName="PlasticFactoryModel.PreferceProductPrice">
+              <MappingFragment StoreEntitySet="PreferceProductPrice">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -778,31 +812,6 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="AutoIdEmployee" FunctionName="PlasticFactoryModel.Store.AutoIdEmployee" />
-          <EntitySetMapping Name="PreferceProductPrices">
-            <EntityTypeMapping TypeName="PlasticFactoryModel.PreferceProductPrice">
-              <MappingFragment StoreEntitySet="PreferceProductPrice">
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EmployeePayments">
-            <EntityTypeMapping TypeName="PlasticFactoryModel.EmployeePayment">
-              <MappingFragment StoreEntitySet="EmployeePayment">
-                <ScalarProperty Name="Cash" ColumnName="Cash" />
-                <ScalarProperty Name="Wage" ColumnName="Wage" />
-                <ScalarProperty Name="TimePrice" ColumnName="TimePrice" />
-                <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
-                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
-                <ScalarProperty Name="NEBT" ColumnName="NEBT" />
-                <ScalarProperty Name="PAY" ColumnName="PAY" />
-                <ScalarProperty Name="MSNV" ColumnName="MSNV" />
-                <ScalarProperty Name="DATE" ColumnName="DATE" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -18,11 +18,11 @@ namespace PlasticsFactory.Data
         public Nullable<System.DateTime> Date { get; set; }
         public string TimeStart { get; set; }
         public string TimeEnd { get; set; }
-        public Nullable<double> Time { get; set; }
+        public double Time { get; set; }
         public Nullable<int> Weight { get; set; }
         public Nullable<int> Type { get; set; }
-        public string TotalWeight { get; set; }
-        public Nullable<int> AdvancePayment { get; set; }
+        public Nullable<int> TotalWeight { get; set; }
+        public Nullable<double> AdvancePayment { get; set; }
         public string Note { get; set; }
         public int Id { get; set; }
         public Nullable<bool> isDelete { get; set; }
