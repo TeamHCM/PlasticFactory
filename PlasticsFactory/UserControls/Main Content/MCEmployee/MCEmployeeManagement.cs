@@ -17,6 +17,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         EmployeeBO employeeBO = new EmployeeBO();
         List<Data.Timekeeping> listTime = new List<Data.Timekeeping>();
         List<Data.EmployeePayment> listEpay = new List<Data.EmployeePayment>();
+        public MCChamcong.Management management = new MCChamcong.Management();
+        PreferenceMenu.PMChamcong pmChamcong = new PreferenceMenu.PMChamcong();
         int Month = 0;
         int Year = 0;
         struct Payment
@@ -158,6 +160,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                     dataDS.Rows[i].Cells[6].Value = debtAgo;
                     dataDS.Rows[i].Cells[7].Value = item.Cash;
                     dataDS.Rows[i].Cells[8].Value = item.PAY;
+                    dataDS.Rows[i].Cells[9].Value=item.MonthOfPay+"/"+item.YearOfPay;
                     i++;
                 }
                 var listAllPayment = employeePaymentBO.GetData(u => u.isDelete == false && u.DATE.Value.Month == Month && u.DATE.Value.Year == Year);
@@ -225,6 +228,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                     dataDS.Rows[i].Cells[6].Value = payment.debtAgo;
                     dataDS.Rows[i].Cells[7].Value = item.Cash;
                     dataDS.Rows[i].Cells[8].Value = item.PAY;
+                    dataDS.Rows[i].Cells[9].Value = item.MonthOfPay + "/" + item.YearOfPay;
                     i++;
                 }
                 txtWage.Text = (Time * TimePrice + Product * ProductPrice) != 0 ? (Time * TimePrice + Product * ProductPrice).ToString("#,###") : "0";
@@ -321,15 +325,22 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
 
         private void btnDetail_Click(object sender, EventArgs e)
         {
-            if (txtMSNV.Text != "All")
-            {
-                MCChamcong.Management management = new MCChamcong.Management();
-                PreferenceMenu.PMChamcong pmChamcong = new PreferenceMenu.PMChamcong();
-                management.Sender(txtEmployeeName.Text, txtMSNV.Text, Month, Year);
                 frmLayout.panelContents.Controls.Clear();
                 frmLayout.panelPreference.Controls.Clear();
                 frmLayout.panelPreference.Controls.Add(pmChamcong);
                 frmLayout.panelContents.Controls.Add(management);
+        }
+
+
+        private void dataDS_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < dataDS.Rows.Count - 1)
+            {
+                DateTime date = DateTime.Parse(dataDS.Rows[e.RowIndex].Cells[9].Value.ToString());
+                string MSNV = dataDS.Rows[e.RowIndex].Cells[2].Value.ToString();
+                string EmployeeName = dataDS.Rows[e.RowIndex].Cells[3].Value.ToString();
+                management = new MCChamcong.Management();
+                management.Sender(EmployeeName,MSNV,date);
             }
         }
     }

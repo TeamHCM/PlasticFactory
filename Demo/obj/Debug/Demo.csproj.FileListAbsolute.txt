@@ -20,13 +20,13 @@ C:\Users\thien\Documents\GitHub\PlasticFactory\Demo\bin\Debug\EntityFramework.dl
 C:\Users\thien\Documents\GitHub\PlasticFactory\Demo\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\thien\Documents\GitHub\PlasticFactory\Demo\bin\Debug\PlasticsFactory.Data.dll
 C:\Users\thien\Documents\GitHub\PlasticFactory\Demo\bin\Debug\BUS.pdb
-C:\Users\thien\Documents\GitHub\PlasticFactory\Demo\bin\Debug\BUS.dll.config
 C:\Users\thien\Documents\GitHub\PlasticFactory\Demo\bin\Debug\PlasticsFactory.Data.pdb
-C:\Users\thien\Documents\GitHub\PlasticFactory\Demo\bin\Debug\PlasticsFactory.Data.dll.config
 C:\Users\thien\Documents\GitHub\PlasticFactory\Demo\bin\Debug\EntityFramework.xml
 C:\Users\thien\Documents\GitHub\PlasticFactory\Demo\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\thien\Documents\GitHub\PlasticFactory\Demo\obj\Debug\Demo.exe
+C:\Users\thien\Documents\GitHub\PlasticFactory\Demo\obj\Debug\Demo.pdb
+C:\Users\thien\Documents\GitHub\PlasticFactory\Demo\bin\Debug\BUS.dll.config
+C:\Users\thien\Documents\GitHub\PlasticFactory\Demo\bin\Debug\PlasticsFactory.Data.dll.config
 C:\Users\thien\Documents\GitHub\PlasticFactory\Demo\obj\Debug\Demo.csprojAssemblyReference.cache
 C:\Users\thien\Documents\GitHub\PlasticFactory\Demo\obj\Debug\Demo.csproj.CoreCompileInputs.cache
 C:\Users\thien\Documents\GitHub\PlasticFactory\Demo\obj\Debug\Demo.csproj.CopyComplete
-C:\Users\thien\Documents\GitHub\PlasticFactory\Demo\obj\Debug\Demo.exe
-C:\Users\thien\Documents\GitHub\PlasticFactory\Demo\obj\Debug\Demo.pdb

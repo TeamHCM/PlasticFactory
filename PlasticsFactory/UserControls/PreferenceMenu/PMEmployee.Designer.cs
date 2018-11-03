@@ -64,7 +64,7 @@
             this.btnManage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManage.ForeColor = System.Drawing.SystemColors.Control;
             this.btnManage.Image = ((System.Drawing.Image)(resources.GetObject("btnManage.Image")));
-            this.btnManage.Location = new System.Drawing.Point(85, 3);
+            this.btnManage.Location = new System.Drawing.Point(166, 3);
             this.btnManage.Name = "btnManage";
             this.btnManage.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnManage.Size = new System.Drawing.Size(75, 67);
@@ -95,7 +95,7 @@
             this.btnPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPayment.ForeColor = System.Drawing.SystemColors.Control;
             this.btnPayment.Image = ((System.Drawing.Image)(resources.GetObject("btnPayment.Image")));
-            this.btnPayment.Location = new System.Drawing.Point(166, 3);
+            this.btnPayment.Location = new System.Drawing.Point(85, 3);
             this.btnPayment.Name = "btnPayment";
             this.btnPayment.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnPayment.Size = new System.Drawing.Size(75, 67);

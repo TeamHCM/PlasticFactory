@@ -19,8 +19,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
         public double totalCashAdvance = 0;
         public int totalWeight = 0;
         private string tempMSNV = "";
-        public delegate void Transport(string EmployeeName, string MSNV, int Month, int Year);
-        public Transport Sender;
+        public delegate void Transport(string EmployeeName, string MSNV, DateTime Date);
         #endregion Generate Field
 
         #region Support
@@ -31,7 +30,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             dataDS.Rows.Clear();
             totalCashAdvance = 0;
             totalWeight = 0;
-            txtWriteMoney.ResetText();
             foreach (var item in listData)
             {
                 dataDS.Rows.Add();
@@ -54,7 +52,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             lbTotalWeight.Text = string.Format("{0:0,0 (KG)}", totalWeight);
             if (totalCashAdvance > 0)
             {
-                txtWriteMoney.Text = "(" + UnitMoney(totalCashAdvance) + ")";
+                //txtWriteMoney.Text = "(" + UnitMoney(totalCashAdvance) + ")";
             }
         }
 
@@ -73,6 +71,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             else
             {
                 var listDB = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == MSNV && u.Date.Value.Month == date.Month && u.Date.Value.Year == date.Year);
+                
                 LoadDataGird(listDB);
             }
         }
@@ -311,51 +310,43 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
 
         #endregion Support
 
+        public Transport Sender;
         public Management()
         {
             InitializeComponent();
-            Sender = new Transport(loadTransport);
-        }
-        private void loadTransport(string EmployeeName, string MSNV, int Month, int Year)
-        {
-            txtMSNV.Text = MSNV;
-            txtEmployee.Text = EmployeeName;
-            txtMonth.Text = Month.ToString();
-            txtYear.Text = Year.ToString();
-        }
-        public void Management_Load(object sender, EventArgs e)
-        {
+            txtEmployee.Text = "All";
             lbCashAdvance.Text = "";
             lbTotalWeight.Text = "";
-            txtWriteMoney.Text = "";
+            //txtWriteMoney.Text = "";
             LoadDataDS(Now);
             LoadNameEmployeeName();
             loadDayMonthYear();
             txtDay.Text = "";
+            Sender = loadTransport;
+        }
+        public void loadTransport(string EmployeeName, string MSNV,DateTime Date)
+        {
+            txtMSNV.Text = MSNV;
+            txtEmployee.Text = EmployeeName;
+            txtMonth.Text = Date.Month.ToString();
+            txtYear.Text = Date.Year.ToString();
+            LoadDataDSByMSNV(MSNV, Date);
+        }
+        public void Management_Load(object sender, EventArgs e)
+        {
+            
+            try {
+                DateTime date = DateTime.Parse(txtMonth.Text + "/" + txtYear.Text);
+                LoadDataDSByMSNV(txtMSNV.Text, date);
+            }
+            catch { }
         }
 
         #region Event Search
 
         private void txtEmployee_SelectedValueChanged(object sender, EventArgs e)
         {
-            var listMSNV = timekeepingBO.GetIdByName(txtEmployee.Text);
-            if (listMSNV.Count != 0)
-            {
-                txtMSNV.Items.Clear();
-                foreach (var item in listMSNV)
-                {
-                    txtMSNV.Items.Add(item);
-                }
-                txtMSNV.Text = listMSNV.First();
-            }
-            else
-            {
-                txtMSNV.Text = "";
-                txtMSNV.Items.Clear();
-            }
-            DateTime date = DateTime.Parse("1" + "/" + txtMonth.Text + "/" + txtYear.Text);
-            LoadDataDSByMSNV(txtMSNV.Text, date);
-            txtDay.SelectedItem = "";
+
         }
 
         private void txtDay_SelectedValueChanged(object sender, EventArgs e)
@@ -625,5 +616,39 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
         }
 
         #endregion Event Update,Remove
+
+        private void txtEmployee_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var listMSNV = timekeepingBO.GetIdByName(txtEmployee.Text);
+                if (listMSNV.Count != 0)
+                {
+                    txtMSNV.Items.Clear();
+                    foreach (var item in listMSNV)
+                    {
+                        txtMSNV.Items.Add(item);
+                    }
+                    txtMSNV.Text = listMSNV.First();
+                }
+                else
+                {
+                    txtMSNV.Text = "";
+                    txtMSNV.Items.Clear();
+                }
+                DateTime date = DateTime.Parse("1" + "/" + txtMonth.Text + "/" + txtYear.Text);
+                LoadDataDSByMSNV(txtMSNV.Text, date);
+                txtDay.SelectedItem = "";
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void txtEmployee_TextChanged(object sender, EventArgs e)
+        {
+            txtEmployee_SelectedIndexChanged(sender, e);
+        }
     }
 }

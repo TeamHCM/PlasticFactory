@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Management));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Tienung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -64,7 +64,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lbCashAdvance = new System.Windows.Forms.Label();
             this.lbTotalWeight = new System.Windows.Forms.Label();
-            this.txtWriteMoney = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDS)).BeginInit();
@@ -150,14 +149,14 @@
             // 
             // dataDS
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataDS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataDS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MSNV,
@@ -175,8 +174,8 @@
             this.dataDS.Name = "dataDS";
             this.dataDS.ReadOnly = true;
             this.dataDS.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataDS.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataDS.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataDS.Size = new System.Drawing.Size(1297, 414);
             this.dataDS.TabIndex = 79;
             this.dataDS.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDS_CellDoubleClick);
@@ -255,7 +254,9 @@
             this.txtEmployee.Name = "txtEmployee";
             this.txtEmployee.Size = new System.Drawing.Size(143, 21);
             this.txtEmployee.TabIndex = 86;
+            this.txtEmployee.SelectedIndexChanged += new System.EventHandler(this.txtEmployee_SelectedIndexChanged);
             this.txtEmployee.SelectedValueChanged += new System.EventHandler(this.txtEmployee_SelectedValueChanged);
+            this.txtEmployee.TextChanged += new System.EventHandler(this.txtEmployee_TextChanged);
             // 
             // label3
             // 
@@ -372,7 +373,7 @@
             this.label7.ForeColor = System.Drawing.Color.Firebrick;
             this.label7.Location = new System.Drawing.Point(30, 573);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(141, 16);
+            this.label7.Size = new System.Drawing.Size(142, 16);
             this.label7.TabIndex = 99;
             this.label7.Text = "TỔNG SẢN PHẨM :";
             // 
@@ -383,7 +384,7 @@
             this.lbCashAdvance.ForeColor = System.Drawing.Color.RoyalBlue;
             this.lbCashAdvance.Location = new System.Drawing.Point(165, 542);
             this.lbCashAdvance.Name = "lbCashAdvance";
-            this.lbCashAdvance.Size = new System.Drawing.Size(101, 16);
+            this.lbCashAdvance.Size = new System.Drawing.Size(103, 16);
             this.lbCashAdvance.TabIndex = 100;
             this.lbCashAdvance.Text = "100000 (VNĐ)";
             // 
@@ -398,22 +399,10 @@
             this.lbTotalWeight.TabIndex = 101;
             this.lbTotalWeight.Text = "1000 (KG)";
             // 
-            // txtWriteMoney
-            // 
-            this.txtWriteMoney.AutoSize = true;
-            this.txtWriteMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWriteMoney.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.txtWriteMoney.Location = new System.Drawing.Point(309, 542);
-            this.txtWriteMoney.Name = "txtWriteMoney";
-            this.txtWriteMoney.Size = new System.Drawing.Size(136, 16);
-            this.txtWriteMoney.TabIndex = 102;
-            this.txtWriteMoney.Text = "(một trăm nghìn đồng)";
-            // 
             // Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.txtWriteMoney);
             this.Controls.Add(this.lbTotalWeight);
             this.Controls.Add(this.lbCashAdvance);
             this.Controls.Add(this.label7);
@@ -484,6 +473,5 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lbCashAdvance;
         private System.Windows.Forms.Label lbTotalWeight;
-        private System.Windows.Forms.Label txtWriteMoney;
     }
 }

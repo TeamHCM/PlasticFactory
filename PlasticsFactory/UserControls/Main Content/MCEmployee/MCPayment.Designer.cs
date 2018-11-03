@@ -31,10 +31,10 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MCPaymentEmployee));
             this.txtID = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -42,7 +42,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.txtNoteMoney = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.txtPay = new System.Windows.Forms.TextBox();
             this.txtMoneyOfProduct = new System.Windows.Forms.ComboBox();
             this.txtDate = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -65,7 +64,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnRemove = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.dataDS = new System.Windows.Forms.DataGridView();
             this.MSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,6 +95,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtEmployeeName = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.imageListCB = new System.Windows.Forms.ImageList(this.components);
+            this.txtPay = new DevExpress.XtraEditors.TextEdit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataDetailWork)).BeginInit();
@@ -105,6 +104,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmployeeName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPay.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtID
@@ -163,7 +163,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnEdit.Location = new System.Drawing.Point(676, 215);
+            this.btnEdit.Location = new System.Drawing.Point(694, 216);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(134, 45);
             this.btnEdit.TabIndex = 158;
@@ -171,14 +171,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Visible = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // txtPay
-            // 
-            this.txtPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPay.Location = new System.Drawing.Point(236, 220);
-            this.txtPay.Name = "txtPay";
-            this.txtPay.Size = new System.Drawing.Size(434, 31);
-            this.txtPay.TabIndex = 174;
+            this.btnEdit.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnEdit_KeyUp);
             // 
             // txtMoneyOfProduct
             // 
@@ -347,13 +340,14 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.btnThem.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(676, 214);
+            this.btnThem.Location = new System.Drawing.Point(694, 216);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(134, 45);
             this.btnThem.TabIndex = 157;
             this.btnThem.Text = "Thanh toán";
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            this.btnThem.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnThem_KeyUp);
             // 
             // label7
             // 
@@ -377,22 +371,16 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(724, 559);
+            this.btnRemove.BackColor = System.Drawing.Color.LightCoral;
+            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnRemove.Location = new System.Drawing.Point(705, 553);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(92, 30);
+            this.btnRemove.Size = new System.Drawing.Size(115, 41);
             this.btnRemove.TabIndex = 161;
             this.btnRemove.Text = "Xóa";
-            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.UseVisualStyleBackColor = false;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(626, 559);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(92, 30);
-            this.btnSave.TabIndex = 163;
-            this.btnSave.Text = "Lưu";
-            this.btnSave.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -406,14 +394,14 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             // 
             // dataDS
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
             this.dataDS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataDS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MSTT,
@@ -425,28 +413,28 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.paid,
             this.Debt,
             this.Timekeep});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataDS.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataDS.DefaultCellStyle = dataGridViewCellStyle42;
             this.dataDS.Location = new System.Drawing.Point(34, 298);
             this.dataDS.Name = "dataDS";
             this.dataDS.ReadOnly = true;
             this.dataDS.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataDS.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataDS.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle43.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle43.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDS.RowHeadersDefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataDS.RowsDefaultCellStyle = dataGridViewCellStyle44;
             this.dataDS.Size = new System.Drawing.Size(795, 244);
             this.dataDS.TabIndex = 159;
             this.dataDS.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDS_CellDoubleClick);
@@ -659,6 +647,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             // 
             // txtMSNV
             // 
+            this.txtMSNV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtMSNV.Enabled = false;
             this.txtMSNV.Location = new System.Drawing.Point(238, 57);
             this.txtMSNV.Name = "txtMSNV";
@@ -697,6 +686,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.txtEmployeeName.Size = new System.Drawing.Size(256, 20);
             this.txtEmployeeName.TabIndex = 206;
             this.txtEmployeeName.SelectedIndexChanged += new System.EventHandler(this.txtEmployeeName_SelectedIndexChanged);
+            this.txtEmployeeName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtEmployeeName_KeyUp);
             // 
             // imageListCB
             // 
@@ -704,10 +694,24 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.imageListCB.TransparentColor = System.Drawing.Color.Transparent;
             this.imageListCB.Images.SetKeyName(0, "flag.png");
             // 
+            // txtPay
+            // 
+            this.txtPay.Location = new System.Drawing.Point(238, 223);
+            this.txtPay.Name = "txtPay";
+            this.txtPay.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPay.Properties.Appearance.Options.UseFont = true;
+            this.txtPay.Properties.Mask.BeepOnError = true;
+            this.txtPay.Properties.Mask.EditMask = "n0";
+            this.txtPay.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtPay.Size = new System.Drawing.Size(450, 32);
+            this.txtPay.TabIndex = 207;
+            this.txtPay.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPay_KeyUp);
+            // 
             // MCPaymentEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtPay);
             this.Controls.Add(this.txtMSNV);
             this.Controls.Add(this.txtDebt);
             this.Controls.Add(this.label14);
@@ -730,7 +734,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.txtPay);
             this.Controls.Add(this.txtMoneyOfProduct);
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.panel2);
@@ -744,7 +747,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnRemove);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dataDS);
             this.Controls.Add(this.txtEmployeeName);
@@ -762,6 +764,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmployeeName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPay.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -776,7 +779,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.TextBox txtPay;
         private System.Windows.Forms.ComboBox txtMoneyOfProduct;
         private System.Windows.Forms.DateTimePicker txtDate;
         private System.Windows.Forms.Panel panel2;
@@ -792,7 +794,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataDS;
         private System.Windows.Forms.Label txtDayWork;
@@ -830,5 +831,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         private System.Windows.Forms.DataGridViewTextBoxColumn paid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Debt;
         private System.Windows.Forms.DataGridViewTextBoxColumn Timekeep;
+        private TextEdit txtPay;
     }
 }

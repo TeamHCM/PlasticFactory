@@ -17,6 +17,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
         private TimekeepingBO timekeepingBO = new TimekeepingBO();
         private EmployeePaymentBO employeePaymentBO = new EmployeePaymentBO();
         private PreferceProductPriceBO preferceProductPriceBO = new PreferceProductPriceBO();
+        private PaymentInputBO paymentInputBO = new PaymentInputBO();
+        private PaymentOutputBO paymentOutputBO = new PaymentOutputBO();
         private int Month = 0;
         private int Year = 0;
 
@@ -37,13 +39,14 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
 
         private void loadYear()
         {
+
+            Year = DateTime.Now.Year;
             int curYear = DateTime.Now.Year;
             txtYear.Items.Clear();
             for (int i = curYear - 10; i <= curYear; i++)
             {
                 txtYear.Items.Add(i);
             }
-            Year = DateTime.Now.Year;
             txtYear.Text = Year.ToString();
         }
 
@@ -100,8 +103,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
         private void loadAllInformation()
         {
             //Generate Field
-            var listInput = productInputBO.GetData(u => u.isDelete == false && u.Date.Value.Month == Month && u.Date.Value.Year == Year);
-            var listOutput = productOutputBO.GetData(u => u.isDelete == false && u.Date.Value.Month == Month && u.Date.Value.Year == Year);
+            var listInput = productInputBO.GetData(u => u.isDelete == false && u.Date.Value.Month == Month && u.Date.Value.Year == Year,u=>u.PaymentInputs);
+            var listOutput = productOutputBO.GetData(u => u.isDelete == false && u.Date.Value.Month == Month && u.Date.Value.Year == Year,u=>u.PaymentOutputs);
             var listEmployeePayment = employeePaymentBO.GetData((u => u.isDelete == false && u.DATE.Value.Month == Month && u.DATE.Value.Year == Year));
             var listTimekeeping = timekeepingBO.GetData((u => u.isDelete==false));
             // Weight
@@ -116,14 +119,43 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
             //Residue
             txtInputResidue.Text = (listInput.Sum(u => u.TotalAmount) - listInput.Sum(u => u.Payed))!=0? (listInput.Sum(u => u.TotalAmount) - listInput.Sum(u => u.Payed)).ToString("#,###"):"0";
             txtOutputResidue.Text = (listOutput.Sum(u => u.TotalAmount).Value - listOutput.Sum(u => u.Payed))!=0? (listOutput.Sum(u => u.TotalAmount).Value - listOutput.Sum(u => u.Payed)).ToString("#,###"):"0";
-            //Wage 
-            //check 1 payement exist  
-            //int Wage = 0;
-            //foreach(var item in listEmployeePayment)
-            //{
-            //    listTimekeeping.Where(u=>u.Id=item.)
-            //}
-
+            //Wage
+            txtWage.Text = listEmployeePayment.Sum(u => u.PAY)!=0? listEmployeePayment.Sum(u => u.PAY).ToString("#,###"):"0";
+            //Profitable
+            txtProfitable.Text = (listOutput.Sum(u => u.Payed) - listInput.Sum(u => u.Payed) - listEmployeePayment.Sum(u => u.PAY)) != 0 ? (listOutput.Sum(u => u.Payed) - listInput.Sum(u => u.Payed) - listEmployeePayment.Sum(u => u.PAY)).ToString("#,###") : "0";
+            txtProfitableTotal.Text=(listOutput.Sum(u => u.TotalAmount) - listInput.Sum(u => u.TotalAmount) - listEmployeePayment.Sum(u => u.PAY)) != 0 ? (listOutput.Sum(u => u.Payed) - listInput.Sum(u => u.Payed) - listEmployeePayment.Sum(u => u.PAY)).ToString("#,###") : "0";
+            //percent
+            var listInputMonthAgo = productInputBO.GetData(u => u.isDelete == false && u.Date.Value.Month == Month - 1 && u.Date.Value.Year == Year);
+            var listOutputMonthAgo = productOutputBO.GetData(u => u.isDelete == false && u.Date.Value.Month == Month - 1 && u.Date.Value.Year == Year);
+            if (Month==1)
+            {
+                listInputMonthAgo = productInputBO.GetData(u => u.isDelete == false && u.Date.Value.Month == 12 && u.Date.Value.Year == Year-1);
+                listOutputMonthAgo = productOutputBO.GetData(u => u.isDelete == false && u.Date.Value.Month == 12 && u.Date.Value.Year == Year-1);
+            }
+            int TotalInput = productInputBO.GetData(u => u.isDelete == false && u.Date.Value.Year == Year).Sum(u => u.TotalWeight);
+            int TotalOutput = productOutputBO.GetData(u => u.isDelete == false && u.Date.Value.Year == Year).Sum(u => u.TotalWeight);
+            float InputPercent = ((float)((listInput.Sum(u => u.TotalWeight) * 100) / (float)TotalInput) - ((float)(listInputMonthAgo.Sum(u => u.TotalWeight) * 100) / (float)TotalInput));
+            float OutputPercent = ((float)listOutput.Sum(u => u.TotalWeight) * 100 / (float)TotalOutput - (float)listOutputMonthAgo.Sum(u => u.TotalWeight) * 100 / (float)TotalOutput);
+            if(InputPercent>=0)
+            {
+                txtInputPercent.Text = InputPercent.ToString("0.0") + "%";
+                pictureInputPercent.Image = Properties.Resources.arrow_up_icon;
+            }
+            if(InputPercent<0)
+            {
+                txtInputPercent.Text = (InputPercent*(-1)).ToString("0.0") + "%";
+                pictureInputPercent.Image = Properties.Resources.arrow_down_icon;
+            }
+            if (OutputPercent >= 0)
+            {
+                txtOutputPercent.Text = OutputPercent.ToString("0.0") + "%";
+                pictureOutputPercent.Image = Properties.Resources.arrow_up_icon;
+            }
+            if (OutputPercent < 0)
+            {
+                txtOutputPercent.Text = (OutputPercent * (-1)).ToString("0.0") + "%";
+                pictureOutputPercent.Image = Properties.Resources.arrow_down_icon;
+            }
         }
         #endregion Support
 
@@ -137,8 +169,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
         {
             //
             loadCharArea();
-            loadMonth();
             loadYear();
+            loadMonth();
             loadChart();
             loadAllInformation();
         }

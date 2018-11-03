@@ -12,7 +12,6 @@ namespace PlasticsFactory
     public partial class frmLayout : Form
     {
         #region Generate Field
-
         public static Panel panelContents = new Panel();
         public static Panel panelPreference = new Panel();
         public PMStatistic pmStatistic = new PMStatistic();
@@ -25,7 +24,6 @@ namespace PlasticsFactory
         public MCEAdd mceAdd;
         public PMEmployee pmEployee;
         public MCAll mcAll = new MCAll();
-
         #endregion Generate Field
 
         //public PMChamcong pmChamcong;

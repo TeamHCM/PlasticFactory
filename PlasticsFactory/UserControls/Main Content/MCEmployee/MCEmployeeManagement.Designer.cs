@@ -59,6 +59,7 @@
             this.Debt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cash = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataTimekeep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbPayed = new System.Windows.Forms.Label();
             this.lbPay = new System.Windows.Forms.Label();
             this.txtPayed = new System.Windows.Forms.Label();
@@ -136,9 +137,9 @@
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
             this.label2.Location = new System.Drawing.Point(255, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 16);
+            this.label2.Size = new System.Drawing.Size(80, 16);
             this.label2.TabIndex = 21;
-            this.label2.Text = "Khách hàng";
+            this.label2.Text = "Nhân viên";
             // 
             // txtMonth
             // 
@@ -305,12 +306,14 @@
             this.Product,
             this.Debt,
             this.Cash,
-            this.Pay});
-            this.dataDS.Location = new System.Drawing.Point(36, 184);
+            this.Pay,
+            this.DataTimekeep});
+            this.dataDS.Location = new System.Drawing.Point(37, 184);
             this.dataDS.Name = "dataDS";
             this.dataDS.ReadOnly = true;
             this.dataDS.Size = new System.Drawing.Size(1297, 286);
             this.dataDS.TabIndex = 128;
+            this.dataDS.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDS_CellClick);
             // 
             // MSTT
             // 
@@ -336,21 +339,19 @@
             this.Name.HeaderText = "Họ tên";
             this.Name.Name = "Name";
             this.Name.ReadOnly = true;
-            this.Name.Width = 200;
+            this.Name.Width = 150;
             // 
             // TotalTime
             // 
             this.TotalTime.HeaderText = "Thời gian";
             this.TotalTime.Name = "TotalTime";
             this.TotalTime.ReadOnly = true;
-            this.TotalTime.Width = 120;
             // 
             // Product
             // 
             this.Product.HeaderText = "Sản phẩm";
             this.Product.Name = "Product";
             this.Product.ReadOnly = true;
-            this.Product.Width = 120;
             // 
             // Debt
             // 
@@ -371,7 +372,14 @@
             this.Pay.HeaderText = "Tiền thanh toán";
             this.Pay.Name = "Pay";
             this.Pay.ReadOnly = true;
-            this.Pay.Width = 180;
+            this.Pay.Width = 150;
+            // 
+            // DataTimekeep
+            // 
+            this.DataTimekeep.HeaderText = "Chấm công";
+            this.DataTimekeep.Name = "DataTimekeep";
+            this.DataTimekeep.ReadOnly = true;
+            this.DataTimekeep.Width = 120;
             // 
             // lbPayed
             // 
@@ -455,9 +463,9 @@
             this.btnDetail.BackColor = System.Drawing.Color.ForestGreen;
             this.btnDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDetail.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDetail.Location = new System.Drawing.Point(1130, 481);
+            this.btnDetail.Location = new System.Drawing.Point(1195, 481);
             this.btnDetail.Name = "btnDetail";
-            this.btnDetail.Size = new System.Drawing.Size(204, 63);
+            this.btnDetail.Size = new System.Drawing.Size(139, 47);
             this.btnDetail.TabIndex = 144;
             this.btnDetail.Text = "Chi tiết";
             this.btnDetail.UseVisualStyleBackColor = false;
@@ -524,6 +532,11 @@
         private System.Windows.Forms.Label lbPayed;
         private System.Windows.Forms.Label lbPay;
         private System.Windows.Forms.Label txtPayed;
+        private System.Windows.Forms.Label lbCash;
+        private System.Windows.Forms.Label txtCash;
+        private System.Windows.Forms.Label txtDebtNow;
+        private System.Windows.Forms.Label lbDebt;
+        private System.Windows.Forms.Button btnDetail;
         private System.Windows.Forms.DataGridViewTextBoxColumn MSTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgName;
@@ -533,10 +546,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Debt;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cash;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pay;
-        private System.Windows.Forms.Label lbCash;
-        private System.Windows.Forms.Label txtCash;
-        private System.Windows.Forms.Label txtDebtNow;
-        private System.Windows.Forms.Label lbDebt;
-        private System.Windows.Forms.Button btnDetail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataTimekeep;
     }
 }

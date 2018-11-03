@@ -145,7 +145,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             //MessageBox.Show("Pay dau :" + payment.pay);
             if (payment.pay > 0)
             {
-                txtNoteMoney.Text = payment.pay.ToString();
+                txtNoteMoney.Text = payment.pay.ToString("#,###");
                 txtPay.Text = payment.pay.ToString();
             }
             if (payment.pay < 0)
@@ -292,6 +292,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             loadPrice();
             loadEmployeeName();
             loadDG();
+            txtEmployeeName.Focus();
             //loadDetail();
         }
 
@@ -481,7 +482,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                 loadDetail();
                 ResetForm();
                 btnRemove.Enabled = true;
-                btnSave.Enabled = true;
                 btnEdit.Visible = false;
                 btnThem.Visible = true;
                 TimeKeepDate = "";
@@ -533,10 +533,9 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                             txtDebt.Text = tempDebt.ToString();
                             txtCash.Text = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == strMSNV && u.Date.Value.Month == Month && u.Date.Value.Year == Year).Sum(u => u.AdvancePayment).ToString();
                             txtPay.Text = employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().PAY.ToString();
-                            txtNoteMoney.Text = employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().PAY.ToString();
+                            txtNoteMoney.Text = employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().PAY!=0 ? employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().PAY.ToString("#,###"):"0";
                             txtMonth.Text = dataDS.Rows[e.RowIndex].Cells[8].Value.ToString().Split('/')[0];
                             btnRemove.Enabled = false;
-                            btnSave.Enabled = false;
                         }
                         catch
                         {
@@ -548,7 +547,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                     case 1:
 
                         btnRemove.Enabled = true;
-                        btnSave.Enabled = true;
                         ResetForm();
                         btnEdit.Visible = false;
                         btnDoubleGrid = 0;
@@ -583,5 +581,41 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             }
             catch { }
         }
+
+        #region Focus
+        private void txtEmployeeName_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+            {
+                txtPay.Focus();
+            }
+        }
+
+        private void txtPay_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnThem.Focus();
+                btnEdit.Focus();
+            }
+        }
+
+        private void btnEdit_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtEmployeeName.Focus();
+            }
+        }
+
+        private void btnThem_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtEmployeeName.Focus();
+            }
+        }
+        #endregion
+
     }
 }
