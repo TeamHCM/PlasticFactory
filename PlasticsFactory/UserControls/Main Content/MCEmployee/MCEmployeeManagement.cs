@@ -48,6 +48,37 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         #endregion
 
         #region Support
+        private void loadEmployee()
+        {
+            var listDB = employeeBO.GetData(u => u.isDelete == false);
+            dataEmployee.Rows.Clear();
+            int i = 0;
+            foreach(var item in listDB)
+            {
+                dataEmployee.Rows.Add();
+                dataEmployee.Rows[i].Cells[0].Value = item.MSNV;
+                dataEmployee.Rows[i].Cells[1].Value = item.Hoten;
+                dataEmployee.Rows[i].Cells[2].Value = item.Gioitinh;
+                dataEmployee.Rows[i].Cells[3].Value = item.Ngaysinh;
+                dataEmployee.Rows[i].Cells[4].Value = item.Diachi;
+                dataEmployee.Rows[i].Cells[5].Value = item.CMND;
+                dataEmployee.Rows[i].Cells[6].Value = item.SDT;
+                i++;
+            }
+        }
+
+        private void ResetFormEmployee()
+        {
+            loadEmployee();
+            txtnvMSNV.ResetText();
+            txtEmployeeNam.ResetText();
+            txtBirthDay.ResetText();
+            txtDiachi.ResetText();
+            txtCMND.ResetText();
+            txtSDT.ResetText();
+            rdNam.Checked = true;
+        }
+
         private void ResetForm()
         {
             txtWage.Text = "0";
@@ -250,11 +281,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-        }
-
+        
         private void MCEmployeeManagement_Load(object sender, EventArgs e)
         {
             PlbWage = new Point(lbWage.Location.X, lbWage.Location.Y);
@@ -273,6 +300,13 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             loadMSNV();
             loadEmployeeName();
             loadDG();
+            loadEmployee();
+        }
+
+        private void btnEmployee_Click(object sender, EventArgs e)
+        {
+            ManageEmployee frmMGEMployee = new ManageEmployee();
+            frmMGEMployee.ShowDialog();
         }
 
         private void txtMSNV_SelectedIndexChanged(object sender, EventArgs e)
@@ -322,15 +356,14 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             Year = int.Parse(txtYear.Text);
             txtMSNV_SelectedIndexChanged(sender, e);
         }
-
+        
         private void btnDetail_Click(object sender, EventArgs e)
         {
-                frmLayout.panelContents.Controls.Clear();
-                frmLayout.panelPreference.Controls.Clear();
-                frmLayout.panelPreference.Controls.Add(pmChamcong);
-                frmLayout.panelContents.Controls.Add(management);
+            frmLayout.panelContents.Controls.Clear();
+            frmLayout.panelPreference.Controls.Clear();
+            frmLayout.panelPreference.Controls.Add(pmChamcong);
+            frmLayout.panelContents.Controls.Add(management);
         }
-
 
         private void dataDS_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -340,8 +373,61 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                 string MSNV = dataDS.Rows[e.RowIndex].Cells[2].Value.ToString();
                 string EmployeeName = dataDS.Rows[e.RowIndex].Cells[3].Value.ToString();
                 management = new MCChamcong.Management();
-                management.Sender(EmployeeName,MSNV,date);
+                management.Sender(EmployeeName, MSNV, date);
             }
+        }
+
+        private void dataEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex<dataEmployee.Rows.Count-1)
+            {
+                txtnvMSNV.Text = dataEmployee.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtEmployeeNam.Text = dataEmployee.Rows[e.RowIndex].Cells[1].Value.ToString();
+                string sex = dataEmployee.Rows[e.RowIndex].Cells[2].Value.ToString();
+                if(sex=="Nam")
+                {
+                    rdNam.Checked=true;
+                }
+                else
+                {
+                    rdNu.Checked = true;
+                }
+                txtBirthDay.Text= dataEmployee.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txtCMND.Text= dataEmployee.Rows[e.RowIndex].Cells[5].Value.ToString();
+                txtDiachi.Text = dataEmployee.Rows[e.RowIndex].Cells[4].Value.ToString();
+                txtSDT.Text = dataEmployee.Rows[e.RowIndex].Cells[6].Value.ToString();
+            }
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            if(txtnvMSNV.Text!=string.Empty)
+            {
+                employeeBO.isDelete(txtnvMSNV.Text);
+                ResetFormEmployee();
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            Data.Employee employee = new Data.Employee();
+            employee.Hoten = txtEmployeeNam.Text;
+            if(rdNam.Checked)
+            {
+                employee.Gioitinh = "Nam";
+            }
+            else
+            {
+                employee.Gioitinh = "Nữ";
+            }
+            employee.Ngaysinh = DateTime.Parse(txtBirthDay.Text);
+            employee.Diachi = txtDiachi.Text;
+            employee.CMND = txtCMND.Text;
+            employee.SDT = txtSDT.Text;
+            employee.isDelete = false;
+            employee.MSNV = txtnvMSNV.Text;
+            employeeBO.Update(employee);
+            ResetFormEmployee();
         }
     }
 }

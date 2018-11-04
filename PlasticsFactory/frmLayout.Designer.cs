@@ -84,7 +84,7 @@
             // 
             this.thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
             this.thốngKêToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
-            this.thốngKêToolStripMenuItem.Text = "Thống kê";
+            this.thốngKêToolStripMenuItem.Text = "Tùy chọn";
             this.thốngKêToolStripMenuItem.Click += new System.EventHandler(this.thốngKêToolStripMenuItem_Click);
             // 
             // frmLayout

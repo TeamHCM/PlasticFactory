@@ -43,13 +43,25 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 dataDS.Rows[i].Cells[7].Value = item.Type;
                 dataDS.Rows[i].Cells[8].Value = item.TotalWeight;
                 dataDS.Rows[i].Cells[9].Value = item.AdvancePayment;
-                dataDS.Rows[i].Cells[10].Value = item.Note;
+                dataDS.Rows[i].Cells[10].Value = item.Food;
+                dataDS.Rows[i].Cells[11].Value = item.Punish;
+                dataDS.Rows[i].Cells[12].Value = item.Bunus;
+                dataDS.Rows[i].Cells[13].Value = item.Note;
+                if (item.isRest == true)
+                {
+                    dataDS.Rows[i].Cells[14].Value = "Yes";
+                }
+                else
+                {
+                    dataDS.Rows[i].Cells[14].Value = "No";
+                }
                 totalCashAdvance += item.AdvancePayment.Value;
                 totalWeight += item.TotalWeight.Value;
                 i++;
             }
             lbCashAdvance.Text = string.Format("{0:0,0 (VNĐ)}", totalCashAdvance);
             lbTotalWeight.Text = string.Format("{0:0,0 (KG)}", totalWeight);
+            txtTotalTime.Text= string.Format("{0:0,0 (h)}", listData.Sum(u=>u.Time));
             if (totalCashAdvance > 0)
             {
                 //txtWriteMoney.Text = "(" + UnitMoney(totalCashAdvance) + ")";

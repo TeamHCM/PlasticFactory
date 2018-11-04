@@ -25,8 +25,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
         public void LoadAutoRefreshInformation()
         {
             loadListTimekeeping();
-            txtMSNV.ResetText();
-            txtHoten.ResetText();
             txtThoigianBD.ResetText();
             txtThoigianKT.ResetText();
             txtWeight.ResetText();
@@ -57,7 +55,18 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 dataDS.Rows[i].Cells[7].Value = item.Type;
                 dataDS.Rows[i].Cells[8].Value = item.TotalWeight;
                 dataDS.Rows[i].Cells[9].Value = item.AdvancePayment;
-                dataDS.Rows[i].Cells[10].Value = item.Note;
+                dataDS.Rows[i].Cells[10].Value = item.Food;
+                dataDS.Rows[i].Cells[11].Value = item.Punish;
+                dataDS.Rows[i].Cells[12].Value = item.Bunus;
+                dataDS.Rows[i].Cells[13].Value = item.Note;
+                if (item.isRest == true)
+                {
+                    dataDS.Rows[i].Cells[14].Value = "Yes";
+                }
+                else
+                {
+                    dataDS.Rows[i].Cells[14].Value = "No";
+                }
                 i++;
             }
         }
@@ -123,6 +132,17 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                     str += item;
                 }
                 timekeeping.AdvancePayment = int.Parse(str);
+            }
+            timekeeping.Food = txtFood.Text!=string.Empty? double.Parse(txtFood.Text):0;
+            timekeeping.Punish =txtPunish.Text!=string.Empty? double.Parse(txtPunish.Text):0;
+            timekeeping.Bunus = txtBonus.Text!=string.Empty?double.Parse(txtBonus.Text):0;
+            if(checkRest.Checked)
+            {
+                timekeeping.isRest = true;
+            }
+            if(!checkRest.Checked)
+            {
+                timekeeping.isRest = false;
             }
             timekeeping.Note = txtNote.Text;
             timekeeping.isDelete = false;
@@ -694,14 +714,13 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             { }
         }
 
-        private void txtCashAdvance_KeyUp_1(object sender, KeyEventArgs e)
+        private void txtCashAdvance_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                txtNote.Focus();
+                txtFood.Focus();
             }
         }
-
         #endregion Event CashAdvance
 
         #region Event DataGridViews
@@ -793,6 +812,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             }
         }
 
+
         #endregion Event DataGridViews
 
         #region Button
@@ -842,7 +862,18 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 {
                     if ((txtThoigianKT.Text.Equals("") || txtThoigianBD.Text.Equals("")) && txtWeight.Text.Equals(""))
                     {
-                        MessageBox.Show("Vui lòng kiểm tra lại thông tin làm việc");
+                        //code giúp kiểm tra  lỗi nuế ở treên rỗng mà trường họcw nhập check vào nghỉ thì ok vẫn cho thêm vài chấm công
+                        if (checkRest.Checked)
+                        {
+                            timekeeping = ObjectTimekeeping();
+                            list.Add(timekeeping);
+                            LoadAutoRefreshInformation();
+                            txtHoten.Focus();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Vui lòng kiểm tra lại thông tin làm việc");
+                        }
                     }
                     else
                     {
@@ -908,5 +939,72 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
         }
 
         #endregion Button
+
+        #region food
+
+        private void txtFood_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtFood_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtNote.Focus();
+            }
+        }
+        #endregion
+
+        #region Note
+        private void txtNote_KeyUp_1(object sender, KeyEventArgs e)
+        {
+            int i = 0;
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnEdit.Focus();
+                btnThem.Focus();
+            }
+        }
+        #endregion
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkRest.Checked)
+            {
+                txtThoigianBD.Enabled = false;
+                txtThoigianKT.Enabled = false;
+                txtWeight.Enabled = false;
+                txtThoigianBD.Text = string.Empty;
+                txtThoigianKT.Text =string.Empty ;
+                txtWeight.Text = string.Empty;
+                txtBonus.Enabled = false;
+                txtPunish.Enabled = true;
+            }
+            if (!checkRest.Checked)
+            {
+                txtPunish.Enabled = false;
+                txtBonus.Enabled = true;
+                txtThoigianBD.Enabled = true;
+                txtThoigianKT.Enabled = true;
+                txtWeight.Enabled = true;
+            }
+        }
+
+        private void txtPunish_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+            {
+                txtCashAdvance.Focus();
+            }
+        }
+
+        private void txtBonus_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

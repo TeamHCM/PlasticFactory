@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MCEAdd));
             this.btnThem = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -160,6 +160,7 @@
             this.txtSDT.Size = new System.Drawing.Size(256, 22);
             this.txtSDT.TabIndex = 20;
             this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
+            this.txtSDT.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSDT_KeyUp);
             // 
             // txtCMND
             // 
@@ -171,6 +172,7 @@
             this.txtCMND.TabIndex = 21;
             this.txtCMND.TextChanged += new System.EventHandler(this.txtCMND_TextChanged);
             this.txtCMND.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCMND_KeyPress);
+            this.txtCMND.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCMND_KeyUp);
             // 
             // txtDiachi
             // 
@@ -179,6 +181,7 @@
             this.txtDiachi.Name = "txtDiachi";
             this.txtDiachi.Size = new System.Drawing.Size(256, 22);
             this.txtDiachi.TabIndex = 22;
+            this.txtDiachi.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDiachi_KeyUp);
             // 
             // txtName
             // 
@@ -187,6 +190,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(256, 22);
             this.txtName.TabIndex = 23;
+            this.txtName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyUp);
             // 
             // txtBirthDay
             // 
@@ -195,10 +199,14 @@
             this.txtBirthDay.Name = "txtBirthDay";
             this.txtBirthDay.Size = new System.Drawing.Size(256, 22);
             this.txtBirthDay.TabIndex = 25;
+            this.txtBirthDay.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBirthDay_KeyUp);
             // 
             // txtMSNV
             // 
+            this.txtMSNV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtMSNV.Enabled = false;
             this.txtMSNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMSNV.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtMSNV.Location = new System.Drawing.Point(326, 68);
             this.txtMSNV.Name = "txtMSNV";
             this.txtMSNV.Size = new System.Drawing.Size(256, 22);
@@ -256,14 +264,14 @@
             // 
             // dataDS
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataDS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataDS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.STT,
@@ -285,8 +293,8 @@
             // 
             // STT
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.STT.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.STT.DefaultCellStyle = dataGridViewCellStyle4;
             this.STT.HeaderText = "STT";
             this.STT.Name = "STT";
             this.STT.ReadOnly = true;
@@ -461,7 +469,6 @@
         private System.Windows.Forms.TextBox txtDiachi;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtBirthDay;
-        private System.Windows.Forms.TextBox txtMSNV;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnEdit;
@@ -481,5 +488,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtMSNV;
     }
 }

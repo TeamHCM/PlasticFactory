@@ -10,5 +10,6 @@ namespace BUS.Interface
     {
         string AutoGetMSNV();
         string GetNameByID(string ID);
+        bool isDelete(string ID);
     }
 }

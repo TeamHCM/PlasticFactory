@@ -29,25 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Management));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.Tienung = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btnRemove = new System.Windows.Forms.Button();
-            this.Ghichu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.dataDS = new System.Windows.Forms.DataGridView();
-            this.MSNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ngay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thoigianBD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thoigianKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Thoigian = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sobao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Loaibao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.txtEmployee = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -64,19 +53,29 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lbCashAdvance = new System.Windows.Forms.Label();
             this.lbTotalWeight = new System.Windows.Forms.Label();
+            this.txtTotalTime = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.MSNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ngay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thoigianBD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thoigianKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Thoigian = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sobao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Loaibao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tienung = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Food = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Punish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bonus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ghichu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isRest = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Tienung
-            // 
-            this.Tienung.HeaderText = "Tiền ứng";
-            this.Tienung.Name = "Tienung";
-            this.Tienung.ReadOnly = true;
-            this.Tienung.Width = 120;
             // 
             // panel1
             // 
@@ -123,19 +122,6 @@
             this.btnRemove.UseVisualStyleBackColor = false;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // Ghichu
-            // 
-            this.Ghichu.HeaderText = "Ghi chú";
-            this.Ghichu.Name = "Ghichu";
-            this.Ghichu.ReadOnly = true;
-            this.Ghichu.Width = 200;
-            // 
-            // Soluong
-            // 
-            this.Soluong.HeaderText = "Số lượng";
-            this.Soluong.Name = "Soluong";
-            this.Soluong.ReadOnly = true;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -149,14 +135,14 @@
             // 
             // dataDS
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataDS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataDS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MSNV,
@@ -169,77 +155,28 @@
             this.Loaibao,
             this.Soluong,
             this.Tienung,
-            this.Ghichu});
+            this.Food,
+            this.Punish,
+            this.Bonus,
+            this.Ghichu,
+            this.isRest});
             this.dataDS.Location = new System.Drawing.Point(33, 109);
             this.dataDS.Name = "dataDS";
             this.dataDS.ReadOnly = true;
             this.dataDS.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataDS.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataDS.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataDS.Size = new System.Drawing.Size(1297, 414);
             this.dataDS.TabIndex = 79;
             this.dataDS.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDS_CellDoubleClick);
             this.dataDS.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDS_CellEnter);
-            // 
-            // MSNV
-            // 
-            this.MSNV.HeaderText = "MSNV";
-            this.MSNV.Name = "MSNV";
-            this.MSNV.ReadOnly = true;
-            this.MSNV.Width = 80;
-            // 
-            // Hoten
-            // 
-            this.Hoten.HeaderText = "Họ và tên";
-            this.Hoten.Name = "Hoten";
-            this.Hoten.ReadOnly = true;
-            this.Hoten.Width = 150;
-            // 
-            // Ngay
-            // 
-            this.Ngay.HeaderText = "Ngày";
-            this.Ngay.Name = "Ngay";
-            this.Ngay.ReadOnly = true;
-            this.Ngay.Width = 110;
-            // 
-            // thoigianBD
-            // 
-            this.thoigianBD.HeaderText = "Thời gian bắt đầu";
-            this.thoigianBD.Name = "thoigianBD";
-            this.thoigianBD.ReadOnly = true;
-            this.thoigianBD.Width = 110;
-            // 
-            // thoigianKT
-            // 
-            this.thoigianKT.HeaderText = "Thời gian kết thúc";
-            this.thoigianKT.Name = "thoigianKT";
-            this.thoigianKT.ReadOnly = true;
-            this.thoigianKT.Width = 110;
-            // 
-            // Thoigian
-            // 
-            this.Thoigian.HeaderText = "Thời gian(h)";
-            this.Thoigian.Name = "Thoigian";
-            this.Thoigian.ReadOnly = true;
-            // 
-            // sobao
-            // 
-            this.sobao.HeaderText = "Số bao";
-            this.sobao.Name = "sobao";
-            this.sobao.ReadOnly = true;
-            // 
-            // Loaibao
-            // 
-            this.Loaibao.HeaderText = "Loại bao(KG)";
-            this.Loaibao.Name = "Loaibao";
-            this.Loaibao.ReadOnly = true;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Firebrick;
-            this.label2.Location = new System.Drawing.Point(30, 540);
+            this.label2.Location = new System.Drawing.Point(334, 540);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(135, 16);
             this.label2.TabIndex = 1;
@@ -371,9 +308,9 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Firebrick;
-            this.label7.Location = new System.Drawing.Point(30, 573);
+            this.label7.Location = new System.Drawing.Point(30, 540);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(142, 16);
+            this.label7.Size = new System.Drawing.Size(141, 16);
             this.label7.TabIndex = 99;
             this.label7.Text = "TỔNG SẢN PHẨM :";
             // 
@@ -382,9 +319,9 @@
             this.lbCashAdvance.AutoSize = true;
             this.lbCashAdvance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCashAdvance.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lbCashAdvance.Location = new System.Drawing.Point(165, 542);
+            this.lbCashAdvance.Location = new System.Drawing.Point(469, 542);
             this.lbCashAdvance.Name = "lbCashAdvance";
-            this.lbCashAdvance.Size = new System.Drawing.Size(103, 16);
+            this.lbCashAdvance.Size = new System.Drawing.Size(101, 16);
             this.lbCashAdvance.TabIndex = 100;
             this.lbCashAdvance.Text = "100000 (VNĐ)";
             // 
@@ -393,16 +330,137 @@
             this.lbTotalWeight.AutoSize = true;
             this.lbTotalWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotalWeight.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lbTotalWeight.Location = new System.Drawing.Point(165, 573);
+            this.lbTotalWeight.Location = new System.Drawing.Point(165, 540);
             this.lbTotalWeight.Name = "lbTotalWeight";
             this.lbTotalWeight.Size = new System.Drawing.Size(74, 16);
             this.lbTotalWeight.TabIndex = 101;
             this.lbTotalWeight.Text = "1000 (KG)";
             // 
+            // txtTotalTime
+            // 
+            this.txtTotalTime.AutoSize = true;
+            this.txtTotalTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalTime.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.txtTotalTime.Location = new System.Drawing.Point(165, 571);
+            this.txtTotalTime.Name = "txtTotalTime";
+            this.txtTotalTime.Size = new System.Drawing.Size(74, 16);
+            this.txtTotalTime.TabIndex = 103;
+            this.txtTotalTime.Text = "1000 (KG)";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Firebrick;
+            this.label11.Location = new System.Drawing.Point(30, 571);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(135, 16);
+            this.label11.TabIndex = 102;
+            this.label11.Text = "TỔNG THỜI GIAN:";
+            // 
+            // MSNV
+            // 
+            this.MSNV.HeaderText = "MSNV";
+            this.MSNV.Name = "MSNV";
+            this.MSNV.ReadOnly = true;
+            this.MSNV.Width = 80;
+            // 
+            // Hoten
+            // 
+            this.Hoten.HeaderText = "Họ và tên";
+            this.Hoten.Name = "Hoten";
+            this.Hoten.ReadOnly = true;
+            this.Hoten.Width = 150;
+            // 
+            // Ngay
+            // 
+            this.Ngay.HeaderText = "Ngày";
+            this.Ngay.Name = "Ngay";
+            this.Ngay.ReadOnly = true;
+            this.Ngay.Width = 110;
+            // 
+            // thoigianBD
+            // 
+            this.thoigianBD.HeaderText = "Thời gian bắt đầu";
+            this.thoigianBD.Name = "thoigianBD";
+            this.thoigianBD.ReadOnly = true;
+            this.thoigianBD.Width = 110;
+            // 
+            // thoigianKT
+            // 
+            this.thoigianKT.HeaderText = "Thời gian kết thúc";
+            this.thoigianKT.Name = "thoigianKT";
+            this.thoigianKT.ReadOnly = true;
+            this.thoigianKT.Width = 110;
+            // 
+            // Thoigian
+            // 
+            this.Thoigian.HeaderText = "Thời gian(h)";
+            this.Thoigian.Name = "Thoigian";
+            this.Thoigian.ReadOnly = true;
+            // 
+            // sobao
+            // 
+            this.sobao.HeaderText = "Số bao";
+            this.sobao.Name = "sobao";
+            this.sobao.ReadOnly = true;
+            // 
+            // Loaibao
+            // 
+            this.Loaibao.HeaderText = "Loại bao(KG)";
+            this.Loaibao.Name = "Loaibao";
+            this.Loaibao.ReadOnly = true;
+            // 
+            // Soluong
+            // 
+            this.Soluong.HeaderText = "Số lượng";
+            this.Soluong.Name = "Soluong";
+            this.Soluong.ReadOnly = true;
+            // 
+            // Tienung
+            // 
+            this.Tienung.HeaderText = "Tiền ứng";
+            this.Tienung.Name = "Tienung";
+            this.Tienung.ReadOnly = true;
+            this.Tienung.Width = 120;
+            // 
+            // Food
+            // 
+            this.Food.HeaderText = "Tiền cơm";
+            this.Food.Name = "Food";
+            this.Food.ReadOnly = true;
+            // 
+            // Punish
+            // 
+            this.Punish.HeaderText = "Tiền phạt";
+            this.Punish.Name = "Punish";
+            this.Punish.ReadOnly = true;
+            // 
+            // Bonus
+            // 
+            this.Bonus.HeaderText = "Tiền thưởng";
+            this.Bonus.Name = "Bonus";
+            this.Bonus.ReadOnly = true;
+            // 
+            // Ghichu
+            // 
+            this.Ghichu.HeaderText = "Ghi chú";
+            this.Ghichu.Name = "Ghichu";
+            this.Ghichu.ReadOnly = true;
+            this.Ghichu.Width = 200;
+            // 
+            // isRest
+            // 
+            this.isRest.HeaderText = "Nghỉ việc";
+            this.isRest.Name = "isRest";
+            this.isRest.ReadOnly = true;
+            // 
             // Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtTotalTime);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.lbTotalWeight);
             this.Controls.Add(this.lbCashAdvance);
             this.Controls.Add(this.label7);
@@ -439,23 +497,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tienung;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ghichu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Soluong;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataDS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MSNV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Hoten;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ngay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn thoigianBD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn thoigianKT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Thoigian;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sobao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Loaibao;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox txtEmployee;
         private System.Windows.Forms.Label label3;
@@ -473,5 +519,22 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lbCashAdvance;
         private System.Windows.Forms.Label lbTotalWeight;
+        private System.Windows.Forms.Label txtTotalTime;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MSNV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Hoten;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ngay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn thoigianBD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn thoigianKT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Thoigian;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sobao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Loaibao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Soluong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tienung;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Food;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Punish;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Bonus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ghichu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn isRest;
     }
 }

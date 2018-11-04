@@ -642,16 +642,6 @@ C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Debug\Plastic
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.exe.licenses
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.exe
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.pdb
-C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Data.v18.1.dll
-C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Printing.v18.1.Core.dll
-C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Utils.v18.1.dll
-C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraBars.v18.1.dll
-C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraEditors.v18.1.dll
-C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraGrid.v18.1.dll
-C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraLayout.v18.1.dll
-C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraNavBar.v18.1.dll
-C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraPrinting.v18.1.dll
-C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraWizard.v18.1.dll
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Pdf.v18.1.Core.dll
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Sparkline.v18.1.Core.dll
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.RichEdit.v18.1.Core.dll
@@ -736,10 +726,6 @@ C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\ru\DevE
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCEmployee.MCPaymentEmployee.resources
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.Main_Content.MCStatistic.MCStatisticHome.resources
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.UserControls.PreferenceMenu.PMStatistic.resources
-C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Charts.v18.1.Core.dll
-C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraCharts.v18.1.dll
-C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraCharts.v18.1.UI.dll
-C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraCharts.v18.1.Wizard.dll
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.Utils.v18.1.UI.dll
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraVerticalGrid.v18.1.dll
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraRichEdit.v18.1.dll
@@ -774,3 +760,4 @@ C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\Plastic
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.csprojAssemblyReference.cache
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.csproj.CoreCompileInputs.cache
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.csproj.CopyComplete
+C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.ManageEmployee.resources

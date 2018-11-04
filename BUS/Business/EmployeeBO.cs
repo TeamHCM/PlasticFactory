@@ -20,7 +20,24 @@ namespace BUS.Business
         }
         public string GetNameByID(string ID)
         {
-            return GetData(u => u.MSNV == ID && u.isDelete == false).First().Hoten;
+            return GetData(u => u.MSNV == ID && (u.isDelete==false || u.isDelete==true)).First().Hoten;
+        }
+        public bool isDelete(string ID)
+        {
+            try
+            {
+                using (var db = new PlasticFactoryEntities())
+                {
+                    Employee employee=db.Employees.Find(ID);
+                    employee.isDelete = true;
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
     public class EmployeeComparer : IComparer<Employee>

@@ -143,7 +143,11 @@
     <Property Name="AdvancePayment" Type="float" />
     <Property Name="Note" Type="nvarchar" MaxLength="200" />
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="isDelete" Type="bit" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
+    <Property Name="Food" Type="float" Nullable="false" />
+    <Property Name="Punish" Type="float" Nullable="false" />
+    <Property Name="Bunus" Type="float" Nullable="false" />
+    <Property Name="isRest" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="TypeofCustomer">
     <Key>

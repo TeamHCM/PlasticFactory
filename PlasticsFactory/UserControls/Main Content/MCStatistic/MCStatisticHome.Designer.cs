@@ -144,7 +144,7 @@
             this.label11.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label11.Location = new System.Drawing.Point(144, 134);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(57, 16);
+            this.label11.Size = new System.Drawing.Size(56, 16);
             this.label11.TabIndex = 16;
             this.label11.Text = "Còn lại";
             // 
@@ -168,7 +168,7 @@
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label6.Location = new System.Drawing.Point(25, 134);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 16);
+            this.label6.Size = new System.Drawing.Size(49, 16);
             this.label6.TabIndex = 14;
             this.label6.Text = "Đã trả";
             // 
@@ -239,7 +239,7 @@
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label4.Location = new System.Drawing.Point(86, 75);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 16);
+            this.label4.Size = new System.Drawing.Size(80, 16);
             this.label4.TabIndex = 2;
             this.label4.Text = "Thành tiền";
             // 
@@ -311,7 +311,7 @@
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label10.Location = new System.Drawing.Point(166, 133);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(57, 16);
+            this.label10.Size = new System.Drawing.Size(56, 16);
             this.label10.TabIndex = 20;
             this.label10.Text = "Còn lại";
             // 
@@ -335,7 +335,7 @@
             this.label18.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label18.Location = new System.Drawing.Point(47, 133);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(56, 16);
+            this.label18.Size = new System.Drawing.Size(51, 16);
             this.label18.TabIndex = 18;
             this.label18.Text = "Đã thu";
             // 
@@ -406,7 +406,7 @@
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label8.Location = new System.Drawing.Point(86, 83);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(85, 16);
+            this.label8.Size = new System.Drawing.Size(80, 16);
             this.label8.TabIndex = 9;
             this.label8.Text = "Thành tiền";
             // 
@@ -491,7 +491,7 @@
             this.label16.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label16.Location = new System.Drawing.Point(86, 48);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(79, 16);
+            this.label16.Size = new System.Drawing.Size(77, 16);
             this.label16.TabIndex = 9;
             this.label16.Text = "Tiền công";
             // 
@@ -685,7 +685,7 @@
             this.label24.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label24.Location = new System.Drawing.Point(1167, 16);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(41, 16);
+            this.label24.Size = new System.Drawing.Size(40, 16);
             this.label24.TabIndex = 99;
             this.label24.Text = "Năm";
             // 
@@ -697,7 +697,7 @@
             this.label25.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label25.Location = new System.Drawing.Point(1057, 16);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(54, 16);
+            this.label25.Size = new System.Drawing.Size(52, 16);
             this.label25.TabIndex = 98;
             this.label25.Text = "Tháng";
             // 

@@ -25,6 +25,10 @@ namespace PlasticsFactory.Data
         public Nullable<double> AdvancePayment { get; set; }
         public string Note { get; set; }
         public int Id { get; set; }
-        public Nullable<bool> isDelete { get; set; }
+        public bool isDelete { get; set; }
+        public double Food { get; set; }
+        public double Punish { get; set; }
+        public double Bunus { get; set; }
+        public bool isRest { get; set; }
     }
 }

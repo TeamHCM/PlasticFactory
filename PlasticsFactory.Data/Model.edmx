@@ -148,7 +148,11 @@
           <Property Name="AdvancePayment" Type="float" />
           <Property Name="Note" Type="nvarchar" MaxLength="200" />
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="isDelete" Type="bit" />
+          <Property Name="isDelete" Type="bit" Nullable="false" />
+          <Property Name="Food" Type="float" Nullable="false" />
+          <Property Name="Punish" Type="float" Nullable="false" />
+          <Property Name="Bunus" Type="float" Nullable="false" />
+          <Property Name="isRest" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="TypeofCustomer">
           <Key>
@@ -463,7 +467,11 @@
           <Property Name="AdvancePayment" Type="Double" />
           <Property Name="Note" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="isDelete" Type="Boolean" />
+          <Property Name="isDelete" Type="Boolean" Nullable="false" />
+          <Property Name="Food" Type="Double" Nullable="false" />
+          <Property Name="Punish" Type="Double" Nullable="false" />
+          <Property Name="Bunus" Type="Double" Nullable="false" />
+          <Property Name="isRest" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="TypeofCustomer">
           <Key>
@@ -768,6 +776,10 @@
           <EntitySetMapping Name="Timekeepings">
             <EntityTypeMapping TypeName="PlasticFactoryModel.Timekeeping">
               <MappingFragment StoreEntitySet="Timekeeping">
+                <ScalarProperty Name="isRest" ColumnName="isRest" />
+                <ScalarProperty Name="Bunus" ColumnName="Bunus" />
+                <ScalarProperty Name="Punish" ColumnName="Punish" />
+                <ScalarProperty Name="Food" ColumnName="Food" />
                 <ScalarProperty Name="MSNV" ColumnName="MSNV" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />

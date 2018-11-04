@@ -9,7 +9,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
 {
     public partial class MCEAdd : UserControl
     {
-        #region generate biến
+        #region generate Field
 
         private List<Employee> list = new List<Employee>();
         private EmployeeBO employeeBO;
@@ -17,7 +17,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         private string tempMSNV = "";
         private string msnvBO;
 
-        #endregion generate biến
+        #endregion 
 
         #region method support
 
@@ -104,6 +104,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             msnvBO = employeeBO.AutoGetMSNV();
         }
 
+        #region Event Button
         private void btnThem_Click(object sender, EventArgs e)
         {
             Employee employee = new Employee();
@@ -164,6 +165,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         private void MCEAdd_Load(object sender, EventArgs e)
         {
             txtMSNV.Text = employeeBO.AutoGetMSNV();
+            txtName.Select();
         }
 
         private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
@@ -323,5 +325,52 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             list.Clear();
             dataDS.Rows.Clear();
         }
+        #endregion
+
+        #region Focus
+        private void txtName_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+            {
+                txtBirthDay.Focus();
+            }
+            if(e.KeyCode==Keys.Tab)
+            {
+                btnThem.Focus();
+            }
+        }
+
+        private void txtBirthDay_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+            {
+                txtDiachi.Focus();
+            }
+        }
+
+        private void txtDiachi_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtCMND.Focus();
+            }
+        }
+
+        private void txtCMND_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtSDT.Focus();
+            }
+        }
+
+        private void txtSDT_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnThem.Focus();
+            }
+        }
+        #endregion
     }
 }
