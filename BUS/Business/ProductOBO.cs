@@ -38,5 +38,23 @@ namespace BUS.Business
                 return 0;
             }
         }
+        public int GetIDByName(string Name)
+        {
+            var list = GetData(u => u.isDelete == false && u.Name == Name);
+            if (list.Count() != 0)
+            {
+                return list.First().ID;
+            }
+            return -1;
+        }
+        public bool isExistName(string Name)
+        {
+            var list = GetData(u => u.isDelete == false && u.Name == Name);
+            if (list.Count != 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

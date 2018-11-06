@@ -17,7 +17,9 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         private string tempMSNV = "";
         private string msnvBO;
 
-        #endregion 
+        #endregion generate Field
+
+
 
         #region method support
 
@@ -51,7 +53,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             txtCMND.ResetText();
             txtBirthDay.ResetText();
             rdNam.Checked = true;
-
+            radByDay.Checked = true;
             #endregion Reset Nhập thông tin
         }
 
@@ -72,6 +74,14 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                 dataDS.Rows[i].Cells[5].Value = item.Diachi;
                 dataDS.Rows[i].Cells[6].Value = item.CMND;
                 dataDS.Rows[i].Cells[7].Value = item.SDT;
+                if(item.Type==1)
+                {
+                    dataDS.Rows[i].Cells[8].Value = "Tháng";
+                }
+                else
+                {
+                    dataDS.Rows[i].Cells[8].Value = "Ngày";
+                }
                 i++;
             }
         }
@@ -95,6 +105,15 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             return msnv;
         }
 
+        private int GetTypeWork()
+        {
+            if (radByDay.Checked)
+            {
+                return 2;
+            }
+            return 1;
+        }
+
         #endregion method support
 
         public MCEAdd()
@@ -105,6 +124,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         }
 
         #region Event Button
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             Employee employee = new Employee();
@@ -138,6 +158,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                 employee.CMND = CMND;
                 employee.Diachi = txtDiachi.Text;
                 employee.Ngaysinh = DateBirth;
+                employee.Type = GetTypeWork();
                 list.Add(employee);
 
                 #region load dataGridview
@@ -225,7 +246,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                 updateEmployee.CMND = CMND;
                 updateEmployee.Diachi = txtDiachi.Text;
                 updateEmployee.Ngaysinh = DateBirth;
-
+                updateEmployee.Type = GetTypeWork();
                 #endregion Update Employee
 
                 //load datagridview
@@ -260,6 +281,14 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                             txtDiachi.Text = dataDS.Rows[e.RowIndex].Cells[5].Value.ToString();
                             txtCMND.Text = dataDS.Rows[e.RowIndex].Cells[6].Value.ToString();
                             txtSDT.Text = dataDS.Rows[e.RowIndex].Cells[7].Value.ToString();
+                            if(dataDS.Rows[e.RowIndex].Cells[8].Value.ToString()=="Ngày")
+                            {
+                                radByDay.Checked = true;
+                            }
+                            else
+                            {
+                                radByMonth.Checked = true;
+                            }
                             btnRemove.Enabled = false;
                         }
                         catch
@@ -325,16 +354,18 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             list.Clear();
             dataDS.Rows.Clear();
         }
-        #endregion
+
+        #endregion Event Button
 
         #region Focus
+
         private void txtName_KeyUp(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode==Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 txtBirthDay.Focus();
             }
-            if(e.KeyCode==Keys.Tab)
+            if (e.KeyCode == Keys.Tab)
             {
                 btnThem.Focus();
             }
@@ -342,7 +373,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
 
         private void txtBirthDay_KeyUp(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode==Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 txtDiachi.Focus();
             }
@@ -371,6 +402,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                 btnThem.Focus();
             }
         }
-        #endregion
+
+        #endregion Focus
     }
 }

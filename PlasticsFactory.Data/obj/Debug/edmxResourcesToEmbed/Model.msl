@@ -16,6 +16,7 @@
     <EntitySetMapping Name="Employees">
       <EntityTypeMapping TypeName="PlasticFactoryModel.Employee">
         <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="MSNV" ColumnName="MSNV" />
           <ScalarProperty Name="Hoten" ColumnName="Hoten" />
           <ScalarProperty Name="Ngaysinh" ColumnName="Ngaysinh" />
@@ -73,6 +74,7 @@
     <EntitySetMapping Name="PreferceProductPrices">
       <EntityTypeMapping TypeName="PlasticFactoryModel.PreferceProductPrice">
         <MappingFragment StoreEntitySet="PreferceProductPrice">
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Price" ColumnName="Price" />
@@ -190,5 +192,13 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="AutoIdEmployee" FunctionName="PlasticFactoryModel.Store.AutoIdEmployee" />
+    <EntitySetMapping Name="EmployeeTypes">
+      <EntityTypeMapping TypeName="PlasticFactoryModel.EmployeeType">
+        <MappingFragment StoreEntitySet="EmployeeType">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

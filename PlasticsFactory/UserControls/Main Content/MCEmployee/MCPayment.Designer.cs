@@ -31,10 +31,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MCPaymentEmployee));
             this.txtID = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -49,12 +47,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.laBill = new System.Windows.Forms.Label();
             this.txtDayWork = new System.Windows.Forms.Label();
             this.dataDetailWork = new System.Windows.Forms.DataGridView();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DetailTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cash = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -96,6 +88,21 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.txtEmployeeName = new DevExpress.XtraEditors.ImageComboBoxEdit();
             this.imageListCB = new System.Windows.Forms.ImageList(this.components);
             this.txtPay = new DevExpress.XtraEditors.TextEdit();
+            this.txtFood = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtPunish = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtBonus = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DetailTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cash = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Food = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bonus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Punish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataDetailWork)).BeginInit();
@@ -177,7 +184,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             // 
             this.txtMoneyOfProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMoneyOfProduct.FormattingEnabled = true;
-            this.txtMoneyOfProduct.Location = new System.Drawing.Point(649, 112);
+            this.txtMoneyOfProduct.Location = new System.Drawing.Point(705, 60);
             this.txtMoneyOfProduct.Name = "txtMoneyOfProduct";
             this.txtMoneyOfProduct.Size = new System.Drawing.Size(102, 24);
             this.txtMoneyOfProduct.TabIndex = 185;
@@ -245,50 +252,20 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.Time,
             this.Product,
             this.Cash,
+            this.Food,
+            this.Bonus,
+            this.Punish,
             this.Note});
             this.dataDetailWork.Location = new System.Drawing.Point(835, 85);
             this.dataDetailWork.Name = "dataDetailWork";
             this.dataDetailWork.Size = new System.Drawing.Size(500, 457);
             this.dataDetailWork.TabIndex = 162;
             // 
-            // Date
-            // 
-            this.Date.HeaderText = "Ngày";
-            this.Date.Name = "Date";
-            this.Date.Width = 80;
-            // 
-            // DetailTime
-            // 
-            this.DetailTime.HeaderText = "Chi tiết thời gian làm";
-            this.DetailTime.Name = "DetailTime";
-            // 
-            // Time
-            // 
-            this.Time.HeaderText = "Thời gian";
-            this.Time.Name = "Time";
-            this.Time.Width = 50;
-            // 
-            // Product
-            // 
-            this.Product.HeaderText = "Sản phẩm";
-            this.Product.Name = "Product";
-            this.Product.Width = 50;
-            // 
-            // Cash
-            // 
-            this.Cash.HeaderText = "Tiền ứng";
-            this.Cash.Name = "Cash";
-            // 
-            // Note
-            // 
-            this.Note.HeaderText = "Ghi chú";
-            this.Note.Name = "Note";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(543, 38);
+            this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(545, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 16);
             this.label2.TabIndex = 172;
@@ -307,8 +284,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(543, 88);
+            this.label10.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(545, 64);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(75, 16);
             this.label10.TabIndex = 168;
@@ -394,14 +371,14 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             // 
             // dataDS
             // 
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataDS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataDS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MSTT,
@@ -413,28 +390,12 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.paid,
             this.Debt,
             this.Timekeep});
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataDS.DefaultCellStyle = dataGridViewCellStyle42;
             this.dataDS.Location = new System.Drawing.Point(34, 298);
             this.dataDS.Name = "dataDS";
             this.dataDS.ReadOnly = true;
             this.dataDS.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle43.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle43.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataDS.RowHeadersDefaultCellStyle = dataGridViewCellStyle43;
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataDS.RowsDefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataDS.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataDS.Size = new System.Drawing.Size(795, 244);
             this.dataDS.TabIndex = 159;
             this.dataDS.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDS_CellDoubleClick);
@@ -502,7 +463,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             // 
             this.txtMoneyOfTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMoneyOfTime.FormattingEnabled = true;
-            this.txtMoneyOfTime.Location = new System.Drawing.Point(649, 60);
+            this.txtMoneyOfTime.Location = new System.Drawing.Point(705, 33);
             this.txtMoneyOfTime.Name = "txtMoneyOfTime";
             this.txtMoneyOfTime.Size = new System.Drawing.Size(100, 24);
             this.txtMoneyOfTime.TabIndex = 188;
@@ -511,7 +472,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             // 
             this.txtTime.AutoSize = true;
             this.txtTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTime.Location = new System.Drawing.Point(570, 65);
+            this.txtTime.Location = new System.Drawing.Point(634, 39);
             this.txtTime.Name = "txtTime";
             this.txtTime.Size = new System.Drawing.Size(16, 16);
             this.txtTime.TabIndex = 189;
@@ -521,7 +482,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             // 
             this.txtProduct.AutoSize = true;
             this.txtProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProduct.Location = new System.Drawing.Point(570, 116);
+            this.txtProduct.Location = new System.Drawing.Point(634, 65);
             this.txtProduct.Name = "txtProduct";
             this.txtProduct.Size = new System.Drawing.Size(16, 16);
             this.txtProduct.TabIndex = 190;
@@ -530,7 +491,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(624, 66);
+            this.label15.Location = new System.Drawing.Point(685, 40);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(14, 13);
             this.label15.TabIndex = 191;
@@ -539,7 +500,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(624, 118);
+            this.label16.Location = new System.Drawing.Point(685, 66);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(14, 13);
             this.label16.TabIndex = 192;
@@ -548,7 +509,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(752, 118);
+            this.label17.Location = new System.Drawing.Point(810, 67);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(24, 13);
             this.label17.TabIndex = 193;
@@ -557,7 +518,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(752, 65);
+            this.label18.Location = new System.Drawing.Point(810, 42);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(18, 13);
             this.label18.TabIndex = 194;
@@ -566,8 +527,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(543, 144);
+            this.label19.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(545, 88);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(69, 16);
             this.label19.TabIndex = 195;
@@ -578,7 +539,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.txtCash.AutoSize = true;
             this.txtCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCash.ForeColor = System.Drawing.Color.Black;
-            this.txtCash.Location = new System.Drawing.Point(570, 167);
+            this.txtCash.Location = new System.Drawing.Point(634, 88);
             this.txtCash.Name = "txtCash";
             this.txtCash.Size = new System.Drawing.Size(16, 16);
             this.txtCash.TabIndex = 196;
@@ -629,7 +590,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.txtDebt.AutoSize = true;
             this.txtDebt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDebt.ForeColor = System.Drawing.Color.Black;
-            this.txtDebt.Location = new System.Drawing.Point(691, 167);
+            this.txtDebt.Location = new System.Drawing.Point(634, 136);
             this.txtDebt.Name = "txtDebt";
             this.txtDebt.Size = new System.Drawing.Size(16, 16);
             this.txtDebt.TabIndex = 203;
@@ -638,10 +599,10 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(673, 144);
+            this.label14.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(545, 136);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(62, 16);
+            this.label14.Size = new System.Drawing.Size(61, 16);
             this.label14.TabIndex = 202;
             this.label14.Text = "Tiền Nợ :";
             // 
@@ -707,10 +668,127 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.txtPay.TabIndex = 207;
             this.txtPay.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPay_KeyUp);
             // 
+            // txtFood
+            // 
+            this.txtFood.AutoSize = true;
+            this.txtFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFood.ForeColor = System.Drawing.Color.Black;
+            this.txtFood.Location = new System.Drawing.Point(634, 112);
+            this.txtFood.Name = "txtFood";
+            this.txtFood.Size = new System.Drawing.Size(16, 16);
+            this.txtFood.TabIndex = 209;
+            this.txtFood.Text = "0";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(545, 112);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(61, 16);
+            this.label20.TabIndex = 208;
+            this.label20.Text = "Tiền Ăn :";
+            // 
+            // txtPunish
+            // 
+            this.txtPunish.AutoSize = true;
+            this.txtPunish.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPunish.ForeColor = System.Drawing.Color.Black;
+            this.txtPunish.Location = new System.Drawing.Point(634, 186);
+            this.txtPunish.Name = "txtPunish";
+            this.txtPunish.Size = new System.Drawing.Size(16, 16);
+            this.txtPunish.TabIndex = 211;
+            this.txtPunish.Text = "0";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(545, 186);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(71, 16);
+            this.label21.TabIndex = 210;
+            this.label21.Text = "Tiền phạt :";
+            // 
+            // txtBonus
+            // 
+            this.txtBonus.AutoSize = true;
+            this.txtBonus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBonus.ForeColor = System.Drawing.Color.Black;
+            this.txtBonus.Location = new System.Drawing.Point(634, 161);
+            this.txtBonus.Name = "txtBonus";
+            this.txtBonus.Size = new System.Drawing.Size(16, 16);
+            this.txtBonus.TabIndex = 213;
+            this.txtBonus.Text = "0";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(545, 161);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(90, 16);
+            this.label23.TabIndex = 212;
+            this.label23.Text = "Tiền Thưởng :";
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "Ngày";
+            this.Date.Name = "Date";
+            this.Date.Width = 80;
+            // 
+            // DetailTime
+            // 
+            this.DetailTime.HeaderText = "Chi tiết thời gian làm";
+            this.DetailTime.Name = "DetailTime";
+            // 
+            // Time
+            // 
+            this.Time.HeaderText = "Thời gian";
+            this.Time.Name = "Time";
+            this.Time.Width = 50;
+            // 
+            // Product
+            // 
+            this.Product.HeaderText = "Sản phẩm";
+            this.Product.Name = "Product";
+            this.Product.Width = 50;
+            // 
+            // Cash
+            // 
+            this.Cash.HeaderText = "Tiền ứng";
+            this.Cash.Name = "Cash";
+            // 
+            // Food
+            // 
+            this.Food.HeaderText = "Tiền ăn";
+            this.Food.Name = "Food";
+            // 
+            // Bonus
+            // 
+            this.Bonus.HeaderText = "Tiền thưởng";
+            this.Bonus.Name = "Bonus";
+            // 
+            // Punish
+            // 
+            this.Punish.HeaderText = "Tiền phạt";
+            this.Punish.Name = "Punish";
+            // 
+            // Note
+            // 
+            this.Note.HeaderText = "Ghi chú";
+            this.Note.Name = "Note";
+            // 
             // MCPaymentEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtBonus);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.txtPunish);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.txtFood);
+            this.Controls.Add(this.label20);
             this.Controls.Add(this.txtPay);
             this.Controls.Add(this.txtMSNV);
             this.Controls.Add(this.txtDebt);
@@ -806,12 +884,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label txtCash;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DetailTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Time;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Product;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cash;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Note;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox txtYear;
         private System.Windows.Forms.Label label6;
@@ -832,5 +904,20 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         private System.Windows.Forms.DataGridViewTextBoxColumn Debt;
         private System.Windows.Forms.DataGridViewTextBoxColumn Timekeep;
         private TextEdit txtPay;
+        private System.Windows.Forms.Label txtFood;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DetailTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Product;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cash;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Food;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Bonus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Punish;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Note;
+        private System.Windows.Forms.Label txtPunish;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label txtBonus;
+        private System.Windows.Forms.Label label23;
     }
 }

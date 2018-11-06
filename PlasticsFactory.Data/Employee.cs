@@ -28,8 +28,10 @@ namespace PlasticsFactory.Data
         public string SDT { get; set; }
         public string CMND { get; set; }
         public bool isDelete { get; set; }
+        public Nullable<int> Type { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmployeePayment> EmployeePayments { get; set; }
+        public virtual EmployeeType EmployeeType { get; set; }
     }
 }

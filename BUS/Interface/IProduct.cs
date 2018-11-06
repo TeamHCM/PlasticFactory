@@ -10,5 +10,7 @@ namespace BUS.Interface
     {
         int GetPriceByName(string Name);
         int GetID();
+        int GetIDByName(string Name);
+        bool isExistName(string Name);
     }
 }

@@ -17,5 +17,6 @@ namespace PlasticsFactory.Data
         public int ID { get; set; }
         public string Name { get; set; }
         public Nullable<int> Price { get; set; }
+        public bool isDelete { get; set; }
     }
 }

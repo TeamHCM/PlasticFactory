@@ -41,6 +41,7 @@ namespace PlasticsFactory.Data
         public virtual DbSet<TypeofCustomer> TypeofCustomers { get; set; }
         public virtual DbSet<TypeWeight> TypeWeights { get; set; }
         public virtual DbSet<Truck> Trucks { get; set; }
+        public virtual DbSet<EmployeeType> EmployeeTypes { get; set; }
     
         public virtual ObjectResult<string> AutoIdEmployee()
         {

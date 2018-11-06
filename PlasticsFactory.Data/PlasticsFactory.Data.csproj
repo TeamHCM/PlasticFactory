@@ -60,6 +60,9 @@
     <Compile Include="EmployeePayment.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeType.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="IResponsity.cs" />
     <Compile Include="Model.Context.cs">
       <AutoGen>True</AutoGen>

@@ -29,53 +29,55 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PMStatistic));
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnStatistic = new System.Windows.Forms.Button();
+            this.btnConfiguration = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnAdd
+            // btnStatistic
             // 
-            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.Location = new System.Drawing.Point(12, 3);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnAdd.Size = new System.Drawing.Size(75, 67);
-            this.btnAdd.TabIndex = 5;
-            this.btnAdd.Text = "Doanh thu";
-            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnStatistic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnStatistic.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnStatistic.FlatAppearance.BorderSize = 0;
+            this.btnStatistic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatistic.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStatistic.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnStatistic.Image = ((System.Drawing.Image)(resources.GetObject("btnStatistic.Image")));
+            this.btnStatistic.Location = new System.Drawing.Point(12, 3);
+            this.btnStatistic.Name = "btnStatistic";
+            this.btnStatistic.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnStatistic.Size = new System.Drawing.Size(75, 67);
+            this.btnStatistic.TabIndex = 5;
+            this.btnStatistic.Text = "Doanh thu";
+            this.btnStatistic.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnStatistic.UseVisualStyleBackColor = true;
+            this.btnStatistic.Click += new System.EventHandler(this.btnStatistic_Click);
             // 
-            // button1
+            // btnConfiguration
             // 
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(93, 4);
-            this.button1.Name = "button1";
-            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button1.Size = new System.Drawing.Size(75, 67);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Thông số";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnConfiguration.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnConfiguration.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnConfiguration.FlatAppearance.BorderSize = 0;
+            this.btnConfiguration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfiguration.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfiguration.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnConfiguration.Image = ((System.Drawing.Image)(resources.GetObject("btnConfiguration.Image")));
+            this.btnConfiguration.Location = new System.Drawing.Point(93, 4);
+            this.btnConfiguration.Name = "btnConfiguration";
+            this.btnConfiguration.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnConfiguration.Size = new System.Drawing.Size(75, 67);
+            this.btnConfiguration.TabIndex = 6;
+            this.btnConfiguration.Text = "Thông số";
+            this.btnConfiguration.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnConfiguration.UseVisualStyleBackColor = true;
+            this.btnConfiguration.Click += new System.EventHandler(this.btnConfiguration_Click);
             // 
             // PMStatistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnConfiguration);
+            this.Controls.Add(this.btnStatistic);
             this.Name = "PMStatistic";
             this.Size = new System.Drawing.Size(1364, 73);
             this.ResumeLayout(false);
@@ -83,7 +85,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnStatistic;
+        private System.Windows.Forms.Button btnConfiguration;
     }
 }

@@ -26,7 +26,9 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             public double payed { get; set; }
             public double wage { get; set; }
             public double cash { get; set; }
-
+            public double food { get; set; }
+            public double bonus { get; set; }
+            public double punish { get; set; }
             //Nợ tháng trước
             public double debtAgo { get; set; }
 
@@ -120,9 +122,15 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             double Product = (double)listTime.Sum(u => long.Parse(u.TotalWeight.ToString()));
             payment.cash = (int)listTime.Sum(u => u.AdvancePayment);
             payment.payed = listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).Sum(u => u.PAY);
+            payment.food = listTime.Sum(u => u.Food);
+            payment.bonus = listTime.Sum(u => u.Bunus);
+            payment.punish = listTime.Sum(u => u.Punish);
             txtTime.Text = Time.ToString();
             txtProduct.Text = Product.ToString();
             txtCash.Text = payment.cash.ToString();
+            txtBonus.Text = payment.bonus.ToString();
+            txtPunish.Text = payment.punish.ToString();
+            txtFood.Text = payment.food.ToString();
             //GetTime month ago =>Debt
             if (Month == 1)
             {
@@ -141,7 +149,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                 }
             }
             txtDebt.Text = payment.debtAgo.ToString();
-            payment.pay = (int)(Time * double.Parse(txtMoneyOfTime.Text) + Product * double.Parse(txtMoneyOfProduct.Text) - payment.cash - payment.debtAgo - payment.payed);
+            payment.pay = (int)(Time * double.Parse(txtMoneyOfTime.Text) + Product * double.Parse(txtMoneyOfProduct.Text) + payment.bonus - payment.punish - payment.food - payment.cash - payment.debtAgo - payment.payed);
             //MessageBox.Show("Pay dau :" + payment.pay);
             if (payment.pay > 0)
             {
@@ -204,7 +212,10 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                 dataDetailWork.Rows[i].Cells[2].Value = listDB[i].Time;
                 dataDetailWork.Rows[i].Cells[3].Value = listDB[i].TotalWeight;
                 dataDetailWork.Rows[i].Cells[4].Value = listDB[i].AdvancePayment;
-                dataDetailWork.Rows[i].Cells[5].Value = listDB[i].Note;
+                dataDetailWork.Rows[i].Cells[5].Value = listDB[i].Food;
+                dataDetailWork.Rows[i].Cells[6].Value = listDB[i].Bunus;
+                dataDetailWork.Rows[i].Cells[7].Value = listDB[i].Punish;
+                dataDetailWork.Rows[i].Cells[8].Value = listDB[i].Note;
             }
             txtDayWork.Text = listDB.Count().ToString();
         }
@@ -533,7 +544,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                             txtDebt.Text = tempDebt.ToString();
                             txtCash.Text = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == strMSNV && u.Date.Value.Month == Month && u.Date.Value.Year == Year).Sum(u => u.AdvancePayment).ToString();
                             txtPay.Text = employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().PAY.ToString();
-                            txtNoteMoney.Text = employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().PAY!=0 ? employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().PAY.ToString("#,###"):"0";
+                            txtNoteMoney.Text = employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().PAY != 0 ? employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().PAY.ToString("#,###") : "0";
                             txtMonth.Text = dataDS.Rows[e.RowIndex].Cells[8].Value.ToString().Split('/')[0];
                             btnRemove.Enabled = false;
                         }
@@ -585,7 +596,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         #region Focus
         private void txtEmployeeName_KeyUp(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode==Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 txtPay.Focus();
             }

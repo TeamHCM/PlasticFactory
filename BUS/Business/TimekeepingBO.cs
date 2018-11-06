@@ -15,7 +15,7 @@ namespace BUS.Business
             using (var db = new PlasticFactoryEntities())
             {
                 List<string> list;
-                var select = db.Employees.Select(u => u.Hoten);
+                var select = db.Employees.Where(u=>u.isDelete==false).Select(u => u.Hoten);
                 list = select.ToList();
                 return list;
             }
