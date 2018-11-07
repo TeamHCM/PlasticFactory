@@ -31,6 +31,4 @@ C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory.Data\bin\Debug\En
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory.Data\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory.Data\obj\Debug\PlasticsFactory.Data.dll
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory.Data\obj\Debug\PlasticsFactory.Data.pdb
-C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory.Data\obj\Debug\PlasticsFactory.Data.csprojAssemblyReference.cache
-C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory.Data\obj\Debug\PlasticsFactory.Data.csproj.CoreCompileInputs.cache
-C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory.Data\obj\Debug\PlasticsFactory.Data.csproj.CopyComplete
+C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory.Data\obj\Debug\PlasticsFactory.Data.csprojResolveAssemblyReference.cache

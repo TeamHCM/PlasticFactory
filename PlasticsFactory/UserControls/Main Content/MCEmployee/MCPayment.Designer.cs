@@ -47,6 +47,15 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.laBill = new System.Windows.Forms.Label();
             this.txtDayWork = new System.Windows.Forms.Label();
             this.dataDetailWork = new System.Windows.Forms.DataGridView();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DetailTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cash = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Food = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bonus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Punish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -94,15 +103,9 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.label21 = new System.Windows.Forms.Label();
             this.txtBonus = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DetailTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cash = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Food = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Bonus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Punish = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelWage = new System.Windows.Forms.Panel();
+            this.txtWage = new DevExpress.XtraEditors.TextEdit();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataDetailWork)).BeginInit();
@@ -112,6 +115,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmployeeName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPay.Properties)).BeginInit();
+            this.panelWage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWage.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtID
@@ -260,6 +265,54 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.dataDetailWork.Name = "dataDetailWork";
             this.dataDetailWork.Size = new System.Drawing.Size(500, 457);
             this.dataDetailWork.TabIndex = 162;
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "Ngày";
+            this.Date.Name = "Date";
+            this.Date.Width = 80;
+            // 
+            // DetailTime
+            // 
+            this.DetailTime.HeaderText = "Chi tiết thời gian làm";
+            this.DetailTime.Name = "DetailTime";
+            // 
+            // Time
+            // 
+            this.Time.HeaderText = "Thời gian";
+            this.Time.Name = "Time";
+            this.Time.Width = 50;
+            // 
+            // Product
+            // 
+            this.Product.HeaderText = "Sản phẩm";
+            this.Product.Name = "Product";
+            this.Product.Width = 50;
+            // 
+            // Cash
+            // 
+            this.Cash.HeaderText = "Tiền ứng";
+            this.Cash.Name = "Cash";
+            // 
+            // Food
+            // 
+            this.Food.HeaderText = "Tiền ăn";
+            this.Food.Name = "Food";
+            // 
+            // Bonus
+            // 
+            this.Bonus.HeaderText = "Tiền thưởng";
+            this.Bonus.Name = "Bonus";
+            // 
+            // Punish
+            // 
+            this.Punish.HeaderText = "Tiền phạt";
+            this.Punish.Name = "Punish";
+            // 
+            // Note
+            // 
+            this.Note.HeaderText = "Ghi chú";
+            this.Note.Name = "Note";
             // 
             // label2
             // 
@@ -731,58 +784,41 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.label23.TabIndex = 212;
             this.label23.Text = "Tiền Thưởng :";
             // 
-            // Date
+            // panelWage
             // 
-            this.Date.HeaderText = "Ngày";
-            this.Date.Name = "Date";
-            this.Date.Width = 80;
+            this.panelWage.Controls.Add(this.txtWage);
+            this.panelWage.Controls.Add(this.label12);
+            this.panelWage.Location = new System.Drawing.Point(542, 33);
+            this.panelWage.Name = "panelWage";
+            this.panelWage.Size = new System.Drawing.Size(287, 52);
+            this.panelWage.TabIndex = 214;
+            this.panelWage.Visible = false;
             // 
-            // DetailTime
+            // txtWage
             // 
-            this.DetailTime.HeaderText = "Chi tiết thời gian làm";
-            this.DetailTime.Name = "DetailTime";
+            this.txtWage.Location = new System.Drawing.Point(95, 23);
+            this.txtWage.Name = "txtWage";
+            this.txtWage.Properties.Mask.EditMask = "n0";
+            this.txtWage.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtWage.Size = new System.Drawing.Size(183, 20);
+            this.txtWage.TabIndex = 197;
+            this.txtWage.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtWage_KeyUp);
             // 
-            // Time
+            // label12
             // 
-            this.Time.HeaderText = "Thời gian";
-            this.Time.Name = "Time";
-            this.Time.Width = 50;
-            // 
-            // Product
-            // 
-            this.Product.HeaderText = "Sản phẩm";
-            this.Product.Name = "Product";
-            this.Product.Width = 50;
-            // 
-            // Cash
-            // 
-            this.Cash.HeaderText = "Tiền ứng";
-            this.Cash.Name = "Cash";
-            // 
-            // Food
-            // 
-            this.Food.HeaderText = "Tiền ăn";
-            this.Food.Name = "Food";
-            // 
-            // Bonus
-            // 
-            this.Bonus.HeaderText = "Tiền thưởng";
-            this.Bonus.Name = "Bonus";
-            // 
-            // Punish
-            // 
-            this.Punish.HeaderText = "Tiền phạt";
-            this.Punish.Name = "Punish";
-            // 
-            // Note
-            // 
-            this.Note.HeaderText = "Ghi chú";
-            this.Note.Name = "Note";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(3, 27);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(75, 16);
+            this.label12.TabIndex = 196;
+            this.label12.Text = "Tiền Công :";
             // 
             // MCPaymentEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panelWage);
             this.Controls.Add(this.txtBonus);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.txtPunish);
@@ -843,6 +879,9 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmployeeName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPay.Properties)).EndInit();
+            this.panelWage.ResumeLayout(false);
+            this.panelWage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWage.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -919,5 +958,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label txtBonus;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Panel panelWage;
+        private TextEdit txtWage;
+        private System.Windows.Forms.Label label12;
     }
 }

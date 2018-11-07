@@ -149,7 +149,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                 }
             }
             txtDebt.Text = payment.debtAgo.ToString();
-            payment.pay = (int)(Time * double.Parse(txtMoneyOfTime.Text) + Product * double.Parse(txtMoneyOfProduct.Text) + payment.bonus - payment.punish - payment.food - payment.cash - payment.debtAgo - payment.payed);
+            payment.pay = (txtWage.Text!=string.Empty?double.Parse(txtWage.Text):0)+(int)(Time * double.Parse(txtMoneyOfTime.Text) + Product * double.Parse(txtMoneyOfProduct.Text) + payment.bonus - payment.punish - payment.food - payment.cash - payment.debtAgo - payment.payed);
             //MessageBox.Show("Pay dau :" + payment.pay);
             if (payment.pay > 0)
             {
@@ -253,7 +253,14 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             employeePayment.NEBT = payment.debtNow;
             employeePayment.ProductPrice = int.Parse(txtMoneyOfProduct.Text);
             employeePayment.TimePrice = int.Parse(txtMoneyOfTime.Text);
-            employeePayment.Wage = (int)(Time * int.Parse(txtMoneyOfTime.Text) + Product * int.Parse(txtMoneyOfProduct.Text));
+            if (panelWage.Visible == true)
+            {
+                employeePayment.Wage = double.Parse(txtWage.Text);
+            }
+            else
+            {
+                employeePayment.Wage = (int)(Time * int.Parse(txtMoneyOfTime.Text) + Product * int.Parse(txtMoneyOfProduct.Text));
+            }
             employeePayment.Cash = payment.cash;
             employeePayment.MonthOfPay = Month;
             employeePayment.YearOfPay = Year;
@@ -280,6 +287,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             txtCash.Text = "0";
             MSNV = "";
             txtDayWork.Text = "0";
+            txtWage.Text = string.Empty;
+            panelWage.Visible = false;
             loadEmployeeName();
             dataDetailWork.Rows.Clear();
         }
@@ -315,10 +324,22 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             {
                 loadEmployeeName();
                 string Name = txtEmployeeName.Text;
-                txtMSNV.Text = employeeBO.GetData(u => u.isDelete == false && u.Hoten.Trim() == Name.Trim()).Select(u => u.MSNV).ToList()[0];
-                MSNV = txtMSNV.Text;
+                string tempMSNV= employeeBO.GetData(u => u.isDelete == false && u.Hoten.Trim() == Name.Trim()).Select(u => u.MSNV).ToList()[0];
+                txtMSNV.Text = tempMSNV;
+                MSNV = tempMSNV;
                 listTime = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == MSNV && u.Date.Value.Month == Month && u.Date.Value.Year == Year).ToList();
                 listEpay = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == MSNV).ToList();
+                int Type = employeeBO.GetData(u => u.isDelete == false && u.Hoten == Name && u.MSNV == tempMSNV).First().Type.Value;
+                if(Type==1)
+                {
+                    txtProduct.Text = "0";
+                    txtTime.Text = "0";
+                    panelWage.Visible = true;
+                }
+                else
+                {
+                    panelWage.Visible = false;
+                }
                 loadTotalOFDetail();
                 loadDetail();
             }
@@ -357,69 +378,151 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         {
             if (txtMSNV.Text != "" && txtPay.Text != string.Empty && listTime.Count() != 0)
             {
-                if (payment.pay != 0)
+                int Type = employeeBO.GetData(u => u.isDelete == false && u.Hoten == txtEmployeeName.Text && u.MSNV == MSNV).First().Type.Value;
+                if (Type == 1)
                 {
-                    if (payment.pay < 0 && listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).Count() == 0)
+                    //Theo tháng
+                    if (txtWage.Text != string.Empty && double.Parse(txtWage.Text) > 0)
                     {
-                        //cho thanh toan
-                        int intPay = int.Parse(txtPay.Text);
-                        if (intPay != 0)
+                        if (payment.pay != 0)
                         {
-                            MessageBox.Show("Nhân viên nợ công ty với số tiền là " + payment.debtNow + "nên số tiền thành toán là 0 đồng");
-                            txtPay.Text = "0";
+                            if (payment.pay < 0 && listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).Count() == 0)
+                            {
+                                //cho thanh toan
+                                int intPay = int.Parse(txtPay.Text);
+                                if (intPay != 0)
+                                {
+                                    MessageBox.Show("Nhân viên nợ công ty với số tiền là " + payment.debtNow + "nên số tiền thành toán là 0 đồng");
+                                    txtPay.Text = "0";
+                                }
+                                else
+                                {
+                                    //cho thanh toan
+                                    AddPayment();
+                                }
+                            }
+                            if (payment.pay < 0 && listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).Count() != 0)
+                            {
+                                //da thanh toan roi
+                                MessageBox.Show("Nhân viên này đã thanh toán rồi. Vui lòng kiểm tra lại");
+                                ResetForm();
+                            }
+                            if (payment.pay > 0)
+                            {
+                                //cho thanh toan
+                                int intPay = int.Parse(txtPay.Text);
+                                if (intPay > payment.pay)
+                                {
+                                    MessageBox.Show("Bạn chỉ cần thanh toán" + payment.pay + "là đủ");
+                                    txtPay.Text = payment.pay.ToString();
+                                }
+                                if (intPay == 0)
+                                {
+                                    MessageBox.Show("Vui lòng điền giá tiền");
+                                }
+                                if (intPay <= payment.pay)
+                                {
+                                    //cho thanh toan
+                                    AddPayment();
+                                }
+                            }
                         }
-                        else
+                        if (payment.pay == 0)
                         {
-                            //cho thanh toan
-                            AddPayment();
+                            if (listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).Count() != 0)
+                            {
+                                MessageBox.Show("Nhân viên này đã thanh toán rồi. Vui lòng kiểm tra lại");
+                                ResetForm();
+                            }
+                            else
+                            {
+                                //cho thanh toan
+                                int intPay = int.Parse(txtPay.Text);
+                                if (intPay != 0)
+                                {
+                                    MessageBox.Show("Bạn chỉ cần thanh toán" + payment.pay + "là đủ");
+                                    txtPay.Text = payment.pay.ToString();
+                                }
+                                else
+                                {
+                                    //cho thanh toan
+                                    AddPayment();
+                                }
+                            }
                         }
-                    }
-                    if (payment.pay < 0 && listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).Count() != 0)
-                    {
-                        //da thanh toan roi
-                        MessageBox.Show("Nhân viên này đã thanh toán rồi. Vui lòng kiểm tra lại");
-                        ResetForm();
-                    }
-                    if (payment.pay > 0)
-                    {
-                        //cho thanh toan
-                        int intPay = int.Parse(txtPay.Text);
-                        if (intPay > payment.pay)
-                        {
-                            MessageBox.Show("Bạn chỉ cần thanh toán" + payment.pay + "là đủ");
-                            txtPay.Text = payment.pay.ToString();
-                        }
-                        if (intPay == 0)
-                        {
-                            MessageBox.Show("Vui lòng điền giá tiền");
-                        }
-                        if (intPay <= payment.pay)
-                        {
-                            //cho thanh toan
-                            AddPayment();
-                        }
-                    }
-                }
-                if (payment.pay == 0)
-                {
-                    if (listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).Count() != 0)
-                    {
-                        MessageBox.Show("Nhân viên này đã thanh toán rồi. Vui lòng kiểm tra lại");
-                        ResetForm();
                     }
                     else
                     {
-                        //cho thanh toan
-                        int intPay = int.Parse(txtPay.Text);
-                        if (intPay != 0)
+                        MessageBox.Show("Vui lòng nhập tiền công");
+                    }
+                }
+                else
+                {
+                    //Theo ngày
+                    if (payment.pay != 0)
+                    {
+                        if (payment.pay < 0 && listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).Count() == 0)
                         {
-                            MessageBox.Show("Bạn chỉ cần thanh toán" + payment.pay + "là đủ");
-                            txtPay.Text = payment.pay.ToString();
+                            //cho thanh toan
+                            int intPay = int.Parse(txtPay.Text);
+                            if (intPay != 0)
+                            {
+                                MessageBox.Show("Nhân viên nợ công ty với số tiền là " + payment.debtNow + "nên số tiền thành toán là 0 đồng");
+                                txtPay.Text = "0";
+                            }
+                            else
+                            {
+                                //cho thanh toan
+                                AddPayment();
+                            }
+                        }
+                        if (payment.pay < 0 && listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).Count() != 0)
+                        {
+                            //da thanh toan roi
+                            MessageBox.Show("Nhân viên này đã thanh toán rồi. Vui lòng kiểm tra lại");
+                            ResetForm();
+                        }
+                        if (payment.pay > 0)
+                        {
+                            //cho thanh toan
+                            int intPay = int.Parse(txtPay.Text);
+                            if (intPay > payment.pay)
+                            {
+                                MessageBox.Show("Bạn chỉ cần thanh toán" + payment.pay + "là đủ");
+                                txtPay.Text = payment.pay.ToString();
+                            }
+                            if (intPay == 0)
+                            {
+                                MessageBox.Show("Vui lòng điền giá tiền");
+                            }
+                            if (intPay <= payment.pay)
+                            {
+                                //cho thanh toan
+                                AddPayment();
+                            }
+                        }
+                    }
+                    if (payment.pay == 0)
+                    {
+                        if (listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).Count() != 0)
+                        {
+                            MessageBox.Show("Nhân viên này đã thanh toán rồi. Vui lòng kiểm tra lại");
+                            ResetForm();
                         }
                         else
                         {
                             //cho thanh toan
-                            AddPayment();
+                            int intPay = int.Parse(txtPay.Text);
+                            if (intPay != 0)
+                            {
+                                MessageBox.Show("Bạn chỉ cần thanh toán" + payment.pay + "là đủ");
+                                txtPay.Text = payment.pay.ToString();
+                            }
+                            else
+                            {
+                                //cho thanh toan
+                                AddPayment();
+                            }
                         }
                     }
                 }
@@ -473,7 +576,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                     Editpayment.debtAgo = listEpay.Where(u => u.MonthOfPay == Month - 1 && u.YearOfPay == Year).First().NEBT;
                 }
             }
-            Editpayment.pay = Time * int.Parse(txtMoneyOfTime.Text) + Product * int.Parse(txtMoneyOfProduct.Text) - Editpayment.cash - Editpayment.debtAgo - Editpayment.payed;
+            Editpayment.pay = (txtWage.Text != string.Empty ? double.Parse(txtWage.Text) : 0) + Time * int.Parse(txtMoneyOfTime.Text) + Product * int.Parse(txtMoneyOfProduct.Text) - Editpayment.cash - Editpayment.debtAgo - Editpayment.payed;
 
             //MessageBox.Show("Pay dau :" + payment.pay);
             double intPay = double.Parse(txtPay.Text);
@@ -515,6 +618,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                             btnEdit.Visible = true;
                             int ID = int.Parse(dataDS.Rows[e.RowIndex].Cells[0].Value.ToString().Substring(2));
                             string strMSNV = dataDS.Rows[e.RowIndex].Cells[2].Value.ToString();
+
                             txtID.Text = dataDS.Rows[e.RowIndex].Cells[0].Value.ToString();
                             txtDate.Text = dataDS.Rows[e.RowIndex].Cells[1].Value.ToString();
                             txtMSNV.Text = dataDS.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -546,7 +650,10 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                             txtPay.Text = employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().PAY.ToString();
                             txtNoteMoney.Text = employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().PAY != 0 ? employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().PAY.ToString("#,###") : "0";
                             txtMonth.Text = dataDS.Rows[e.RowIndex].Cells[8].Value.ToString().Split('/')[0];
+                            txtWage.Text = dataDS.Rows[e.RowIndex].Cells[4].Value.ToString();
                             btnRemove.Enabled = false;
+                            txtWage.Enabled = false;
+                            txtEmployeeName.Enabled = false;
                         }
                         catch
                         {
@@ -556,7 +663,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                         break;
 
                     case 1:
-
+                        txtEmployeeName.Enabled = true;
+                        txtWage.Enabled = true;
                         btnRemove.Enabled = true;
                         ResetForm();
                         btnEdit.Visible = false;
@@ -628,5 +736,13 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         }
         #endregion
 
+        private void txtWage_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+            {
+                loadTotalOFDetail();
+                btnThem.Focus();
+            }
+        }
     }
 }
