@@ -31,8 +31,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MCPaymentEmployee));
             this.txtID = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -67,15 +67,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.btnRemove = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.dataDS = new System.Windows.Forms.DataGridView();
-            this.MSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MSKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiencong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ung = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Debt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Timekeep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtMoneyOfTime = new System.Windows.Forms.ComboBox();
             this.txtTime = new System.Windows.Forms.Label();
             this.txtProduct = new System.Windows.Forms.Label();
@@ -106,6 +97,20 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.panelWage = new System.Windows.Forms.Panel();
             this.txtWage = new DevExpress.XtraEditors.TextEdit();
             this.label12 = new System.Windows.Forms.Label();
+            this.MSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MSKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiencong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ung = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dsFood = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dsBonus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dsPunish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Debt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Timekeep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.DVprintDocument = new System.Drawing.Printing.PrintDocument();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataDetailWork)).BeginInit();
@@ -424,14 +429,14 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             // 
             // dataDS
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataDS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataDS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MSTT,
@@ -440,77 +445,22 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.Hoten,
             this.tiencong,
             this.ung,
-            this.paid,
+            this.dsFood,
+            this.dsBonus,
+            this.dsPunish,
             this.Debt,
+            this.paid,
             this.Timekeep});
             this.dataDS.Location = new System.Drawing.Point(34, 298);
             this.dataDS.Name = "dataDS";
             this.dataDS.ReadOnly = true;
             this.dataDS.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataDS.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataDS.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataDS.Size = new System.Drawing.Size(795, 244);
             this.dataDS.TabIndex = 159;
             this.dataDS.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDS_CellDoubleClick);
             this.dataDS.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDS_CellEnter);
-            // 
-            // MSTT
-            // 
-            this.MSTT.HeaderText = "MSTT";
-            this.MSTT.Name = "MSTT";
-            this.MSTT.ReadOnly = true;
-            this.MSTT.Width = 50;
-            // 
-            // NgayNhap
-            // 
-            this.NgayNhap.HeaderText = "Ngày lập";
-            this.NgayNhap.Name = "NgayNhap";
-            this.NgayNhap.ReadOnly = true;
-            this.NgayNhap.Width = 80;
-            // 
-            // MSKH
-            // 
-            this.MSKH.HeaderText = "MSNV";
-            this.MSKH.Name = "MSKH";
-            this.MSKH.ReadOnly = true;
-            this.MSKH.Width = 70;
-            // 
-            // Hoten
-            // 
-            this.Hoten.HeaderText = "Họ và tên";
-            this.Hoten.Name = "Hoten";
-            this.Hoten.ReadOnly = true;
-            // 
-            // tiencong
-            // 
-            this.tiencong.HeaderText = "Tiền công";
-            this.tiencong.Name = "tiencong";
-            this.tiencong.ReadOnly = true;
-            // 
-            // ung
-            // 
-            this.ung.HeaderText = "Tiền ứng";
-            this.ung.Name = "ung";
-            this.ung.ReadOnly = true;
-            // 
-            // paid
-            // 
-            this.paid.HeaderText = "Tiền thanh toán";
-            this.paid.Name = "paid";
-            this.paid.ReadOnly = true;
-            // 
-            // Debt
-            // 
-            this.Debt.HeaderText = "Tiền nợ";
-            this.Debt.Name = "Debt";
-            this.Debt.ReadOnly = true;
-            // 
-            // Timekeep
-            // 
-            this.Timekeep.HeaderText = "Chấm công";
-            this.Timekeep.Name = "Timekeep";
-            this.Timekeep.ReadOnly = true;
-            this.Timekeep.Width = 50;
             // 
             // txtMoneyOfTime
             // 
@@ -814,10 +764,104 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.label12.TabIndex = 196;
             this.label12.Text = "Tiền Công :";
             // 
+            // MSTT
+            // 
+            this.MSTT.HeaderText = "MSTT";
+            this.MSTT.Name = "MSTT";
+            this.MSTT.ReadOnly = true;
+            this.MSTT.Width = 50;
+            // 
+            // NgayNhap
+            // 
+            this.NgayNhap.HeaderText = "Ngày lập";
+            this.NgayNhap.Name = "NgayNhap";
+            this.NgayNhap.ReadOnly = true;
+            this.NgayNhap.Width = 80;
+            // 
+            // MSKH
+            // 
+            this.MSKH.HeaderText = "MSNV";
+            this.MSKH.Name = "MSKH";
+            this.MSKH.ReadOnly = true;
+            this.MSKH.Width = 70;
+            // 
+            // Hoten
+            // 
+            this.Hoten.HeaderText = "Họ và tên";
+            this.Hoten.Name = "Hoten";
+            this.Hoten.ReadOnly = true;
+            // 
+            // tiencong
+            // 
+            this.tiencong.HeaderText = "Tiền công";
+            this.tiencong.Name = "tiencong";
+            this.tiencong.ReadOnly = true;
+            // 
+            // ung
+            // 
+            this.ung.HeaderText = "Tiền ứng";
+            this.ung.Name = "ung";
+            this.ung.ReadOnly = true;
+            // 
+            // dsFood
+            // 
+            this.dsFood.HeaderText = "Tiền ăn";
+            this.dsFood.Name = "dsFood";
+            this.dsFood.ReadOnly = true;
+            // 
+            // dsBonus
+            // 
+            this.dsBonus.HeaderText = "Tiền thưởng";
+            this.dsBonus.Name = "dsBonus";
+            this.dsBonus.ReadOnly = true;
+            // 
+            // dsPunish
+            // 
+            this.dsPunish.HeaderText = "Tiền phạt";
+            this.dsPunish.Name = "dsPunish";
+            this.dsPunish.ReadOnly = true;
+            // 
+            // Debt
+            // 
+            this.Debt.HeaderText = "Tiền nợ";
+            this.Debt.Name = "Debt";
+            this.Debt.ReadOnly = true;
+            // 
+            // paid
+            // 
+            this.paid.HeaderText = "Tiền thanh toán";
+            this.paid.Name = "paid";
+            this.paid.ReadOnly = true;
+            // 
+            // Timekeep
+            // 
+            this.Timekeep.HeaderText = "Chấm công";
+            this.Timekeep.Name = "Timekeep";
+            this.Timekeep.ReadOnly = true;
+            this.Timekeep.Width = 50;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.Color.SlateGray;
+            this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnPrint.Location = new System.Drawing.Point(584, 553);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(115, 41);
+            this.btnPrint.TabIndex = 215;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // DVprintDocument
+            // 
+            this.DVprintDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.DVprintDocument_PrintPage);
+            // 
             // MCPaymentEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.panelWage);
             this.Controls.Add(this.txtBonus);
             this.Controls.Add(this.label23);
@@ -933,15 +977,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         private System.Windows.Forms.TextBox txtMSNV;
         private ImageComboBoxEdit txtEmployeeName;
         private System.Windows.Forms.ImageList imageListCB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MSTT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayNhap;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MSKH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Hoten;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tiencong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ung;
-        private System.Windows.Forms.DataGridViewTextBoxColumn paid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Debt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Timekeep;
         private TextEdit txtPay;
         private System.Windows.Forms.Label txtFood;
         private System.Windows.Forms.Label label20;
@@ -961,5 +996,19 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         private System.Windows.Forms.Panel panelWage;
         private TextEdit txtWage;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MSTT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayNhap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MSKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Hoten;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiencong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ung;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dsFood;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dsBonus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dsPunish;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Debt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn paid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Timekeep;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Drawing.Printing.PrintDocument DVprintDocument;
     }
 }

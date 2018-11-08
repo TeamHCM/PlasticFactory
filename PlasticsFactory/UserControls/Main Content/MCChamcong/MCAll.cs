@@ -10,9 +10,10 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
     public partial class MCAll : UserControl
     {
         #region field
-
+        private EmployeeBO employeeBO = new EmployeeBO();
         public List<Timekeeping> list = new List<Timekeeping>();
         public TimekeepingBO timekeepingBO = new TimekeepingBO();
+        private EmployeePaymentBO employeePaymentBO = new EmployeePaymentBO();
         public Timekeeping timekeeping;
         public int btnDoubleGrid = 0;
         private string tempMSNV = "";
@@ -29,6 +30,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             txtThoigianKT.ResetText();
             txtWeight.ResetText();
             txtCashAdvance.ResetText();
+            txtFood.ResetText();
             txtNote.ResetText();
             txtNgay.Text = DateTime.Now.Day.ToString();
             txtThang.Text = DateTime.Now.Month.ToString();
@@ -111,7 +113,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             if (txtWeight.Text.Equals(""))
             {
                 timekeeping.Weight = 0;
-                timekeeping.TotalWeight =0;
+                timekeeping.TotalWeight = 0;
             }
             else
             {
@@ -133,14 +135,14 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 }
                 timekeeping.AdvancePayment = int.Parse(str);
             }
-            timekeeping.Food = txtFood.Text!=string.Empty? double.Parse(txtFood.Text):0;
-            timekeeping.Punish =txtPunish.Text!=string.Empty? double.Parse(txtPunish.Text):0;
-            timekeeping.Bunus = txtBonus.Text!=string.Empty?double.Parse(txtBonus.Text):0;
-            if(checkRest.Checked)
+            timekeeping.Food = txtFood.Text != string.Empty ? double.Parse(txtFood.Text) : 0;
+            timekeeping.Punish = txtPunish.Text != string.Empty ? double.Parse(txtPunish.Text) : 0;
+            timekeeping.Bunus = txtBonus.Text != string.Empty ? double.Parse(txtBonus.Text) : 0;
+            if (checkRest.Checked)
             {
                 timekeeping.isRest = true;
             }
-            if(!checkRest.Checked)
+            if (!checkRest.Checked)
             {
                 timekeeping.isRest = false;
             }
@@ -419,19 +421,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
 
         private void txtHoten_Leave(object sender, EventArgs e)
         {
-            string name = txtHoten.Text;
-            bool checkExist = timekeepingBO.checkNameEmployee(name);
-            if (checkExist == true)
-            {
-                loadMSNV(name);
-                txtNgay.Focus();
-            }
-            else
-            {
-                txtHoten.Text = "";
-                txtMSNV.Text = "";
-                txtMSNV.Items.Clear();
-            }
+
         }
 
         #endregion Event Infomation Employee
@@ -854,34 +844,63 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 string Date = txtNgay.Text + "/" + txtThang.Text + "/" + txtNam.Text;
                 bool IsFieldEmployeeByDateInList = IsEmployeeByDateInList(txtMSNV.Text, Date);
                 bool IsFieldEmployeeByDateInDB = timekeepingBO.IsEmployeeByDateDB(txtMSNV.Text, Date);
-                if (IsFieldEmployeeByDateInDB || IsFieldEmployeeByDateInList)
+                //Kiểm tra thanh toán chưa
+                bool IsExistPayment = employeePaymentBO.isExist(txtMSNV.Text, int.Parse(txtThang.Text), int.Parse(txtNam.Text));
+                if (!IsExistPayment)
                 {
-                    MessageBox.Show("Nhân viên đã nãy đã được chấm công vào này rồi trong DataBase hoặc là trong danh sách mới thêm. Vui lòng kiểm tra lại");
-                }
-                else
-                {
-                    if ((txtThoigianKT.Text.Equals("") || txtThoigianBD.Text.Equals("")) && txtWeight.Text.Equals(""))
+                    if (IsFieldEmployeeByDateInDB || IsFieldEmployeeByDateInList)
                     {
-                        //code giúp kiểm tra  lỗi nuế ở treên rỗng mà trường họcw nhập check vào nghỉ thì ok vẫn cho thêm vài chấm công
-                        if (checkRest.Checked)
-                        {
-                            timekeeping = ObjectTimekeeping();
-                            list.Add(timekeeping);
-                            LoadAutoRefreshInformation();
-                            txtHoten.Focus();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Vui lòng kiểm tra lại thông tin làm việc");
-                        }
+                        MessageBox.Show("Nhân viên đã nãy đã được chấm công vào này rồi trong DataBase hoặc là trong danh sách mới thêm. Vui lòng kiểm tra lại");
                     }
                     else
                     {
-                        timekeeping = ObjectTimekeeping();
-                        list.Add(timekeeping);
-                        LoadAutoRefreshInformation();
-                        txtHoten.Focus();
+                        int Type = employeeBO.GetData(u => u.isDelete == false && u.MSNV == txtMSNV.Text).First().Type.Value;
+                        //theo thang
+                        if (Type == 1)
+                        {
+                            if (txtCashAdvance.Text == string.Empty && txtFood.Text == string.Empty && txtNote.Text == string.Empty && txtBonus.Text == string.Empty && txtPunish.Text == string.Empty)
+                            {
+                                MessageBox.Show("Vui lòng kiểm tra lại thông tin làm việc");
+                            }
+                            else
+                            {
+                                timekeeping = ObjectTimekeeping();
+                                list.Add(timekeeping);
+                                LoadAutoRefreshInformation();
+                                txtHoten.Focus();
+                            }
+                        }
+                        //theo ngay
+                        else
+                        {
+                            if ((txtThoigianKT.Text.Equals("") || txtThoigianBD.Text.Equals("")) && txtWeight.Text.Equals(""))
+                            {
+                                //code giúp kiểm tra  lỗi nuế ở treên rỗng mà trường họcw nhập check vào nghỉ thì ok vẫn cho thêm vài chấm công
+                                if (checkRest.Checked)
+                                {
+                                    timekeeping = ObjectTimekeeping();
+                                    list.Add(timekeeping);
+                                    LoadAutoRefreshInformation();
+                                    txtHoten.Focus();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Vui lòng kiểm tra lại thông tin làm việc");
+                                }
+                            }
+                            else
+                            {
+                                timekeeping = ObjectTimekeeping();
+                                list.Add(timekeeping);
+                                LoadAutoRefreshInformation();
+                                txtHoten.Focus();
+                            }
+                        }
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Nhân viên đã thanh toán rồi");
                 }
             }
         }
@@ -973,30 +992,55 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkRest.Checked)
+            int Type = employeeBO.GetData(u => u.isDelete == false && u.MSNV == txtMSNV.Text).First().Type.Value;
+            //theo thang
+            if (Type == 1)
             {
-                txtThoigianBD.Enabled = false;
-                txtThoigianKT.Enabled = false;
-                txtWeight.Enabled = false;
-                txtThoigianBD.Text = string.Empty;
-                txtThoigianKT.Text =string.Empty ;
-                txtWeight.Text = string.Empty;
-                txtBonus.Enabled = false;
-                txtPunish.Enabled = true;
+                if (checkRest.Checked)
+                {
+                    txtThoigianBD.Enabled = false;
+                    txtThoigianKT.Enabled = false;
+                    txtWeight.Enabled = false;
+                    txtThoigianBD.Text = string.Empty;
+                    txtThoigianKT.Text = string.Empty;
+                    txtWeight.Text = string.Empty;
+                    txtBonus.Enabled = false;
+                    txtPunish.Enabled = true;
+                }
+                //ngược lại cũng khổng mở thời gian bắt đầu kt,trọng lượng chỉ mở cho thằng tiền thưởng
+                if (!checkRest.Checked)
+                {
+                    txtBonus.Enabled = true;
+                }
             }
-            if (!checkRest.Checked)
+            //ngày
+            else
             {
-                txtPunish.Enabled = false;
-                txtBonus.Enabled = true;
-                txtThoigianBD.Enabled = true;
-                txtThoigianKT.Enabled = true;
-                txtWeight.Enabled = true;
+                if (checkRest.Checked)
+                {
+                    txtThoigianBD.Enabled = false;
+                    txtThoigianKT.Enabled = false;
+                    txtWeight.Enabled = false;
+                    txtThoigianBD.Text = string.Empty;
+                    txtThoigianKT.Text = string.Empty;
+                    txtWeight.Text = string.Empty;
+                    txtBonus.Enabled = false;
+                    txtPunish.Enabled = true;
+                }
+                if (!checkRest.Checked)
+                {
+                    txtPunish.Enabled = false;
+                    txtBonus.Enabled = true;
+                    txtThoigianBD.Enabled = true;
+                    txtThoigianKT.Enabled = true;
+                    txtWeight.Enabled = true;
+                }
             }
         }
 
         private void txtPunish_KeyUp(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode==Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 txtCashAdvance.Focus();
             }
@@ -1005,6 +1049,38 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
         private void txtBonus_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtHoten_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string name = txtHoten.Text;
+            bool checkExist = timekeepingBO.checkNameEmployee(name);
+            if (checkExist == true)
+            {
+                loadMSNV(name);
+                int Type = employeeBO.GetData(u => u.isDelete == false && u.MSNV == txtMSNV.Text).First().Type.Value;
+                //theo thang
+                if (Type == 1)
+                {
+                    txtThoigianBD.Enabled = false;
+                    txtThoigianKT.Enabled = false;
+                    txtTypeWeight.Enabled = false;
+                    txtWeight.Enabled = false;
+                }
+                else
+                {
+                    txtThoigianBD.Enabled = true;
+                    txtThoigianKT.Enabled = true;
+                    txtTypeWeight.Enabled = true;
+                    txtWeight.Enabled = true;
+                }
+            }
+            else
+            {
+                txtHoten.Text = "";
+                txtMSNV.Text = "";
+                txtMSNV.Items.Clear();
+            }
         }
     }
 }

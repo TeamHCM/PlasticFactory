@@ -35,8 +35,8 @@ namespace PlasticsFactory.Data
         public int TotalWeight { get; set; }
         public bool isDelete { get; set; }
     
+        public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PaymentOutput> PaymentOutputs { get; set; }
-        public virtual Customer Customer { get; set; }
     }
 }

@@ -53,7 +53,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             var listDB = employeeBO.GetData(u => u.isDelete == false);
             dataEmployee.Rows.Clear();
             int i = 0;
-            foreach(var item in listDB)
+            foreach (var item in listDB)
             {
                 dataEmployee.Rows.Add();
                 dataEmployee.Rows[i].Cells[0].Value = item.MSNV;
@@ -158,7 +158,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                 txtCash.Location = PtxtWage;
                 txtDebtNow.Location = PtxtPay;
                 txtPayed.Location = PtxtCash;
-                
+
 
                 foreach (var item in listDB)
                 {
@@ -174,7 +174,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                     //GetTime month ago =>Debt
                     if (Month == 1)
                     {
-                        int count = employeePaymentBO.GetData(u=>u.isDelete==false&&u.MSNV==item.MSNV).Where(u => u.DATE.Value.Month == 12 && u.DATE.Value.Year == Year - 1).Count();
+                        int count = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == item.MSNV).Where(u => u.DATE.Value.Month == 12 && u.DATE.Value.Year == Year - 1).Count();
                         if (count != 0)
                         {
                             debtAgo = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == item.MSNV).Where(u => u.DATE.Value.Month == 12 && u.DATE.Value.Year == Year - 1).First().NEBT;
@@ -190,8 +190,11 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                     }
                     dataDS.Rows[i].Cells[6].Value = debtAgo;
                     dataDS.Rows[i].Cells[7].Value = item.Cash;
-                    dataDS.Rows[i].Cells[8].Value = item.PAY;
-                    dataDS.Rows[i].Cells[9].Value=item.MonthOfPay+"/"+item.YearOfPay;
+                    dataDS.Rows[i].Cells[8].Value = ListDB.Sum(u => u.Food);
+                    dataDS.Rows[i].Cells[9].Value = ListDB.Sum(u => u.Bunus);
+                    dataDS.Rows[i].Cells[10].Value = ListDB.Sum(u => u.Punish);
+                    dataDS.Rows[i].Cells[11].Value = item.PAY;
+                    dataDS.Rows[i].Cells[12].Value = item.MonthOfPay + "/" + item.YearOfPay;
                     i++;
                 }
                 var listAllPayment = employeePaymentBO.GetData(u => u.isDelete == false && u.DATE.Value.Month == Month && u.DATE.Value.Year == Year);
@@ -281,7 +284,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         {
             InitializeComponent();
         }
-        
+
         private void MCEmployeeManagement_Load(object sender, EventArgs e)
         {
             PlbWage = new Point(lbWage.Location.X, lbWage.Location.Y);
@@ -356,7 +359,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             Year = int.Parse(txtYear.Text);
             txtMSNV_SelectedIndexChanged(sender, e);
         }
-        
+
         private void btnDetail_Click(object sender, EventArgs e)
         {
             frmLayout.panelContents.Controls.Clear();
@@ -367,33 +370,37 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
 
         private void dataDS_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < dataDS.Rows.Count - 1)
+            try
             {
-                DateTime date = DateTime.Parse(dataDS.Rows[e.RowIndex].Cells[9].Value.ToString());
-                string MSNV = dataDS.Rows[e.RowIndex].Cells[2].Value.ToString();
-                string EmployeeName = dataDS.Rows[e.RowIndex].Cells[3].Value.ToString();
-                management = new MCChamcong.Management();
-                management.Sender(EmployeeName, MSNV, date);
+                if (e.RowIndex < dataDS.Rows.Count - 1)
+                {
+                    DateTime date = DateTime.Parse(dataDS.Rows[e.RowIndex].Cells[9].Value.ToString());
+                    string MSNV = dataDS.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    string EmployeeName = dataDS.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    management = new MCChamcong.Management();
+                    management.Sender(EmployeeName, MSNV, date);
+                }
             }
+            catch { }
         }
 
         private void dataEmployee_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex<dataEmployee.Rows.Count-1)
+            if (e.RowIndex < dataEmployee.Rows.Count - 1)
             {
                 txtnvMSNV.Text = dataEmployee.Rows[e.RowIndex].Cells[0].Value.ToString();
                 txtEmployeeNam.Text = dataEmployee.Rows[e.RowIndex].Cells[1].Value.ToString();
                 string sex = dataEmployee.Rows[e.RowIndex].Cells[2].Value.ToString();
-                if(sex=="Nam")
+                if (sex == "Nam")
                 {
-                    rdNam.Checked=true;
+                    rdNam.Checked = true;
                 }
                 else
                 {
                     rdNu.Checked = true;
                 }
-                txtBirthDay.Text= dataEmployee.Rows[e.RowIndex].Cells[3].Value.ToString();
-                txtCMND.Text= dataEmployee.Rows[e.RowIndex].Cells[5].Value.ToString();
+                txtBirthDay.Text = dataEmployee.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txtCMND.Text = dataEmployee.Rows[e.RowIndex].Cells[5].Value.ToString();
                 txtDiachi.Text = dataEmployee.Rows[e.RowIndex].Cells[4].Value.ToString();
                 txtSDT.Text = dataEmployee.Rows[e.RowIndex].Cells[6].Value.ToString();
             }
@@ -401,7 +408,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if(txtnvMSNV.Text!=string.Empty)
+            if (txtnvMSNV.Text != string.Empty)
             {
                 employeeBO.isDelete(txtnvMSNV.Text);
                 ResetFormEmployee();
@@ -412,7 +419,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         {
             Data.Employee employee = new Data.Employee();
             employee.Hoten = txtEmployeeNam.Text;
-            if(rdNam.Checked)
+            if (rdNam.Checked)
             {
                 employee.Gioitinh = "Nam";
             }

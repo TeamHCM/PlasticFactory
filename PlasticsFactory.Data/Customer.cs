@@ -18,8 +18,8 @@ namespace PlasticsFactory.Data
         public Customer()
         {
             this.ProductInputs = new HashSet<ProductInput>();
-            this.Trucks = new HashSet<Truck>();
             this.ProductOutputs = new HashSet<ProductOutput>();
+            this.Trucks = new HashSet<Truck>();
         }
     
         public int ID { get; set; }
@@ -33,8 +33,8 @@ namespace PlasticsFactory.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductInput> ProductInputs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Truck> Trucks { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductOutput> ProductOutputs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Truck> Trucks { get; set; }
     }
 }

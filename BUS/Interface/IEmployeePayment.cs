@@ -12,5 +12,6 @@ namespace BUS.Interface
         int GetID();
         bool Update(EmployeePayment item);
         bool isDelete(int ID);
+        bool isExist(string MSNV, int month, int year);
     }
 }

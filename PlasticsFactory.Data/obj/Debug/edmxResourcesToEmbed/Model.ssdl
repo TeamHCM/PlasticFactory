@@ -50,6 +50,13 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Type" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="EmployeeWage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Wage" Type="float" />
+  </EntityType>
   <EntityType Name="PaymentInput">
     <Key>
       <PropertyRef Name="ID" />
@@ -285,6 +292,7 @@
     <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EmployeePayment" EntityType="Self.EmployeePayment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EmployeeType" EntityType="Self.EmployeeType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeWage" EntityType="Self.EmployeeWage" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PaymentInput" EntityType="Self.PaymentInput" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PaymentOutput" EntityType="Self.PaymentOutput" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PreferceProductPrice" EntityType="Self.PreferceProductPrice" Schema="dbo" store:Type="Tables" />

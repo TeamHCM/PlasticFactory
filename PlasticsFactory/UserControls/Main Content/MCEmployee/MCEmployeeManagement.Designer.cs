@@ -35,16 +35,6 @@
             this.TabPay = new System.Windows.Forms.TabPage();
             this.btnDetail = new System.Windows.Forms.Button();
             this.dataDS = new System.Windows.Forms.DataGridView();
-            this.MSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Debt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cash = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataTimekeep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtDebtNow = new System.Windows.Forms.Label();
             this.lbCash = new System.Windows.Forms.Label();
             this.txtCash = new System.Windows.Forms.Label();
@@ -100,6 +90,19 @@
             this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
+            this.MSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Debt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cash = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Food = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bonus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Punish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataTimekeep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabContro.SuspendLayout();
             this.TabPay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataDS)).BeginInit();
@@ -184,80 +187,17 @@
             this.Product,
             this.Debt,
             this.Cash,
+            this.Food,
+            this.Bonus,
+            this.Punish,
             this.Pay,
             this.DataTimekeep});
-            this.dataDS.Location = new System.Drawing.Point(7, 139);
+            this.dataDS.Location = new System.Drawing.Point(8, 139);
             this.dataDS.Name = "dataDS";
             this.dataDS.ReadOnly = true;
             this.dataDS.Size = new System.Drawing.Size(1297, 286);
             this.dataDS.TabIndex = 147;
             this.dataDS.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDS_CellClick);
-            // 
-            // MSTT
-            // 
-            this.MSTT.HeaderText = "MSTT";
-            this.MSTT.Name = "MSTT";
-            this.MSTT.ReadOnly = true;
-            // 
-            // Date
-            // 
-            this.Date.HeaderText = "Ngày lập";
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            this.Date.Width = 150;
-            // 
-            // dgName
-            // 
-            this.dgName.HeaderText = "MSNV";
-            this.dgName.Name = "dgName";
-            this.dgName.ReadOnly = true;
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Họ tên";
-            this.Name.Name = "Name";
-            this.Name.ReadOnly = true;
-            this.Name.Width = 150;
-            // 
-            // TotalTime
-            // 
-            this.TotalTime.HeaderText = "Thời gian";
-            this.TotalTime.Name = "TotalTime";
-            this.TotalTime.ReadOnly = true;
-            // 
-            // Product
-            // 
-            this.Product.HeaderText = "Sản phẩm";
-            this.Product.Name = "Product";
-            this.Product.ReadOnly = true;
-            // 
-            // Debt
-            // 
-            this.Debt.HeaderText = "Tiền nợ trước";
-            this.Debt.Name = "Debt";
-            this.Debt.ReadOnly = true;
-            this.Debt.Width = 150;
-            // 
-            // Cash
-            // 
-            this.Cash.HeaderText = "Tiền ứng";
-            this.Cash.Name = "Cash";
-            this.Cash.ReadOnly = true;
-            this.Cash.Width = 150;
-            // 
-            // Pay
-            // 
-            this.Pay.HeaderText = "Tiền thanh toán";
-            this.Pay.Name = "Pay";
-            this.Pay.ReadOnly = true;
-            this.Pay.Width = 150;
-            // 
-            // DataTimekeep
-            // 
-            this.DataTimekeep.HeaderText = "Chấm công";
-            this.DataTimekeep.Name = "DataTimekeep";
-            this.DataTimekeep.ReadOnly = true;
-            this.DataTimekeep.Width = 120;
             // 
             // txtDebtNow
             // 
@@ -842,6 +782,90 @@
             this.label8.TabIndex = 146;
             this.label8.Text = "QUẢN LÝ NHÂN VIÊN VÀ THANH TOÁN";
             // 
+            // MSTT
+            // 
+            this.MSTT.HeaderText = "MSTT";
+            this.MSTT.Name = "MSTT";
+            this.MSTT.ReadOnly = true;
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "Ngày lập";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            this.Date.Width = 150;
+            // 
+            // dgName
+            // 
+            this.dgName.HeaderText = "MSNV";
+            this.dgName.Name = "dgName";
+            this.dgName.ReadOnly = true;
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Họ tên";
+            this.Name.Name = "Name";
+            this.Name.ReadOnly = true;
+            this.Name.Width = 150;
+            // 
+            // TotalTime
+            // 
+            this.TotalTime.HeaderText = "Thời gian";
+            this.TotalTime.Name = "TotalTime";
+            this.TotalTime.ReadOnly = true;
+            // 
+            // Product
+            // 
+            this.Product.HeaderText = "Sản phẩm";
+            this.Product.Name = "Product";
+            this.Product.ReadOnly = true;
+            // 
+            // Debt
+            // 
+            this.Debt.HeaderText = "Tiền nợ trước";
+            this.Debt.Name = "Debt";
+            this.Debt.ReadOnly = true;
+            this.Debt.Width = 150;
+            // 
+            // Cash
+            // 
+            this.Cash.HeaderText = "Tiền ứng";
+            this.Cash.Name = "Cash";
+            this.Cash.ReadOnly = true;
+            this.Cash.Width = 150;
+            // 
+            // Food
+            // 
+            this.Food.HeaderText = "Tiền cơm";
+            this.Food.Name = "Food";
+            this.Food.ReadOnly = true;
+            // 
+            // Bonus
+            // 
+            this.Bonus.HeaderText = "Tiền thưởng";
+            this.Bonus.Name = "Bonus";
+            this.Bonus.ReadOnly = true;
+            // 
+            // Punish
+            // 
+            this.Punish.HeaderText = "Tiền phạt";
+            this.Punish.Name = "Punish";
+            this.Punish.ReadOnly = true;
+            // 
+            // Pay
+            // 
+            this.Pay.HeaderText = "Tiền thanh toán";
+            this.Pay.Name = "Pay";
+            this.Pay.ReadOnly = true;
+            this.Pay.Width = 150;
+            // 
+            // DataTimekeep
+            // 
+            this.DataTimekeep.HeaderText = "Chấm công";
+            this.DataTimekeep.Name = "DataTimekeep";
+            this.DataTimekeep.ReadOnly = true;
+            this.DataTimekeep.Width = 120;
+            // 
             // MCEmployeeManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -877,16 +901,6 @@
         private System.Windows.Forms.TabControl tabContro;
         private System.Windows.Forms.TabPage TabPay;
         private System.Windows.Forms.DataGridView dataDS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MSTT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Product;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Debt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cash;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DataTimekeep;
         private System.Windows.Forms.Label txtDebtNow;
         private System.Windows.Forms.Label lbCash;
         private System.Windows.Forms.Label txtCash;
@@ -943,5 +957,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
         private System.Windows.Forms.DataGridViewTextBoxColumn phone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MSTT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Product;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Debt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cash;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Food;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Bonus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Punish;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataTimekeep;
     }
 }

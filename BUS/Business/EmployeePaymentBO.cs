@@ -59,5 +59,15 @@ namespace BUS.Business
                 }
             }
         }
+
+        public bool isExist(string MSNV,int month,int year)
+        {
+            int count=GetData(u => u.isDelete == false && u.MSNV == MSNV && u.MonthOfPay == month && u.YearOfPay == year).Count();
+            if(count!=0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

@@ -4,30 +4,31 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="351d13ba137f4c8593681d5f0293a846" Name="Diagram1">
-        <EntityTypeShape EntityType="PlasticFactoryModel.Customer" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="PlasticFactoryModel.Employee" Width="1.5" PointX="9.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PlasticFactoryModel.EmployeePayment" Width="1.5" PointX="12" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="PlasticFactoryModel.PaymentInput" Width="1.5" PointX="7.5" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="PlasticFactoryModel.PaymentOutput" Width="1.5" PointX="10" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PlasticFactoryModel.PreferceProductPrice" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PlasticFactoryModel.ProductInput" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="PlasticFactoryModel.ProductIP" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PlasticFactoryModel.ProductOP" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PlasticFactoryModel.ProductOutput" Width="1.5" PointX="0.625" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="PlasticFactoryModel.Timekeeping" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PlasticFactoryModel.TypeofCustomer" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PlasticFactoryModel.TypeWeight" Width="1.5" PointX="6.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PlasticFactoryModel.Truck" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+      <Diagram DiagramId="20c5ee0e0fe34dd1ad81d420d79c17ae" Name="Diagram1">
+        <EntityTypeShape EntityType="PlasticFactoryModel.Customer" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlasticFactoryModel.Employee" Width="1.5" PointX="12" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlasticFactoryModel.EmployeePayment" Width="1.5" PointX="14.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlasticFactoryModel.EmployeeType" Width="1.5" PointX="9.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlasticFactoryModel.EmployeeWage" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlasticFactoryModel.PaymentInput" Width="1.5" PointX="7.5" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlasticFactoryModel.PaymentOutput" Width="1.5" PointX="7.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlasticFactoryModel.PreferceProductPrice" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlasticFactoryModel.ProductInput" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlasticFactoryModel.ProductIP" Width="1.5" PointX="9.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlasticFactoryModel.ProductOP" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlasticFactoryModel.ProductOutput" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlasticFactoryModel.Timekeeping" Width="1.5" PointX="11.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlasticFactoryModel.TypeofCustomer" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlasticFactoryModel.TypeWeight" Width="1.5" PointX="7.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlasticFactoryModel.Truck" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
         <AssociationConnector Association="PlasticFactoryModel.FK_Customer_TypeofCustomer" ManuallyRouted="false" />
         <AssociationConnector Association="PlasticFactoryModel.FK_ProductInput_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="PlasticFactoryModel.FK_ProductOutput_Customer" ManuallyRouted="false" />
         <AssociationConnector Association="PlasticFactoryModel.FK_Truck_Truck" ManuallyRouted="false" />
+        <AssociationConnector Association="PlasticFactoryModel.FK_Employee_EmployeeType" ManuallyRouted="false" />
         <AssociationConnector Association="PlasticFactoryModel.FK_EmployeePayment_Employee" ManuallyRouted="false" />
         <AssociationConnector Association="PlasticFactoryModel.FK_PaymentInput_ProductInput" ManuallyRouted="false" />
         <AssociationConnector Association="PlasticFactoryModel.FK_PaymentOutput_ProductOutput" ManuallyRouted="false" />
-        <AssociationConnector Association="PlasticFactoryModel.FK_ProductOutput_Customer" />
-        <EntityTypeShape EntityType="PlasticFactoryModel.EmployeeType" Width="1.5" PointX="7.5" PointY="0.75" />
-        <AssociationConnector Association="PlasticFactoryModel.FK_Employee_EmployeeType" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

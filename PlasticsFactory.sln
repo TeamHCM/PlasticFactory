@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlasticsFactory", "PlasticsFactory\PlasticsFactory.csproj", "{61451965-B788-4120-B713-0B7636FE3222}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{FAC67DD6-EF4C-42D6-9240-CBD13A2EB06B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlasticsFactory.Bus", "BUS\PlasticsFactory.Bus.csproj", "{D7DD44B4-D440-4324-8F9A-C28C8B3509EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlasticFactory.DAO", "PlasticFactory.DAO\PlasticFactory.DAO.csproj", "{8D93C9A7-4D1E-4FB0-8B4F-E40FC6F9D048}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,8 +35,15 @@ Global
 		{D7DD44B4-D440-4324-8F9A-C28C8B3509EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7DD44B4-D440-4324-8F9A-C28C8B3509EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7DD44B4-D440-4324-8F9A-C28C8B3509EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D93C9A7-4D1E-4FB0-8B4F-E40FC6F9D048}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D93C9A7-4D1E-4FB0-8B4F-E40FC6F9D048}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D93C9A7-4D1E-4FB0-8B4F-E40FC6F9D048}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D93C9A7-4D1E-4FB0-8B4F-E40FC6F9D048}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {57AB8183-7891-44E2-B51A-E3A4AF043304}
 	EndGlobalSection
 EndGlobal

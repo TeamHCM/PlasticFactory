@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="PlasticFactoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="PlasticFactoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="ID" />
@@ -54,6 +54,13 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Type" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EmployeeWage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Wage" Type="float" />
         </EntityType>
         <EntityType Name="PaymentInput">
           <Key>
@@ -290,6 +297,7 @@
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeePayment" EntityType="Self.EmployeePayment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeeType" EntityType="Self.EmployeeType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeWage" EntityType="Self.EmployeeWage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PaymentInput" EntityType="Self.PaymentInput" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PaymentOutput" EntityType="Self.PaymentOutput" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PreferceProductPrice" EntityType="Self.PreferceProductPrice" Schema="dbo" store:Type="Tables" />
@@ -334,7 +342,8 @@
             <End Role="Truck" EntitySet="Truck" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PlasticFactoryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -350,8 +359,8 @@
           <Property Name="isDelete" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="TypeofCustomer" Relationship="Self.FK_Customer_TypeofCustomer" FromRole="Customer" ToRole="TypeofCustomer" />
           <NavigationProperty Name="ProductInputs" Relationship="Self.FK_ProductInput_Customer" FromRole="Customer" ToRole="ProductInput" />
+          <NavigationProperty Name="ProductOutputs" Relationship="Self.FK_ProductOutput_Customer" FromRole="Customer" ToRole="ProductOutput" />
           <NavigationProperty Name="Trucks" Relationship="Self.FK_Truck_Truck" FromRole="Customer" ToRole="Truck" />
-          <NavigationProperty Name="ProductOutputs" Relationship="PlasticFactoryModel.FK_ProductOutput_Customer" FromRole="Customer" ToRole="ProductOutput" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -365,9 +374,9 @@
           <Property Name="SDT" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
           <Property Name="CMND" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
           <Property Name="isDelete" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="EmployeePayments" Relationship="Self.FK_EmployeePayment_Employee" FromRole="Employee" ToRole="EmployeePayment" />
           <Property Name="Type" Type="Int32" />
-          <NavigationProperty Name="EmployeeType" Relationship="PlasticFactoryModel.FK_Employee_EmployeeType" FromRole="Employee" ToRole="EmployeeType" />
+          <NavigationProperty Name="EmployeeType" Relationship="Self.FK_Employee_EmployeeType" FromRole="Employee" ToRole="EmployeeType" />
+          <NavigationProperty Name="EmployeePayments" Relationship="Self.FK_EmployeePayment_Employee" FromRole="Employee" ToRole="EmployeePayment" />
         </EntityType>
         <EntityType Name="EmployeePayment">
           <Key>
@@ -387,6 +396,21 @@
           <Property Name="MonthOfPay" Type="Int32" Nullable="false" />
           <Property Name="YearOfPay" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_EmployeePayment_Employee" FromRole="EmployeePayment" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="EmployeeType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employee_EmployeeType" FromRole="EmployeeType" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="EmployeeWage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Wage" Type="Double" />
         </EntityType>
         <EntityType Name="PaymentInput">
           <Key>
@@ -416,7 +440,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Int32" />
           <Property Name="isDelete" Type="Boolean" Nullable="false" />
@@ -478,8 +502,8 @@
           <Property Name="Paid" Type="Boolean" Nullable="false" />
           <Property Name="TotalWeight" Type="Int32" Nullable="false" />
           <Property Name="isDelete" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_ProductOutput_Customer" FromRole="ProductOutput" ToRole="Customer" />
           <NavigationProperty Name="PaymentOutputs" Relationship="Self.FK_PaymentOutput_ProductOutput" FromRole="ProductOutput" ToRole="PaymentOutput" />
-          <NavigationProperty Name="Customer" Relationship="PlasticFactoryModel.FK_ProductOutput_Customer" FromRole="ProductOutput" ToRole="Customer" />
         </EntityType>
         <EntityType Name="Timekeeping">
           <Key>
@@ -553,6 +577,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ProductOutput_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="ProductOutput" Type="Self.ProductOutput" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductOutput">
+              <PropertyRef Name="MSKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Truck_Truck">
           <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
           <End Role="Truck" Type="Self.Truck" Multiplicity="*" />
@@ -562,6 +598,18 @@
             </Principal>
             <Dependent Role="Truck">
               <PropertyRef Name="MSKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_EmployeeType">
+          <End Role="EmployeeType" Type="Self.EmployeeType" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Type" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -605,6 +653,8 @@
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
           <EntitySet Name="EmployeePayments" EntityType="Self.EmployeePayment" />
+          <EntitySet Name="EmployeeTypes" EntityType="Self.EmployeeType" />
+          <EntitySet Name="EmployeeWages" EntityType="Self.EmployeeWage" />
           <EntitySet Name="PaymentInputs" EntityType="Self.PaymentInput" />
           <EntitySet Name="PaymentOutputs" EntityType="Self.PaymentOutput" />
           <EntitySet Name="PreferceProductPrices" EntityType="Self.PreferceProductPrice" />
@@ -624,9 +674,17 @@
             <End Role="Customer" EntitySet="Customers" />
             <End Role="ProductInput" EntitySet="ProductInputs" />
           </AssociationSet>
+          <AssociationSet Name="FK_ProductOutput_Customer" Association="Self.FK_ProductOutput_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="ProductOutput" EntitySet="ProductOutputs" />
+          </AssociationSet>
           <AssociationSet Name="FK_Truck_Truck" Association="Self.FK_Truck_Truck">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Truck" EntitySet="Trucks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_EmployeeType" Association="Self.FK_Employee_EmployeeType">
+            <End Role="EmployeeType" EntitySet="EmployeeTypes" />
+            <End Role="Employee" EntitySet="Employees" />
           </AssociationSet>
           <AssociationSet Name="FK_EmployeePayment_Employee" Association="Self.FK_EmployeePayment_Employee">
             <End Role="Employee" EntitySet="Employees" />
@@ -641,48 +699,7 @@
             <End Role="PaymentOutput" EntitySet="PaymentOutputs" />
           </AssociationSet>
           <FunctionImport Name="AutoIdEmployee" ReturnType="Collection(String)" />
-          <AssociationSet Name="FK_ProductOutput_Customer" Association="PlasticFactoryModel.FK_ProductOutput_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="ProductOutput" EntitySet="ProductOutputs" />
-          </AssociationSet>
-          <EntitySet Name="EmployeeTypes" EntityType="PlasticFactoryModel.EmployeeType" />
-          <AssociationSet Name="FK_Employee_EmployeeType" Association="PlasticFactoryModel.FK_Employee_EmployeeType">
-            <End Role="EmployeeType" EntitySet="EmployeeTypes" />
-            <End Role="Employee" EntitySet="Employees" />
-          </AssociationSet>
         </EntityContainer>
-        <Association Name="FK_ProductOutput_Customer">
-          <End Type="PlasticFactoryModel.Customer" Role="Customer" Multiplicity="0..1" />
-          <End Type="PlasticFactoryModel.ProductOutput" Role="ProductOutput" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="ProductOutput">
-              <PropertyRef Name="MSKH" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="EmployeeType">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Employees" Relationship="PlasticFactoryModel.FK_Employee_EmployeeType" FromRole="EmployeeType" ToRole="Employee" />
-        </EntityType>
-        <Association Name="FK_Employee_EmployeeType">
-          <End Type="PlasticFactoryModel.EmployeeType" Role="EmployeeType" Multiplicity="0..1" />
-          <End Type="PlasticFactoryModel.Employee" Role="Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmployeeType">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="Type" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -704,7 +721,6 @@
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="PlasticFactoryModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
-                <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="MSNV" ColumnName="MSNV" />
                 <ScalarProperty Name="Hoten" ColumnName="Hoten" />
                 <ScalarProperty Name="Ngaysinh" ColumnName="Ngaysinh" />
@@ -713,6 +729,7 @@
                 <ScalarProperty Name="SDT" ColumnName="SDT" />
                 <ScalarProperty Name="CMND" ColumnName="CMND" />
                 <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -732,6 +749,22 @@
                 <ScalarProperty Name="isPayed" ColumnName="isPayed" />
                 <ScalarProperty Name="MonthOfPay" ColumnName="MonthOfPay" />
                 <ScalarProperty Name="YearOfPay" ColumnName="YearOfPay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeTypes">
+            <EntityTypeMapping TypeName="PlasticFactoryModel.EmployeeType">
+              <MappingFragment StoreEntitySet="EmployeeType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeWages">
+            <EntityTypeMapping TypeName="PlasticFactoryModel.EmployeeWage">
+              <MappingFragment StoreEntitySet="EmployeeWage">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Wage" ColumnName="Wage" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -762,10 +795,10 @@
           <EntitySetMapping Name="PreferceProductPrices">
             <EntityTypeMapping TypeName="PlasticFactoryModel.PreferceProductPrice">
               <MappingFragment StoreEntitySet="PreferceProductPrice">
-                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -832,10 +865,6 @@
           <EntitySetMapping Name="Timekeepings">
             <EntityTypeMapping TypeName="PlasticFactoryModel.Timekeeping">
               <MappingFragment StoreEntitySet="Timekeeping">
-                <ScalarProperty Name="isRest" ColumnName="isRest" />
-                <ScalarProperty Name="Bunus" ColumnName="Bunus" />
-                <ScalarProperty Name="Punish" ColumnName="Punish" />
-                <ScalarProperty Name="Food" ColumnName="Food" />
                 <ScalarProperty Name="MSNV" ColumnName="MSNV" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
@@ -848,6 +877,10 @@
                 <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+                <ScalarProperty Name="Food" ColumnName="Food" />
+                <ScalarProperty Name="Punish" ColumnName="Punish" />
+                <ScalarProperty Name="Bunus" ColumnName="Bunus" />
+                <ScalarProperty Name="isRest" ColumnName="isRest" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -880,14 +913,6 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="AutoIdEmployee" FunctionName="PlasticFactoryModel.Store.AutoIdEmployee" />
-          <EntitySetMapping Name="EmployeeTypes">
-            <EntityTypeMapping TypeName="PlasticFactoryModel.EmployeeType">
-              <MappingFragment StoreEntitySet="EmployeeType">
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

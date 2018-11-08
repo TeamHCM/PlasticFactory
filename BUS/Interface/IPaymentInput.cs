@@ -11,5 +11,6 @@ namespace BUS.Interface
         int GetID();
 
         bool isDelete(int ID);
+
     }
 }

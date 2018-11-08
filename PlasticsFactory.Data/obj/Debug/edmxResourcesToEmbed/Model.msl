@@ -16,7 +16,6 @@
     <EntitySetMapping Name="Employees">
       <EntityTypeMapping TypeName="PlasticFactoryModel.Employee">
         <MappingFragment StoreEntitySet="Employee">
-          <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="MSNV" ColumnName="MSNV" />
           <ScalarProperty Name="Hoten" ColumnName="Hoten" />
           <ScalarProperty Name="Ngaysinh" ColumnName="Ngaysinh" />
@@ -25,6 +24,7 @@
           <ScalarProperty Name="SDT" ColumnName="SDT" />
           <ScalarProperty Name="CMND" ColumnName="CMND" />
           <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -44,6 +44,22 @@
           <ScalarProperty Name="isPayed" ColumnName="isPayed" />
           <ScalarProperty Name="MonthOfPay" ColumnName="MonthOfPay" />
           <ScalarProperty Name="YearOfPay" ColumnName="YearOfPay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeTypes">
+      <EntityTypeMapping TypeName="PlasticFactoryModel.EmployeeType">
+        <MappingFragment StoreEntitySet="EmployeeType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeWages">
+      <EntityTypeMapping TypeName="PlasticFactoryModel.EmployeeWage">
+        <MappingFragment StoreEntitySet="EmployeeWage">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Wage" ColumnName="Wage" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -74,10 +90,10 @@
     <EntitySetMapping Name="PreferceProductPrices">
       <EntityTypeMapping TypeName="PlasticFactoryModel.PreferceProductPrice">
         <MappingFragment StoreEntitySet="PreferceProductPrice">
-          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -144,10 +160,6 @@
     <EntitySetMapping Name="Timekeepings">
       <EntityTypeMapping TypeName="PlasticFactoryModel.Timekeeping">
         <MappingFragment StoreEntitySet="Timekeeping">
-          <ScalarProperty Name="isRest" ColumnName="isRest" />
-          <ScalarProperty Name="Bunus" ColumnName="Bunus" />
-          <ScalarProperty Name="Punish" ColumnName="Punish" />
-          <ScalarProperty Name="Food" ColumnName="Food" />
           <ScalarProperty Name="MSNV" ColumnName="MSNV" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
@@ -160,6 +172,10 @@
           <ScalarProperty Name="Note" ColumnName="Note" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="Food" ColumnName="Food" />
+          <ScalarProperty Name="Punish" ColumnName="Punish" />
+          <ScalarProperty Name="Bunus" ColumnName="Bunus" />
+          <ScalarProperty Name="isRest" ColumnName="isRest" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -192,13 +208,5 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="AutoIdEmployee" FunctionName="PlasticFactoryModel.Store.AutoIdEmployee" />
-    <EntitySetMapping Name="EmployeeTypes">
-      <EntityTypeMapping TypeName="PlasticFactoryModel.EmployeeType">
-        <MappingFragment StoreEntitySet="EmployeeType">
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
