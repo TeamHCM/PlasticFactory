@@ -23,6 +23,6 @@ namespace PlasticsFactory
         public double Food { get; set; }
         public double Punish { get; set; }
         public double Bunus { get; set; }
-        public bool isRest { get; set; }
+        public string isRest { get; set; }
     }
 }

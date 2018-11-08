@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.crystalReportViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.printEmployee1 = new PlasticsFactory.PrintEmployee();
             this.SuspendLayout();
             // 
             // crystalReportViewer
@@ -50,6 +51,7 @@
             this.Controls.Add(this.crystalReportViewer);
             this.Name = "frmPrint";
             this.Text = "Print";
+            this.Load += new System.EventHandler(this.frmPrint_Load);
             this.ResumeLayout(false);
 
         }
@@ -57,5 +59,6 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer;
+        private PrintEmployee printEmployee1;
     }
 }
