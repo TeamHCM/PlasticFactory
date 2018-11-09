@@ -796,3 +796,5 @@ C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpr
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraNavBar.v18.1.dll
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraPrinting.v18.1.dll
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\DevExpress.XtraWizard.v18.1.dll
+C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.frmPrintTimekeeping.resources
+C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.frmConnectSQL.resources

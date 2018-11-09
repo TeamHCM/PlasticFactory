@@ -16,6 +16,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
         public TimekeepingBO timekeepingBO = new TimekeepingBO();
         public static Timekeeping tempUpdate = new Timekeeping();
         public Timekeeping tempDelete = new Timekeeping();
+        private EmployeeBO employeeBO = new EmployeeBO();
         public double totalCashAdvance = 0;
         public int totalWeight = 0;
         private string tempMSNV = "";
@@ -661,6 +662,49 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
         private void txtEmployee_TextChanged(object sender, EventArgs e)
         {
             txtEmployee_SelectedIndexChanged(sender, e);
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            if(txtEmployee.Text!="All")
+            {
+                int year = int.Parse(txtYear.Text);
+                int month = int.Parse(txtMonth.Text);
+                string msnv = txtMSNV.Text;
+                List<pTimekeeping> listDB = new List<pTimekeeping>();
+                var listTimekeep = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == msnv && u.Date.Value.Month == month && u.Date.Value.Year == year);
+                foreach (var item in listTimekeep)
+                {
+                    pTimekeeping ptime = new pTimekeeping();
+                    ptime.Id = item.Id;
+                    ptime.MSNV = item.MSNV;
+                    ptime.TimeEnd = item.TimeEnd != string.Empty ? item.TimeEnd : "X";
+                    ptime.TimeStart = item.TimeStart != string.Empty ? item.TimeStart : "X";
+                    ptime.Time = item.Time;
+                    ptime.Weight = item.Weight.Value;
+                    ptime.Type = item.Type.Value;
+                    ptime.TotalWeight = item.TotalWeight.Value;
+                    ptime.Food = item.Food;
+                    ptime.Bunus = item.Bunus;
+                    ptime.Punish = item.Punish;
+                    ptime.Date = item.Date.Value;
+                    ptime.Note = item.Note;
+                    ptime.AdvancePayment = item.AdvancePayment.Value;
+                    if (item.isRest == true)
+                    {
+                        ptime.isRest = "Yes";
+                    }
+                    else
+                    {
+                        ptime.isRest = "No";
+                    }
+                    listDB.Add(ptime);
+                }
+                using (frmPrintTimekeeping frmprintTimekeeping = new frmPrintTimekeeping(listDB, msnv))
+                {
+                    frmprintTimekeeping.ShowDialog();
+                }
+            }
         }
     }
 }

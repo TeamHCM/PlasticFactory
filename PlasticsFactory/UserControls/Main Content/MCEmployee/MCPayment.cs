@@ -795,42 +795,45 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            var listTT = employeePaymentBO.GetData(u => u.isDelete == false && u.ID == removeMSTT);
-            string printMSNV = listTT.First().MSNV;
-            int MonthTimekeep = listTT.First().MonthOfPay;
-            int YearTimekeep = listTT.First().YearOfPay;
-            List<pTimekeeping> listDB = new List<pTimekeeping>();
-            var listTimekeep = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == printMSNV && u.Date.Value.Month == MonthTimekeep && u.Date.Value.Year == YearTimekeep);
-            foreach(var item in listTimekeep)
+            if (removeMSTT != 0)
             {
-                pTimekeeping ptime = new pTimekeeping();
-                ptime.Id = item.Id;
-                ptime.MSNV = item.MSNV;
-                ptime.TimeEnd = item.TimeEnd!=string.Empty? item.TimeEnd:"X";
-                ptime.TimeStart = item.TimeStart != string.Empty ? item.TimeStart : "X";
-                ptime.Time = item.Time;
-                ptime.Weight = item.Weight.Value;
-                ptime.Type = item.Type.Value;
-                ptime.TotalWeight = item.TotalWeight.Value;
-                ptime.Food= item.Food;
-                ptime.Bunus = item.Bunus;
-                ptime.Punish = item.Punish;
-                ptime.Date = item.Date.Value;
-                ptime.Note = item.Note;
-                ptime.AdvancePayment = item.AdvancePayment.Value;
-                if(item.isRest==true)
+                var listTT = employeePaymentBO.GetData(u => u.isDelete == false && u.ID == removeMSTT);
+                string printMSNV = listTT.First().MSNV;
+                int MonthTimekeep = listTT.First().MonthOfPay;
+                int YearTimekeep = listTT.First().YearOfPay;
+                List<pTimekeeping> listDB = new List<pTimekeeping>();
+                var listTimekeep = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == printMSNV && u.Date.Value.Month == MonthTimekeep && u.Date.Value.Year == YearTimekeep);
+                foreach (var item in listTimekeep)
                 {
-                    ptime.isRest = "Yes";
+                    pTimekeeping ptime = new pTimekeeping();
+                    ptime.Id = item.Id;
+                    ptime.MSNV = item.MSNV;
+                    ptime.TimeEnd = item.TimeEnd != string.Empty ? item.TimeEnd : "X";
+                    ptime.TimeStart = item.TimeStart != string.Empty ? item.TimeStart : "X";
+                    ptime.Time = item.Time;
+                    ptime.Weight = item.Weight.Value;
+                    ptime.Type = item.Type.Value;
+                    ptime.TotalWeight = item.TotalWeight.Value;
+                    ptime.Food = item.Food;
+                    ptime.Bunus = item.Bunus;
+                    ptime.Punish = item.Punish;
+                    ptime.Date = item.Date.Value;
+                    ptime.Note = item.Note;
+                    ptime.AdvancePayment = item.AdvancePayment.Value;
+                    if (item.isRest == true)
+                    {
+                        ptime.isRest = "Yes";
+                    }
+                    else
+                    {
+                        ptime.isRest = "No";
+                    }
+                    listDB.Add(ptime);
                 }
-                else
+                using (frmPrint frmprint = new frmPrint(listDB, printMSNV, MonthTimekeep, YearTimekeep))
                 {
-                    ptime.isRest = "No";
+                    frmprint.ShowDialog();
                 }
-                listDB.Add(ptime);
-            }
-            using (frmPrint frmprint = new frmPrint(listDB,printMSNV,MonthTimekeep,YearTimekeep))
-            {
-                frmprint.ShowDialog();
             }
         }
     }
