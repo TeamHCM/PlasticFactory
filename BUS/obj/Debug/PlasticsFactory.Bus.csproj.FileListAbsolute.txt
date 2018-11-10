@@ -66,7 +66,4 @@ C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\bin\Debug\EntityFramework.xml
 C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\obj\Debug\BUS.dll
 C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\obj\Debug\BUS.pdb
-C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\bin\Debug\PlasticsFactory.Data.dll.config
-C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\obj\Debug\PlasticsFactory.Bus.csprojAssemblyReference.cache
-C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\obj\Debug\PlasticsFactory.Bus.csproj.CoreCompileInputs.cache
-C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\obj\Debug\PlasticsFactory.Bus.csproj.CopyComplete
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\obj\Debug\PlasticsFactory.Bus.csprojResolveAssemblyReference.cache

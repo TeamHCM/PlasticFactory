@@ -161,6 +161,7 @@
             this.Controls.Add(this.panel2);
             this.Name = "ManageEmployee";
             this.Text = "ManageEmployee";
+            this.Load += new System.EventHandler(this.ManageEmployee_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

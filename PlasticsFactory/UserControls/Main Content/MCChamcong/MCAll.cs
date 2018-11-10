@@ -408,7 +408,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 if (checkExist == true)
                 {
                     loadMSNV(name);
-                    txtNgay.Focus();
+                    //txtNgay.Focus();
                 }
                 else
                 {

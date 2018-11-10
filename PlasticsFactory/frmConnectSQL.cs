@@ -21,7 +21,7 @@ namespace PlasticsFactory
 
         private void frmConnectSQL_Load(object sender, EventArgs e)
         {
-
+            this.MaximizeBox = false;
         }
 
         private void btnConnect_Click(object sender, EventArgs e)

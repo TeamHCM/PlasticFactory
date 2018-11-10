@@ -155,6 +155,7 @@ namespace PlasticsFactory
 
         private void frmEditProduct_Load(object sender, EventArgs e)
         {
+            this.MaximizeBox = false;
             txtProductName.Focus();
             if (ProductManage.Input == true)
             {

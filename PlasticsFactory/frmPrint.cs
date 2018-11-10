@@ -29,6 +29,7 @@ namespace PlasticsFactory
 
         private void frmPrint_Load(object sender, EventArgs e)
         { 
+           
             var listTT = _list;
             var _detail = employeePaymentBO.GetData(u => u.isDelete == false &&u.MSNV==_msnv&& u.MonthOfPay == _month && u.YearOfPay == _year).First();
             double debtAgo = 0;

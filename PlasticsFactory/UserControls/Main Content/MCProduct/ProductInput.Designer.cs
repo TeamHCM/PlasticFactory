@@ -37,31 +37,6 @@
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.dataDS = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtDate = new System.Windows.Forms.DateTimePicker();
-            this.txtMSKH = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtHoten = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtLicencePlate = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtTruckofWeight = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtPrice = new System.Windows.Forms.ComboBox();
-            this.txtProductName = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtAll = new System.Windows.Forms.TextBox();
-            this.txtProductWeight = new System.Windows.Forms.TextBox();
             this.MSDH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MSNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HOVATEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,13 +48,40 @@
             this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.THANHTIEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label8 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtDate = new System.Windows.Forms.DateTimePicker();
+            this.txtMSKH = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtHoten = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtTruckofWeight = new DevExpress.XtraEditors.TextEdit();
+            this.txtLicencePlate = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtPrice = new System.Windows.Forms.ComboBox();
+            this.txtProductName = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtAll = new DevExpress.XtraEditors.TextEdit();
+            this.txtProductWeight = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDS)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTruckofWeight.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAll.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -170,6 +172,78 @@
             this.dataDS.TabIndex = 98;
             this.dataDS.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDS_CellDoubleClick);
             this.dataDS.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDS_CellEnter);
+            // 
+            // MSDH
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MSDH.DefaultCellStyle = dataGridViewCellStyle2;
+            this.MSDH.HeaderText = "MSDH";
+            this.MSDH.Name = "MSDH";
+            this.MSDH.ReadOnly = true;
+            // 
+            // MSNV
+            // 
+            this.MSNV.HeaderText = "MSKH";
+            this.MSNV.Name = "MSNV";
+            this.MSNV.ReadOnly = true;
+            // 
+            // HOVATEN
+            // 
+            this.HOVATEN.HeaderText = "Họ và tên";
+            this.HOVATEN.Name = "HOVATEN";
+            this.HOVATEN.ReadOnly = true;
+            this.HOVATEN.Width = 150;
+            // 
+            // NGAYNHAP
+            // 
+            this.NGAYNHAP.HeaderText = "Ngày nhập";
+            this.NGAYNHAP.Name = "NGAYNHAP";
+            this.NGAYNHAP.ReadOnly = true;
+            this.NGAYNHAP.Width = 150;
+            // 
+            // MSXE
+            // 
+            this.MSXE.HeaderText = "MSXE";
+            this.MSXE.Name = "MSXE";
+            this.MSXE.ReadOnly = true;
+            this.MSXE.Width = 120;
+            // 
+            // TTXE
+            // 
+            this.TTXE.HeaderText = "Trọng tải xe";
+            this.TTXE.Name = "TTXE";
+            this.TTXE.ReadOnly = true;
+            // 
+            // TENHANG
+            // 
+            this.TENHANG.HeaderText = "Tên hàng";
+            this.TENHANG.Name = "TENHANG";
+            this.TENHANG.ReadOnly = true;
+            // 
+            // TTHang
+            // 
+            this.TTHang.HeaderText = "Trọng tải hàng";
+            this.TTHang.Name = "TTHang";
+            this.TTHang.ReadOnly = true;
+            // 
+            // SDT
+            // 
+            this.SDT.HeaderText = "TT Xe vs Hàng";
+            this.SDT.Name = "SDT";
+            this.SDT.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Đơn hàng";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // THANHTIEN
+            // 
+            this.THANHTIEN.HeaderText = "Thành tiền";
+            this.THANHTIEN.Name = "THANHTIEN";
+            this.THANHTIEN.ReadOnly = true;
+            this.THANHTIEN.Width = 150;
             // 
             // label8
             // 
@@ -263,9 +337,9 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox2.Controls.Add(this.txtTruckofWeight);
             this.groupBox2.Controls.Add(this.txtLicencePlate);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.txtTruckofWeight);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(736, 58);
             this.groupBox2.Name = "groupBox2";
@@ -273,6 +347,16 @@
             this.groupBox2.TabIndex = 109;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Xe";
+            // 
+            // txtTruckofWeight
+            // 
+            this.txtTruckofWeight.Location = new System.Drawing.Point(30, 71);
+            this.txtTruckofWeight.Name = "txtTruckofWeight";
+            this.txtTruckofWeight.Properties.Mask.EditMask = "n0";
+            this.txtTruckofWeight.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtTruckofWeight.Size = new System.Drawing.Size(205, 20);
+            this.txtTruckofWeight.TabIndex = 57;
+            this.txtTruckofWeight.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTruckofWeight_KeyUp);
             // 
             // txtLicencePlate
             // 
@@ -294,15 +378,6 @@
             this.label4.Size = new System.Drawing.Size(66, 13);
             this.label4.TabIndex = 55;
             this.label4.Text = "Trọng tải xe:";
-            // 
-            // txtTruckofWeight
-            // 
-            this.txtTruckofWeight.Location = new System.Drawing.Point(30, 71);
-            this.txtTruckofWeight.Name = "txtTruckofWeight";
-            this.txtTruckofWeight.Size = new System.Drawing.Size(205, 20);
-            this.txtTruckofWeight.TabIndex = 1;
-            this.txtTruckofWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTruckofWeight_KeyPress);
-            this.txtTruckofWeight.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTruckofWeight_KeyUp);
             // 
             // label6
             // 
@@ -434,12 +509,12 @@
             // 
             // txtAll
             // 
-            this.txtAll.Location = new System.Drawing.Point(31, 31);
-            this.txtAll.MaxLength = 10;
+            this.txtAll.Location = new System.Drawing.Point(31, 30);
             this.txtAll.Name = "txtAll";
+            this.txtAll.Properties.Mask.EditMask = "n0";
+            this.txtAll.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtAll.Size = new System.Drawing.Size(205, 20);
-            this.txtAll.TabIndex = 115;
-            this.txtAll.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAll_KeyPress);
+            this.txtAll.TabIndex = 116;
             this.txtAll.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAll_KeyUp);
             this.txtAll.Leave += new System.EventHandler(this.txtAll_Leave);
             // 
@@ -450,78 +525,6 @@
             this.txtProductWeight.ReadOnly = true;
             this.txtProductWeight.Size = new System.Drawing.Size(205, 20);
             this.txtProductWeight.TabIndex = 1;
-            // 
-            // MSDH
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MSDH.DefaultCellStyle = dataGridViewCellStyle2;
-            this.MSDH.HeaderText = "MSDH";
-            this.MSDH.Name = "MSDH";
-            this.MSDH.ReadOnly = true;
-            // 
-            // MSNV
-            // 
-            this.MSNV.HeaderText = "MSKH";
-            this.MSNV.Name = "MSNV";
-            this.MSNV.ReadOnly = true;
-            // 
-            // HOVATEN
-            // 
-            this.HOVATEN.HeaderText = "Họ và tên";
-            this.HOVATEN.Name = "HOVATEN";
-            this.HOVATEN.ReadOnly = true;
-            this.HOVATEN.Width = 150;
-            // 
-            // NGAYNHAP
-            // 
-            this.NGAYNHAP.HeaderText = "Ngày nhập";
-            this.NGAYNHAP.Name = "NGAYNHAP";
-            this.NGAYNHAP.ReadOnly = true;
-            this.NGAYNHAP.Width = 150;
-            // 
-            // MSXE
-            // 
-            this.MSXE.HeaderText = "MSXE";
-            this.MSXE.Name = "MSXE";
-            this.MSXE.ReadOnly = true;
-            this.MSXE.Width = 120;
-            // 
-            // TTXE
-            // 
-            this.TTXE.HeaderText = "Trọng tải xe";
-            this.TTXE.Name = "TTXE";
-            this.TTXE.ReadOnly = true;
-            // 
-            // TENHANG
-            // 
-            this.TENHANG.HeaderText = "Tên hàng";
-            this.TENHANG.Name = "TENHANG";
-            this.TENHANG.ReadOnly = true;
-            // 
-            // TTHang
-            // 
-            this.TTHang.HeaderText = "Trọng tải hàng";
-            this.TTHang.Name = "TTHang";
-            this.TTHang.ReadOnly = true;
-            // 
-            // SDT
-            // 
-            this.SDT.HeaderText = "TT Xe vs Hàng";
-            this.SDT.Name = "SDT";
-            this.SDT.ReadOnly = true;
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Đơn hàng";
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            // 
-            // THANHTIEN
-            // 
-            this.THANHTIEN.HeaderText = "Thành tiền";
-            this.THANHTIEN.Name = "THANHTIEN";
-            this.THANHTIEN.ReadOnly = true;
-            this.THANHTIEN.Width = 150;
             // 
             // ProductInput
             // 
@@ -549,10 +552,12 @@
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTruckofWeight.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAll.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -577,7 +582,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox txtLicencePlate;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtTruckofWeight;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
@@ -590,7 +594,6 @@
         private System.Windows.Forms.TextBox txtProductWeight;
         private System.Windows.Forms.ComboBox txtPrice;
         private System.Windows.Forms.ComboBox txtProductName;
-        private System.Windows.Forms.TextBox txtAll;
         private System.Windows.Forms.DataGridViewTextBoxColumn MSDH;
         private System.Windows.Forms.DataGridViewTextBoxColumn MSNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn HOVATEN;
@@ -602,5 +605,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn THANHTIEN;
+        private DevExpress.XtraEditors.TextEdit txtTruckofWeight;
+        private DevExpress.XtraEditors.TextEdit txtAll;
     }
 }

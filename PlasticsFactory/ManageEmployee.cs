@@ -141,5 +141,10 @@ namespace PlasticsFactory
         {
 
         }
+
+        private void ManageEmployee_Load(object sender, EventArgs e)
+        {
+            this.MaximizeBox = false;
+        }
     }
 }

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductOutput));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtDate = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtTruckofWeight = new DevExpress.XtraEditors.TextEdit();
             this.txtLicencePlate = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtTruckofWeight = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtPrice = new System.Windows.Forms.ComboBox();
@@ -47,7 +47,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtAll = new System.Windows.Forms.TextBox();
+            this.txtAll = new DevExpress.XtraEditors.TextEdit();
             this.txtProductWeight = new System.Windows.Forms.TextBox();
             this.txtMSKH = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -74,8 +74,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTruckofWeight.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAll.Properties)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDS)).BeginInit();
@@ -93,9 +95,9 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox2.Controls.Add(this.txtTruckofWeight);
             this.groupBox2.Controls.Add(this.txtLicencePlate);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.txtTruckofWeight);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(736, 58);
             this.groupBox2.Name = "groupBox2";
@@ -103,6 +105,16 @@
             this.groupBox2.TabIndex = 125;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Xe";
+            // 
+            // txtTruckofWeight
+            // 
+            this.txtTruckofWeight.Location = new System.Drawing.Point(30, 71);
+            this.txtTruckofWeight.Name = "txtTruckofWeight";
+            this.txtTruckofWeight.Properties.Mask.EditMask = "n0";
+            this.txtTruckofWeight.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtTruckofWeight.Size = new System.Drawing.Size(205, 20);
+            this.txtTruckofWeight.TabIndex = 57;
+            this.txtTruckofWeight.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTruckofWeight_KeyUp);
             // 
             // txtLicencePlate
             // 
@@ -124,15 +136,6 @@
             this.label4.Size = new System.Drawing.Size(66, 13);
             this.label4.TabIndex = 55;
             this.label4.Text = "Trọng tải xe:";
-            // 
-            // txtTruckofWeight
-            // 
-            this.txtTruckofWeight.Location = new System.Drawing.Point(30, 71);
-            this.txtTruckofWeight.Name = "txtTruckofWeight";
-            this.txtTruckofWeight.Size = new System.Drawing.Size(205, 20);
-            this.txtTruckofWeight.TabIndex = 1;
-            this.txtTruckofWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTruckofWeight_KeyPress);
-            this.txtTruckofWeight.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTruckofWeight_KeyUp);
             // 
             // label6
             // 
@@ -265,13 +268,12 @@
             // txtAll
             // 
             this.txtAll.Location = new System.Drawing.Point(31, 31);
-            this.txtAll.MaxLength = 10;
             this.txtAll.Name = "txtAll";
+            this.txtAll.Properties.Mask.EditMask = "n0";
+            this.txtAll.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtAll.Size = new System.Drawing.Size(205, 20);
             this.txtAll.TabIndex = 115;
-            this.txtAll.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAll_KeyPress);
             this.txtAll.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAll_KeyUp);
-            this.txtAll.Leave += new System.EventHandler(this.txtAll_Leave);
             // 
             // txtProductWeight
             // 
@@ -353,14 +355,14 @@
             // 
             // dataDS
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataDS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataDS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MSDH,
@@ -384,8 +386,8 @@
             // 
             // MSDH
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MSDH.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MSDH.DefaultCellStyle = dataGridViewCellStyle2;
             this.MSDH.HeaderText = "MSDH";
             this.MSDH.Name = "MSDH";
             this.MSDH.ReadOnly = true;
@@ -542,10 +544,12 @@
             this.Load += new System.EventHandler(this.ProductOutput_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTruckofWeight.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAll.Properties)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -563,7 +567,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox txtLicencePlate;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtTruckofWeight;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox txtPrice;
@@ -575,7 +578,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox txtAll;
         private System.Windows.Forms.TextBox txtProductWeight;
         private System.Windows.Forms.ComboBox txtMSKH;
         private System.Windows.Forms.Panel panel1;
@@ -601,5 +603,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
+        private DevExpress.XtraEditors.TextEdit txtTruckofWeight;
+        private DevExpress.XtraEditors.TextEdit txtAll;
     }
 }

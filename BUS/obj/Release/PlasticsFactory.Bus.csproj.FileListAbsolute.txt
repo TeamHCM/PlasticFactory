@@ -1,0 +1,12 @@
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\bin\Release\BUS.dll.config
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\bin\Release\BUS.dll
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\bin\Release\BUS.pdb
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\bin\Release\EntityFramework.dll
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\bin\Release\PlasticsFactory.Data.dll
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\bin\Release\PlasticsFactory.Data.pdb
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\bin\Release\EntityFramework.xml
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\obj\Release\BUS.dll
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\obj\Release\BUS.pdb
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\obj\Release\PlasticsFactory.Bus.csprojResolveAssemblyReference.cache

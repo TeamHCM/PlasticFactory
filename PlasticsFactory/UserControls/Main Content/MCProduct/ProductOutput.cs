@@ -360,14 +360,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
             }
         }
 
-        private void txtTruckofWeight_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
         #endregion Event Truck
 
         #region AllWeight
@@ -376,9 +368,9 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
         {
             try
             {
-                int all = int.Parse(txtAll.Text);
-                int truckWeight = int.Parse(txtTruckofWeight.Text);
-                int result = all - truckWeight;
+                double all = double.Parse(txtAll.Text);
+                double truckWeight = double.Parse(txtTruckofWeight.Text);
+                double result = all - truckWeight;
                 txtProductWeight.Text = result.ToString();
             }
             catch { }
@@ -390,22 +382,14 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
             {
                 try
                 {
-                    int all = int.Parse(txtAll.Text);
-                    int truckWeight = int.Parse(txtTruckofWeight.Text);
-                    int result = all - truckWeight;
+                    double all = double.Parse(txtAll.Text);
+                    double truckWeight = double.Parse(txtTruckofWeight.Text);
+                    double result = all - truckWeight;
                     txtProductWeight.Text = result.ToString();
                 }
                 catch { }
                 btnThem.Focus();
                 btnEdit.Focus();
-            }
-        }
-
-        private void txtAll_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
             }
         }
 
@@ -438,7 +422,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
         {
             if (Validation())
             {
-                int maxMount = int.Parse(txtProductWeight.Text) * int.Parse(txtPrice.Text);
+                double maxMount = double.Parse(txtProductWeight.Text) * double.Parse(txtPrice.Text);
                 if (maxMount <= 0)
                 {
                     MessageBox.Show("Trọng lượng không hợp lệ hoặc quá tải!");
@@ -465,7 +449,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
             var obj = list.Find(u => u.ID == fladID);
             if (Validation())
             {
-                int maxMount = int.Parse(txtProductWeight.Text) * int.Parse(txtPrice.Text);
+                double maxMount = double.Parse(txtProductWeight.Text) * double.Parse(txtPrice.Text);
                 if (maxMount <= 0)
                 {
                     MessageBox.Show("Trọng lượng không hợp lệ hoặc quá tải!");
@@ -536,5 +520,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
         }
 
         #endregion button
+        
     }
 }

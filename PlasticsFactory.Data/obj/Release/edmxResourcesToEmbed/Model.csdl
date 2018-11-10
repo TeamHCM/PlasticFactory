@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PlasticFactoryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sex" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="isDelete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="TypeofCustomer" Relationship="Self.FK_Customer_TypeofCustomer" FromRole="Customer" ToRole="TypeofCustomer" />
+    <NavigationProperty Name="ProductInputs" Relationship="Self.FK_ProductInput_Customer" FromRole="Customer" ToRole="ProductInput" />
+    <NavigationProperty Name="ProductOutputs" Relationship="Self.FK_ProductOutput_Customer" FromRole="Customer" ToRole="ProductOutput" />
+    <NavigationProperty Name="Trucks" Relationship="Self.FK_Truck_Truck" FromRole="Customer" ToRole="Truck" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="MSNV" />
+    </Key>
+    <Property Name="MSNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Hoten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ngaysinh" Type="DateTime" Precision="3" />
+    <Property Name="Gioitinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="CMND" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="isDelete" Type="Boolean" Nullable="false" />
+    <Property Name="Type" Type="Int32" />
+    <NavigationProperty Name="EmployeeType" Relationship="Self.FK_Employee_EmployeeType" FromRole="Employee" ToRole="EmployeeType" />
+    <NavigationProperty Name="EmployeePayments" Relationship="Self.FK_EmployeePayment_Employee" FromRole="Employee" ToRole="EmployeePayment" />
+  </EntityType>
+  <EntityType Name="EmployeePayment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="DATE" Type="DateTime" Precision="0" />
+    <Property Name="MSNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="PAY" Type="Double" Nullable="false" />
+    <Property Name="NEBT" Type="Double" Nullable="false" />
+    <Property Name="isDelete" Type="Boolean" Nullable="false" />
+    <Property Name="ProductPrice" Type="Int32" Nullable="false" />
+    <Property Name="TimePrice" Type="Int32" Nullable="false" />
+    <Property Name="Wage" Type="Double" Nullable="false" />
+    <Property Name="Cash" Type="Double" Nullable="false" />
+    <Property Name="isPayed" Type="Boolean" Nullable="false" />
+    <Property Name="MonthOfPay" Type="Int32" Nullable="false" />
+    <Property Name="YearOfPay" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_EmployeePayment_Employee" FromRole="EmployeePayment" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="EmployeeType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Employee_EmployeeType" FromRole="EmployeeType" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="EmployeeWage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Wage" Type="Double" />
+  </EntityType>
+  <EntityType Name="PaymentInput">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="MSDH" Type="Int32" />
+    <Property Name="Payment" Type="Int32" />
+    <Property Name="Own" Type="Int32" />
+    <Property Name="isDelete" Type="Boolean" />
+    <NavigationProperty Name="ProductInput" Relationship="Self.FK_PaymentInput_ProductInput" FromRole="PaymentInput" ToRole="ProductInput" />
+  </EntityType>
+  <EntityType Name="PaymentOutput">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="MSDH" Type="Int32" />
+    <Property Name="Payment" Type="Int32" />
+    <Property Name="Own" Type="Int32" />
+    <Property Name="isDelete" Type="Boolean" />
+    <NavigationProperty Name="ProductOutput" Relationship="Self.FK_PaymentOutput_ProductOutput" FromRole="PaymentOutput" ToRole="ProductOutput" />
+  </EntityType>
+  <EntityType Name="PreferceProductPrice">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="isDelete" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductInput">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="MSKH" Type="Int32" Nullable="false" />
+    <Property Name="MSXE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TruckWeight" Type="Int32" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductWeight" Type="Int32" />
+    <Property Name="ProductPrice" Type="Int32" />
+    <Property Name="TotalAmount" Type="Int32" Nullable="false" />
+    <Property Name="Payed" Type="Int32" Nullable="false" />
+    <Property Name="Own" Type="Int32" Nullable="false" />
+    <Property Name="Paid" Type="Boolean" Nullable="false" />
+    <Property Name="TotalWeight" Type="Int32" Nullable="false" />
+    <Property Name="isDelete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_ProductInput_Customer" FromRole="ProductInput" ToRole="Customer" />
+    <NavigationProperty Name="PaymentInputs" Relationship="Self.FK_PaymentInput_ProductInput" FromRole="ProductInput" ToRole="PaymentInput" />
+  </EntityType>
+  <EntityType Name="ProductIP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="isDelete" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductOP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="isDelete" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductOutput">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="MSKH" Type="Int32" />
+    <Property Name="MSXE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TruckWeight" Type="Int32" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductWeight" Type="Int32" />
+    <Property Name="ProductPrice" Type="Int32" />
+    <Property Name="TotalAmount" Type="Int32" />
+    <Property Name="Payed" Type="Int32" Nullable="false" />
+    <Property Name="Own" Type="Int32" Nullable="false" />
+    <Property Name="Paid" Type="Boolean" Nullable="false" />
+    <Property Name="TotalWeight" Type="Int32" Nullable="false" />
+    <Property Name="isDelete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_ProductOutput_Customer" FromRole="ProductOutput" ToRole="Customer" />
+    <NavigationProperty Name="PaymentOutputs" Relationship="Self.FK_PaymentOutput_ProductOutput" FromRole="ProductOutput" ToRole="PaymentOutput" />
+  </EntityType>
+  <EntityType Name="Timekeeping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="MSNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="TimeStart" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TimeEnd" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Time" Type="Double" Nullable="false" />
+    <Property Name="Weight" Type="Int32" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="TotalWeight" Type="Int32" />
+    <Property Name="AdvancePayment" Type="Double" />
+    <Property Name="Note" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="isDelete" Type="Boolean" Nullable="false" />
+    <Property Name="Food" Type="Double" Nullable="false" />
+    <Property Name="Punish" Type="Double" Nullable="false" />
+    <Property Name="Bunus" Type="Double" Nullable="false" />
+    <Property Name="isRest" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypeofCustomer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="isDelete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_TypeofCustomer" FromRole="TypeofCustomer" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="TypeWeight">
+    <Key>
+      <PropertyRef Name="Type" />
+    </Key>
+    <Property Name="Type" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KG" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Truck">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LicencePlate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Weight" Type="Int32" />
+    <Property Name="MSKH" Type="Int32" Nullable="false" />
+    <Property Name="isDelete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Truck_Truck" FromRole="Truck" ToRole="Customer" />
+  </EntityType>
+  <Association Name="FK_Customer_TypeofCustomer">
+    <End Role="TypeofCustomer" Type="Self.TypeofCustomer" Multiplicity="1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeofCustomer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductInput_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="ProductInput" Type="Self.ProductInput" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductInput">
+        <PropertyRef Name="MSKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductOutput_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="ProductOutput" Type="Self.ProductOutput" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductOutput">
+        <PropertyRef Name="MSKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Truck_Truck">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Truck" Type="Self.Truck" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Truck">
+        <PropertyRef Name="MSKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_EmployeeType">
+    <End Role="EmployeeType" Type="Self.EmployeeType" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeePayment_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="EmployeePayment" Type="Self.EmployeePayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="MSNV" />
+      </Principal>
+      <Dependent Role="EmployeePayment">
+        <PropertyRef Name="MSNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PaymentInput_ProductInput">
+    <End Role="ProductInput" Type="Self.ProductInput" Multiplicity="0..1" />
+    <End Role="PaymentInput" Type="Self.PaymentInput" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductInput">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PaymentInput">
+        <PropertyRef Name="MSDH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PaymentOutput_ProductOutput">
+    <End Role="ProductOutput" Type="Self.ProductOutput" Multiplicity="0..1" />
+    <End Role="PaymentOutput" Type="Self.PaymentOutput" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductOutput">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PaymentOutput">
+        <PropertyRef Name="MSDH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PlasticFactoryEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="EmployeePayments" EntityType="Self.EmployeePayment" />
+    <EntitySet Name="EmployeeTypes" EntityType="Self.EmployeeType" />
+    <EntitySet Name="EmployeeWages" EntityType="Self.EmployeeWage" />
+    <EntitySet Name="PaymentInputs" EntityType="Self.PaymentInput" />
+    <EntitySet Name="PaymentOutputs" EntityType="Self.PaymentOutput" />
+    <EntitySet Name="PreferceProductPrices" EntityType="Self.PreferceProductPrice" />
+    <EntitySet Name="ProductInputs" EntityType="Self.ProductInput" />
+    <EntitySet Name="ProductIPs" EntityType="Self.ProductIP" />
+    <EntitySet Name="ProductOPs" EntityType="Self.ProductOP" />
+    <EntitySet Name="ProductOutputs" EntityType="Self.ProductOutput" />
+    <EntitySet Name="Timekeepings" EntityType="Self.Timekeeping" />
+    <EntitySet Name="TypeofCustomers" EntityType="Self.TypeofCustomer" />
+    <EntitySet Name="TypeWeights" EntityType="Self.TypeWeight" />
+    <EntitySet Name="Trucks" EntityType="Self.Truck" />
+    <AssociationSet Name="FK_Customer_TypeofCustomer" Association="Self.FK_Customer_TypeofCustomer">
+      <End Role="TypeofCustomer" EntitySet="TypeofCustomers" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductInput_Customer" Association="Self.FK_ProductInput_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="ProductInput" EntitySet="ProductInputs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductOutput_Customer" Association="Self.FK_ProductOutput_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="ProductOutput" EntitySet="ProductOutputs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Truck_Truck" Association="Self.FK_Truck_Truck">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Truck" EntitySet="Trucks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_EmployeeType" Association="Self.FK_Employee_EmployeeType">
+      <End Role="EmployeeType" EntitySet="EmployeeTypes" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeePayment_Employee" Association="Self.FK_EmployeePayment_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="EmployeePayment" EntitySet="EmployeePayments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PaymentInput_ProductInput" Association="Self.FK_PaymentInput_ProductInput">
+      <End Role="ProductInput" EntitySet="ProductInputs" />
+      <End Role="PaymentInput" EntitySet="PaymentInputs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PaymentOutput_ProductOutput" Association="Self.FK_PaymentOutput_ProductOutput">
+      <End Role="ProductOutput" EntitySet="ProductOutputs" />
+      <End Role="PaymentOutput" EntitySet="PaymentOutputs" />
+    </AssociationSet>
+    <FunctionImport Name="AutoIdEmployee" ReturnType="Collection(String)" />
+  </EntityContainer>
+</Schema>

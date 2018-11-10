@@ -49,6 +49,7 @@ namespace PlasticsFactory
 
         private void frmLayout_Load(object sender, EventArgs e)
         {
+            this.MaximizeBox = false;
             try
             {
                 mceAdd = new MCEAdd();

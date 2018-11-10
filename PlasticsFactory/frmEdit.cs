@@ -58,6 +58,7 @@ namespace PlasticsFactory
 
         private void frmEdit_Load(object sender, EventArgs e)
         {
+            this.MaximizeBox = false;
             var temp = Management.tempUpdate;
             txtMSNV.Text = temp.MSNV;
             txtThoigianBD.Text = temp.TimeStart;

@@ -177,23 +177,26 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
 
         private void panelInput_Click(object sender, EventArgs e)
         {
-            if(panelInput.Height==122)
+            if (panelOutput.Height <= 122)
             {
-                panelInput.Height = 200;
-                panelOutput.Location=new Point(panelOutput.Bounds.X, panelOutput.Bounds.Y + 80);
-                panelOutput.Height = 40;
-                pictureInput.Image = Properties.Resources.arrow_up;
-                lbOuptut.Location = new Point(lbOuptut.Bounds.X, lbOuptut.Bounds.Y - 9);
-                AnimatorInput.ShowSync(panelInput);
-            }
-            else
-            {
-                panelInput.Height = 122;
-                panelOutput.Height = 122;
-                pictureInput.Image = Properties.Resources.arrow_down;
-                panelOutput.Location = new Point(panelOutput.Bounds.X, panelOutput.Bounds.Y - 80);
-                lbOuptut.Location = new Point(lbOuptut.Bounds.X, lbOuptut.Bounds.Y +9);
-                AnimatorInput.ShowSync(panelInput);
+                if (panelInput.Height == 122)
+                {
+                    panelInput.Height = 200;
+                    panelOutput.Location = new Point(panelOutput.Bounds.X, panelOutput.Bounds.Y + 80);
+                    panelOutput.Height = 40;
+                    pictureInput.Image = Properties.Resources.arrow_up;
+                    lbOuptut.Location = new Point(lbOuptut.Bounds.X, lbOuptut.Bounds.Y - 9);
+                    AnimatorInput.ShowSync(panelInput);
+                }
+                else
+                {
+                    panelInput.Height = 122;
+                    panelOutput.Height = 122;
+                    pictureInput.Image = Properties.Resources.arrow_down;
+                    panelOutput.Location = new Point(panelOutput.Bounds.X, panelOutput.Bounds.Y - 80);
+                    lbOuptut.Location = new Point(lbOuptut.Bounds.X, lbOuptut.Bounds.Y + 9);
+                    AnimatorInput.ShowSync(panelInput);
+                }
             }
         }
 
@@ -204,23 +207,26 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
 
         private void panelOutput_Click(object sender, EventArgs e)
         {
-            if (panelOutput.Height == 122)
+            if (panelInput.Height <= 122)
             {
-                panelOutput.Height = 200;
-                panelEmployee.Location = new Point(panelEmployee.Bounds.X, panelEmployee.Bounds.Y + 80);
-                panelEmployee.Height = 40;
-                pictureOutput.Image = Properties.Resources.arrow_up;
-                lbEmployee.Location = new Point(lbEmployee.Bounds.X, lbEmployee.Bounds.Y - 9);
-                AnimatorInput.ShowSync(panelOutput);
-            }
-            else
-            {
-                panelOutput.Height = 122;
-                panelEmployee.Height = 122;
-                pictureOutput.Image = Properties.Resources.arrow_down;
-                panelEmployee.Location = new Point(panelEmployee.Bounds.X, panelEmployee.Bounds.Y - 80);
-                lbEmployee.Location = new Point(lbEmployee.Bounds.X, lbEmployee.Bounds.Y + 9);
-                AnimatorInput.ShowSync(panelOutput);
+                if (panelOutput.Height == 122)
+                {
+                    panelOutput.Height = 200;
+                    panelEmployee.Location = new Point(panelEmployee.Bounds.X, panelEmployee.Bounds.Y + 80);
+                    panelEmployee.Height = 40;
+                    pictureOutput.Image = Properties.Resources.arrow_up;
+                    lbEmployee.Location = new Point(lbEmployee.Bounds.X, lbEmployee.Bounds.Y - 9);
+                    AnimatorInput.ShowSync(panelOutput);
+                }
+                else
+                {
+                    panelOutput.Height = 122;
+                    panelEmployee.Height = 122;
+                    pictureOutput.Image = Properties.Resources.arrow_down;
+                    panelEmployee.Location = new Point(panelEmployee.Bounds.X, panelEmployee.Bounds.Y - 80);
+                    lbEmployee.Location = new Point(lbEmployee.Bounds.X, lbEmployee.Bounds.Y + 9);
+                    AnimatorInput.ShowSync(panelOutput);
+                }
             }
         }
 

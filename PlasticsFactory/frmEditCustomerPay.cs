@@ -66,6 +66,7 @@ namespace PlasticsFactory
 
         private void frmEditCustomerPay_Load(object sender, EventArgs e)
         {
+            this.MaximizeBox = false;
             txtPayed.Focus();
         }
 
