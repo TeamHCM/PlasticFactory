@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PlasticFactoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PlasticFactoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="ID" />
@@ -169,6 +169,7 @@
           <Property Name="Punish" Type="float" Nullable="false" />
           <Property Name="Bunus" Type="float" Nullable="false" />
           <Property Name="isRest" Type="bit" Nullable="false" />
+          <Property Name="OverTime" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="TypeofCustomer">
           <Key>
@@ -342,8 +343,7 @@
             <End Role="Truck" EntitySet="Truck" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PlasticFactoryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -525,6 +525,7 @@
           <Property Name="Punish" Type="Double" Nullable="false" />
           <Property Name="Bunus" Type="Double" Nullable="false" />
           <Property Name="isRest" Type="Boolean" Nullable="false" />
+          <Property Name="OverTime" Type="Double" Nullable="false" />
         </EntityType>
         <EntityType Name="TypeofCustomer">
           <Key>
@@ -865,6 +866,7 @@
           <EntitySetMapping Name="Timekeepings">
             <EntityTypeMapping TypeName="PlasticFactoryModel.Timekeeping">
               <MappingFragment StoreEntitySet="Timekeeping">
+                <ScalarProperty Name="OverTime" ColumnName="OverTime" />
                 <ScalarProperty Name="MSNV" ColumnName="MSNV" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />

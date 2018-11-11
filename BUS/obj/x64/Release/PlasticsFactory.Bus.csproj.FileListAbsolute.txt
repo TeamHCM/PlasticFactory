@@ -1,0 +1,15 @@
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\bin\x64\Release\BUS.dll.config
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\bin\x64\Release\BUS.dll
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\bin\x64\Release\BUS.pdb
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\bin\x64\Release\EntityFramework.dll
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\bin\x64\Release\EntityFramework.SqlServer.dll
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\bin\x64\Release\PlasticsFactory.Data.dll
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\bin\x64\Release\PlasticsFactory.Data.pdb
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\bin\x64\Release\PlasticsFactory.Data.dll.config
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\bin\x64\Release\EntityFramework.xml
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\bin\x64\Release\EntityFramework.SqlServer.xml
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\obj\x64\Release\PlasticsFactory.Bus.csprojAssemblyReference.cache
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\obj\x64\Release\PlasticsFactory.Bus.csproj.CoreCompileInputs.cache
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\obj\x64\Release\PlasticsFactory.Bus.csproj.CopyComplete
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\obj\x64\Release\BUS.dll
+C:\Users\thien\Documents\GitHub\PlasticFactory\BUS\obj\x64\Release\BUS.pdb

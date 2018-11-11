@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label8 = new System.Windows.Forms.Label();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
@@ -41,6 +41,7 @@
             this.Ngay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.thoigianBD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.thoigianKT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Overtime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Thoigian = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sobao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Loaibao = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,9 +53,8 @@
             this.Ghichu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isRest = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtBonus = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.txtPunish = new System.Windows.Forms.TextBox();
             this.checkRest = new System.Windows.Forms.CheckBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtNote = new System.Windows.Forms.RichTextBox();
@@ -84,10 +84,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.btnRemove = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.txtPunish = new DevExpress.XtraEditors.TextEdit();
+            this.txtBonus = new DevExpress.XtraEditors.TextEdit();
+            this.txtOvertime = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDS)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPunish.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBonus.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOvertime.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -129,14 +134,14 @@
             // 
             // dataDS
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataDS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataDS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MSNV,
@@ -144,6 +149,7 @@
             this.Ngay,
             this.thoigianBD,
             this.thoigianKT,
+            this.Overtime,
             this.Thoigian,
             this.sobao,
             this.Loaibao,
@@ -154,28 +160,28 @@
             this.Bonus,
             this.Ghichu,
             this.isRest});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataDS.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataDS.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataDS.Location = new System.Drawing.Point(25, 259);
             this.dataDS.Name = "dataDS";
             this.dataDS.ReadOnly = true;
             this.dataDS.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataDS.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataDS.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDS.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataDS.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataDS.Size = new System.Drawing.Size(1297, 284);
             this.dataDS.TabIndex = 67;
             this.dataDS.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDS_CellDoubleClick);
@@ -215,6 +221,12 @@
             this.thoigianKT.Name = "thoigianKT";
             this.thoigianKT.ReadOnly = true;
             this.thoigianKT.Width = 110;
+            // 
+            // Overtime
+            // 
+            this.Overtime.HeaderText = "Tăng ca";
+            this.Overtime.Name = "Overtime";
+            this.Overtime.ReadOnly = true;
             // 
             // Thoigian
             // 
@@ -281,9 +293,11 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox3.Controls.Add(this.txtOvertime);
             this.groupBox3.Controls.Add(this.txtBonus);
-            this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.txtPunish);
+            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.checkRest);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.txtNote);
@@ -319,13 +333,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông tin";
             // 
-            // txtBonus
+            // label16
             // 
-            this.txtBonus.Location = new System.Drawing.Point(163, 147);
-            this.txtBonus.Name = "txtBonus";
-            this.txtBonus.Size = new System.Drawing.Size(107, 20);
-            this.txtBonus.TabIndex = 94;
-            this.txtBonus.TextChanged += new System.EventHandler(this.txtBonus_TextChanged);
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(308, 106);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(53, 13);
+            this.label16.TabIndex = 102;
+            this.label16.Text = "Tăng ca :";
             // 
             // label15
             // 
@@ -337,15 +353,6 @@
             this.label15.Size = new System.Drawing.Size(75, 13);
             this.label15.TabIndex = 95;
             this.label15.Text = "Tiền thường";
-            // 
-            // txtPunish
-            // 
-            this.txtPunish.Enabled = false;
-            this.txtPunish.Location = new System.Drawing.Point(163, 121);
-            this.txtPunish.Name = "txtPunish";
-            this.txtPunish.Size = new System.Drawing.Size(107, 20);
-            this.txtPunish.TabIndex = 91;
-            this.txtPunish.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPunish_KeyUp);
             // 
             // checkRest
             // 
@@ -514,6 +521,7 @@
             this.txtMSNV.Name = "txtMSNV";
             this.txtMSNV.Size = new System.Drawing.Size(65, 21);
             this.txtMSNV.TabIndex = 100;
+            this.txtMSNV.SelectedIndexChanged += new System.EventHandler(this.txtMSNV_SelectedIndexChanged);
             this.txtMSNV.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMSNV_KeyPress);
             // 
             // label7
@@ -554,6 +562,7 @@
             this.txtThang.Name = "txtThang";
             this.txtThang.Size = new System.Drawing.Size(48, 21);
             this.txtThang.TabIndex = 100;
+            this.txtThang.SelectedIndexChanged += new System.EventHandler(this.txtThang_SelectedIndexChanged);
             this.txtThang.SelectedValueChanged += new System.EventHandler(this.txtThang_SelectedValueChanged);
             this.txtThang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtThang_KeyPress);
             this.txtThang.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtThang_KeyUp);
@@ -638,7 +647,7 @@
             this.btnRemove.BackColor = System.Drawing.Color.Red;
             this.btnRemove.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnRemove.Location = new System.Drawing.Point(1096, 552);
+            this.btnRemove.Location = new System.Drawing.Point(1212, 549);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(110, 36);
             this.btnRemove.TabIndex = 71;
@@ -646,25 +655,39 @@
             this.btnRemove.UseVisualStyleBackColor = false;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // btnSave
+            // txtPunish
             // 
-            this.btnSave.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnSave.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSave.Location = new System.Drawing.Point(1212, 552);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(110, 36);
-            this.btnSave.TabIndex = 72;
-            this.btnSave.Text = "Lưu";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.txtPunish.Location = new System.Drawing.Point(163, 122);
+            this.txtPunish.Name = "txtPunish";
+            this.txtPunish.Properties.Mask.EditMask = "n0";
+            this.txtPunish.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtPunish.Size = new System.Drawing.Size(105, 20);
+            this.txtPunish.TabIndex = 103;
+            this.txtPunish.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPunish_KeyUp);
+            // 
+            // txtBonus
+            // 
+            this.txtBonus.Location = new System.Drawing.Point(163, 148);
+            this.txtBonus.Name = "txtBonus";
+            this.txtBonus.Properties.Mask.EditMask = "n0";
+            this.txtBonus.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtBonus.Size = new System.Drawing.Size(105, 20);
+            this.txtBonus.TabIndex = 104;
+            // 
+            // txtOvertime
+            // 
+            this.txtOvertime.Location = new System.Drawing.Point(311, 122);
+            this.txtOvertime.Name = "txtOvertime";
+            this.txtOvertime.Properties.Mask.EditMask = "n0";
+            this.txtOvertime.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtOvertime.Size = new System.Drawing.Size(205, 20);
+            this.txtOvertime.TabIndex = 105;
             // 
             // MCAll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnRemove);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.dataDS);
@@ -677,6 +700,9 @@
             this.groupBox3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPunish.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBonus.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOvertime.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -694,7 +720,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox txtNgay;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox txtThang;
@@ -716,17 +741,16 @@
         private System.Windows.Forms.TextBox txtThoigianKT;
         private System.Windows.Forms.TextBox txtThoigianBD;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtPunish;
         private System.Windows.Forms.TextBox txtFood;
         private System.Windows.Forms.Label lbfood;
         private System.Windows.Forms.CheckBox checkRest;
-        private System.Windows.Forms.TextBox txtBonus;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DataGridViewTextBoxColumn MSNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hoten;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ngay;
         private System.Windows.Forms.DataGridViewTextBoxColumn thoigianBD;
         private System.Windows.Forms.DataGridViewTextBoxColumn thoigianKT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Overtime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Thoigian;
         private System.Windows.Forms.DataGridViewTextBoxColumn sobao;
         private System.Windows.Forms.DataGridViewTextBoxColumn Loaibao;
@@ -737,5 +761,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Bonus;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ghichu;
         private System.Windows.Forms.DataGridViewTextBoxColumn isRest;
+        private System.Windows.Forms.Label label16;
+        private DevExpress.XtraEditors.TextEdit txtBonus;
+        private DevExpress.XtraEditors.TextEdit txtPunish;
+        private DevExpress.XtraEditors.TextEdit txtOvertime;
     }
 }

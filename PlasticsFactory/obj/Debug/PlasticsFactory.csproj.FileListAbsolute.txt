@@ -798,3 +798,5 @@ C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\Plastic
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.csprojAssemblyReference.cache
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.csproj.CoreCompileInputs.cache
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Debug\PlasticsFactory.csproj.CopyComplete
+C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\System.Drawing.dll
+C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Debug\System.Xml.dll

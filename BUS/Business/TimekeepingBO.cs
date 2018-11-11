@@ -111,7 +111,7 @@ namespace BUS.Business
             using (var db = new PlasticFactoryEntities())
             {
                 DateTime dateTime = DateTime.Parse(Date);
-                int result = db.Timekeepings.Count(u => u.MSNV == MSNV && u.Date == dateTime);
+                int result = db.Timekeepings.Count(u =>u.isDelete==false&& u.MSNV == MSNV && u.Date == dateTime);
                 if(result==1)
                 {
                     return true;
@@ -125,12 +125,29 @@ namespace BUS.Business
             {
                 using (var db = new PlasticFactoryEntities())
                 {
-                    return db.Timekeepings.First(u => u.MSNV == MSNV && u.Date == date).Id;
+                    return db.Timekeepings.First(u =>u.isDelete==false&&u.MSNV == MSNV && u.Date == date).Id;
                 }
             }
             catch(Exception)
             {
                 throw;
+            }
+        }
+        public bool isDelete(string msnv,DateTime date)
+        {
+            try
+            {
+                using (var db = new PlasticFactoryEntities())
+                {
+                    Timekeeping timekeeping = db.Timekeepings.Where(u =>u.isDelete==false&&u.MSNV == msnv && u.Date == date).Single();
+                    timekeeping.isDelete = true;
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
     }

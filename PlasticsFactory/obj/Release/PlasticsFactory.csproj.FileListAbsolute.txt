@@ -183,4 +183,8 @@ C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Release\ja\De
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Release\ru\DevExpress.Office.v18.1.Core.resources.dll
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Release\PlasticsFactory.exe
 C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Release\PlasticsFactory.pdb
-C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Release\PlasticsFactory.csprojResolveAssemblyReference.cache
+C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Release\BUS.dll.config
+C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\bin\Release\PlasticsFactory.Data.dll.config
+C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Release\PlasticsFactory.csprojAssemblyReference.cache
+C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Release\PlasticsFactory.csproj.CoreCompileInputs.cache
+C:\Users\thien\Documents\GitHub\PlasticFactory\PlasticsFactory\obj\Release\PlasticsFactory.csproj.CopyComplete

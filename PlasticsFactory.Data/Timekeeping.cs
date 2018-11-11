@@ -30,5 +30,6 @@ namespace PlasticsFactory.Data
         public double Punish { get; set; }
         public double Bunus { get; set; }
         public bool isRest { get; set; }
+        public double OverTime { get; set; }
     }
 }

@@ -25,6 +25,10 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
 
         public void LoadAutoRefreshInformation()
         {
+            int month = int.Parse(txtThang.Text);
+            int year = int.Parse(txtNam.Text);
+            string msnv = txtMSNV.Text.Trim();
+            list = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV.Trim() == msnv && u.Date.Value.Month == month && u.Date.Value.Year == year).ToList();
             loadListTimekeeping();
             txtThoigianBD.ResetText();
             txtThoigianKT.ResetText();
@@ -32,9 +36,9 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             txtCashAdvance.ResetText();
             txtFood.ResetText();
             txtNote.ResetText();
-            txtNgay.Text = DateTime.Now.Day.ToString();
-            txtThang.Text = DateTime.Now.Month.ToString();
-            txtNam.Text = DateTime.Now.Year.ToString();
+            //txtNgay.Text = DateTime.Now.Day.ToString();
+            //txtThang.Text = DateTime.Now.Month.ToString();
+            //txtNam.Text = DateTime.Now.Year.ToString();
             tempMSNV = "";
             dateByMSNV = "";
             txtHoten.Focus();
@@ -52,22 +56,23 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 dataDS.Rows[i].Cells[2].Value = item.Date.Value.ToShortDateString();
                 dataDS.Rows[i].Cells[3].Value = item.TimeStart;
                 dataDS.Rows[i].Cells[4].Value = item.TimeEnd;
-                dataDS.Rows[i].Cells[5].Value = item.Time;
-                dataDS.Rows[i].Cells[6].Value = item.Weight;
-                dataDS.Rows[i].Cells[7].Value = item.Type;
-                dataDS.Rows[i].Cells[8].Value = item.TotalWeight;
-                dataDS.Rows[i].Cells[9].Value = item.AdvancePayment;
-                dataDS.Rows[i].Cells[10].Value = item.Food;
-                dataDS.Rows[i].Cells[11].Value = item.Punish;
-                dataDS.Rows[i].Cells[12].Value = item.Bunus;
-                dataDS.Rows[i].Cells[13].Value = item.Note;
+                dataDS.Rows[i].Cells[5].Value = item.OverTime;
+                dataDS.Rows[i].Cells[6].Value = item.Time;
+                dataDS.Rows[i].Cells[7].Value = item.Weight;
+                dataDS.Rows[i].Cells[8].Value = item.Type;
+                dataDS.Rows[i].Cells[9].Value = item.TotalWeight;
+                dataDS.Rows[i].Cells[10].Value = item.AdvancePayment;
+                dataDS.Rows[i].Cells[11].Value = item.Food;
+                dataDS.Rows[i].Cells[12].Value = item.Punish;
+                dataDS.Rows[i].Cells[13].Value = item.Bunus;
+                dataDS.Rows[i].Cells[14].Value = item.Note;
                 if (item.isRest == true)
                 {
-                    dataDS.Rows[i].Cells[14].Value = "Yes";
+                    dataDS.Rows[i].Cells[15].Value = "Yes";
                 }
                 else
                 {
-                    dataDS.Rows[i].Cells[14].Value = "No";
+                    dataDS.Rows[i].Cells[15].Value = "No";
                 }
                 i++;
             }
@@ -98,17 +103,19 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             Timekeeping timekeeping = new Timekeeping();
             timekeeping.MSNV = txtMSNV.Text;
             timekeeping.Date = DateTime.Parse(txtNgay.Text + "/" + txtThang.Text + "/" + txtNam.Text).Date;
-            if (txtThoigianBD.Text.Equals("") || txtThoigianKT.Text.Equals(""))
+            if (txtThoigianBD.Text.Equals("") || txtThoigianKT.Text.Equals("") || txtOvertime.Text == "")
             {
                 timekeeping.TimeStart = "";
                 timekeeping.TimeEnd = "";
+                timekeeping.OverTime = 0;
                 timekeeping.Time = 0;
             }
             else
             {
                 timekeeping.TimeStart = txtThoigianBD.Text;
                 timekeeping.TimeEnd = txtThoigianKT.Text;
-                timekeeping.Time = Interval(txtThoigianBD.Text, txtThoigianKT.Text);
+                timekeeping.OverTime = double.Parse(txtOvertime.Text);
+                timekeeping.Time = Interval(txtThoigianBD.Text, txtThoigianKT.Text) + double.Parse(txtOvertime.Text);
             }
             if (txtWeight.Text.Equals(""))
             {
@@ -353,11 +360,15 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                     {
                         txtNgay.Text = "";
                     }
-                    txtThang.Focus();
+                    txtThoigianBD.Focus();
                 }
                 if (e.KeyCode == Keys.Space)
                 {
                     txtThoigianBD.Focus();
+                }
+                if(e.KeyCode==Keys.Right)
+                {
+                    txtThang.Focus();
                 }
             }
             catch { }
@@ -408,7 +419,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 if (checkExist == true)
                 {
                     loadMSNV(name);
-                    //txtNgay.Focus();
+                    txtNgay.Focus();
                 }
                 else
                 {
@@ -434,34 +445,48 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             {
                 string txtTimeStart = txtThoigianBD.Text;
                 int lenght = txtTimeStart.Length;
-                if (lenght > 0 && lenght <= 2)
+                if (lenght > 0 && lenght < 3)
                 {
-                    int hour = int.Parse(txtTimeStart);
+                    int hour = int.Parse(txtTimeStart.Split(':')[0]);
                     txtThoigianBD.Text = hour.ToString("d2") + ":00";
                     txtThoigianKT.Focus();
                 }
-                if (lenght > 3)
+                if (lenght >= 3)
                 {
-                    int minutes = int.Parse(txtTimeStart.Substring(3));
-                    int hours = int.Parse(txtTimeStart.Substring(0, 2));
-                    if (minutes < 10)
+                    if (lenght >=3 && txtThoigianBD.Text.Split(':')[1] != "")
                     {
-                        txtThoigianBD.Text = hours.ToString("d2") + ":" + minutes.ToString("d2");
+                        int minutes = int.Parse(txtTimeStart.Split(':')[1]);
+                        int hours = int.Parse(txtTimeStart.Split(':')[0]);
+                        if (minutes < 10)
+                        {
+                            txtThoigianBD.Text = hours.ToString("d2") + ":" + minutes.ToString("d2");
+                            txtThoigianKT.Focus();
+                        }
+                        if (minutes < 60)
+                        {
+                            txtThoigianKT.Focus();
+                        }
+                        if (minutes >= 60)
+                        {
+                            txtThoigianBD.Text = "";
+                        }
+                        if (hours > 23)
+                        {
+                            txtThoigianBD.Text = "";
+                            txtThoigianBD.Focus();
+                        }
+                    }
+                    if (lenght == 3 && txtThoigianBD.Text.Split(':')[1].Trim() == "")
+                    {
+                        int hour = int.Parse(txtTimeStart.Split(':')[0]);
+                        txtThoigianBD.Text = hour.ToString("d2") + ":00";
                         txtThoigianKT.Focus();
                     }
-                    if (minutes < 60)
-                    {
-                        txtThoigianKT.Focus();
-                    }
-                    if (minutes >= 60)
-                    {
-                        txtThoigianBD.Text = "";
-                    }
                 }
-                if (lenght == 3)
-                {
-                    txtThoigianBD.Text = "";
-                }
+                //if (lenght == 3)
+                //{
+                //    txtThoigianBD.Text = "";
+                //}
             }
             if (txtThoigianBD.Text == "" && e.KeyCode == Keys.Space)
             {
@@ -482,16 +507,18 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                     e.Handled = false;
                 }
             }
-            if (txtThoigianBD.Text.Length == 2)
+            if (txtThoigianBD.Text.Length <= 2)
             {
-                if (e.KeyChar.ToString() != ":")
+                if (e.KeyChar.ToString() != ":" && !char.IsDigit(e.KeyChar))
                 {
                     e.Handled = true;
+
                 }
                 if (Char.IsControl(e.KeyChar))
                 {
                     e.Handled = false;
                 }
+
             }
             if (txtThoigianBD.Text.Length > 2)
             {
@@ -517,31 +544,50 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
         {
             if (e.KeyCode == Keys.Enter)
             {
-                string txtTimeEnd = txtThoigianKT.Text;
-                int lenght = txtTimeEnd.Length;
-                if (lenght > 0 && lenght <= 2)
+                string txtTimeStart = txtThoigianKT.Text;
+                int lenght = txtTimeStart.Length;
+                if (lenght > 0 && lenght < 3)
                 {
-                    int hour = int.Parse(txtTimeEnd);
+                    int hour = int.Parse(txtTimeStart.Split(':')[0]);
                     txtThoigianKT.Text = hour.ToString("d2") + ":00";
+                    txtWeight.Focus();
                 }
-                if (lenght > 3)
+                if (lenght >= 3)
                 {
-                    int minutes = int.Parse(txtTimeEnd.Substring(3));
-                    int hours = int.Parse(txtTimeEnd.Substring(0, 2));
-                    if (minutes < 10)
+                    if (lenght >= 3 && txtThoigianKT.Text.Split(':')[1].Trim() != "")
                     {
-                        txtThoigianKT.Text = hours.ToString("d2") + ":" + minutes.ToString("d2");
-                        txtWeight.Focus();
+                        int minutes = int.Parse(txtTimeStart.Split(':')[1]);
+                        int hours = int.Parse(txtTimeStart.Split(':')[0]);
+                        if (minutes < 10)
+                        {
+                            txtThoigianKT.Text = hours.ToString("d2") + ":" + minutes.ToString("d2");
+                            txtWeight.Focus();
+                        }
+                        if (minutes < 60)
+                        {
+                            txtWeight.Focus();
+                        }
+                        if (minutes >= 60)
+                        {
+                            txtThoigianKT.Text = "";
+                        }
+                        if (hours > 23)
+                        {
+                            txtThoigianKT.Text = "";
+                            txtThoigianKT.Focus();
+                        }
                     }
-                    if (minutes < 60)
+                    if (lenght == 3 && txtThoigianKT.Text.Split(':')[1] == "")
                     {
+                        int hour = int.Parse(txtTimeStart.Split(':')[0]);
+                        txtThoigianKT.Text = hour.ToString("d2") + ":00";
                         txtWeight.Focus();
-                    }
-                    if (minutes >= 60)
-                    {
-                        txtThoigianKT.Text = "";
                     }
                 }
+            }
+            if (txtThoigianKT.Text == "" && e.KeyCode == Keys.Space)
+            {
+                txtWeight.Focus();
             }
         }
 
@@ -558,16 +604,18 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                     e.Handled = false;
                 }
             }
-            if (txtThoigianKT.Text.Length == 2)
+            if (txtThoigianKT.Text.Length <= 2)
             {
-                if (e.KeyChar.ToString() != ":")
+                if (e.KeyChar.ToString() != ":" && !char.IsDigit(e.KeyChar))
                 {
                     e.Handled = true;
+
                 }
                 if (Char.IsControl(e.KeyChar))
                 {
                     e.Handled = false;
                 }
+
             }
             if (txtThoigianKT.Text.Length > 2)
             {
@@ -593,6 +641,16 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
         {
             try
             {
+                if (int.Parse(txtThoigianBD.Text.Substring(0)) > 2 && txtThoigianBD.Text.Length == 1)
+                {
+                    txtThoigianBD.Text = txtThoigianBD.Text + ":";
+                    txtThoigianBD.SelectionStart = txtThoigianBD.Text.Length;
+                }
+                if (txtThoigianBD.Text.Length == 2 && !txtThoigianBD.Text.Contains(":"))
+                {
+                    txtThoigianBD.Text = txtThoigianBD.Text + ":";
+                    txtThoigianBD.SelectionStart = txtThoigianBD.Text.Length;
+                }
                 if (int.Parse(txtThoigianBD.Text) > 23)
                 {
                     txtThoigianBD.ResetText();
@@ -606,6 +664,16 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
         {
             try
             {
+                if (int.Parse(txtThoigianKT.Text.Substring(0)) > 2 && txtThoigianKT.Text.Length == 1)
+                {
+                    txtThoigianKT.Text = txtThoigianKT.Text + ":";
+                    txtThoigianKT.SelectionStart = txtThoigianKT.Text.Length;
+                }
+                if (txtThoigianKT.Text.Length == 2 && !txtThoigianKT.Text.Contains(":"))
+                {
+                    txtThoigianKT.Text = txtThoigianKT.Text + ":";
+                    txtThoigianKT.SelectionStart = txtThoigianKT.Text.Length;
+                }
                 if (int.Parse(txtThoigianKT.Text) > 23)
                 {
                     txtThoigianKT.ResetText();
@@ -752,7 +820,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                             txtCashAdvance.Text = dataDS.Rows[e.RowIndex].Cells[9].Value.ToString();
                             txtNote.Text = dataDS.Rows[e.RowIndex].Cells[10].Value.ToString();
                             btnRemove.Enabled = false;
-                            btnSave.Enabled = false;
                         }
                         catch
                         {
@@ -768,7 +835,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                         txtThang.Enabled = true;
                         txtNam.Enabled = true;
                         btnRemove.Enabled = true;
-                        btnSave.Enabled = true;
                         LoadAutoRefreshInformation();
                         btnEdit.Visible = false;
                         btnDoubleGrid = 0;
@@ -817,20 +883,17 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 if (result == DialogResult.Yes)
                 {
                     DateTime date = DateTime.Parse(dateByMSNV);
-                    var deleteEmployee = list.FindIndex(u => u.MSNV == tempMSNV && u.Date == date);
-                    list.RemoveAt(deleteEmployee);
-                    //load datagridview
-                    LoadAutoRefreshInformation();
+                    bool isCheck=timekeepingBO.isDelete(txtMSNV.Text, date);
+                    if (isCheck == true)
+                    {
+                        LoadAutoRefreshInformation();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lỗi hệ thống");
+                    }
                 }
             }
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            timekeepingBO.Add(list);
-            list.Clear();
-            LoadAutoRefreshInformation();
-            dataDS.Rows.Clear();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -850,7 +913,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 {
                     if (IsFieldEmployeeByDateInDB || IsFieldEmployeeByDateInList)
                     {
-                        MessageBox.Show("Nhân viên đã nãy đã được chấm công vào này rồi trong DataBase hoặc là trong danh sách mới thêm. Vui lòng kiểm tra lại");
+                        MessageBox.Show("Nhân viên đã nãy đã được chấm công vào này rồi. Vui lòng kiểm tra lại");
                     }
                     else
                     {
@@ -865,7 +928,10 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                             else
                             {
                                 timekeeping = ObjectTimekeeping();
-                                list.Add(timekeeping);
+                                timekeepingBO.Add(timekeeping);
+                                int day = int.Parse(txtNgay.Text);
+                                int dayofMonth = System.DateTime.DaysInMonth(int.Parse(txtNam.Text), int.Parse(txtThang.Text));
+                                txtNgay.Text=day+1 < dayofMonth ?(day+1).ToString() :day.ToString();
                                 LoadAutoRefreshInformation();
                                 txtHoten.Focus();
                             }
@@ -879,7 +945,10 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                                 if (checkRest.Checked)
                                 {
                                     timekeeping = ObjectTimekeeping();
-                                    list.Add(timekeeping);
+                                    timekeepingBO.Add(timekeeping);
+                                    int day = int.Parse(txtNgay.Text);
+                                    int dayofMonth = System.DateTime.DaysInMonth(int.Parse(txtNam.Text), int.Parse(txtThang.Text));
+                                    txtNgay.Text = day + 1 < dayofMonth ? (day + 1).ToString() : day.ToString();
                                     LoadAutoRefreshInformation();
                                     txtHoten.Focus();
                                 }
@@ -891,7 +960,10 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                             else
                             {
                                 timekeeping = ObjectTimekeeping();
-                                list.Add(timekeeping);
+                                timekeepingBO.Add(timekeeping);
+                                int day = int.Parse(txtNgay.Text);
+                                int dayofMonth = System.DateTime.DaysInMonth(int.Parse(txtNam.Text), int.Parse(txtThang.Text));
+                                txtNgay.Text = day + 1 < dayofMonth ? (day + 1).ToString() : day.ToString();
                                 LoadAutoRefreshInformation();
                                 txtHoten.Focus();
                             }
@@ -919,7 +991,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             {
                 timekeeping.TimeStart = txtThoigianBD.Text;
                 timekeeping.TimeEnd = txtThoigianKT.Text;
-                timekeeping.Time = Interval(txtThoigianBD.Text, txtThoigianKT.Text);
+                timekeeping.OverTime = double.Parse(txtOvertime.Text);
+                timekeeping.Time = Interval(txtThoigianBD.Text, txtThoigianKT.Text)+double.Parse(txtOvertime.Text);
             }
             if (txtWeight.Text.Equals(""))
             {
@@ -952,7 +1025,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             txtThang.Enabled = true;
             txtNam.Enabled = true;
             btnRemove.Enabled = true;
-            btnSave.Enabled = true;
             btnEdit.Visible = false;
             btnThem.Visible = true;
         }
@@ -1046,11 +1118,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             }
         }
 
-        private void txtBonus_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtHoten_SelectedIndexChanged(object sender, EventArgs e)
         {
             string name = txtHoten.Text;
@@ -1081,6 +1148,20 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 txtMSNV.Text = "";
                 txtMSNV.Items.Clear();
             }
+        }
+
+        private void txtMSNV_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int month = int.Parse(txtThang.Text);
+            int year = int.Parse(txtNam.Text);
+            string msnv = txtMSNV.Text.Trim();
+            list = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV.Trim() == msnv && u.Date.Value.Month == month && u.Date.Value.Year == year).ToList();
+            loadListTimekeeping();
+        }
+
+        private void txtThang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtMSNV_SelectedIndexChanged(sender, e);
         }
     }
 }

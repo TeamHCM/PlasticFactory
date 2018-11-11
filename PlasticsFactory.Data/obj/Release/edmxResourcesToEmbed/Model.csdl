@@ -178,6 +178,7 @@
     <Property Name="Punish" Type="Double" Nullable="false" />
     <Property Name="Bunus" Type="Double" Nullable="false" />
     <Property Name="isRest" Type="Boolean" Nullable="false" />
+    <Property Name="OverTime" Type="Double" Nullable="false" />
   </EntityType>
   <EntityType Name="TypeofCustomer">
     <Key>
