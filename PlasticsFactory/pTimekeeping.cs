@@ -12,6 +12,7 @@ namespace PlasticsFactory
         public DateTime Date { get; set; }
         public string TimeStart { get; set; }
         public string TimeEnd { get; set; }
+        public double Overtime { get; set; }
         public double Time { get; set; }
         public int Weight { get; set; }
         public int Type { get; set; }

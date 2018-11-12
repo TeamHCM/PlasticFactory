@@ -30,12 +30,13 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             string msnv = txtMSNV.Text.Trim();
             list = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV.Trim() == msnv && u.Date.Value.Month == month && u.Date.Value.Year == year).ToList();
             loadListTimekeeping();
-            txtThoigianBD.ResetText();
-            txtThoigianKT.ResetText();
+            //txtThoigianBD.ResetText();
+            //txtThoigianKT.ResetText();
             txtWeight.ResetText();
             txtCashAdvance.ResetText();
-            txtFood.ResetText();
+            //txtFood.ResetText();
             txtNote.ResetText();
+            txtOvertime.ResetText();
             //txtNgay.Text = DateTime.Now.Day.ToString();
             //txtThang.Text = DateTime.Now.Month.ToString();
             //txtNam.Text = DateTime.Now.Year.ToString();
@@ -103,19 +104,19 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             Timekeeping timekeeping = new Timekeeping();
             timekeeping.MSNV = txtMSNV.Text;
             timekeeping.Date = DateTime.Parse(txtNgay.Text + "/" + txtThang.Text + "/" + txtNam.Text).Date;
-            if (txtThoigianBD.Text.Equals("") || txtThoigianKT.Text.Equals("") || txtOvertime.Text == "")
+            double overtime= txtOvertime.Text == string.Empty ? timekeeping.OverTime = 0 : timekeeping.OverTime = double.Parse(txtOvertime.Text);
+            timekeeping.OverTime = overtime;
+            if (txtThoigianBD.Text.Equals("") || txtThoigianKT.Text.Equals("") )
             {
                 timekeeping.TimeStart = "";
                 timekeeping.TimeEnd = "";
-                timekeeping.OverTime = 0;
                 timekeeping.Time = 0;
             }
             else
             {
                 timekeeping.TimeStart = txtThoigianBD.Text;
                 timekeeping.TimeEnd = txtThoigianKT.Text;
-                timekeeping.OverTime = double.Parse(txtOvertime.Text);
-                timekeeping.Time = Interval(txtThoigianBD.Text, txtThoigianKT.Text) + double.Parse(txtOvertime.Text);
+                timekeeping.Time = Interval(txtThoigianBD.Text, txtThoigianKT.Text) + overtime;
             }
             if (txtWeight.Text.Equals(""))
             {
@@ -361,6 +362,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                         txtNgay.Text = "";
                     }
                     txtThoigianBD.Focus();
+                    txtThoigianBD.SelectAll();
                 }
                 if (e.KeyCode == Keys.Space)
                 {
@@ -449,6 +451,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 {
                     int hour = int.Parse(txtTimeStart.Split(':')[0]);
                     txtThoigianBD.Text = hour.ToString("d2") + ":00";
+                    txtThoigianKT.SelectAll();
                     txtThoigianKT.Focus();
                 }
                 if (lenght >= 3)
@@ -460,10 +463,12 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                         if (minutes < 10)
                         {
                             txtThoigianBD.Text = hours.ToString("d2") + ":" + minutes.ToString("d2");
+                            txtThoigianKT.SelectAll();
                             txtThoigianKT.Focus();
                         }
                         if (minutes < 60)
                         {
+                            txtThoigianKT.SelectAll();
                             txtThoigianKT.Focus();
                         }
                         if (minutes >= 60)
@@ -480,6 +485,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                     {
                         int hour = int.Parse(txtTimeStart.Split(':')[0]);
                         txtThoigianBD.Text = hour.ToString("d2") + ":00";
+                        txtThoigianKT.SelectAll();
                         txtThoigianKT.Focus();
                     }
                 }
@@ -588,6 +594,49 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             if (txtThoigianKT.Text == "" && e.KeyCode == Keys.Space)
             {
                 txtWeight.Focus();
+            }
+            if(e.KeyCode==Keys.Down)
+            {
+                string txtTimeStart = txtThoigianKT.Text;
+                int lenght = txtTimeStart.Length;
+                if (lenght > 0 && lenght < 3)
+                {
+                    int hour = int.Parse(txtTimeStart.Split(':')[0]);
+                    txtThoigianKT.Text = hour.ToString("d2") + ":00";
+                    txtOvertime.Focus();
+                }
+                if (lenght >= 3)
+                {
+                    if (lenght >= 3 && txtThoigianKT.Text.Split(':')[1].Trim() != "")
+                    {
+                        int minutes = int.Parse(txtTimeStart.Split(':')[1]);
+                        int hours = int.Parse(txtTimeStart.Split(':')[0]);
+                        if (minutes < 10)
+                        {
+                            txtThoigianKT.Text = hours.ToString("d2") + ":" + minutes.ToString("d2");
+                            txtWeight.Focus();
+                        }
+                        if (minutes < 60)
+                        {
+                            txtOvertime.Focus();
+                        }
+                        if (minutes >= 60)
+                        {
+                            txtThoigianKT.Text = "";
+                        }
+                        if (hours > 23)
+                        {
+                            txtThoigianKT.Text = "";
+                            txtThoigianKT.Focus();
+                        }
+                    }
+                    if (lenght == 3 && txtThoigianKT.Text.Split(':')[1] == "")
+                    {
+                        int hour = int.Parse(txtTimeStart.Split(':')[0]);
+                        txtThoigianKT.Text = hour.ToString("d2") + ":00";
+                        txtOvertime.Focus();
+                    }
+                }
             }
         }
 
@@ -776,7 +825,9 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
         {
             if (e.KeyCode == Keys.Enter)
             {
+                txtFood.SelectAll();
                 txtFood.Focus();
+
             }
         }
         #endregion Event CashAdvance
@@ -1162,6 +1213,19 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
         private void txtThang_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtMSNV_SelectedIndexChanged(sender, e);
+        }
+
+        private void txtOvertime_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtOvertime_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+            {
+                txtWeight.Focus();
+            }
         }
     }
 }

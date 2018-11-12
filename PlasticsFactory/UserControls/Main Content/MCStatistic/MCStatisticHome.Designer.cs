@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MCStatisticHome));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MCStatisticHome));
             this.panelInput = new System.Windows.Forms.Panel();
             this.txtInputResidue = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -83,7 +81,6 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.chartStatistic = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.AnimatorInput = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panelInput.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureInput)).BeginInit();
@@ -116,7 +113,6 @@
             this.panelInput.Controls.Add(this.label4);
             this.panelInput.Controls.Add(this.label3);
             this.panelInput.Controls.Add(this.label1);
-            this.AnimatorInput.SetDecoration(this.panelInput, BunifuAnimatorNS.DecorationType.None);
             this.panelInput.Location = new System.Drawing.Point(1022, 97);
             this.panelInput.Name = "panelInput";
             this.panelInput.Size = new System.Drawing.Size(266, 122);
@@ -127,7 +123,6 @@
             // txtInputResidue
             // 
             this.txtInputResidue.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.txtInputResidue, BunifuAnimatorNS.DecorationType.None);
             this.txtInputResidue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInputResidue.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.txtInputResidue.Location = new System.Drawing.Point(155, 159);
@@ -139,7 +134,6 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.label11, BunifuAnimatorNS.DecorationType.None);
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label11.Location = new System.Drawing.Point(144, 134);
@@ -151,7 +145,6 @@
             // txtInputPay
             // 
             this.txtInputPay.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.txtInputPay, BunifuAnimatorNS.DecorationType.None);
             this.txtInputPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInputPay.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.txtInputPay.Location = new System.Drawing.Point(27, 159);
@@ -163,7 +156,6 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label6.Location = new System.Drawing.Point(25, 134);
@@ -175,7 +167,6 @@
             // txtProductInputWeight
             // 
             this.txtProductInputWeight.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.txtProductInputWeight, BunifuAnimatorNS.DecorationType.None);
             this.txtProductInputWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProductInputWeight.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.txtProductInputWeight.Location = new System.Drawing.Point(90, 58);
@@ -186,7 +177,6 @@
             // 
             // pictureInput
             // 
-            this.AnimatorInput.SetDecoration(this.pictureInput, BunifuAnimatorNS.DecorationType.None);
             this.pictureInput.Image = ((System.Drawing.Image)(resources.GetObject("pictureInput.Image")));
             this.pictureInput.Location = new System.Drawing.Point(200, 40);
             this.pictureInput.Name = "pictureInput";
@@ -199,7 +189,6 @@
             // txtProductInputAmount
             // 
             this.txtProductInputAmount.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.txtProductInputAmount, BunifuAnimatorNS.DecorationType.None);
             this.txtProductInputAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProductInputAmount.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.txtProductInputAmount.Location = new System.Drawing.Point(90, 91);
@@ -211,7 +200,6 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.label5, BunifuAnimatorNS.DecorationType.None);
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label5.Location = new System.Drawing.Point(40, 60);
@@ -222,7 +210,6 @@
             // 
             // pictureBox1
             // 
-            this.AnimatorInput.SetDecoration(this.pictureBox1, BunifuAnimatorNS.DecorationType.None);
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(21, 40);
             this.pictureBox1.Name = "pictureBox1";
@@ -234,7 +221,6 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.label4, BunifuAnimatorNS.DecorationType.None);
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label4.Location = new System.Drawing.Point(86, 75);
@@ -246,7 +232,6 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.label3, BunifuAnimatorNS.DecorationType.None);
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label3.Location = new System.Drawing.Point(86, 40);
@@ -258,7 +243,6 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.label1, BunifuAnimatorNS.DecorationType.None);
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label1.Location = new System.Drawing.Point(26, 13);
@@ -282,7 +266,6 @@
             this.panelOutput.Controls.Add(this.label8);
             this.panelOutput.Controls.Add(this.label9);
             this.panelOutput.Controls.Add(this.lbOuptut);
-            this.AnimatorInput.SetDecoration(this.panelOutput, BunifuAnimatorNS.DecorationType.None);
             this.panelOutput.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.panelOutput.Location = new System.Drawing.Point(1022, 225);
             this.panelOutput.Name = "panelOutput";
@@ -294,7 +277,6 @@
             // txtOutputResidue
             // 
             this.txtOutputResidue.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.txtOutputResidue, BunifuAnimatorNS.DecorationType.None);
             this.txtOutputResidue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOutputResidue.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.txtOutputResidue.Location = new System.Drawing.Point(166, 158);
@@ -306,7 +288,6 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.label10, BunifuAnimatorNS.DecorationType.None);
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label10.Location = new System.Drawing.Point(166, 133);
@@ -318,7 +299,6 @@
             // txtOutputPayed
             // 
             this.txtOutputPayed.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.txtOutputPayed, BunifuAnimatorNS.DecorationType.None);
             this.txtOutputPayed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOutputPayed.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.txtOutputPayed.Location = new System.Drawing.Point(49, 158);
@@ -330,7 +310,6 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.label18, BunifuAnimatorNS.DecorationType.None);
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label18.Location = new System.Drawing.Point(47, 133);
@@ -342,7 +321,6 @@
             // txtProductOutputWeight
             // 
             this.txtProductOutputWeight.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.txtProductOutputWeight, BunifuAnimatorNS.DecorationType.None);
             this.txtProductOutputWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProductOutputWeight.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.txtProductOutputWeight.Location = new System.Drawing.Point(90, 66);
@@ -353,7 +331,6 @@
             // 
             // pictureOutput
             // 
-            this.AnimatorInput.SetDecoration(this.pictureOutput, BunifuAnimatorNS.DecorationType.None);
             this.pictureOutput.Image = ((System.Drawing.Image)(resources.GetObject("pictureOutput.Image")));
             this.pictureOutput.Location = new System.Drawing.Point(200, 46);
             this.pictureOutput.Name = "pictureOutput";
@@ -366,7 +343,6 @@
             // txtProductOutputAmount
             // 
             this.txtProductOutputAmount.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.txtProductOutputAmount, BunifuAnimatorNS.DecorationType.None);
             this.txtProductOutputAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProductOutputAmount.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.txtProductOutputAmount.Location = new System.Drawing.Point(90, 99);
@@ -378,7 +354,6 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.label7, BunifuAnimatorNS.DecorationType.None);
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label7.Location = new System.Drawing.Point(40, 66);
@@ -389,7 +364,6 @@
             // 
             // pictureBox4
             // 
-            this.AnimatorInput.SetDecoration(this.pictureBox4, BunifuAnimatorNS.DecorationType.None);
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(21, 46);
             this.pictureBox4.Name = "pictureBox4";
@@ -401,7 +375,6 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.label8, BunifuAnimatorNS.DecorationType.None);
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label8.Location = new System.Drawing.Point(86, 83);
@@ -413,7 +386,6 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.label9, BunifuAnimatorNS.DecorationType.None);
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label9.Location = new System.Drawing.Point(86, 46);
@@ -425,7 +397,6 @@
             // lbOuptut
             // 
             this.lbOuptut.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.lbOuptut, BunifuAnimatorNS.DecorationType.None);
             this.lbOuptut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbOuptut.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lbOuptut.Location = new System.Drawing.Point(26, 19);
@@ -442,7 +413,6 @@
             this.panelEmployee.Controls.Add(this.pictureBox6);
             this.panelEmployee.Controls.Add(this.label16);
             this.panelEmployee.Controls.Add(this.lbEmployee);
-            this.AnimatorInput.SetDecoration(this.panelEmployee, BunifuAnimatorNS.DecorationType.None);
             this.panelEmployee.Location = new System.Drawing.Point(1021, 353);
             this.panelEmployee.Name = "panelEmployee";
             this.panelEmployee.Size = new System.Drawing.Size(266, 122);
@@ -451,7 +421,6 @@
             // txtWage
             // 
             this.txtWage.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.txtWage, BunifuAnimatorNS.DecorationType.None);
             this.txtWage.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWage.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.txtWage.Location = new System.Drawing.Point(90, 66);
@@ -463,7 +432,6 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.label15, BunifuAnimatorNS.DecorationType.None);
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label15.Location = new System.Drawing.Point(40, 66);
@@ -474,7 +442,6 @@
             // 
             // pictureBox6
             // 
-            this.AnimatorInput.SetDecoration(this.pictureBox6, BunifuAnimatorNS.DecorationType.None);
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.Location = new System.Drawing.Point(21, 46);
             this.pictureBox6.Name = "pictureBox6";
@@ -486,7 +453,6 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.label16, BunifuAnimatorNS.DecorationType.None);
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label16.Location = new System.Drawing.Point(86, 48);
@@ -498,7 +464,6 @@
             // lbEmployee
             // 
             this.lbEmployee.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.lbEmployee, BunifuAnimatorNS.DecorationType.None);
             this.lbEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbEmployee.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lbEmployee.Location = new System.Drawing.Point(26, 19);
@@ -510,7 +475,6 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.label19, BunifuAnimatorNS.DecorationType.None);
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(30, 9);
             this.label19.Name = "label19";
@@ -531,7 +495,6 @@
             this.panel4.Controls.Add(this.label23);
             this.panel4.Controls.Add(this.label22);
             this.panel4.Controls.Add(this.label21);
-            this.AnimatorInput.SetDecoration(this.panel4, BunifuAnimatorNS.DecorationType.None);
             this.panel4.Location = new System.Drawing.Point(46, 481);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1242, 115);
@@ -539,7 +502,6 @@
             // 
             // pictureOutputPercent
             // 
-            this.AnimatorInput.SetDecoration(this.pictureOutputPercent, BunifuAnimatorNS.DecorationType.None);
             this.pictureOutputPercent.Image = ((System.Drawing.Image)(resources.GetObject("pictureOutputPercent.Image")));
             this.pictureOutputPercent.Location = new System.Drawing.Point(961, 38);
             this.pictureOutputPercent.Name = "pictureOutputPercent";
@@ -550,7 +512,6 @@
             // 
             // pictureInputPercent
             // 
-            this.AnimatorInput.SetDecoration(this.pictureInputPercent, BunifuAnimatorNS.DecorationType.None);
             this.pictureInputPercent.Image = ((System.Drawing.Image)(resources.GetObject("pictureInputPercent.Image")));
             this.pictureInputPercent.Location = new System.Drawing.Point(761, 38);
             this.pictureInputPercent.Name = "pictureInputPercent";
@@ -562,7 +523,6 @@
             // txtProfitableTotal
             // 
             this.txtProfitableTotal.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.txtProfitableTotal, BunifuAnimatorNS.DecorationType.None);
             this.txtProfitableTotal.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProfitableTotal.ForeColor = System.Drawing.SystemColors.Control;
             this.txtProfitableTotal.Location = new System.Drawing.Point(56, 54);
@@ -574,7 +534,6 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.label12, BunifuAnimatorNS.DecorationType.None);
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label12.Location = new System.Drawing.Point(58, 24);
@@ -586,7 +545,6 @@
             // txtInputPercent
             // 
             this.txtInputPercent.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.txtInputPercent, BunifuAnimatorNS.DecorationType.None);
             this.txtInputPercent.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInputPercent.ForeColor = System.Drawing.SystemColors.Control;
             this.txtInputPercent.Location = new System.Drawing.Point(981, 54);
@@ -598,7 +556,6 @@
             // txtOutputPercent
             // 
             this.txtOutputPercent.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.txtOutputPercent, BunifuAnimatorNS.DecorationType.None);
             this.txtOutputPercent.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOutputPercent.ForeColor = System.Drawing.SystemColors.Control;
             this.txtOutputPercent.Location = new System.Drawing.Point(784, 54);
@@ -610,7 +567,6 @@
             // txtProfitable
             // 
             this.txtProfitable.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.txtProfitable, BunifuAnimatorNS.DecorationType.None);
             this.txtProfitable.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProfitable.ForeColor = System.Drawing.SystemColors.Control;
             this.txtProfitable.Location = new System.Drawing.Point(321, 54);
@@ -622,7 +578,6 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.label23, BunifuAnimatorNS.DecorationType.None);
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label23.Location = new System.Drawing.Point(978, 24);
@@ -634,7 +589,6 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.label22, BunifuAnimatorNS.DecorationType.None);
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label22.Location = new System.Drawing.Point(786, 24);
@@ -646,7 +600,6 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.label21, BunifuAnimatorNS.DecorationType.None);
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label21.Location = new System.Drawing.Point(323, 24);
@@ -657,7 +610,6 @@
             // 
             // txtMonth
             // 
-            this.AnimatorInput.SetDecoration(this.txtMonth, BunifuAnimatorNS.DecorationType.None);
             this.txtMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMonth.FormattingEnabled = true;
             this.txtMonth.Location = new System.Drawing.Point(1060, 35);
@@ -668,7 +620,6 @@
             // 
             // txtYear
             // 
-            this.AnimatorInput.SetDecoration(this.txtYear, BunifuAnimatorNS.DecorationType.None);
             this.txtYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtYear.FormattingEnabled = true;
             this.txtYear.Location = new System.Drawing.Point(1170, 35);
@@ -680,7 +631,6 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.label24, BunifuAnimatorNS.DecorationType.None);
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label24.Location = new System.Drawing.Point(1167, 16);
@@ -692,7 +642,6 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.AnimatorInput.SetDecoration(this.label25, BunifuAnimatorNS.DecorationType.None);
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label25.Location = new System.Drawing.Point(1057, 16);
@@ -705,7 +654,6 @@
             // 
             chartArea1.Name = "ChartArea1";
             this.chartStatistic.ChartAreas.Add(chartArea1);
-            this.AnimatorInput.SetDecoration(this.chartStatistic, BunifuAnimatorNS.DecorationType.None);
             legend1.Name = "Legend1";
             this.chartStatistic.Legends.Add(legend1);
             this.chartStatistic.Location = new System.Drawing.Point(46, 47);
@@ -716,30 +664,8 @@
             title1.Name = "THỐNG KÊ NHẬP XUẤT HÀNG TRONG VÒNG 12 THÁNG";
             this.chartStatistic.Titles.Add(title1);
             // 
-            // AnimatorInput
-            // 
-            this.AnimatorInput.AnimationType = BunifuAnimatorNS.AnimationType.VertSlide;
-            this.AnimatorInput.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 0F;
-            this.AnimatorInput.DefaultAnimation = animation1;
-            // 
             // pictureBox7
             // 
-            this.AnimatorInput.SetDecoration(this.pictureBox7, BunifuAnimatorNS.DecorationType.None);
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
             this.pictureBox7.Location = new System.Drawing.Point(1015, 22);
             this.pictureBox7.Name = "pictureBox7";
@@ -763,7 +689,6 @@
             this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelOutput);
             this.Controls.Add(this.panelInput);
-            this.AnimatorInput.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.Name = "MCStatisticHome";
             this.Size = new System.Drawing.Size(1364, 652);
             this.Load += new System.EventHandler(this.MCStatisticHome_Load);
@@ -823,7 +748,6 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartStatistic;
-        private BunifuAnimatorNS.BunifuTransition AnimatorInput;
         private System.Windows.Forms.Panel panelOutput;
         private System.Windows.Forms.Panel panelInput;
         private System.Windows.Forms.Label txtInputResidue;

@@ -186,7 +186,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
                     panelOutput.Height = 40;
                     pictureInput.Image = Properties.Resources.arrow_up;
                     lbOuptut.Location = new Point(lbOuptut.Bounds.X, lbOuptut.Bounds.Y - 9);
-                    AnimatorInput.ShowSync(panelInput);
+                    //AnimatorInput.ShowSync(panelInput);
                 }
                 else
                 {
@@ -195,7 +195,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
                     pictureInput.Image = Properties.Resources.arrow_down;
                     panelOutput.Location = new Point(panelOutput.Bounds.X, panelOutput.Bounds.Y - 80);
                     lbOuptut.Location = new Point(lbOuptut.Bounds.X, lbOuptut.Bounds.Y + 9);
-                    AnimatorInput.ShowSync(panelInput);
+                    //AnimatorInput.ShowSync(panelInput);
                 }
             }
         }
@@ -216,7 +216,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
                     panelEmployee.Height = 40;
                     pictureOutput.Image = Properties.Resources.arrow_up;
                     lbEmployee.Location = new Point(lbEmployee.Bounds.X, lbEmployee.Bounds.Y - 9);
-                    AnimatorInput.ShowSync(panelOutput);
+                    //AnimatorInput.ShowSync(panelOutput);
                 }
                 else
                 {
@@ -225,7 +225,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
                     pictureOutput.Image = Properties.Resources.arrow_down;
                     panelEmployee.Location = new Point(panelEmployee.Bounds.X, panelEmployee.Bounds.Y - 80);
                     lbEmployee.Location = new Point(lbEmployee.Bounds.X, lbEmployee.Bounds.Y + 9);
-                    AnimatorInput.ShowSync(panelOutput);
+                    //AnimatorInput.ShowSync(panelOutput);
                 }
             }
         }

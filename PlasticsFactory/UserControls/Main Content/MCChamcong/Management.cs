@@ -680,6 +680,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                     ptime.MSNV = item.MSNV;
                     ptime.TimeEnd = item.TimeEnd != string.Empty ? item.TimeEnd : "X";
                     ptime.TimeStart = item.TimeStart != string.Empty ? item.TimeStart : "X";
+                    ptime.Overtime = item.OverTime;
                     ptime.Time = item.Time;
                     ptime.Weight = item.Weight.Value;
                     ptime.Type = item.Type.Value;
