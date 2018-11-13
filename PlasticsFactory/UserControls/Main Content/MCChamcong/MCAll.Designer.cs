@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label8 = new System.Windows.Forms.Label();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
@@ -53,6 +53,8 @@
             this.Ghichu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isRest = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtOvertime = new System.Windows.Forms.TextBox();
+            this.txtFood = new DevExpress.XtraEditors.TextEdit();
             this.txtBonus = new DevExpress.XtraEditors.TextEdit();
             this.txtPunish = new DevExpress.XtraEditors.TextEdit();
             this.label16 = new System.Windows.Forms.Label();
@@ -60,7 +62,6 @@
             this.checkRest = new System.Windows.Forms.CheckBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtNote = new System.Windows.Forms.RichTextBox();
-            this.txtFood = new System.Windows.Forms.TextBox();
             this.lbfood = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtCashAdvance = new System.Windows.Forms.TextBox();
@@ -86,9 +87,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.btnRemove = new System.Windows.Forms.Button();
-            this.txtOvertime = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataDS)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFood.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBonus.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPunish.Properties)).BeginInit();
             this.panel1.SuspendLayout();
@@ -133,14 +134,14 @@
             // 
             // dataDS
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataDS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataDS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MSNV,
@@ -159,28 +160,28 @@
             this.Bonus,
             this.Ghichu,
             this.isRest});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataDS.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataDS.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataDS.Location = new System.Drawing.Point(25, 259);
             this.dataDS.Name = "dataDS";
             this.dataDS.ReadOnly = true;
             this.dataDS.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataDS.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataDS.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDS.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataDS.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataDS.Size = new System.Drawing.Size(1297, 284);
             this.dataDS.TabIndex = 67;
             this.dataDS.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDS_CellDoubleClick);
@@ -293,6 +294,7 @@
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox3.Controls.Add(this.txtOvertime);
+            this.groupBox3.Controls.Add(this.txtFood);
             this.groupBox3.Controls.Add(this.txtBonus);
             this.groupBox3.Controls.Add(this.txtPunish);
             this.groupBox3.Controls.Add(this.label16);
@@ -300,7 +302,6 @@
             this.groupBox3.Controls.Add(this.checkRest);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.txtNote);
-            this.groupBox3.Controls.Add(this.txtFood);
             this.groupBox3.Controls.Add(this.lbfood);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.txtCashAdvance);
@@ -331,6 +332,26 @@
             this.groupBox3.TabIndex = 69;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông tin";
+            // 
+            // txtOvertime
+            // 
+            this.txtOvertime.Location = new System.Drawing.Point(311, 121);
+            this.txtOvertime.Name = "txtOvertime";
+            this.txtOvertime.Size = new System.Drawing.Size(205, 20);
+            this.txtOvertime.TabIndex = 108;
+            this.txtOvertime.TextChanged += new System.EventHandler(this.txtOvertime_TextChanged);
+            this.txtOvertime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOvertime_KeyPress);
+            this.txtOvertime.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtOvertime_KeyUp);
+            // 
+            // txtFood
+            // 
+            this.txtFood.Location = new System.Drawing.Point(788, 79);
+            this.txtFood.Name = "txtFood";
+            this.txtFood.Properties.Mask.EditMask = "n0";
+            this.txtFood.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtFood.Size = new System.Drawing.Size(212, 20);
+            this.txtFood.TabIndex = 107;
+            this.txtFood.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFood_KeyUp);
             // 
             // txtBonus
             // 
@@ -403,15 +424,6 @@
             this.txtNote.Text = "";
             this.txtNote.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNote_KeyUp_1);
             // 
-            // txtFood
-            // 
-            this.txtFood.Location = new System.Drawing.Point(788, 81);
-            this.txtFood.Name = "txtFood";
-            this.txtFood.Size = new System.Drawing.Size(212, 20);
-            this.txtFood.TabIndex = 7;
-            this.txtFood.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFood_KeyPress);
-            this.txtFood.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFood_KeyUp);
-            // 
             // lbfood
             // 
             this.lbfood.AutoSize = true;
@@ -461,6 +473,7 @@
             this.txtTypeWeight.Size = new System.Drawing.Size(205, 21);
             this.txtTypeWeight.TabIndex = 81;
             this.txtTypeWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTypeWeight_KeyPress);
+            this.txtTypeWeight.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTypeWeight_KeyUp);
             // 
             // label4
             // 
@@ -601,6 +614,7 @@
             this.txtNam.Name = "txtNam";
             this.txtNam.Size = new System.Drawing.Size(65, 21);
             this.txtNam.TabIndex = 100;
+            this.txtNam.SelectedIndexChanged += new System.EventHandler(this.txtNam_SelectedIndexChanged);
             this.txtNam.SelectedValueChanged += new System.EventHandler(this.txtNam_SelectedValueChanged);
             this.txtNam.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNam_KeyPress);
             this.txtNam.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNam_KeyUp);
@@ -673,14 +687,6 @@
             this.btnRemove.UseVisualStyleBackColor = false;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // txtOvertime
-            // 
-            this.txtOvertime.Location = new System.Drawing.Point(311, 129);
-            this.txtOvertime.Name = "txtOvertime";
-            this.txtOvertime.Size = new System.Drawing.Size(205, 20);
-            this.txtOvertime.TabIndex = 105;
-            this.txtOvertime.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtOvertime_KeyUp);
-            // 
             // MCAll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -696,6 +702,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataDS)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFood.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBonus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPunish.Properties)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -738,7 +745,6 @@
         private System.Windows.Forms.TextBox txtThoigianKT;
         private System.Windows.Forms.TextBox txtThoigianBD;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtFood;
         private System.Windows.Forms.Label lbfood;
         private System.Windows.Forms.CheckBox checkRest;
         private System.Windows.Forms.Label label15;
@@ -761,6 +767,7 @@
         private System.Windows.Forms.Label label16;
         private DevExpress.XtraEditors.TextEdit txtBonus;
         private DevExpress.XtraEditors.TextEdit txtPunish;
+        private DevExpress.XtraEditors.TextEdit txtFood;
         private System.Windows.Forms.TextBox txtOvertime;
     }
 }

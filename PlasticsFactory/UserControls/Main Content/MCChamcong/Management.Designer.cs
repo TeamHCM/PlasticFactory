@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Management));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btnRemove = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -70,12 +71,17 @@
             this.btnPrint = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.txtFood = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtPunish = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtBonus = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -88,6 +94,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1297, 29);
             this.panel1.TabIndex = 81;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(1261, 1);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 99;
+            this.pictureBox3.TabStop = false;
             // 
             // label9
             // 
@@ -102,12 +118,12 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnRemove.BackColor = System.Drawing.Color.OrangeRed;
             this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnRemove.Location = new System.Drawing.Point(1199, 540);
+            this.btnRemove.Location = new System.Drawing.Point(1223, 529);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(131, 45);
+            this.btnRemove.Size = new System.Drawing.Size(107, 45);
             this.btnRemove.TabIndex = 82;
             this.btnRemove.Text = "Xóa";
             this.btnRemove.UseVisualStyleBackColor = false;
@@ -126,14 +142,14 @@
             // 
             // dataDS
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataDS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataDS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MSNV,
@@ -155,8 +171,8 @@
             this.dataDS.Name = "dataDS";
             this.dataDS.ReadOnly = true;
             this.dataDS.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataDS.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataDS.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataDS.Size = new System.Drawing.Size(1297, 414);
             this.dataDS.TabIndex = 79;
             this.dataDS.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDS_CellDoubleClick);
@@ -264,11 +280,11 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Firebrick;
-            this.label2.Location = new System.Drawing.Point(334, 540);
+            this.label2.Location = new System.Drawing.Point(278, 540);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 16);
+            this.label2.Size = new System.Drawing.Size(49, 16);
             this.label2.TabIndex = 1;
-            this.label2.Text = "TỔNG TIỀN ỨNG :";
+            this.label2.Text = "ỨNG :";
             // 
             // txtEmployee
             // 
@@ -378,18 +394,18 @@
             this.label7.ForeColor = System.Drawing.Color.Firebrick;
             this.label7.Location = new System.Drawing.Point(30, 540);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(142, 16);
+            this.label7.Size = new System.Drawing.Size(94, 16);
             this.label7.TabIndex = 99;
-            this.label7.Text = "TỔNG SẢN PHẨM :";
+            this.label7.Text = "SẢN PHẨM :";
             // 
             // lbCashAdvance
             // 
             this.lbCashAdvance.AutoSize = true;
             this.lbCashAdvance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCashAdvance.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lbCashAdvance.Location = new System.Drawing.Point(469, 542);
+            this.lbCashAdvance.Location = new System.Drawing.Point(333, 540);
             this.lbCashAdvance.Name = "lbCashAdvance";
-            this.lbCashAdvance.Size = new System.Drawing.Size(103, 16);
+            this.lbCashAdvance.Size = new System.Drawing.Size(101, 16);
             this.lbCashAdvance.TabIndex = 100;
             this.lbCashAdvance.Text = "100000 (VNĐ)";
             // 
@@ -398,7 +414,7 @@
             this.lbTotalWeight.AutoSize = true;
             this.lbTotalWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotalWeight.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lbTotalWeight.Location = new System.Drawing.Point(165, 540);
+            this.lbTotalWeight.Location = new System.Drawing.Point(124, 540);
             this.lbTotalWeight.Name = "lbTotalWeight";
             this.lbTotalWeight.Size = new System.Drawing.Size(74, 16);
             this.lbTotalWeight.TabIndex = 101;
@@ -409,7 +425,7 @@
             this.txtTotalTime.AutoSize = true;
             this.txtTotalTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalTime.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.txtTotalTime.Location = new System.Drawing.Point(165, 571);
+            this.txtTotalTime.Location = new System.Drawing.Point(124, 571);
             this.txtTotalTime.Name = "txtTotalTime";
             this.txtTotalTime.Size = new System.Drawing.Size(74, 16);
             this.txtTotalTime.TabIndex = 103;
@@ -422,18 +438,20 @@
             this.label11.ForeColor = System.Drawing.Color.Firebrick;
             this.label11.Location = new System.Drawing.Point(30, 571);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(135, 16);
+            this.label11.Size = new System.Drawing.Size(88, 16);
             this.label11.TabIndex = 102;
-            this.label11.Text = "TỔNG THỜI GIAN:";
+            this.label11.Text = "THỜI GIAN:";
             // 
             // btnPrint
             // 
             this.btnPrint.BackColor = System.Drawing.Color.DarkGray;
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnPrint.Location = new System.Drawing.Point(1062, 540);
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
+            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrint.Location = new System.Drawing.Point(1110, 529);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(131, 45);
+            this.btnPrint.Size = new System.Drawing.Size(107, 45);
             this.btnPrint.TabIndex = 104;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = false;
@@ -459,20 +477,82 @@
             this.pictureBox1.TabIndex = 95;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox3
+            // txtFood
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(1261, 1);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 99;
-            this.pictureBox3.TabStop = false;
+            this.txtFood.AutoSize = true;
+            this.txtFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFood.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.txtFood.Location = new System.Drawing.Point(333, 571);
+            this.txtFood.Name = "txtFood";
+            this.txtFood.Size = new System.Drawing.Size(16, 16);
+            this.txtFood.TabIndex = 106;
+            this.txtFood.Text = "0";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Firebrick;
+            this.label12.Location = new System.Drawing.Point(278, 571);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(49, 16);
+            this.label12.TabIndex = 105;
+            this.label12.Text = "CƠM :";
+            // 
+            // txtPunish
+            // 
+            this.txtPunish.AutoSize = true;
+            this.txtPunish.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPunish.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.txtPunish.Location = new System.Drawing.Point(588, 571);
+            this.txtPunish.Name = "txtPunish";
+            this.txtPunish.Size = new System.Drawing.Size(16, 16);
+            this.txtPunish.TabIndex = 110;
+            this.txtPunish.Text = "0";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Firebrick;
+            this.label14.Location = new System.Drawing.Point(514, 571);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(57, 16);
+            this.label14.TabIndex = 109;
+            this.label14.Text = "PHẠT :";
+            // 
+            // txtBonus
+            // 
+            this.txtBonus.AutoSize = true;
+            this.txtBonus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBonus.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.txtBonus.Location = new System.Drawing.Point(588, 540);
+            this.txtBonus.Name = "txtBonus";
+            this.txtBonus.Size = new System.Drawing.Size(16, 16);
+            this.txtBonus.TabIndex = 108;
+            this.txtBonus.Text = "0";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Firebrick;
+            this.label16.Location = new System.Drawing.Point(514, 540);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(81, 16);
+            this.label16.TabIndex = 107;
+            this.label16.Text = "THƯỞNG :";
             // 
             // Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtPunish);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.txtBonus);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.txtFood);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.txtTotalTime);
             this.Controls.Add(this.label11);
@@ -502,10 +582,10 @@
             this.Load += new System.EventHandler(this.Management_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -552,5 +632,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Ghichu;
         private System.Windows.Forms.DataGridViewTextBoxColumn isRest;
         private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Label txtFood;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label txtPunish;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label txtBonus;
+        private System.Windows.Forms.Label label16;
     }
 }

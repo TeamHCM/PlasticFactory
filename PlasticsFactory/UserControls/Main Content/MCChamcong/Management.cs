@@ -63,6 +63,9 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             lbCashAdvance.Text = string.Format("{0:0,0 (VNĐ)}", totalCashAdvance);
             lbTotalWeight.Text = string.Format("{0:0,0 (KG)}", totalWeight);
             txtTotalTime.Text= string.Format("{0:0,0 (h)}", listData.Sum(u=>u.Time));
+            txtFood.Text = listData.Sum(u => u.Food).ToString("#,###")==string.Empty?"0": listData.Sum(u => u.Food).ToString("#,###") + "VNĐ";
+            txtPunish.Text = listData.Sum(u => u.Punish).ToString("#,###")==string.Empty?"0": listData.Sum(u => u.Punish).ToString("#,###") + "VNĐ";
+            txtBonus.Text = listData.Sum(u => u.Bunus).ToString("#,###")==string.Empty?"0": listData.Sum(u => u.Bunus).ToString("#,###") + "VNĐ";
             if (totalCashAdvance > 0)
             {
                 //txtWriteMoney.Text = "(" + UnitMoney(totalCashAdvance) + ")";

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using System.Drawing;
+using DevExpress.XtraEditors.Controls;
 namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
 {
     public partial class MCPaymentEmployee : UserControl
@@ -101,16 +102,16 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                     bool isPayed = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == item.MSNV && u.MonthOfPay == Month && u.YearOfPay == Year).First().isPayed;
                     if (isPayed == true)
                     {
-                        txtEmployeeName.Properties.Items.Add(item.Hoten, item.Hoten, 0);
+                        txtEmployeeName.Properties.Items.Add(new ImageComboBoxItem(item.Hoten, item.Hoten, 0));
                     }
                     else
                     {
-                        txtEmployeeName.Properties.Items.Add(item.Hoten, item.Hoten, -1);
+                        txtEmployeeName.Properties.Items.Add(new ImageComboBoxItem(item.Hoten, item.Hoten, -1));
                     }
                 }
                 else
                 {
-                    txtEmployeeName.Properties.Items.Add(item.Hoten, item.Hoten, -1);
+                    txtEmployeeName.Properties.Items.Add(new ImageComboBoxItem(item.Hoten, item.Hoten, -1));
                 }
                 i++;
             }
