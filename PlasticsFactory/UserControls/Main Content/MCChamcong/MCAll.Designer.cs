@@ -347,6 +347,9 @@
             // 
             this.txtFood.Location = new System.Drawing.Point(788, 79);
             this.txtFood.Name = "txtFood";
+            // 
+            // 
+            // 
             this.txtFood.Properties.Mask.EditMask = "n0";
             this.txtFood.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtFood.Size = new System.Drawing.Size(212, 20);
@@ -357,6 +360,9 @@
             // 
             this.txtBonus.Location = new System.Drawing.Point(163, 148);
             this.txtBonus.Name = "txtBonus";
+            // 
+            // 
+            // 
             this.txtBonus.Properties.Mask.EditMask = "n0";
             this.txtBonus.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtBonus.Size = new System.Drawing.Size(105, 20);
@@ -366,6 +372,9 @@
             // 
             this.txtPunish.Location = new System.Drawing.Point(163, 122);
             this.txtPunish.Name = "txtPunish";
+            // 
+            // 
+            // 
             this.txtPunish.Properties.Mask.EditMask = "n0";
             this.txtPunish.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtPunish.Size = new System.Drawing.Size(105, 20);
