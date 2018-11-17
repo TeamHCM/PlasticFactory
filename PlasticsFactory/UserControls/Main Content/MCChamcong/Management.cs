@@ -2,6 +2,7 @@
 using PlasticsFactory.Data;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -20,17 +21,58 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
         public double totalCashAdvance = 0;
         public int totalWeight = 0;
         private string tempMSNV = "";
+
         public delegate void Transport(string EmployeeName, string MSNV, DateTime Date);
+
         #endregion Generate Field
 
         #region Support
 
         public void LoadDataGird(IEnumerable<Timekeeping> listData)
         {
+            dataDS.Columns.Clear();
+            #region DataGridView
+            dataDS.ColumnCount = 16;
+            dataDS.Columns[0].Name = "MSNV";
+            dataDS.Columns[1].Name = "Họ tên";
+            dataDS.Columns[2].Name = "Ngày";
+            dataDS.Columns[3].Name = "Thời gian bắt đầu";
+            dataDS.Columns[4].Name = "Thời gian kết thúc";
+            dataDS.Columns[5].Name = "Tăng ca";
+            dataDS.Columns[6].Name = "Thời gian(h)";
+            dataDS.Columns[7].Name = "Số bao";
+            dataDS.Columns[8].Name = "Loại bao(KG)";
+            dataDS.Columns[9].Name = "Số lượng";
+            dataDS.Columns[10].Name = "Tiền ứng";
+            dataDS.Columns[11].Name = "Tiền cơm";
+            dataDS.Columns[12].Name = "Tiền phạt";
+            dataDS.Columns[13].Name = "Tiền thưởng";
+            dataDS.Columns[14].Name = "Ghi chú";
+            dataDS.Columns[15].Name = "Nghỉ";
+
+            dataDS.Columns[0].Width = 80;
+            dataDS.Columns[1].Width = 150;
+            dataDS.Columns[2].Width = 110;
+            dataDS.Columns[3].Width = 110;
+            dataDS.Columns[4].Width = 110;
+            dataDS.Columns[5].Width = 100;
+            dataDS.Columns[6].Width = 100;
+            dataDS.Columns[7].Width = 100;
+            dataDS.Columns[8].Width = 100;
+            dataDS.Columns[9].Width = 100;
+            dataDS.Columns[10].Width =120;
+            dataDS.Columns[11].Width = 100;
+            dataDS.Columns[12].Width = 100;
+            dataDS.Columns[13].Width = 100;
+            dataDS.Columns[14].Width = 200;
+            dataDS.Columns[15].Width = 100;
+            #endregion
+            txtCountWork.Visible = true;
             int i = 0;
             dataDS.Rows.Clear();
             totalCashAdvance = 0;
             totalWeight = 0;
+            txtCountWork.Text = (listData.Count() - listData.Where(u => u.isRest == true).Count()).ToString("#,###");
             foreach (var item in listData)
             {
                 dataDS.Rows.Add();
@@ -39,33 +81,34 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 dataDS.Rows[i].Cells[2].Value = item.Date.Value.ToShortDateString();
                 dataDS.Rows[i].Cells[3].Value = item.TimeStart;
                 dataDS.Rows[i].Cells[4].Value = item.TimeEnd;
-                dataDS.Rows[i].Cells[5].Value = item.Time;
-                dataDS.Rows[i].Cells[6].Value = item.Weight;
-                dataDS.Rows[i].Cells[7].Value = item.Type;
-                dataDS.Rows[i].Cells[8].Value = item.TotalWeight;
-                dataDS.Rows[i].Cells[9].Value = item.AdvancePayment;
-                dataDS.Rows[i].Cells[10].Value = item.Food;
-                dataDS.Rows[i].Cells[11].Value = item.Punish;
-                dataDS.Rows[i].Cells[12].Value = item.Bunus;
-                dataDS.Rows[i].Cells[13].Value = item.Note;
+                dataDS.Rows[i].Cells[5].Value = String.Format("{0:0.0}", item.OverTime); ;
+                dataDS.Rows[i].Cells[6].Value = String.Format("{0:0.0}", item.Time);
+                dataDS.Rows[i].Cells[7].Value = item.Weight;
+                dataDS.Rows[i].Cells[8].Value = item.Type;
+                dataDS.Rows[i].Cells[9].Value = item.TotalWeight;
+                dataDS.Rows[i].Cells[10].Value = item.AdvancePayment;
+                dataDS.Rows[i].Cells[11].Value = item.Food;
+                dataDS.Rows[i].Cells[12].Value = item.Punish;
+                dataDS.Rows[i].Cells[13].Value = item.Bunus;
+                dataDS.Rows[i].Cells[14].Value = item.Note;
                 if (item.isRest == true)
                 {
-                    dataDS.Rows[i].Cells[14].Value = "Yes";
+                    dataDS.Rows[i].Cells[15].Value = "Yes";
                 }
                 else
                 {
-                    dataDS.Rows[i].Cells[14].Value = "No";
+                    dataDS.Rows[i].Cells[15].Value = "No";
                 }
                 totalCashAdvance += item.AdvancePayment.Value;
                 totalWeight += item.TotalWeight.Value;
                 i++;
             }
-            lbCashAdvance.Text = string.Format("{0:0,0 (VNĐ)}", totalCashAdvance);
-            lbTotalWeight.Text = string.Format("{0:0,0 (KG)}", totalWeight);
-            txtTotalTime.Text= string.Format("{0:0,0 (h)}", listData.Sum(u=>u.Time));
-            txtFood.Text = listData.Sum(u => u.Food).ToString("#,###")==string.Empty?"0": listData.Sum(u => u.Food).ToString("#,###") + "VNĐ";
-            txtPunish.Text = listData.Sum(u => u.Punish).ToString("#,###")==string.Empty?"0": listData.Sum(u => u.Punish).ToString("#,###") + "VNĐ";
-            txtBonus.Text = listData.Sum(u => u.Bunus).ToString("#,###")==string.Empty?"0": listData.Sum(u => u.Bunus).ToString("#,###") + "VNĐ";
+            lbCashAdvance.Text = totalCashAdvance == 0 ? "0" : string.Format("{0:0,0 (VNĐ)}", totalCashAdvance);
+            lbTotalWeight.Text = totalWeight == 0 ? "0" : string.Format("{0:0,0 (KG)}", totalWeight);
+            txtTotalTime.Text = listData.Sum(u => u.Time) == 0 ? "0" : listData.Sum(u => u.Time).ToString();
+            txtFood.Text = listData.Sum(u => u.Food).ToString("#,###") == string.Empty ? "0" : listData.Sum(u => u.Food).ToString("#,###") + "VNĐ";
+            txtPunish.Text = listData.Sum(u => u.Punish).ToString("#,###") == string.Empty ? "0" : listData.Sum(u => u.Punish).ToString("#,###") + "VNĐ";
+            txtBonus.Text = listData.Sum(u => u.Bunus).ToString("#,###") == string.Empty ? "0" : listData.Sum(u => u.Bunus).ToString("#,###") + "VNĐ";
             if (totalCashAdvance > 0)
             {
                 //txtWriteMoney.Text = "(" + UnitMoney(totalCashAdvance) + ")";
@@ -74,8 +117,100 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
 
         public void LoadDataDS(DateTime date)
         {
-            var ListDB = timekeepingBO.GetData(u => u.isDelete == false && u.Date.Value.Month == date.Month && u.Date.Value.Year == date.Year);
-            LoadDataGird(ListDB);
+            try
+            {
+                dataDS.Columns.Clear();
+                #region DataGridView
+                dataDS.ColumnCount = 12;
+                dataDS.Columns[0].Name = "MSNV";
+                dataDS.Columns[1].Name = "Họ tên";
+                dataDS.Columns[2].Name = "Ngày";
+                dataDS.Columns[3].Name = "Thời gian(h)";
+                dataDS.Columns[4].Name = "Số bao";
+                dataDS.Columns[5].Name = "Loại bao(KG)";
+                dataDS.Columns[6].Name = "Số lượng";
+                dataDS.Columns[7].Name = "Tiền ứng";
+                dataDS.Columns[8].Name = "Tiền cơm";
+                dataDS.Columns[9].Name = "Tiền phạt";
+                dataDS.Columns[10].Name = "Tiền thưởng";
+                dataDS.Columns[11].Name = "Ngày làm";
+
+                dataDS.Columns[0].Width = 80;
+                dataDS.Columns[1].Width = 150;
+                dataDS.Columns[2].Width = 110;
+                dataDS.Columns[3].Width = 100;
+                dataDS.Columns[4].Width = 100;
+                dataDS.Columns[5].Width = 100;
+                dataDS.Columns[6].Width = 100;
+                dataDS.Columns[7].Width = 120;
+                dataDS.Columns[8].Width = 100;
+                dataDS.Columns[9].Width = 100;
+                dataDS.Columns[10].Width = 100;
+                dataDS.Columns[11].Width = 100;
+                #endregion
+                var ListEmployee = employeeBO.GetData(u => u.isDelete == false);
+                var listData = timekeepingBO.GetData(u => u.isDelete == false && u.Date.Value.Month == int.Parse(txtMonth.Text) && u.Date.Value.Year == int.Parse(txtYear.Text));
+                txtCountWork.Visible = false;
+                int i = 0;
+                foreach (var item in ListEmployee)
+                {
+                    var ListDB = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == item.MSNV && u.Date.Value.Month == date.Month && u.Date.Value.Year == date.Year).ToList();
+                    if (ListDB.Count != 0)
+                    {
+                        dataDS.Rows.Add();
+                        if (i % 2 == 0)
+                        {
+                            dataDS.Rows[i].Cells[0].Style.BackColor = System.Drawing.Color.Gainsboro;
+                            dataDS.Rows[i].Cells[1].Style.BackColor = System.Drawing.Color.Gainsboro;
+                            dataDS.Rows[i].Cells[2].Style.BackColor = System.Drawing.Color.Gainsboro;
+                            dataDS.Rows[i].Cells[3].Style.BackColor = System.Drawing.Color.Gainsboro;
+                            dataDS.Rows[i].Cells[4].Style.BackColor = System.Drawing.Color.Gainsboro;
+                            dataDS.Rows[i].Cells[5].Style.BackColor = System.Drawing.Color.Gainsboro;
+                            dataDS.Rows[i].Cells[6].Style.BackColor = System.Drawing.Color.Gainsboro;
+                            dataDS.Rows[i].Cells[7].Style.BackColor = System.Drawing.Color.Gainsboro;
+                            dataDS.Rows[i].Cells[8].Style.BackColor = System.Drawing.Color.Gainsboro;
+                            dataDS.Rows[i].Cells[9].Style.BackColor = System.Drawing.Color.Gainsboro;
+                            dataDS.Rows[i].Cells[10].Style.BackColor = System.Drawing.Color.Gainsboro;
+                            dataDS.Rows[i].Cells[11].Style.BackColor = System.Drawing.Color.Gainsboro;
+                        }
+                        else
+                        {
+                            dataDS.Rows[i].Cells[0].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                            dataDS.Rows[i].Cells[1].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                            dataDS.Rows[i].Cells[2].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                            dataDS.Rows[i].Cells[3].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                            dataDS.Rows[i].Cells[4].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                            dataDS.Rows[i].Cells[5].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                            dataDS.Rows[i].Cells[6].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                            dataDS.Rows[i].Cells[7].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                            dataDS.Rows[i].Cells[8].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                            dataDS.Rows[i].Cells[9].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                            dataDS.Rows[i].Cells[10].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                            dataDS.Rows[i].Cells[11].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                        }
+                        dataDS.Rows[i].Cells[0].Value = item.MSNV;
+                        dataDS.Rows[i].Cells[1].Value = timekeepingBO.GetNameEmployee(item.MSNV);
+                        dataDS.Rows[i].Cells[2].Value = ListDB.First().Date.Value.Month + "/" + ListDB.First().Date.Value.Year;
+                        dataDS.Rows[i].Cells[3].Value = ListDB.Sum(u => u.Time);
+                        dataDS.Rows[i].Cells[4].Value = ListDB.Sum(u => u.Weight) == 0 ? "0" : ListDB.Sum(u => u.Weight).Value.ToString("#,###");
+                        dataDS.Rows[i].Cells[5].Value = ListDB.First().Type;
+                        dataDS.Rows[i].Cells[6].Value = ListDB.Sum(u => u.TotalWeight) == 0 ? "0" : ListDB.Sum(u => u.TotalWeight).Value.ToString("#,###");
+                        dataDS.Rows[i].Cells[7].Value = ListDB.Sum(u => u.AdvancePayment).Value == 0 ? "0" : ListDB.Sum(u => u.AdvancePayment).Value.ToString("#,###");
+                        dataDS.Rows[i].Cells[8].Value = ListDB.Sum(u => u.Food) == 0 ? "0" : ListDB.Sum(u => u.Food).ToString("#,###");
+                        dataDS.Rows[i].Cells[9].Value = ListDB.Sum(u => u.Punish) == 0 ? "0" : ListDB.Sum(u => u.Punish).ToString("#,###");
+                        dataDS.Rows[i].Cells[10].Value = ListDB.Sum(u => u.Bunus) == 0 ? "0" : ListDB.Sum(u => u.Bunus).ToString("#,###");
+                        dataDS.Rows[i].Cells[11].Value = ListDB.Count() - ListDB.Count(u => u.isRest == true);
+                    }
+                    i++;
+                }
+                lbCashAdvance.Text = listData.Sum(u => u.AdvancePayment) == 0 ? "0" : string.Format("{0:0,0 (VNĐ)}", listData.Sum(u => u.AdvancePayment));
+                lbTotalWeight.Text = listData.Sum(u => u.TotalWeight) == 0 ? "0" : string.Format("{0:0,0 (KG)}", listData.Sum(u => u.TotalWeight));
+                txtTotalTime.Text = listData.Sum(u => u.Time) == 0 ? "0" : ((double)listData.Sum(u => u.Time)).ToString();
+                txtFood.Text = listData.Sum(u => u.Food).ToString("#,###") == string.Empty ? "0" : ((double)listData.Sum(u => u.Food)).ToString("#,###") + "VNĐ";
+                txtPunish.Text = listData.Sum(u => u.Punish).ToString("#,###") == string.Empty ? "0" : listData.Sum(u => u.Punish).ToString("#,###") + "VNĐ";
+                txtBonus.Text = listData.Sum(u => u.Bunus).ToString("#,###") == string.Empty ? "0" : listData.Sum(u => u.Bunus).ToString("#,###") + "VNĐ";
+            }
+            catch { }
         }
 
         public void LoadDataDSByMSNV(string MSNV, DateTime date)
@@ -87,7 +222,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             else
             {
                 var listDB = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == MSNV && u.Date.Value.Month == date.Month && u.Date.Value.Year == date.Year);
-                
+
                 LoadDataGird(listDB);
             }
         }
@@ -327,6 +462,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
         #endregion Support
 
         public Transport Sender;
+
         public Management()
         {
             InitializeComponent();
@@ -340,7 +476,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             txtDay.Text = "";
             Sender = loadTransport;
         }
-        public void loadTransport(string EmployeeName, string MSNV,DateTime Date)
+
+        public void loadTransport(string EmployeeName, string MSNV, DateTime Date)
         {
             txtMSNV.Text = MSNV;
             txtEmployee.Text = EmployeeName;
@@ -348,12 +485,14 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             txtYear.Text = Date.Year.ToString();
             LoadDataDSByMSNV(MSNV, Date);
         }
+
         public void Management_Load(object sender, EventArgs e)
         {
-            
-            try {
+            try
+            {
                 DateTime date = DateTime.Parse(txtMonth.Text + "/" + txtYear.Text);
-                LoadDataDSByMSNV(txtMSNV.Text, date);
+                LoadDataDS(date);
+                btnPrint.Enabled = false;
             }
             catch { }
         }
@@ -362,22 +501,29 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
 
         private void txtEmployee_SelectedValueChanged(object sender, EventArgs e)
         {
-
         }
 
         private void txtDay_SelectedValueChanged(object sender, EventArgs e)
         {
             try
             {
-                string strDate = txtDay.Text + "/" + txtMonth.Text + "/" + txtYear.Text;
-                DateTime date = DateTime.Parse(strDate);
-                if (txtMSNV.Text.Equals(""))
+                if (txtDay.Text != string.Empty)
                 {
-                    LoadDataDSByDay(date);
+                    string strDate = txtDay.Text + "/" + txtMonth.Text + "/" + txtYear.Text;
+                    DateTime date = DateTime.Parse(strDate);
+                    if (txtMSNV.Text != string.Empty)
+                    {
+                        LoadDataDSByDayMonthYearMSNV(txtMSNV.Text, date);
+                    }
                 }
                 else
                 {
-                    LoadDataDSByDayMonthYearMSNV(txtMSNV.Text, date);
+                    string strDate = txtMonth.Text + "/" + txtYear.Text;
+                    DateTime date = DateTime.Parse(strDate);
+                    if (txtMSNV.Text != string.Empty)
+                    {
+                        LoadDataDSByMSNV(txtMSNV.Text, date);
+                    }
                 }
             }
             catch { }
@@ -452,7 +598,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 {
                     string strDate = "1" + "/" + txtMonth.Text + "/" + txtYear.Text;
                     DateTime date = DateTime.Parse(strDate);
-                    LoadDataDSByMonthNotMSNVAndDay(date);
+                    LoadDataDS(date);
                 }
                 else
                 {
@@ -571,39 +717,39 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
 
         private void dataDS_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != dataDS.RowCount - 1)
-            {
-                string msnv = dataDS.Rows[e.RowIndex].Cells[0].Value.ToString();
-                DateTime date = DateTime.Parse(dataDS.Rows[e.RowIndex].Cells[2].Value.ToString());
-                tempUpdate.Id = timekeepingBO.GetIdByMSNVDate(msnv, date);
-                tempUpdate.Date = date;
-                tempUpdate.MSNV = dataDS.Rows[e.RowIndex].Cells[0].Value.ToString();
-                tempUpdate.TimeStart = dataDS.Rows[e.RowIndex].Cells[3].Value.ToString();
-                tempUpdate.TimeEnd = dataDS.Rows[e.RowIndex].Cells[4].Value.ToString();
-                tempUpdate.Weight = int.Parse(dataDS.Rows[e.RowIndex].Cells[6].Value.ToString());
-                tempUpdate.Type = int.Parse(dataDS.Rows[e.RowIndex].Cells[7].Value.ToString());
-                tempUpdate.AdvancePayment = int.Parse(dataDS.Rows[e.RowIndex].Cells[9].Value.ToString());
-                tempUpdate.Note = dataDS.Rows[e.RowIndex].Cells[10].Value.ToString();
-                frmEdit frmEdit = new frmEdit();
-                frmEdit.ShowDialog();
-                loadRefreshUpdateRemove();
-            }
+            //if (e.RowIndex != dataDS.RowCount - 1)
+            //{
+            //    string msnv = dataDS.Rows[e.RowIndex].Cells[0].Value.ToString();
+            //    DateTime date = DateTime.Parse(dataDS.Rows[e.RowIndex].Cells[2].Value.ToString());
+            //    tempUpdate.Id = timekeepingBO.GetIdByMSNVDate(msnv, date);
+            //    tempUpdate.Date = date;
+            //    tempUpdate.MSNV = dataDS.Rows[e.RowIndex].Cells[0].Value.ToString();
+            //    tempUpdate.TimeStart = dataDS.Rows[e.RowIndex].Cells[3].Value.ToString();
+            //    tempUpdate.TimeEnd = dataDS.Rows[e.RowIndex].Cells[4].Value.ToString();
+            //    tempUpdate.Weight = int.Parse(dataDS.Rows[e.RowIndex].Cells[6].Value.ToString());
+            //    tempUpdate.Type = int.Parse(dataDS.Rows[e.RowIndex].Cells[7].Value.ToString());
+            //    tempUpdate.AdvancePayment = int.Parse(dataDS.Rows[e.RowIndex].Cells[9].Value.ToString());
+            //    tempUpdate.Note = dataDS.Rows[e.RowIndex].Cells[10].Value.ToString();
+            //    frmEdit frmEdit = new frmEdit();
+            //    frmEdit.ShowDialog();
+            //    loadRefreshUpdateRemove();
+            //}
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
-        {
-            if (tempMSNV != "")
-            {
-                string masseage = "Bạn có muốn xóa chấm công nhân viên " + tempMSNV.Trim() + "không ?";
-                string Title = "Chú ý";
-                DialogResult result = MessageBox.Show(masseage, Title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-                if (result == DialogResult.Yes)
-                {
-                    timekeepingBO.Update(tempDelete);
-                    loadRefreshUpdateRemove();
-                }
-            }
-        }
+        //private void btnRemove_Click(object sender, EventArgs e)
+        //{
+        //    if (tempMSNV != "")
+        //    {
+        //        string masseage = "Bạn có muốn xóa chấm công nhân viên " + tempMSNV.Trim() + "không ?";
+        //        string Title = "Chú ý";
+        //        DialogResult result = MessageBox.Show(masseage, Title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+        //        if (result == DialogResult.Yes)
+        //        {
+        //            timekeepingBO.Update(tempDelete);
+        //            loadRefreshUpdateRemove();
+        //        }
+        //    }
+        //}
 
         private void dataDS_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -655,10 +801,17 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 DateTime date = DateTime.Parse("1" + "/" + txtMonth.Text + "/" + txtYear.Text);
                 LoadDataDSByMSNV(txtMSNV.Text, date);
                 txtDay.SelectedItem = "";
+                if (txtEmployee.Text == "All")
+                {
+                    btnPrint.Enabled = false;
+                }
+                else
+                {
+                    btnPrint.Enabled = true;
+                }
             }
             catch
             {
-
             }
         }
 
@@ -669,7 +822,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            if(txtEmployee.Text!="All")
+            if (txtEmployee.Text != "All")
             {
                 int year = int.Parse(txtYear.Text);
                 int month = int.Parse(txtMonth.Text);
@@ -709,6 +862,24 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                     frmprintTimekeeping.ShowDialog();
                 }
             }
+        }
+
+        private void lbCashAdvance_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (lbCashAdvance.Text != "0")
+            {
+                if (txtEmployee.Text != "All")
+                {
+                    IEnumerable<Timekeeping> listDB = timekeepingBO
+                        .GetData(u => u.isDelete == false && u.MSNV == txtMSNV.Text
+                        && u.Date.Value.Month == int.Parse(txtMonth.Text) && u.Date.Value.Year == int.Parse(txtYear.Text) && u.AdvancePayment.Value != 0);
+                    LoadDataGird(listDB);
+                }
+            }
+        }
+
+        private void txtMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
     }
 }

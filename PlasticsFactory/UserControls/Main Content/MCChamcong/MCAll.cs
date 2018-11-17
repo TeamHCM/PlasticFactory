@@ -952,76 +952,85 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
 
         private void dataDS_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            int count = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == txtMSNV.Text && u.MonthOfPay == int.Parse(txtThang.Text) && u.YearOfPay == int.Parse(txtNam.Text)).Count();
             if (e.RowIndex != dataDS.RowCount - 1)
             {
-                switch (btnDoubleGrid)
+                if (count == 0)
                 {
-                    case 0:
-                        try
-                        {
-                            btnEdit.Visible = true;
-                            btnThem.Visible = false;
-                            txtMSNV.Text = dataDS.Rows[e.RowIndex].Cells[0].Value.ToString();
-                            txtHoten.Text = dataDS.Rows[e.RowIndex].Cells[1].Value.ToString();
-                            DateTime dateRows = DateTime.Parse(dataDS.Rows[e.RowIndex].Cells[2].Value.ToString());
-                            txtNgay.Text = dateRows.Day.ToString();
-                            txtThang.Text = dateRows.Month.ToString();
-                            txtNam.Text = dateRows.Year.ToString();
-                            if (dataDS.Rows[e.RowIndex].Cells[3].Value.ToString() == "")
+                    switch (btnDoubleGrid)
+                    {
+                        case 0:
+                            try
                             {
-                                txtThoigianBD.Text = "";
+                                btnEdit.Visible = true;
+                                btnThem.Visible = false;
+                                txtMSNV.Text = dataDS.Rows[e.RowIndex].Cells[0].Value.ToString();
+                                txtHoten.Text = dataDS.Rows[e.RowIndex].Cells[1].Value.ToString();
+                                DateTime dateRows = DateTime.Parse(dataDS.Rows[e.RowIndex].Cells[2].Value.ToString());
+                                txtNgay.Text = dateRows.Day.ToString();
+                                txtThang.Text = dateRows.Month.ToString();
+                                txtNam.Text = dateRows.Year.ToString();
+                                if (dataDS.Rows[e.RowIndex].Cells[3].Value.ToString() == "")
+                                {
+                                    txtThoigianBD.Text = "";
+                                }
+                                else
+                                {
+                                    txtThoigianBD.Text = dataDS.Rows[e.RowIndex].Cells[3].Value.ToString();
+                                }
+                                if (dataDS.Rows[e.RowIndex].Cells[4].Value.ToString() == "")
+                                {
+                                    txtThoigianKT.Text = "";
+                                }
+                                else
+                                {
+                                    txtThoigianKT.Text = dataDS.Rows[e.RowIndex].Cells[4].Value.ToString();
+                                }
+                                txtOvertime.Text = dataDS.Rows[e.RowIndex].Cells[5].Value.ToString();
+                                txtWeight.Text = dataDS.Rows[e.RowIndex].Cells[7].Value.ToString();
+                                txtTypeWeight.Text = dataDS.Rows[e.RowIndex].Cells[8].Value.ToString();
+                                txtCashAdvance.Text = dataDS.Rows[e.RowIndex].Cells[10].Value.ToString();
+                                txtFood.Text = dataDS.Rows[e.RowIndex].Cells[11].Value.ToString();
+                                txtPunish.Text = dataDS.Rows[e.RowIndex].Cells[12].Value.ToString();
+                                txtBonus.Text = dataDS.Rows[e.RowIndex].Cells[13].Value.ToString();
+                                txtNote.Text = dataDS.Rows[e.RowIndex].Cells[14].Value.ToString();
+                                if (dataDS.Rows[e.RowIndex].Cells[15].Value.ToString() == "Yes")
+                                {
+                                    checkRest.Checked = true;
+                                }
+                                else
+                                {
+                                    checkRest.Checked = false;
+                                }
+                                btnRemove.Enabled = false;
                             }
-                            else
+                            catch
                             {
-                                txtThoigianBD.Text = dataDS.Rows[e.RowIndex].Cells[3].Value.ToString();
                             }
-                            if (dataDS.Rows[e.RowIndex].Cells[4].Value.ToString() == "")
-                            {
-                                txtThoigianKT.Text = "";
-                            }
-                            else
-                            {
-                                txtThoigianKT.Text = dataDS.Rows[e.RowIndex].Cells[4].Value.ToString();
-                            }
-                            txtOvertime.Text = dataDS.Rows[e.RowIndex].Cells[5].Value.ToString();
-                            txtWeight.Text = dataDS.Rows[e.RowIndex].Cells[7].Value.ToString();
-                            txtTypeWeight.Text = dataDS.Rows[e.RowIndex].Cells[8].Value.ToString();
-                            txtCashAdvance.Text = dataDS.Rows[e.RowIndex].Cells[10].Value.ToString();
-                            txtFood.Text = dataDS.Rows[e.RowIndex].Cells[11].Value.ToString();
-                            txtPunish.Text = dataDS.Rows[e.RowIndex].Cells[12].Value.ToString();
-                            txtBonus.Text = dataDS.Rows[e.RowIndex].Cells[13].Value.ToString();
-                            txtNote.Text = dataDS.Rows[e.RowIndex].Cells[14].Value.ToString();
-                            if (dataDS.Rows[e.RowIndex].Cells[15].Value.ToString()=="Yes")
-                            {
-                                checkRest.Checked = true;
-                            }
-                            else
-                            {
-                                checkRest.Checked = false;
-                            }
-                            btnRemove.Enabled = false;
-                        }
-                        catch
-                        {
-                        }
-                        txtNgay.Enabled = false;
-                        txtThang.Enabled = false;
-                        txtNam.Enabled = false;
-                        btnDoubleGrid = 1;
-                        break;
+                            txtNgay.Enabled = false;
+                            txtThang.Enabled = false;
+                            txtNam.Enabled = false;
+                            btnDoubleGrid = 1;
+                            break;
 
-                    case 1:
-                        txtNgay.Enabled = true;
-                        txtThang.Enabled = true;
-                        txtNam.Enabled = true;
-                        btnRemove.Enabled = true;
-                        LoadAutoRefreshInformation();
-                        btnEdit.Visible = false;
-                        btnDoubleGrid = 0;
-                        btnThem.Visible = true;
-                        break;
+                        case 1:
+                            txtNgay.Enabled = true;
+                            txtThang.Enabled = true;
+                            txtNam.Enabled = true;
+                            btnRemove.Enabled = true;
+                            LoadAutoRefreshInformation();
+                            btnEdit.Visible = false;
+                            btnDoubleGrid = 0;
+                            btnThem.Visible = true;
+                            break;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Hóa đơn đã thanh toán.Không được thay đổi");
                 }
             }
+
         }
 
         private void txtNote_KeyUp(object sender, KeyEventArgs e)
@@ -1161,12 +1170,12 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
         {
             var timekeeping = list.FirstOrDefault(u => u.MSNV == txtMSNV.Text && u.Date == DateTime.Parse(txtNgay.Text + "/" + txtThang.Text + "/" + txtNam.Text));
             timekeeping.Date = DateTime.Parse(txtNgay.Text + "/" + txtThang.Text + "/" + txtNam.Text).Date;
-            if (txtThoigianBD.Text==String.Empty || txtThoigianKT.Text==string.Empty)
+            if (txtThoigianBD.Text == String.Empty || txtThoigianKT.Text == string.Empty)
             {
                 timekeeping.TimeStart = "";
                 timekeeping.TimeEnd = "";
                 timekeeping.OverTime = txtOvertime.Text == string.Empty ? 0 : double.Parse(txtOvertime.Text);
-                timekeeping.Time= txtOvertime.Text==string.Empty?0:double.Parse(txtOvertime.Text);
+                timekeeping.Time = txtOvertime.Text == string.Empty ? 0 : double.Parse(txtOvertime.Text);
             }
             else
             {
@@ -1174,7 +1183,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 timekeeping.TimeEnd = txtThoigianKT.Text;
                 timekeeping.OverTime = txtOvertime.Text == string.Empty ? 0 : double.Parse(txtOvertime.Text);
                 MessageBox.Show(Interval(txtThoigianBD.Text, txtThoigianKT.Text).ToString());
-                timekeeping.Time = txtOvertime.Text == string.Empty ? 0 : double.Parse(txtOvertime.Text)+Interval(txtThoigianBD.Text, txtThoigianKT.Text);
+                timekeeping.Time = txtOvertime.Text == string.Empty ? 0 : double.Parse(txtOvertime.Text) + Interval(txtThoigianBD.Text, txtThoigianKT.Text);
             }
             if (txtWeight.Text.Equals(""))
             {
@@ -1201,7 +1210,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 }
                 timekeeping.AdvancePayment = int.Parse(str);
             }
-            if(checkRest.Checked==true)
+            if (checkRest.Checked == true)
             {
                 timekeeping.isRest = true;
             }

@@ -75,8 +75,8 @@ namespace PlasticsFactory
         {
             panelPreference.Controls.Clear();
             panelContents.Controls.Clear();
-            mcAll = mcAll ?? new MCAll();
-            pmChamcong = pmChamcong ?? new PMChamcong();
+            mcAll = new MCAll();
+            pmChamcong =  new PMChamcong();
             panelPreference.Controls.Add(pmChamcong);
             panelContents.Controls.Add(mcAll);
         }
@@ -85,8 +85,8 @@ namespace PlasticsFactory
         {
             panelPreference.Controls.Clear();
             panelContents.Controls.Clear();
-            mcADDBanhang = mcADDBanhang ?? new MCADDKhachhang();
-            pmCustonmer = pmCustonmer ?? new PMCustomer();
+            mcADDBanhang = new MCADDKhachhang();
+            pmCustonmer = new PMCustomer();
             panelPreference.Controls.Add(pmCustonmer);
             panelContents.Controls.Add(mcADDBanhang);
         }
@@ -95,8 +95,8 @@ namespace PlasticsFactory
         {
             panelPreference.Controls.Clear();
             panelContents.Controls.Clear();
-            pmProduct = pmProduct ?? new PMProduct();
-            productInput = productInput ?? new ProductInput();
+            pmProduct =  new PMProduct();
+            productInput = new ProductInput();
             panelPreference.Controls.Add(pmProduct);
             panelContents.Controls.Add(productInput);
         }

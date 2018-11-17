@@ -81,6 +81,7 @@
     <Compile Include="Business\ProductOutputBO.cs" />
     <Compile Include="Business\TimekeepingBO.cs" />
     <Compile Include="Business\TruckBO.cs" />
+    <Compile Include="Business\TypeWeightBO.cs" />
     <Compile Include="Interface\ICustomer.cs" />
     <Compile Include="Interface\ICustomerType.cs" />
     <Compile Include="Interface\IEmployee.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Interface\ITimekeeping.cs" />
     <Compile Include="Interface\ITruck.cs" />
     <Compile Include="Interface\IPaymentOutput.cs" />
+    <Compile Include="Interface\ITypeWeight.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

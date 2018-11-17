@@ -44,6 +44,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtAllProductInputName = new System.Windows.Forms.ComboBox();
             this.btnRemoveInput = new System.Windows.Forms.Button();
             this.btnEditInput = new System.Windows.Forms.Button();
             this.txtAllInputPrice = new DevExpress.XtraEditors.TextEdit();
@@ -59,14 +60,24 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.txtAllProductOutputName = new System.Windows.Forms.ComboBox();
             this.btnRemoveOutput = new System.Windows.Forms.Button();
             this.btnEditOutput = new System.Windows.Forms.Button();
             this.txtAllOutputPrice = new DevExpress.XtraEditors.TextEdit();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
-            this.txtAllProductInputName = new System.Windows.Forms.ComboBox();
-            this.txtAllProductOutputName = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.btnTypeWeight = new System.Windows.Forms.Button();
+            this.txtTypeWeightAdd = new DevExpress.XtraEditors.TextEdit();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.txtTypeWeight = new System.Windows.Forms.ComboBox();
+            this.btnRemoveTypeWeight = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTimePrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductPrice.Properties)).BeginInit();
@@ -84,6 +95,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtOutputName.Properties)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAllOutputPrice.Properties)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            this.tabControl3.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTypeWeightAdd.Properties)).BeginInit();
+            this.tabPage6.SuspendLayout();
             this.SuspendLayout();
             // 
             // label19
@@ -271,6 +287,16 @@
             this.tabPage2.Text = "Cập nhật";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // txtAllProductInputName
+            // 
+            this.txtAllProductInputName.FormattingEnabled = true;
+            this.txtAllProductInputName.Location = new System.Drawing.Point(46, 49);
+            this.txtAllProductInputName.Name = "txtAllProductInputName";
+            this.txtAllProductInputName.Size = new System.Drawing.Size(405, 21);
+            this.txtAllProductInputName.TabIndex = 111;
+            this.txtAllProductInputName.SelectedIndexChanged += new System.EventHandler(this.txtAllProductInputName_SelectedIndexChanged);
+            this.txtAllProductInputName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAllProductInputName_KeyUp);
+            // 
             // btnRemoveInput
             // 
             this.btnRemoveInput.BackColor = System.Drawing.Color.Red;
@@ -437,6 +463,16 @@
             this.tabPage4.Text = "Cập nhật";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // txtAllProductOutputName
+            // 
+            this.txtAllProductOutputName.FormattingEnabled = true;
+            this.txtAllProductOutputName.Location = new System.Drawing.Point(46, 48);
+            this.txtAllProductOutputName.Name = "txtAllProductOutputName";
+            this.txtAllProductOutputName.Size = new System.Drawing.Size(405, 21);
+            this.txtAllProductOutputName.TabIndex = 112;
+            this.txtAllProductOutputName.SelectedIndexChanged += new System.EventHandler(this.txtAllProductOutputName_SelectedIndexChanged);
+            this.txtAllProductOutputName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAllProductOutputName_KeyUp);
+            // 
             // btnRemoveOutput
             // 
             this.btnRemoveOutput.BackColor = System.Drawing.Color.Red;
@@ -500,25 +536,124 @@
             this.button9.Text = "Thay đổi";
             this.button9.UseVisualStyleBackColor = true;
             // 
-            // txtAllProductInputName
+            // groupBox3
             // 
-            this.txtAllProductInputName.FormattingEnabled = true;
-            this.txtAllProductInputName.Location = new System.Drawing.Point(46, 49);
-            this.txtAllProductInputName.Name = "txtAllProductInputName";
-            this.txtAllProductInputName.Size = new System.Drawing.Size(405, 21);
-            this.txtAllProductInputName.TabIndex = 111;
-            this.txtAllProductInputName.SelectedIndexChanged += new System.EventHandler(this.txtAllProductInputName_SelectedIndexChanged);
-            this.txtAllProductInputName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAllProductInputName_KeyUp);
+            this.groupBox3.Controls.Add(this.tabControl3);
+            this.groupBox3.Controls.Add(this.button5);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(655, 70);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(516, 170);
+            this.groupBox3.TabIndex = 101;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Loại bao";
             // 
-            // txtAllProductOutputName
+            // tabControl3
             // 
-            this.txtAllProductOutputName.FormattingEnabled = true;
-            this.txtAllProductOutputName.Location = new System.Drawing.Point(46, 48);
-            this.txtAllProductOutputName.Name = "txtAllProductOutputName";
-            this.txtAllProductOutputName.Size = new System.Drawing.Size(405, 21);
-            this.txtAllProductOutputName.TabIndex = 112;
-            this.txtAllProductOutputName.SelectedIndexChanged += new System.EventHandler(this.txtAllProductOutputName_SelectedIndexChanged);
-            this.txtAllProductOutputName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAllProductOutputName_KeyUp);
+            this.tabControl3.Controls.Add(this.tabPage5);
+            this.tabControl3.Controls.Add(this.tabPage6);
+            this.tabControl3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl3.Location = new System.Drawing.Point(6, 25);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(510, 145);
+            this.tabControl3.TabIndex = 100;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.btnTypeWeight);
+            this.tabPage5.Controls.Add(this.txtTypeWeightAdd);
+            this.tabPage5.Controls.Add(this.label12);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(502, 119);
+            this.tabPage5.TabIndex = 0;
+            this.tabPage5.Text = "Thêm";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // btnTypeWeight
+            // 
+            this.btnTypeWeight.BackColor = System.Drawing.Color.Green;
+            this.btnTypeWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTypeWeight.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnTypeWeight.Location = new System.Drawing.Point(384, 65);
+            this.btnTypeWeight.Name = "btnTypeWeight";
+            this.btnTypeWeight.Size = new System.Drawing.Size(67, 38);
+            this.btnTypeWeight.TabIndex = 104;
+            this.btnTypeWeight.Text = "Thêm";
+            this.btnTypeWeight.UseVisualStyleBackColor = false;
+            this.btnTypeWeight.Click += new System.EventHandler(this.btnTypeWeight_Click);
+            // 
+            // txtTypeWeightAdd
+            // 
+            this.txtTypeWeightAdd.Location = new System.Drawing.Point(46, 39);
+            this.txtTypeWeightAdd.Name = "txtTypeWeightAdd";
+            this.txtTypeWeightAdd.Properties.Mask.EditMask = "n0";
+            this.txtTypeWeightAdd.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtTypeWeightAdd.Size = new System.Drawing.Size(405, 20);
+            this.txtTypeWeightAdd.TabIndex = 2;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(43, 23);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(52, 13);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Số lượng:";
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.txtTypeWeight);
+            this.tabPage6.Controls.Add(this.btnRemoveTypeWeight);
+            this.tabPage6.Controls.Add(this.label14);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(502, 119);
+            this.tabPage6.TabIndex = 1;
+            this.tabPage6.Text = "Cập nhật";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // txtTypeWeight
+            // 
+            this.txtTypeWeight.FormattingEnabled = true;
+            this.txtTypeWeight.Location = new System.Drawing.Point(46, 40);
+            this.txtTypeWeight.Name = "txtTypeWeight";
+            this.txtTypeWeight.Size = new System.Drawing.Size(405, 21);
+            this.txtTypeWeight.TabIndex = 111;
+            // 
+            // btnRemoveTypeWeight
+            // 
+            this.btnRemoveTypeWeight.BackColor = System.Drawing.Color.Red;
+            this.btnRemoveTypeWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveTypeWeight.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnRemoveTypeWeight.Location = new System.Drawing.Point(388, 67);
+            this.btnRemoveTypeWeight.Name = "btnRemoveTypeWeight";
+            this.btnRemoveTypeWeight.Size = new System.Drawing.Size(67, 38);
+            this.btnRemoveTypeWeight.TabIndex = 110;
+            this.btnRemoveTypeWeight.Text = "Xóa";
+            this.btnRemoveTypeWeight.UseVisualStyleBackColor = false;
+            this.btnRemoveTypeWeight.Click += new System.EventHandler(this.btnRemoveTypeWeight_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(43, 23);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(52, 13);
+            this.label14.TabIndex = 105;
+            this.label14.Text = "Số lượng:";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(403, 126);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(62, 38);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "Thay đổi";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // MCConfiguration
             // 
@@ -526,12 +661,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(0, 50);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.AddInput);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label19);
             this.Name = "MCConfiguration";
-            this.Size = new System.Drawing.Size(1330, 652);
+            this.Size = new System.Drawing.Size(1313, 652);
             this.Load += new System.EventHandler(this.MCConfiguration_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -555,6 +691,13 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAllOutputPrice.Properties)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.tabControl3.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTypeWeightAdd.Properties)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -601,5 +744,16 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.ComboBox txtAllProductInputName;
         private System.Windows.Forms.ComboBox txtAllProductOutputName;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TabControl tabControl3;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.Button btnTypeWeight;
+        private DevExpress.XtraEditors.TextEdit txtTypeWeightAdd;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.ComboBox txtTypeWeight;
+        private System.Windows.Forms.Button btnRemoveTypeWeight;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button button5;
     }
 }

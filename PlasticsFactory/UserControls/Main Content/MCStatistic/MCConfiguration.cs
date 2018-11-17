@@ -17,6 +17,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
         PreferceProductPriceBO preferenceProductPriceBO = new PreferceProductPriceBO();
         ProductBO productIBO = new ProductBO();
         ProductOBO productOBO = new ProductOBO();
+        TypeWeightBO typeWeightBO = new TypeWeightBO();
         Data.ProductIP productIP = new Data.ProductIP();
         Data.ProductOP productOP = new Data.ProductOP();
         #endregion
@@ -45,6 +46,14 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
             foreach (var item in listProductOutput)
             {
                 txtAllProductOutputName.Items.Add(item.Name);
+            }
+            //Form TypeWeight
+            var listType = typeWeightBO.GetData(u => u.Type != -1);
+            txtTypeWeight.ResetText();
+            txtTypeWeight.Items.Clear();
+            foreach (var item in listType)
+            {
+                txtTypeWeight.Items.Add(item.KG);
             }
         }
         #endregion
@@ -170,7 +179,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
 
         private void btnAddInput_Click(object sender, EventArgs e)
         {
-            if(txtInputName.Text!=string.Empty&&txtInputPrice.Text!=string.Empty&&int.Parse(txtInputPrice.Text)>0)
+            if (txtInputName.Text != string.Empty && txtInputPrice.Text != string.Empty && int.Parse(txtInputPrice.Text) > 0)
             {
                 bool isExist = productIBO.isExistName(txtInputName.Text);
                 if (!isExist)
@@ -178,7 +187,15 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
                     productIP = new Data.ProductIP();
                     productIP.Name = txtInputName.Text;
                     productIP.Price = int.Parse(txtInputPrice.Text);
-                    productIBO.Add(productIP);
+                    bool check=productIBO.Add(productIP);
+                    if (check)
+                    {
+                        MessageBox.Show("Thêm thành công ");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm thất bại");
+                    }
                     loadInformation();
                     txtInputName.Text = string.Empty;
                     txtInputPrice.Text = string.Empty;
@@ -204,7 +221,15 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
                     productOP = new Data.ProductOP();
                     productOP.Name = txtOutputName.Text;
                     productOP.Price = int.Parse(txtOutputPrice.Text);
-                    productOBO.Add(productOP);
+                    bool check=productOBO.Add(productOP);
+                    if(check)
+                    {
+                        MessageBox.Show("Thêm thành công ");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm thất bại");
+                    }
                     loadInformation();
                     txtOutputName.Text = string.Empty;
                     txtOutputPrice.Text = string.Empty;
@@ -222,14 +247,14 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
 
         private void txtProductPrice_KeyUp(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode==Keys.Enter)
-            txtTimePrice.Focus();
+            if (e.KeyCode == Keys.Enter)
+                txtTimePrice.Focus();
         }
 
         private void txtInputName_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-               txtInputPrice.Focus();
+                txtInputPrice.Focus();
         }
 
         private void txtTimePrice_KeyUp(object sender, KeyEventArgs e)
@@ -278,6 +303,49 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
         {
             if (e.KeyCode == Keys.Enter)
                 btnEditOutput.Focus();
+        }
+
+        private void btnTypeWeight_Click(object sender, EventArgs e)
+        {
+            if (double.Parse(txtTypeWeightAdd.Text) > 0)
+            {
+                Data.TypeWeight type = new Data.TypeWeight();
+                int count = typeWeightBO.GetData(u => u.KG == int.Parse(txtTypeWeightAdd.Text)).Count();
+                if (count == 0)
+                {
+                    type.KG = (int)double.Parse(txtTypeWeightAdd.Text);
+                    bool check = typeWeightBO.Add(type);
+                    if (check == true)
+                    {
+                        MessageBox.Show("Thêm sản thành công");
+                        loadInformation();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm sản phẩm thất bại");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Đã tồn tại!");
+                }
+            }
+        }
+
+        private void btnRemoveTypeWeight_Click(object sender, EventArgs e)
+        {
+            if (txtTypeWeight.Text != string.Empty)
+            {
+                string masseage = "Bạn có muốn xóa không ?";
+                string Title = "Chú ý";
+                DialogResult result = MessageBox.Show(masseage, Title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                if (result == DialogResult.Yes)
+                {
+                    int ID = typeWeightBO.GetData(u => u.KG == int.Parse(txtTypeWeight.Text)).First().Type;
+                    typeWeightBO.Delete(ID);
+                    loadInformation();
+                }
+            }
         }
     }
 }

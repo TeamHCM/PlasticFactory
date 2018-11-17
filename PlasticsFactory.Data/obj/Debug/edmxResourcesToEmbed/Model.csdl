@@ -36,11 +36,10 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="DATE" Type="DateTime" Precision="0" />
+    <Property Name="DATE" Type="DateTime" Precision="3" />
     <Property Name="MSNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
     <Property Name="PAY" Type="Double" Nullable="false" />
     <Property Name="NEBT" Type="Double" Nullable="false" />
-    <Property Name="isDelete" Type="Boolean" Nullable="false" />
     <Property Name="ProductPrice" Type="Int32" Nullable="false" />
     <Property Name="TimePrice" Type="Int32" Nullable="false" />
     <Property Name="Wage" Type="Double" Nullable="false" />
@@ -48,6 +47,8 @@
     <Property Name="isPayed" Type="Boolean" Nullable="false" />
     <Property Name="MonthOfPay" Type="Int32" Nullable="false" />
     <Property Name="YearOfPay" Type="Int32" Nullable="false" />
+    <Property Name="FirstPay" Type="Boolean" Nullable="false" />
+    <Property Name="isDelete" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Employee" Relationship="Self.FK_EmployeePayment_Employee" FromRole="EmployeePayment" ToRole="Employee" />
   </EntityType>
   <EntityType Name="EmployeeType">
@@ -106,15 +107,15 @@
     <Property Name="Date" Type="DateTime" Precision="0" />
     <Property Name="MSKH" Type="Int32" Nullable="false" />
     <Property Name="MSXE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="TruckWeight" Type="Int32" />
-    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ProductWeight" Type="Int32" />
-    <Property Name="ProductPrice" Type="Int32" />
-    <Property Name="TotalAmount" Type="Int32" Nullable="false" />
-    <Property Name="Payed" Type="Int32" Nullable="false" />
-    <Property Name="Own" Type="Int32" Nullable="false" />
+    <Property Name="TruckWeight" Type="Double" Nullable="false" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductWeight" Type="Double" Nullable="false" />
+    <Property Name="ProductPrice" Type="Double" />
+    <Property Name="TotalAmount" Type="Double" Nullable="false" />
+    <Property Name="Payed" Type="Double" Nullable="false" />
+    <Property Name="Own" Type="Double" Nullable="false" />
     <Property Name="Paid" Type="Boolean" Nullable="false" />
-    <Property Name="TotalWeight" Type="Int32" Nullable="false" />
+    <Property Name="TotalWeight" Type="Double" Nullable="false" />
     <Property Name="isDelete" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Customer" Relationship="Self.FK_ProductInput_Customer" FromRole="ProductInput" ToRole="Customer" />
     <NavigationProperty Name="PaymentInputs" Relationship="Self.FK_PaymentInput_ProductInput" FromRole="ProductInput" ToRole="PaymentInput" />
@@ -145,15 +146,15 @@
     <Property Name="Date" Type="DateTime" Precision="0" />
     <Property Name="MSKH" Type="Int32" />
     <Property Name="MSXE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="TruckWeight" Type="Int32" />
+    <Property Name="TruckWeight" Type="Double" Nullable="false" />
     <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ProductWeight" Type="Int32" />
-    <Property Name="ProductPrice" Type="Int32" />
-    <Property Name="TotalAmount" Type="Int32" />
-    <Property Name="Payed" Type="Int32" Nullable="false" />
-    <Property Name="Own" Type="Int32" Nullable="false" />
+    <Property Name="ProductWeight" Type="Double" Nullable="false" />
+    <Property Name="ProductPrice" Type="Double" Nullable="false" />
+    <Property Name="TotalAmount" Type="Double" Nullable="false" />
+    <Property Name="Payed" Type="Double" Nullable="false" />
+    <Property Name="Own" Type="Double" Nullable="false" />
     <Property Name="Paid" Type="Boolean" Nullable="false" />
-    <Property Name="TotalWeight" Type="Int32" Nullable="false" />
+    <Property Name="TotalWeight" Type="Double" Nullable="false" />
     <Property Name="isDelete" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Customer" Relationship="Self.FK_ProductOutput_Customer" FromRole="ProductOutput" ToRole="Customer" />
     <NavigationProperty Name="PaymentOutputs" Relationship="Self.FK_PaymentOutput_ProductOutput" FromRole="ProductOutput" ToRole="PaymentOutput" />
@@ -171,13 +172,13 @@
     <Property Name="Type" Type="Int32" />
     <Property Name="TotalWeight" Type="Int32" />
     <Property Name="AdvancePayment" Type="Double" />
-    <Property Name="Note" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="isDelete" Type="Boolean" Nullable="false" />
     <Property Name="Food" Type="Double" Nullable="false" />
     <Property Name="Punish" Type="Double" Nullable="false" />
     <Property Name="Bunus" Type="Double" Nullable="false" />
     <Property Name="isRest" Type="Boolean" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="OverTime" Type="Double" Nullable="false" />
   </EntityType>
   <EntityType Name="TypeofCustomer">
@@ -202,7 +203,7 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="LicencePlate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="Weight" Type="Int32" />
+    <Property Name="Weight" Type="Double" />
     <Property Name="MSKH" Type="Int32" Nullable="false" />
     <Property Name="isDelete" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Customer" Relationship="Self.FK_Truck_Truck" FromRole="Truck" ToRole="Customer" />

@@ -36,7 +36,6 @@
           <ScalarProperty Name="MSNV" ColumnName="MSNV" />
           <ScalarProperty Name="PAY" ColumnName="PAY" />
           <ScalarProperty Name="NEBT" ColumnName="NEBT" />
-          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
           <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
           <ScalarProperty Name="TimePrice" ColumnName="TimePrice" />
           <ScalarProperty Name="Wage" ColumnName="Wage" />
@@ -44,6 +43,8 @@
           <ScalarProperty Name="isPayed" ColumnName="isPayed" />
           <ScalarProperty Name="MonthOfPay" ColumnName="MonthOfPay" />
           <ScalarProperty Name="YearOfPay" ColumnName="YearOfPay" />
+          <ScalarProperty Name="FirstPay" ColumnName="FirstPay" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -160,7 +161,6 @@
     <EntitySetMapping Name="Timekeepings">
       <EntityTypeMapping TypeName="PlasticFactoryModel.Timekeeping">
         <MappingFragment StoreEntitySet="Timekeeping">
-          <ScalarProperty Name="OverTime" ColumnName="OverTime" />
           <ScalarProperty Name="MSNV" ColumnName="MSNV" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
@@ -170,13 +170,14 @@
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="TotalWeight" ColumnName="TotalWeight" />
           <ScalarProperty Name="AdvancePayment" ColumnName="AdvancePayment" />
-          <ScalarProperty Name="Note" ColumnName="Note" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="isDelete" ColumnName="isDelete" />
           <ScalarProperty Name="Food" ColumnName="Food" />
           <ScalarProperty Name="Punish" ColumnName="Punish" />
           <ScalarProperty Name="Bunus" ColumnName="Bunus" />
           <ScalarProperty Name="isRest" ColumnName="isRest" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="OverTime" ColumnName="OverTime" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

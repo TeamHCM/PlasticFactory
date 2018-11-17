@@ -35,11 +35,10 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="DATE" Type="date" />
+          <Property Name="DATE" Type="datetime" />
           <Property Name="MSNV" Type="char" MaxLength="10" />
           <Property Name="PAY" Type="float" Nullable="false" />
           <Property Name="NEBT" Type="float" Nullable="false" />
-          <Property Name="isDelete" Type="bit" Nullable="false" />
           <Property Name="ProductPrice" Type="int" Nullable="false" />
           <Property Name="TimePrice" Type="int" Nullable="false" />
           <Property Name="Wage" Type="float" Nullable="false" />
@@ -47,6 +46,8 @@
           <Property Name="isPayed" Type="bit" Nullable="false" />
           <Property Name="MonthOfPay" Type="int" Nullable="false" />
           <Property Name="YearOfPay" Type="int" Nullable="false" />
+          <Property Name="FirstPay" Type="bit" Nullable="false" />
+          <Property Name="isDelete" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="EmployeeType">
           <Key>
@@ -101,15 +102,15 @@
           <Property Name="Date" Type="date" />
           <Property Name="MSKH" Type="int" Nullable="false" />
           <Property Name="MSXE" Type="text" />
-          <Property Name="TruckWeight" Type="int" />
-          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
-          <Property Name="ProductWeight" Type="int" />
-          <Property Name="ProductPrice" Type="int" />
-          <Property Name="TotalAmount" Type="int" Nullable="false" />
-          <Property Name="Payed" Type="int" Nullable="false" />
-          <Property Name="Own" Type="int" Nullable="false" />
+          <Property Name="TruckWeight" Type="float" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProductWeight" Type="float" Nullable="false" />
+          <Property Name="ProductPrice" Type="float" />
+          <Property Name="TotalAmount" Type="float" Nullable="false" />
+          <Property Name="Payed" Type="float" Nullable="false" />
+          <Property Name="Own" Type="float" Nullable="false" />
           <Property Name="Paid" Type="bit" Nullable="false" />
-          <Property Name="TotalWeight" Type="int" Nullable="false" />
+          <Property Name="TotalWeight" Type="float" Nullable="false" />
           <Property Name="isDelete" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="ProductIP">
@@ -138,15 +139,15 @@
           <Property Name="Date" Type="date" />
           <Property Name="MSKH" Type="int" />
           <Property Name="MSXE" Type="text" />
-          <Property Name="TruckWeight" Type="int" />
+          <Property Name="TruckWeight" Type="float" Nullable="false" />
           <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
-          <Property Name="ProductWeight" Type="int" />
-          <Property Name="ProductPrice" Type="int" />
-          <Property Name="TotalAmount" Type="int" />
-          <Property Name="Payed" Type="int" Nullable="false" />
-          <Property Name="Own" Type="int" Nullable="false" />
+          <Property Name="ProductWeight" Type="float" Nullable="false" />
+          <Property Name="ProductPrice" Type="float" Nullable="false" />
+          <Property Name="TotalAmount" Type="float" Nullable="false" />
+          <Property Name="Payed" Type="float" Nullable="false" />
+          <Property Name="Own" Type="float" Nullable="false" />
           <Property Name="Paid" Type="bit" Nullable="false" />
-          <Property Name="TotalWeight" Type="int" Nullable="false" />
+          <Property Name="TotalWeight" Type="float" Nullable="false" />
           <Property Name="isDelete" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Timekeeping">
@@ -162,13 +163,13 @@
           <Property Name="Type" Type="int" />
           <Property Name="TotalWeight" Type="int" />
           <Property Name="AdvancePayment" Type="float" />
-          <Property Name="Note" Type="nvarchar" MaxLength="200" />
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="isDelete" Type="bit" Nullable="false" />
           <Property Name="Food" Type="float" Nullable="false" />
           <Property Name="Punish" Type="float" Nullable="false" />
           <Property Name="Bunus" Type="float" Nullable="false" />
           <Property Name="isRest" Type="bit" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="OverTime" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="TypeofCustomer">
@@ -192,7 +193,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LicencePlate" Type="nchar" MaxLength="10" />
-          <Property Name="Weight" Type="int" />
+          <Property Name="Weight" Type="float" />
           <Property Name="MSKH" Type="int" Nullable="false" />
           <Property Name="isDelete" Type="bit" Nullable="false" />
         </EntityType>
@@ -383,11 +384,10 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="DATE" Type="DateTime" Precision="0" />
+          <Property Name="DATE" Type="DateTime" Precision="3" />
           <Property Name="MSNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="PAY" Type="Double" Nullable="false" />
           <Property Name="NEBT" Type="Double" Nullable="false" />
-          <Property Name="isDelete" Type="Boolean" Nullable="false" />
           <Property Name="ProductPrice" Type="Int32" Nullable="false" />
           <Property Name="TimePrice" Type="Int32" Nullable="false" />
           <Property Name="Wage" Type="Double" Nullable="false" />
@@ -395,6 +395,8 @@
           <Property Name="isPayed" Type="Boolean" Nullable="false" />
           <Property Name="MonthOfPay" Type="Int32" Nullable="false" />
           <Property Name="YearOfPay" Type="Int32" Nullable="false" />
+          <Property Name="FirstPay" Type="Boolean" Nullable="false" />
+          <Property Name="isDelete" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_EmployeePayment_Employee" FromRole="EmployeePayment" ToRole="Employee" />
         </EntityType>
         <EntityType Name="EmployeeType">
@@ -453,15 +455,15 @@
           <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="MSKH" Type="Int32" Nullable="false" />
           <Property Name="MSXE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="TruckWeight" Type="Int32" />
-          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ProductWeight" Type="Int32" />
-          <Property Name="ProductPrice" Type="Int32" />
-          <Property Name="TotalAmount" Type="Int32" Nullable="false" />
-          <Property Name="Payed" Type="Int32" Nullable="false" />
-          <Property Name="Own" Type="Int32" Nullable="false" />
+          <Property Name="TruckWeight" Type="Double" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductWeight" Type="Double" Nullable="false" />
+          <Property Name="ProductPrice" Type="Double" />
+          <Property Name="TotalAmount" Type="Double" Nullable="false" />
+          <Property Name="Payed" Type="Double" Nullable="false" />
+          <Property Name="Own" Type="Double" Nullable="false" />
           <Property Name="Paid" Type="Boolean" Nullable="false" />
-          <Property Name="TotalWeight" Type="Int32" Nullable="false" />
+          <Property Name="TotalWeight" Type="Double" Nullable="false" />
           <Property Name="isDelete" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Customer" Relationship="Self.FK_ProductInput_Customer" FromRole="ProductInput" ToRole="Customer" />
           <NavigationProperty Name="PaymentInputs" Relationship="Self.FK_PaymentInput_ProductInput" FromRole="ProductInput" ToRole="PaymentInput" />
@@ -492,15 +494,15 @@
           <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="MSKH" Type="Int32" />
           <Property Name="MSXE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="TruckWeight" Type="Int32" />
+          <Property Name="TruckWeight" Type="Double" Nullable="false" />
           <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ProductWeight" Type="Int32" />
-          <Property Name="ProductPrice" Type="Int32" />
-          <Property Name="TotalAmount" Type="Int32" />
-          <Property Name="Payed" Type="Int32" Nullable="false" />
-          <Property Name="Own" Type="Int32" Nullable="false" />
+          <Property Name="ProductWeight" Type="Double" Nullable="false" />
+          <Property Name="ProductPrice" Type="Double" Nullable="false" />
+          <Property Name="TotalAmount" Type="Double" Nullable="false" />
+          <Property Name="Payed" Type="Double" Nullable="false" />
+          <Property Name="Own" Type="Double" Nullable="false" />
           <Property Name="Paid" Type="Boolean" Nullable="false" />
-          <Property Name="TotalWeight" Type="Int32" Nullable="false" />
+          <Property Name="TotalWeight" Type="Double" Nullable="false" />
           <Property Name="isDelete" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Customer" Relationship="Self.FK_ProductOutput_Customer" FromRole="ProductOutput" ToRole="Customer" />
           <NavigationProperty Name="PaymentOutputs" Relationship="Self.FK_PaymentOutput_ProductOutput" FromRole="ProductOutput" ToRole="PaymentOutput" />
@@ -518,13 +520,13 @@
           <Property Name="Type" Type="Int32" />
           <Property Name="TotalWeight" Type="Int32" />
           <Property Name="AdvancePayment" Type="Double" />
-          <Property Name="Note" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="isDelete" Type="Boolean" Nullable="false" />
           <Property Name="Food" Type="Double" Nullable="false" />
           <Property Name="Punish" Type="Double" Nullable="false" />
           <Property Name="Bunus" Type="Double" Nullable="false" />
           <Property Name="isRest" Type="Boolean" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="OverTime" Type="Double" Nullable="false" />
         </EntityType>
         <EntityType Name="TypeofCustomer">
@@ -549,7 +551,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LicencePlate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Weight" Type="Int32" />
+          <Property Name="Weight" Type="Double" />
           <Property Name="MSKH" Type="Int32" Nullable="false" />
           <Property Name="isDelete" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Customer" Relationship="Self.FK_Truck_Truck" FromRole="Truck" ToRole="Customer" />
@@ -742,7 +744,6 @@
                 <ScalarProperty Name="MSNV" ColumnName="MSNV" />
                 <ScalarProperty Name="PAY" ColumnName="PAY" />
                 <ScalarProperty Name="NEBT" ColumnName="NEBT" />
-                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
                 <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
                 <ScalarProperty Name="TimePrice" ColumnName="TimePrice" />
                 <ScalarProperty Name="Wage" ColumnName="Wage" />
@@ -750,6 +751,8 @@
                 <ScalarProperty Name="isPayed" ColumnName="isPayed" />
                 <ScalarProperty Name="MonthOfPay" ColumnName="MonthOfPay" />
                 <ScalarProperty Name="YearOfPay" ColumnName="YearOfPay" />
+                <ScalarProperty Name="FirstPay" ColumnName="FirstPay" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -866,7 +869,6 @@
           <EntitySetMapping Name="Timekeepings">
             <EntityTypeMapping TypeName="PlasticFactoryModel.Timekeeping">
               <MappingFragment StoreEntitySet="Timekeeping">
-                <ScalarProperty Name="OverTime" ColumnName="OverTime" />
                 <ScalarProperty Name="MSNV" ColumnName="MSNV" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="TimeStart" ColumnName="TimeStart" />
@@ -876,13 +878,14 @@
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="TotalWeight" ColumnName="TotalWeight" />
                 <ScalarProperty Name="AdvancePayment" ColumnName="AdvancePayment" />
-                <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="isDelete" ColumnName="isDelete" />
                 <ScalarProperty Name="Food" ColumnName="Food" />
                 <ScalarProperty Name="Punish" ColumnName="Punish" />
                 <ScalarProperty Name="Bunus" ColumnName="Bunus" />
                 <ScalarProperty Name="isRest" ColumnName="isRest" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="OverTime" ColumnName="OverTime" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

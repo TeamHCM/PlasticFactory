@@ -74,19 +74,54 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
 
         private void loadPrice()
         {
-            var listDB = preferceProductPriceBO.GetData(u => u.Name.Trim() == "Sản phẩm");
-            foreach (var item in listDB)
+            if (txtMSNV.Text == string.Empty)
             {
-                txtMoneyOfProduct.Items.Add(item.Price);
-            }
-            txtMoneyOfProduct.Text = preferceProductPriceBO.GetData(u => u.Name.Trim() == "Sản phẩm").First().Price.ToString();
+                var listDB = preferceProductPriceBO.GetData(u => u.Name.Trim() == "Sản phẩm");
+                foreach (var item in listDB)
+                {
+                    txtMoneyOfProduct.Items.Add(item.Price);
+                }
+                txtMoneyOfProduct.Text = preferceProductPriceBO.GetData(u => u.Name.Trim() == "Sản phẩm").First().Price.ToString();
 
-            listDB = preferceProductPriceBO.GetData(u => u.Name.Trim() == "Thời gian");
-            foreach (var item in listDB)
-            {
-                txtMoneyOfTime.Items.Add(item.Price);
+                listDB = preferceProductPriceBO.GetData(u => u.Name.Trim() == "Thời gian");
+                foreach (var item in listDB)
+                {
+                    txtMoneyOfTime.Items.Add(item.Price);
+                }
+                txtMoneyOfTime.Text = preferceProductPriceBO.GetData(u => u.Name.Trim() == "Thời gian").First().Price.ToString();
             }
-            txtMoneyOfTime.Text = preferceProductPriceBO.GetData(u => u.Name.Trim() == "Thời gian").First().Price.ToString();
+            else
+            {
+                var listP = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == txtMSNV.Text
+                & u.MonthOfPay == int.Parse(txtMonth.Text) && u.YearOfPay == int.Parse(txtYear.Text));
+                if(listP.Count==0)
+                {
+                    txtMoneyOfProduct.Items.Clear();
+                    txtMoneyOfTime.Items.Clear();
+                    var listDB = preferceProductPriceBO.GetData(u => u.Name.Trim() == "Sản phẩm");
+                    foreach (var item in listDB)
+                    {
+                        txtMoneyOfProduct.Items.Add(item.Price);
+                    }
+                    txtMoneyOfProduct.Text = preferceProductPriceBO.GetData(u => u.Name.Trim() == "Sản phẩm").First().Price.ToString();
+
+                    listDB = preferceProductPriceBO.GetData(u => u.Name.Trim() == "Thời gian");
+                    foreach (var item in listDB)
+                    {
+                        txtMoneyOfTime.Items.Add(item.Price);
+                    }
+                    txtMoneyOfTime.Text = preferceProductPriceBO.GetData(u => u.Name.Trim() == "Thời gian").First().Price.ToString();
+                }
+                else
+                {
+                    txtMoneyOfProduct.Items.Clear();
+                    txtMoneyOfTime.Items.Clear();
+                    txtMoneyOfProduct.Items.Add(listP.First().ProductPrice);
+                    txtMoneyOfTime.Items.Add(listP.First().TimePrice);
+                    txtMoneyOfProduct.Text = listP.First().ProductPrice.ToString();
+                    txtMoneyOfTime.Text = listP.First().TimePrice.ToString();
+                }
+            }
         }
 
         private void loadEmployeeName()
@@ -120,14 +155,14 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         private void loadTotalOFDetail()
         {
             payment = new Payment();
-            double Time = (double)listTime.Sum(u => u.Time);
+            double Time = Math.Round((double)listTime.Sum(u => u.Time),1);
             double Product = (double)listTime.Sum(u => long.Parse(u.TotalWeight.ToString()));
             payment.cash = (int)listTime.Sum(u => u.AdvancePayment);
             payment.payed = listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).Sum(u => u.PAY);
             payment.food = listTime.Sum(u => u.Food);
             payment.bonus = listTime.Sum(u => u.Bunus);
             payment.punish = listTime.Sum(u => u.Punish);
-            txtTime.Text = Time.ToString();
+            txtTime.Text = String.Format("{0:0.##}", Time);
             txtProduct.Text = Product.ToString();
             txtCash.Text = payment.cash.ToString();
             txtBonus.Text = payment.bonus.ToString();
@@ -273,7 +308,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             int Product = int.Parse(txtProduct.Text);
             employeePayment = new Data.EmployeePayment();
             employeePayment.ID = int.Parse(txtID.Text.ToString().Substring(2));
-            employeePayment.DATE = txtDate.Value;
+            employeePayment.DATE = DateTime.Parse(txtDate.Value.ToShortDateString() + " " + DateTime.Now.TimeOfDay.ToString());
             employeePayment.MSNV = txtMSNV.Text;
             employeePayment.PAY = int.Parse(txtPay.Text);
             employeePayment.NEBT = payment.debtNow;
@@ -311,6 +346,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             txtProduct.Text = "0";
             txtDebt.Text = "0";
             txtCash.Text = "0";
+            txtFood.Text = "0";
             MSNV = "";
             txtDayWork.Text = "0";
             txtWage.Text = string.Empty;
@@ -367,6 +403,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                 {
                     panelWage.Visible = false;
                 }
+                loadPrice();
                 loadTotalOFDetail();
                 loadDetail();
             }
@@ -590,10 +627,10 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         {
             int ID = int.Parse(txtID.Text.Substring(2));
             Payment Editpayment = new Payment();
-            double Time = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == MSNV && u.Date.Value.Month == DateTime.Parse(TimeKeepDate).Month && u.Date.Value.Year == DateTime.Parse(TimeKeepDate).Year).Sum(u => u.Time);
-            int Product = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == MSNV && u.Date.Value.Month == DateTime.Parse(TimeKeepDate).Month && u.Date.Value.Year == DateTime.Parse(TimeKeepDate).Year).Sum(u => u.TotalWeight).Value;
-            Editpayment.cash = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == MSNV && u.Date.Value.Month == DateTime.Parse(TimeKeepDate).Month && u.Date.Value.Year == DateTime.Parse(TimeKeepDate).Year).Sum(u => u.AdvancePayment).Value;
-            Editpayment.payed = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == txtMSNV.Text).Where(u => u.DATE.Value.Month == Month && u.DATE.Value.Year == Year && u.MonthOfPay == DateTime.Parse(TimeKeepDate).Month && u.YearOfPay == DateTime.Parse(TimeKeepDate).Year && u.ID != ID).Sum(u => u.PAY);
+            double Time = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == MSNV && u.Date.Value.Month == int.Parse(txtMonth.Text) && u.Date.Value.Year == int.Parse(txtYear.Text)).Sum(u => u.Time);
+            int Product = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == MSNV && u.Date.Value.Month == int.Parse(txtMonth.Text) && u.Date.Value.Year == int.Parse(txtYear.Text)).Sum(u => u.TotalWeight).Value;
+            Editpayment.cash = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == MSNV && u.Date.Value.Month == int.Parse(txtMonth.Text) && u.Date.Value.Year == int.Parse(txtYear.Text)).Sum(u => u.AdvancePayment).Value;
+            Editpayment.payed = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == txtMSNV.Text).Where(u => u.DATE.Value.Month == Month && u.DATE.Value.Year == Year && u.MonthOfPay == int.Parse(txtMonth.Text) && u.YearOfPay == int.Parse(txtYear.Text) && u.ID != ID).Sum(u => u.PAY);
 
             //GetTime month ago =>Debt
             if (Month == 1)
@@ -664,7 +701,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                             txtProduct.Text = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == strMSNV && u.Date.Value.Month == Month && u.Date.Value.Year == Year).Sum(u => u.TotalWeight).ToString();
                             txtMoneyOfTime.Text = employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().TimePrice.ToString();
                             txtMoneyOfProduct.Text = employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().ProductPrice.ToString();
-                            TimeKeepDate = dataDS.Rows[e.RowIndex].Cells[8].Value.ToString();
+                            //TimeKeepDate = dataDS.Rows[e.RowIndex].Cells[10].Value.ToString();
                             double tempDebt = 0;
                             if (Month == 1)
                             {
@@ -686,7 +723,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                             txtCash.Text = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == strMSNV && u.Date.Value.Month == Month && u.Date.Value.Year == Year).Sum(u => u.AdvancePayment).ToString();
                             txtPay.Text = employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().PAY.ToString();
                             txtNoteMoney.Text = employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().PAY != 0 ? employeePaymentBO.GetData(u => u.isDelete == false && u.ID == ID).First().PAY.ToString("#,###") : "0";
-                            txtMonth.Text = dataDS.Rows[e.RowIndex].Cells[8].Value.ToString().Split('/')[0];
+                            txtMonth.Text = dataDS.Rows[e.RowIndex].Cells[11].Value.ToString().Split('/')[0];
+                            txtYear.Text = dataDS.Rows[e.RowIndex].Cells[11].Value.ToString().Split('/')[1];
                             txtWage.Text = dataDS.Rows[e.RowIndex].Cells[4].Value.ToString();
                             btnRemove.Enabled = false;
                             txtWage.Enabled = false;
@@ -707,7 +745,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                         btnEdit.Visible = false;
                         btnDoubleGrid = 0;
                         btnThem.Visible = true;
-                        TimeKeepDate = "";
+                        //TimeKeepDate = "";
                         break;
                 }
             }

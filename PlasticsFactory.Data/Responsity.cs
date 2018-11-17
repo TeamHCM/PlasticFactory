@@ -32,9 +32,15 @@ namespace PlasticsFactory.Data
         }
         public void sqlQuery(string query)
         {
-            dbSet.SqlQuery(query);
+            try
+            {
+                db.Database.SqlQuery<T>(query);
+            }
+            catch
+            {
+                throw;
+            }
         }
-
         #region Insert,Update
         public bool Add(T item)
         {
@@ -75,7 +81,7 @@ namespace PlasticsFactory.Data
                 }
                 catch
                 {
-                    throw;
+                    return false;
                 }
         }
         public bool Delete(int ID)

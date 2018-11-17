@@ -31,18 +31,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             public double debtAgo { get; set; }
             public double debtNow { get; set; }
         }
-        //Save old Location
-        Point PlbWage;
-        Point PlbCash;
-        Point PlbPayed;
-        Point PlbPay;
-        Point PlbDebt;
 
-        Point PtxtWage;
-        Point PtxtCash;
-        Point PtxtPayed;
-        Point PtxtPay;
-        Point PtxtDebt;
         Payment payment = new Payment();
         private string msnv = "";
         #endregion
@@ -81,12 +70,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
 
         private void ResetForm()
         {
-            txtWage.Text = "0";
             txtPayed.Text = "0";
-            txtDebtNow.Text = "0";
-            txtPay.Text = "0";
-            txtPay.Text = "0";
-            txtCash.Text = "0";
         }
 
         private void loadMonth()
@@ -116,7 +100,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         {
             var listDB = employeeBO.GetData(u => u.isDelete == false);
             txtEmployeeName.Items.Clear();
-            int i = 0;
             foreach (var item in listDB)
             {
                 txtEmployeeName.Items.Add(item.Hoten);
@@ -144,80 +127,98 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             dataDS.Rows.Clear();
             if (txtMSNV.Text == "All")
             {
-                var listDB = employeePaymentBO.GetData(u => u.isDelete == false && u.DATE.Value.Month == Month && u.DATE.Value.Year == Year);
+                dataDS.Columns.Clear();
+                #region Columns DataGridView
+                dataDS.ColumnCount = 4;
+                dataDS.Columns[0].Name = "MSNV";
+                dataDS.Columns[1].Name = "Họ và tên";
+                dataDS.Columns[2].Name = "Tiền đã thanh toán";
+                dataDS.Columns[3].Name = "Chấm công";
+
+                dataDS.Columns[0].Width = 100;
+                dataDS.Columns[1].Width = 150;
+                dataDS.Columns[2].Width = 900;
+                dataDS.Columns[3].Width = 100;
+                #endregion
+                var listEmployee = employeeBO.GetData(u => u.isDelete == false);
                 int i = 0;
-                txtWage.Visible = false;
-                lbWage.Visible = false;
-                txtPay.Visible = false;
-                lbPay.Visible = false;
-
-                lbCash.Location = PlbWage;
-                lbDebt.Location = PlbPay;
-                lbPayed.Location = PlbCash;
-
-                txtCash.Location = PtxtWage;
-                txtDebtNow.Location = PtxtPay;
-                txtPayed.Location = PtxtCash;
-
-
-                foreach (var item in listDB)
+                foreach (var item in listEmployee)
                 {
                     dataDS.Rows.Add();
-                    double debtAgo = 0;
-                    var ListDB = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == item.MSNV && u.Date.Value.Month == Month && u.Date.Value.Year == Year);
-                    dataDS.Rows[i].Cells[0].Value = "TT" + item.ID.ToString("D6");
-                    dataDS.Rows[i].Cells[1].Value = item.DATE.Value.ToShortDateString();
-                    dataDS.Rows[i].Cells[2].Value = item.MSNV;
-                    dataDS.Rows[i].Cells[3].Value = employeeBO.GetNameByID(item.MSNV);
-                    dataDS.Rows[i].Cells[4].Value = ListDB.Sum(u => u.Time);
-                    dataDS.Rows[i].Cells[5].Value = ListDB.Sum(u => u.TotalWeight);
-                    //GetTime month ago =>Debt
-                    if (Month == 1)
+                    if (i % 2 == 0)
                     {
-                        int count = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == item.MSNV).Where(u => u.DATE.Value.Month == 12 && u.DATE.Value.Year == Year - 1).Count();
-                        if (count != 0)
-                        {
-                            debtAgo = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == item.MSNV).Where(u => u.DATE.Value.Month == 12 && u.DATE.Value.Year == Year - 1).First().NEBT;
-                        }
+                        dataDS.Rows[i].Cells[0].Style.BackColor = Color.Gainsboro;
+                        dataDS.Rows[i].Cells[1].Style.BackColor = Color.Gainsboro;
+                        dataDS.Rows[i].Cells[2].Style.BackColor = Color.Gainsboro;
+                        dataDS.Rows[i].Cells[3].Style.BackColor = Color.Gainsboro;
                     }
                     else
                     {
-                        int count = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == item.MSNV).Where(u => u.DATE.Value.Month == Month - 1 && u.DATE.Value.Year == Year).Count();
-                        if (count != 0)
-                        {
-                            debtAgo = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == item.MSNV).Where(u => u.DATE.Value.Month == Month - 1 && u.DATE.Value.Year == Year).First().NEBT;
-                        }
+                        dataDS.Rows[i].Cells[0].Style.BackColor = Color.WhiteSmoke;
+                        dataDS.Rows[i].Cells[1].Style.BackColor = Color.WhiteSmoke;
+                        dataDS.Rows[i].Cells[2].Style.BackColor = Color.WhiteSmoke;
+                        dataDS.Rows[i].Cells[3].Style.BackColor = Color.WhiteSmoke;
                     }
-                    dataDS.Rows[i].Cells[6].Value = debtAgo;
-                    dataDS.Rows[i].Cells[7].Value = item.Cash;
-                    dataDS.Rows[i].Cells[8].Value = ListDB.Sum(u => u.Food);
-                    dataDS.Rows[i].Cells[9].Value = ListDB.Sum(u => u.Bunus);
-                    dataDS.Rows[i].Cells[10].Value = ListDB.Sum(u => u.Punish);
-                    dataDS.Rows[i].Cells[11].Value = item.PAY;
-                    dataDS.Rows[i].Cells[12].Value = item.MonthOfPay + "/" + item.YearOfPay;
+                    var ListDB = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == item.MSNV && u.DATE.Value.Month == int.Parse(txtMonth.Text) && u.DATE.Value.Year == int.Parse(txtYear.Text));
+                    dataDS.Rows[i].Cells[0].Value = item.MSNV;
+                    dataDS.Rows[i].Cells[1].Value = item.Hoten;
+                    dataDS.Rows[i].Cells[2].Value = ListDB.Sum(u => u.PAY)!=0? ListDB.Sum(u => u.PAY).ToString("#,###"):"0";
+                    string timekeeping = "";
+                    int t = 0;
+                    foreach (var itemTime in employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == item.MSNV).Select(u => u.MonthOfPay).Distinct())
+                    {
+                        if (t == 0)
+                        {
+                            timekeeping = itemTime.ToString();
+                        }
+                        if (t > 0)
+                        {
+                            timekeeping += "+" + itemTime.ToString();
+                        }
+                        t++;
+                    }
+                    dataDS.Rows[i].Cells[3].Value = timekeeping;
+                    dataDS.Rows[i].Cells[3].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     i++;
                 }
                 var listAllPayment = employeePaymentBO.GetData(u => u.isDelete == false && u.DATE.Value.Month == Month && u.DATE.Value.Year == Year);
                 txtPayed.Text = listAllPayment.Sum(u => u.PAY) != 0 ? listAllPayment.Sum(u => u.PAY).ToString("#,###") : "0";
-                txtDebtNow.Text = listAllPayment.Sum(u => u.NEBT) != 0 ? listAllPayment.Sum(u => u.NEBT).ToString("#,###") : "0";
-                txtCash.Text = listAllPayment.Sum(u => u.Cash) != 0 ? listAllPayment.Sum(u => u.Cash).ToString("#,###") : "0";
-
             }
             else
             {
-                txtWage.Visible = true;
-                lbWage.Visible = true;
-                txtPay.Visible = true;
-                lbPay.Visible = true;
+                dataDS.Columns.Clear();
+                #region Columns DataGridView
+                dataDS.ColumnCount = 13;
+                dataDS.Columns[0].Name = "MSTT";
+                dataDS.Columns[1].Name = "Ngày lập";
+                dataDS.Columns[2].Name = "MSNV";
+                dataDS.Columns[3].Name = "Họ và tên";
+                dataDS.Columns[4].Name = "Thời gian";
+                dataDS.Columns[5].Name = "Sản phẩm";
+                dataDS.Columns[6].Name = "Tiền nợ trước";
+                dataDS.Columns[7].Name = "Tiền ứng";
+                dataDS.Columns[8].Name = "Tiền cơm";
+                dataDS.Columns[9].Name = "Tiền thưởng";
+                dataDS.Columns[10].Name = "Tiền phạt";
+                dataDS.Columns[11].Name = "Tiền đã thanh toán";
+                dataDS.Columns[12].Name = "Chấm công";
 
-                lbDebt.Location = PlbDebt;
-                lbPayed.Location = PlbPayed;
-                lbCash.Location = PlbCash;
-
-                txtDebtNow.Location = PtxtDebt;
-                txtPayed.Location = PtxtPayed;
-                txtCash.Location = PtxtCash;
+                dataDS.Columns[0].Width = 100;
+                dataDS.Columns[1].Width = 150;
+                dataDS.Columns[2].Width = 100;
+                dataDS.Columns[3].Width = 150;
+                dataDS.Columns[4].Width = 100;
+                dataDS.Columns[5].Width = 100;
+                dataDS.Columns[6].Width = 150;
+                dataDS.Columns[7].Width = 150;
+                dataDS.Columns[8].Width = 100;
+                dataDS.Columns[9].Width = 100;
+                dataDS.Columns[10].Width = 100;
+                dataDS.Columns[11].Width = 150;
+                dataDS.Columns[12].Width = 100;
+                #endregion
                 payment = new Payment();
+                double debtAgo = 0;
                 int Time = (int)listTime.Sum(u => u.Time);
                 int Product = (int)listTime.Sum(u => long.Parse(u.TotalWeight.ToString()));
                 int ProductPrice = 0;
@@ -228,7 +229,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                     ProductPrice = listEpay.Where(u => u.DATE.Value.Month == Month && u.DATE.Value.Year == Year).First().ProductPrice;
                     TimePrice = listEpay.Where(u => u.DATE.Value.Month == Month && u.DATE.Value.Year == Year).First().TimePrice;
                 }
-                payment.cash = (int)listTime.Sum(u => u.AdvancePayment);
+                payment.cash = (double)listTime.Sum(u => u.AdvancePayment);
                 payment.payed = listEpay.Where(u => u.DATE.Value.Month == Month && u.DATE.Value.Year == Year).Sum(u => u.PAY);
                 //GetTime month ago =>Debt
                 if (Month == 1)
@@ -248,35 +249,46 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                     }
                 }
                 payment.pay = Time * TimePrice + Product * ProductPrice - payment.cash - payment.debtAgo - payment.payed;
-                var listDB = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == msnv && u.DATE.Value.Month == Month && u.DATE.Value.Year == Year);
+                var listDB = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == msnv && u.DATE.Value.Month == Month && u.DATE.Value.Year == Year).ToList();
                 int i = 0;
                 foreach (var item in listDB)
                 {
                     dataDS.Rows.Add();
+                    var ListDB = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == item.MSNV && u.Date.Value.Month == item.MonthOfPay && u.Date.Value.Year == item.YearOfPay);
                     dataDS.Rows[i].Cells[0].Value = "TT" + item.ID.ToString("D6");
                     dataDS.Rows[i].Cells[1].Value = item.DATE.Value.ToShortDateString();
                     dataDS.Rows[i].Cells[2].Value = item.MSNV;
                     dataDS.Rows[i].Cells[3].Value = employeeBO.GetNameByID(item.MSNV);
-                    dataDS.Rows[i].Cells[4].Value = Time;
-                    dataDS.Rows[i].Cells[5].Value = Product;
-                    dataDS.Rows[i].Cells[6].Value = payment.debtAgo;
-                    dataDS.Rows[i].Cells[7].Value = item.Cash;
-                    dataDS.Rows[i].Cells[8].Value = item.PAY;
-                    dataDS.Rows[i].Cells[9].Value = item.MonthOfPay + "/" + item.YearOfPay;
+                    dataDS.Rows[i].Cells[4].Value = Math.Round(ListDB.Sum(u => u.Time), 1);
+                    dataDS.Rows[i].Cells[5].Value = ListDB.Sum(u => u.TotalWeight);
+                    //GetTime month ago =>Debt
+                    if (Month == 1)
+                    {
+                        int count = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == item.MSNV).Where(u => u.DATE.Value.Month == 12 && u.DATE.Value.Year == Year - 1).Count();
+                        if (count != 0)
+                        {
+                            debtAgo = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == item.MSNV).Where(u => u.DATE.Value.Month == 12 && u.DATE.Value.Year == Year - 1).First().NEBT;
+                        }
+                    }
+                    else
+                    {
+                        int count = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == item.MSNV).Where(u => u.DATE.Value.Month == Month - 1 && u.DATE.Value.Year == Year).Count();
+                        if (count != 0)
+                        {
+                            debtAgo = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == item.MSNV).Where(u => u.DATE.Value.Month == Month - 1 && u.DATE.Value.Year == Year).First().NEBT;
+                        }
+                    }
+                    dataDS.Rows[i].Cells[6].Value = debtAgo;
+                    dataDS.Rows[i].Cells[7].Value = item.Cash!=0? item.Cash.ToString("#,###"):"0";
+                    dataDS.Rows[i].Cells[8].Value = ListDB.Sum(u => u.Food)!=0? ListDB.Sum(u => u.Food).ToString("#,###"):"0";
+                    dataDS.Rows[i].Cells[9].Value = ListDB.Sum(u => u.Bunus)!=0? ListDB.Sum(u => u.Bunus).ToString("#,###"):"0";
+                    dataDS.Rows[i].Cells[10].Value = ListDB.Sum(u => u.Punish)!=0? ListDB.Sum(u => u.Punish).ToString("#,###"):"0";
+                    dataDS.Rows[i].Cells[11].Value = item.PAY!=0? item.PAY.ToString("#,###"):"0";
+                    dataDS.Rows[i].Cells[12].Value = item.MonthOfPay + "/" + item.YearOfPay;
                     i++;
                 }
-                txtWage.Text = (Time * TimePrice + Product * ProductPrice) != 0 ? (Time * TimePrice + Product * ProductPrice).ToString("#,###") : "0";
-                txtPayed.Text = payment.payed != 0 ? payment.payed.ToString("#,###") : "0";
-                txtDebtNow.Text = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == msnv && u.DATE.Value.Month == Month && u.DATE.Value.Year == Year).Select(u => u.NEBT).ToList()[0] != 0 ? employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == msnv && u.DATE.Value.Month == Month && u.DATE.Value.Year == Year).Select(u => u.NEBT).ToList()[0].ToString("#,###") : "0";
-                if (payment.pay < 0)
-                {
-                    txtPay.Text = "0";
-                }
-                else
-                {
-                    txtPay.Text = (Time * TimePrice + Product * ProductPrice - payment.cash - payment.debtAgo) != 0 ? (Time * TimePrice + Product * ProductPrice - payment.cash - payment.debtAgo).ToString("#,###") : "0";
-                }
-                txtCash.Text = payment.cash != 0 ? payment.cash.ToString("#,###") : "0";
+                var listAllPayment = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == txtMSNV.Text && u.DATE.Value.Month == Month && u.DATE.Value.Year == Year);
+                txtPayed.Text = listAllPayment.Sum(u => u.PAY) != 0 ? listAllPayment.Sum(u => u.PAY).ToString("#,###") : "0";
             }
         }
         #endregion
@@ -287,17 +299,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
 
         private void MCEmployeeManagement_Load(object sender, EventArgs e)
         {
-            PlbWage = new Point(lbWage.Location.X, lbWage.Location.Y);
-            PlbCash = new Point(lbCash.Location.X, lbCash.Location.Y);
-            PlbPayed = new Point(lbPayed.Location.X, lbPayed.Location.Y);
-            PlbPay = new Point(lbPay.Location.X, lbPay.Location.Y);
-            PlbDebt = new Point(lbDebt.Location.X, lbDebt.Location.Y);
-
-            PtxtWage = new Point(txtWage.Location.X, txtWage.Location.Y);
-            PtxtCash = new Point(txtCash.Location.X, txtCash.Location.Y);
-            PtxtPayed = new Point(txtPayed.Location.X, txtPayed.Location.Y);
-            PtxtPay = new Point(txtPay.Location.X, txtPay.Location.Y);
-            PtxtDebt = new Point(txtDebtNow.Location.X, txtDebtNow.Location.Y);
             loadMonth();
             loadYear();
             loadMSNV();
@@ -324,7 +325,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                 {
                     txtEmployeeName.Text = employeeBO.GetData(u => u.isDelete == false && u.MSNV == txtMSNV.Text).Select(u => u.Hoten).ToList()[0];
                     msnv = txtMSNV.Text;
-                    listTime = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == msnv && u.Date.Value.Month == Month && u.Date.Value.Year == Year).ToList();
+                    listTime = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == msnv).ToList();
                     listEpay = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == msnv).ToList();
                 }
                 loadDG();

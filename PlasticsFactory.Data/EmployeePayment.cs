@@ -19,7 +19,6 @@ namespace PlasticsFactory.Data
         public string MSNV { get; set; }
         public double PAY { get; set; }
         public double NEBT { get; set; }
-        public bool isDelete { get; set; }
         public int ProductPrice { get; set; }
         public int TimePrice { get; set; }
         public double Wage { get; set; }
@@ -27,6 +26,8 @@ namespace PlasticsFactory.Data
         public bool isPayed { get; set; }
         public int MonthOfPay { get; set; }
         public int YearOfPay { get; set; }
+        public bool FirstPay { get; set; }
+        public bool isDelete { get; set; }
     
         public virtual Employee Employee { get; set; }
     }

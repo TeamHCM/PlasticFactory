@@ -183,17 +183,17 @@ namespace PlasticsFactory.UserControls.Main_Content.MCCustomer
 
         public void loadTotalWeightInput(List<Data.ProductInput> list)
         {
-            Int64 result = 0;
+            double result = 0;
             foreach (var item in list)
             {
-                result += item.ProductWeight.Value;
+                result += item.ProductWeight;
             }
             txtTotalWeight.Text = string.Format("{0:#,##0.##}", result) + " (KG)";
         }
 
         public void loadTotalAmountInput(List<Data.ProductInput> list)
         {
-            int result = 0;
+            double result = 0;
             foreach (var item in list)
             {
                 result += item.TotalAmount;
@@ -213,20 +213,20 @@ namespace PlasticsFactory.UserControls.Main_Content.MCCustomer
 
         public void loadTotalWeightOutput(List<Data.ProductOutput> list)
         {
-            Int64 result = 0;
+            double result = 0;
             foreach (var item in list)
             {
-                result += item.ProductWeight.Value;
+                result += item.ProductWeight;
             }
             txtTotalWeight.Text = string.Format("{0:#,##0.##}", result) + " (KG)";
         }
 
         public void loadTotalAmountOutput(List<Data.ProductOutput> list)
         {
-            Int64 result = 0;
+            double result = 0;
             foreach (var item in list)
             {
-                result += item.TotalAmount.Value;
+                result += item.TotalAmount;
             }
             txtTotalAmount.Text = string.Format("{0:#,##0.##}", result) + " (VNĐ)";
         }

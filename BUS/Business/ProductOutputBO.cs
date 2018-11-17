@@ -12,6 +12,7 @@ namespace BUS.Business
     {
         public int GetID()
         {
+            sqlQuery("DBCC CHECKIDENT ('ProductOutput', RESEED, 1)");
             using (var db = new PlasticFactoryEntities())
             {
                 var list = db.ProductOutputs.ToList();

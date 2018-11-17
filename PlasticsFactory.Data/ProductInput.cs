@@ -24,15 +24,15 @@ namespace PlasticsFactory.Data
         public Nullable<System.DateTime> Date { get; set; }
         public int MSKH { get; set; }
         public string MSXE { get; set; }
-        public Nullable<int> TruckWeight { get; set; }
+        public double TruckWeight { get; set; }
         public string ProductName { get; set; }
-        public Nullable<int> ProductWeight { get; set; }
-        public Nullable<int> ProductPrice { get; set; }
-        public int TotalAmount { get; set; }
-        public int Payed { get; set; }
-        public int Own { get; set; }
+        public double ProductWeight { get; set; }
+        public Nullable<double> ProductPrice { get; set; }
+        public double TotalAmount { get; set; }
+        public double Payed { get; set; }
+        public double Own { get; set; }
         public bool Paid { get; set; }
-        public int TotalWeight { get; set; }
+        public double TotalWeight { get; set; }
         public bool isDelete { get; set; }
     
         public virtual Customer Customer { get; set; }

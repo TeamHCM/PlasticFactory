@@ -23,13 +23,13 @@ namespace PlasticsFactory.Data
         public Nullable<int> Type { get; set; }
         public Nullable<int> TotalWeight { get; set; }
         public Nullable<double> AdvancePayment { get; set; }
-        public string Note { get; set; }
         public int Id { get; set; }
         public bool isDelete { get; set; }
         public double Food { get; set; }
         public double Punish { get; set; }
         public double Bunus { get; set; }
         public bool isRest { get; set; }
+        public string Note { get; set; }
         public double OverTime { get; set; }
     }
 }

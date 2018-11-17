@@ -21,7 +21,7 @@ namespace PlasticsFactory.UserControls.PreferenceMenu
 
         private void btnInput_Click(object sender, EventArgs e)
         {
-            productInput = productInput ?? new ProductInput();
+            productInput =  new ProductInput();
             frmLayout.panelContents.Controls.Clear();
             frmLayout.panelContents.Controls.Add(productInput);
         }

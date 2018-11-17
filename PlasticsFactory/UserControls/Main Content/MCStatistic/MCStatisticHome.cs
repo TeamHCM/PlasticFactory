@@ -91,8 +91,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
             var listDBoutput = productOutputBO.GetData(u => u.isDelete == false && u.Date.Value.Year == Year);
             for (int i = 1; i <= 12; i++)
             {
-                int productInputWeight = listDBinput.Where(u => u.Date.Value.Month == i).Sum(u => u.ProductWeight).Value;
-                int productOutputWeight = listDBoutput.Where(u => u.Date.Value.Month == i).Sum(u => u.ProductWeight).Value;
+                double productInputWeight = listDBinput.Where(u => u.Date.Value.Month == i).Sum(u => u.ProductWeight);
+                double productOutputWeight = listDBoutput.Where(u => u.Date.Value.Month == i).Sum(u => u.ProductWeight);
                 SRInput.Points.Add(new DataPoint(i, productInputWeight));
                 SROutput.Points.Add(new DataPoint(i, productOutputWeight));
             }
@@ -108,17 +108,17 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
             var listEmployeePayment = employeePaymentBO.GetData((u => u.isDelete == false && u.DATE.Value.Month == Month && u.DATE.Value.Year == Year));
             var listTimekeeping = timekeepingBO.GetData((u => u.isDelete==false));
             // Weight
-            txtProductInputWeight.Text = listInput.Sum(u => u.ProductWeight).Value!=0? listInput.Sum(u =>u.ProductWeight).Value.ToString("#,###"):"0";
-            txtProductOutputWeight.Text = listOutput.Sum(u => u.ProductWeight).Value!=0? listOutput.Sum(u => u.ProductWeight).Value.ToString("#,###"):"0";
+            txtProductInputWeight.Text = listInput.Sum(u => u.ProductWeight)!=0? listInput.Sum(u =>u.ProductWeight).ToString("#,###"):"0";
+            txtProductOutputWeight.Text = listOutput.Sum(u => u.ProductWeight)!=0? listOutput.Sum(u => u.ProductWeight).ToString("#,###"):"0";
             //Amount
             txtProductInputAmount.Text = listInput.Sum(u => u.TotalAmount)!=0? listInput.Sum(u => u.TotalAmount).ToString("#,###"):"0";
-            txtProductOutputAmount.Text = listOutput.Sum(u => u.TotalAmount).Value!=0? listOutput.Sum(u => u.TotalAmount).Value.ToString("#,###"):"0";
+            txtProductOutputAmount.Text = listOutput.Sum(u => u.TotalAmount)!=0? listOutput.Sum(u => u.TotalAmount).ToString("#,###"):"0";
             //Payed
             txtInputPay.Text = listInput.Sum(u => u.Payed)!=0? listInput.Sum(u => u.Payed).ToString("#,###"):"0";
             txtOutputPayed.Text = listOutput.Sum(u => u.Payed)!=0? listOutput.Sum(u => u.Payed).ToString("#,###"):"0";
             //Residue
             txtInputResidue.Text = (listInput.Sum(u => u.TotalAmount) - listInput.Sum(u => u.Payed))!=0? (listInput.Sum(u => u.TotalAmount) - listInput.Sum(u => u.Payed)).ToString("#,###"):"0";
-            txtOutputResidue.Text = (listOutput.Sum(u => u.TotalAmount).Value - listOutput.Sum(u => u.Payed))!=0? (listOutput.Sum(u => u.TotalAmount).Value - listOutput.Sum(u => u.Payed)).ToString("#,###"):"0";
+            txtOutputResidue.Text = (listOutput.Sum(u => u.TotalAmount) - listOutput.Sum(u => u.Payed))!=0? (listOutput.Sum(u => u.TotalAmount) - listOutput.Sum(u => u.Payed)).ToString("#,###"):"0";
             //Wage
             txtWage.Text = listEmployeePayment.Sum(u => u.PAY)!=0? listEmployeePayment.Sum(u => u.PAY).ToString("#,###"):"0";
             //Profitable
@@ -132,8 +132,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
                 listInputMonthAgo = productInputBO.GetData(u => u.isDelete == false && u.Date.Value.Month == 12 && u.Date.Value.Year == Year-1);
                 listOutputMonthAgo = productOutputBO.GetData(u => u.isDelete == false && u.Date.Value.Month == 12 && u.Date.Value.Year == Year-1);
             }
-            int TotalInput = productInputBO.GetData(u => u.isDelete == false && u.Date.Value.Year == Year).Sum(u => u.TotalWeight);
-            int TotalOutput = productOutputBO.GetData(u => u.isDelete == false && u.Date.Value.Year == Year).Sum(u => u.TotalWeight);
+            double TotalInput = productInputBO.GetData(u => u.isDelete == false && u.Date.Value.Year == Year).Sum(u => u.TotalWeight);
+            double TotalOutput = productOutputBO.GetData(u => u.isDelete == false && u.Date.Value.Year == Year).Sum(u => u.TotalWeight);
             float InputPercent = ((float)((listInput.Sum(u => u.TotalWeight) * 100) / (float)TotalInput) - ((float)(listInputMonthAgo.Sum(u => u.TotalWeight) * 100) / (float)TotalInput));
             float OutputPercent = ((float)listOutput.Sum(u => u.TotalWeight) * 100 / (float)TotalOutput - (float)listOutputMonthAgo.Sum(u => u.TotalWeight) * 100 / (float)TotalOutput);
             if(InputPercent>=0)

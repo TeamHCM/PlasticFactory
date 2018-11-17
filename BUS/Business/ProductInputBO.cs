@@ -3,6 +3,7 @@ using PlasticsFactory.Data;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,15 +14,18 @@ namespace BUS.Business
     {
         public int GetID()
         {
-            using (var db = new PlasticFactoryEntities())
+            var list = GetData(u => u.isDelete == true || u.isDelete == false);
+            if (list.Count() == 0)
             {
-                var list = db.ProductInputs.ToList() ;
-                if(list.Count()!=0)
-                {
-                    return list.Last().ID+1;
-                }
+                sqlQuery("DBCC CHECKIDENT ('ProductInput', RESEED, 0)");
                 return 1;
             }
+            else
+            {
+                Debug.WriteLine(list.Last().ID);
+                return list.Last().ID + 1;
+            }
+
         }
 
         public List<int> GetIDByCustomerName(string Name)
@@ -37,7 +41,7 @@ namespace BUS.Business
             }
         }
 
-        public bool isDelete (int ID)
+        public bool isDelete(int ID)
         {
             try
             {

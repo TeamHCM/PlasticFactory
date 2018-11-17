@@ -33,17 +33,22 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabContro = new System.Windows.Forms.TabControl();
             this.TabPay = new System.Windows.Forms.TabPage();
-            this.btnDetail = new System.Windows.Forms.Button();
             this.dataDS = new System.Windows.Forms.DataGridView();
-            this.txtDebtNow = new System.Windows.Forms.Label();
-            this.lbCash = new System.Windows.Forms.Label();
-            this.txtCash = new System.Windows.Forms.Label();
+            this.MSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Debt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cash = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Food = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bonus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Punish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataTimekeep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtPayed = new System.Windows.Forms.Label();
             this.lbPayed = new System.Windows.Forms.Label();
-            this.lbPay = new System.Windows.Forms.Label();
-            this.txtPay = new System.Windows.Forms.Label();
-            this.txtWage = new System.Windows.Forms.Label();
-            this.lbWage = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMonth = new System.Windows.Forms.ComboBox();
@@ -56,7 +61,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMSNV = new System.Windows.Forms.ComboBox();
-            this.lbDebt = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -90,19 +94,6 @@
             this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
-            this.MSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Debt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cash = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Food = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Bonus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Punish = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataTimekeep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabContro.SuspendLayout();
             this.TabPay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataDS)).BeginInit();
@@ -132,19 +123,10 @@
             this.TabPay.AllowDrop = true;
             this.TabPay.AutoScroll = true;
             this.TabPay.AutoScrollMargin = new System.Drawing.Size(0, 20);
-            this.TabPay.Controls.Add(this.btnDetail);
             this.TabPay.Controls.Add(this.dataDS);
-            this.TabPay.Controls.Add(this.txtDebtNow);
-            this.TabPay.Controls.Add(this.lbCash);
-            this.TabPay.Controls.Add(this.txtCash);
             this.TabPay.Controls.Add(this.txtPayed);
             this.TabPay.Controls.Add(this.lbPayed);
-            this.TabPay.Controls.Add(this.lbPay);
-            this.TabPay.Controls.Add(this.txtPay);
-            this.TabPay.Controls.Add(this.txtWage);
-            this.TabPay.Controls.Add(this.lbWage);
             this.TabPay.Controls.Add(this.panel2);
-            this.TabPay.Controls.Add(this.lbDebt);
             this.TabPay.Controls.Add(this.panel1);
             this.TabPay.Location = new System.Drawing.Point(4, 22);
             this.TabPay.Name = "TabPay";
@@ -153,19 +135,6 @@
             this.TabPay.TabIndex = 0;
             this.TabPay.Text = "Thanh toán";
             this.TabPay.UseVisualStyleBackColor = true;
-            // 
-            // btnDetail
-            // 
-            this.btnDetail.BackColor = System.Drawing.Color.ForestGreen;
-            this.btnDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDetail.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDetail.Location = new System.Drawing.Point(1152, 455);
-            this.btnDetail.Name = "btnDetail";
-            this.btnDetail.Size = new System.Drawing.Size(139, 47);
-            this.btnDetail.TabIndex = 160;
-            this.btnDetail.Text = "Chi tiết";
-            this.btnDetail.UseVisualStyleBackColor = false;
-            this.btnDetail.Click += new System.EventHandler(this.btnDetail_Click);
             // 
             // dataDS
             // 
@@ -192,52 +161,103 @@
             this.Punish,
             this.Pay,
             this.DataTimekeep});
-            this.dataDS.Location = new System.Drawing.Point(8, 139);
+            this.dataDS.Location = new System.Drawing.Point(6, 139);
             this.dataDS.Name = "dataDS";
             this.dataDS.ReadOnly = true;
-            this.dataDS.Size = new System.Drawing.Size(1297, 286);
+            this.dataDS.Size = new System.Drawing.Size(1297, 357);
             this.dataDS.TabIndex = 147;
             this.dataDS.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDS_CellClick);
             // 
-            // txtDebtNow
+            // MSTT
             // 
-            this.txtDebtNow.AutoSize = true;
-            this.txtDebtNow.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDebtNow.ForeColor = System.Drawing.Color.Navy;
-            this.txtDebtNow.Location = new System.Drawing.Point(225, 571);
-            this.txtDebtNow.Name = "txtDebtNow";
-            this.txtDebtNow.Size = new System.Drawing.Size(19, 20);
-            this.txtDebtNow.TabIndex = 159;
-            this.txtDebtNow.Text = "0";
+            this.MSTT.HeaderText = "MSTT";
+            this.MSTT.Name = "MSTT";
+            this.MSTT.ReadOnly = true;
             // 
-            // lbCash
+            // Date
             // 
-            this.lbCash.AutoSize = true;
-            this.lbCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCash.ForeColor = System.Drawing.Color.Crimson;
-            this.lbCash.Location = new System.Drawing.Point(8, 473);
-            this.lbCash.Name = "lbCash";
-            this.lbCash.Size = new System.Drawing.Size(103, 20);
-            this.lbCash.TabIndex = 157;
-            this.lbCash.Text = "TIỀN ỨNG :\r\n";
+            this.Date.HeaderText = "Ngày lập";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            this.Date.Width = 150;
             // 
-            // txtCash
+            // dgName
             // 
-            this.txtCash.AutoSize = true;
-            this.txtCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCash.ForeColor = System.Drawing.Color.Navy;
-            this.txtCash.Location = new System.Drawing.Point(226, 473);
-            this.txtCash.Name = "txtCash";
-            this.txtCash.Size = new System.Drawing.Size(19, 20);
-            this.txtCash.TabIndex = 156;
-            this.txtCash.Text = "0";
+            this.dgName.HeaderText = "MSNV";
+            this.dgName.Name = "dgName";
+            this.dgName.ReadOnly = true;
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Họ tên";
+            this.Name.Name = "Name";
+            this.Name.ReadOnly = true;
+            this.Name.Width = 150;
+            // 
+            // TotalTime
+            // 
+            this.TotalTime.HeaderText = "Thời gian";
+            this.TotalTime.Name = "TotalTime";
+            this.TotalTime.ReadOnly = true;
+            // 
+            // Product
+            // 
+            this.Product.HeaderText = "Sản phẩm";
+            this.Product.Name = "Product";
+            this.Product.ReadOnly = true;
+            // 
+            // Debt
+            // 
+            this.Debt.HeaderText = "Tiền nợ trước";
+            this.Debt.Name = "Debt";
+            this.Debt.ReadOnly = true;
+            this.Debt.Width = 150;
+            // 
+            // Cash
+            // 
+            this.Cash.HeaderText = "Tiền ứng";
+            this.Cash.Name = "Cash";
+            this.Cash.ReadOnly = true;
+            this.Cash.Width = 150;
+            // 
+            // Food
+            // 
+            this.Food.HeaderText = "Tiền cơm";
+            this.Food.Name = "Food";
+            this.Food.ReadOnly = true;
+            // 
+            // Bonus
+            // 
+            this.Bonus.HeaderText = "Tiền thưởng";
+            this.Bonus.Name = "Bonus";
+            this.Bonus.ReadOnly = true;
+            // 
+            // Punish
+            // 
+            this.Punish.HeaderText = "Tiền phạt";
+            this.Punish.Name = "Punish";
+            this.Punish.ReadOnly = true;
+            // 
+            // Pay
+            // 
+            this.Pay.HeaderText = "Tiền thanh toán";
+            this.Pay.Name = "Pay";
+            this.Pay.ReadOnly = true;
+            this.Pay.Width = 150;
+            // 
+            // DataTimekeep
+            // 
+            this.DataTimekeep.HeaderText = "Chấm công";
+            this.DataTimekeep.Name = "DataTimekeep";
+            this.DataTimekeep.ReadOnly = true;
+            this.DataTimekeep.Width = 120;
             // 
             // txtPayed
             // 
             this.txtPayed.AutoSize = true;
             this.txtPayed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPayed.ForeColor = System.Drawing.Color.Navy;
-            this.txtPayed.Location = new System.Drawing.Point(225, 536);
+            this.txtPayed.Location = new System.Drawing.Point(219, 509);
             this.txtPayed.Name = "txtPayed";
             this.txtPayed.Size = new System.Drawing.Size(19, 20);
             this.txtPayed.TabIndex = 155;
@@ -248,55 +268,11 @@
             this.lbPayed.AutoSize = true;
             this.lbPayed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPayed.ForeColor = System.Drawing.Color.Crimson;
-            this.lbPayed.Location = new System.Drawing.Point(9, 536);
+            this.lbPayed.Location = new System.Drawing.Point(3, 509);
             this.lbPayed.Name = "lbPayed";
             this.lbPayed.Size = new System.Drawing.Size(206, 20);
             this.lbPayed.TabIndex = 154;
             this.lbPayed.Text = "TIỀN ĐÃ THANH TOÁN :";
-            // 
-            // lbPay
-            // 
-            this.lbPay.AutoSize = true;
-            this.lbPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPay.ForeColor = System.Drawing.Color.Crimson;
-            this.lbPay.Location = new System.Drawing.Point(8, 504);
-            this.lbPay.Name = "lbPay";
-            this.lbPay.Size = new System.Drawing.Size(217, 20);
-            this.lbPay.TabIndex = 153;
-            this.lbPay.Text = "TIỀN CẦN THANH TOÁN :";
-            // 
-            // txtPay
-            // 
-            this.txtPay.AutoSize = true;
-            this.txtPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPay.ForeColor = System.Drawing.Color.Navy;
-            this.txtPay.Location = new System.Drawing.Point(225, 504);
-            this.txtPay.Name = "txtPay";
-            this.txtPay.Size = new System.Drawing.Size(19, 20);
-            this.txtPay.TabIndex = 152;
-            this.txtPay.Text = "0";
-            // 
-            // txtWage
-            // 
-            this.txtWage.AutoSize = true;
-            this.txtWage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWage.ForeColor = System.Drawing.Color.Navy;
-            this.txtWage.Location = new System.Drawing.Point(225, 444);
-            this.txtWage.Name = "txtWage";
-            this.txtWage.Size = new System.Drawing.Size(19, 20);
-            this.txtWage.TabIndex = 151;
-            this.txtWage.Text = "0";
-            // 
-            // lbWage
-            // 
-            this.lbWage.AutoSize = true;
-            this.lbWage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbWage.ForeColor = System.Drawing.Color.Crimson;
-            this.lbWage.Location = new System.Drawing.Point(9, 444);
-            this.lbWage.Name = "lbWage";
-            this.lbWage.Size = new System.Drawing.Size(110, 20);
-            this.lbWage.TabIndex = 150;
-            this.lbWage.Text = "TIỀN CÔNG:";
             // 
             // panel2
             // 
@@ -432,17 +408,6 @@
             this.txtMSNV.Size = new System.Drawing.Size(157, 23);
             this.txtMSNV.TabIndex = 0;
             this.txtMSNV.SelectedIndexChanged += new System.EventHandler(this.txtMSNV_SelectedIndexChanged);
-            // 
-            // lbDebt
-            // 
-            this.lbDebt.AutoSize = true;
-            this.lbDebt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDebt.ForeColor = System.Drawing.Color.Crimson;
-            this.lbDebt.Location = new System.Drawing.Point(8, 566);
-            this.lbDebt.Name = "lbDebt";
-            this.lbDebt.Size = new System.Drawing.Size(89, 20);
-            this.lbDebt.TabIndex = 158;
-            this.lbDebt.Text = "TIỀN NỢ :";
             // 
             // panel1
             // 
@@ -782,90 +747,6 @@
             this.label8.TabIndex = 146;
             this.label8.Text = "QUẢN LÝ NHÂN VIÊN VÀ THANH TOÁN";
             // 
-            // MSTT
-            // 
-            this.MSTT.HeaderText = "MSTT";
-            this.MSTT.Name = "MSTT";
-            this.MSTT.ReadOnly = true;
-            // 
-            // Date
-            // 
-            this.Date.HeaderText = "Ngày lập";
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            this.Date.Width = 150;
-            // 
-            // dgName
-            // 
-            this.dgName.HeaderText = "MSNV";
-            this.dgName.Name = "dgName";
-            this.dgName.ReadOnly = true;
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Họ tên";
-            this.Name.Name = "Name";
-            this.Name.ReadOnly = true;
-            this.Name.Width = 150;
-            // 
-            // TotalTime
-            // 
-            this.TotalTime.HeaderText = "Thời gian";
-            this.TotalTime.Name = "TotalTime";
-            this.TotalTime.ReadOnly = true;
-            // 
-            // Product
-            // 
-            this.Product.HeaderText = "Sản phẩm";
-            this.Product.Name = "Product";
-            this.Product.ReadOnly = true;
-            // 
-            // Debt
-            // 
-            this.Debt.HeaderText = "Tiền nợ trước";
-            this.Debt.Name = "Debt";
-            this.Debt.ReadOnly = true;
-            this.Debt.Width = 150;
-            // 
-            // Cash
-            // 
-            this.Cash.HeaderText = "Tiền ứng";
-            this.Cash.Name = "Cash";
-            this.Cash.ReadOnly = true;
-            this.Cash.Width = 150;
-            // 
-            // Food
-            // 
-            this.Food.HeaderText = "Tiền cơm";
-            this.Food.Name = "Food";
-            this.Food.ReadOnly = true;
-            // 
-            // Bonus
-            // 
-            this.Bonus.HeaderText = "Tiền thưởng";
-            this.Bonus.Name = "Bonus";
-            this.Bonus.ReadOnly = true;
-            // 
-            // Punish
-            // 
-            this.Punish.HeaderText = "Tiền phạt";
-            this.Punish.Name = "Punish";
-            this.Punish.ReadOnly = true;
-            // 
-            // Pay
-            // 
-            this.Pay.HeaderText = "Tiền thanh toán";
-            this.Pay.Name = "Pay";
-            this.Pay.ReadOnly = true;
-            this.Pay.Width = 150;
-            // 
-            // DataTimekeep
-            // 
-            this.DataTimekeep.HeaderText = "Chấm công";
-            this.DataTimekeep.Name = "DataTimekeep";
-            this.DataTimekeep.ReadOnly = true;
-            this.DataTimekeep.Width = 120;
-            // 
             // MCEmployeeManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -901,16 +782,8 @@
         private System.Windows.Forms.TabControl tabContro;
         private System.Windows.Forms.TabPage TabPay;
         private System.Windows.Forms.DataGridView dataDS;
-        private System.Windows.Forms.Label txtDebtNow;
-        private System.Windows.Forms.Label lbCash;
-        private System.Windows.Forms.Label txtCash;
         private System.Windows.Forms.Label txtPayed;
         private System.Windows.Forms.Label lbPayed;
-        private System.Windows.Forms.Label lbPay;
-        private System.Windows.Forms.Button btnDetail;
-        private System.Windows.Forms.Label txtPay;
-        private System.Windows.Forms.Label txtWage;
-        private System.Windows.Forms.Label lbWage;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox txtMonth;
@@ -923,7 +796,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox txtMSNV;
-        private System.Windows.Forms.Label lbDebt;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label9;

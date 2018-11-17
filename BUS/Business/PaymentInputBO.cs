@@ -12,6 +12,7 @@ namespace BUS.Business
     {
         public int GetID()
         {
+            sqlQuery("DBCC CHECKIDENT ('PaymentInput', RESEED, 1)");
             int count = GetData(u => u.isDelete == false||u.isDelete==true).ToList().Count();
             if(count==0)
             {

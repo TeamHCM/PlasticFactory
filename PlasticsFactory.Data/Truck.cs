@@ -16,7 +16,7 @@ namespace PlasticsFactory.Data
     {
         public int ID { get; set; }
         public string LicencePlate { get; set; }
-        public Nullable<int> Weight { get; set; }
+        public Nullable<double> Weight { get; set; }
         public int MSKH { get; set; }
         public bool isDelete { get; set; }
     

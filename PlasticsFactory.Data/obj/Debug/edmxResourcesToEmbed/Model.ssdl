@@ -30,11 +30,10 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
-    <Property Name="DATE" Type="date" />
+    <Property Name="DATE" Type="datetime" />
     <Property Name="MSNV" Type="char" MaxLength="10" />
     <Property Name="PAY" Type="float" Nullable="false" />
     <Property Name="NEBT" Type="float" Nullable="false" />
-    <Property Name="isDelete" Type="bit" Nullable="false" />
     <Property Name="ProductPrice" Type="int" Nullable="false" />
     <Property Name="TimePrice" Type="int" Nullable="false" />
     <Property Name="Wage" Type="float" Nullable="false" />
@@ -42,6 +41,8 @@
     <Property Name="isPayed" Type="bit" Nullable="false" />
     <Property Name="MonthOfPay" Type="int" Nullable="false" />
     <Property Name="YearOfPay" Type="int" Nullable="false" />
+    <Property Name="FirstPay" Type="bit" Nullable="false" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="EmployeeType">
     <Key>
@@ -96,15 +97,15 @@
     <Property Name="Date" Type="date" />
     <Property Name="MSKH" Type="int" Nullable="false" />
     <Property Name="MSXE" Type="text" />
-    <Property Name="TruckWeight" Type="int" />
-    <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
-    <Property Name="ProductWeight" Type="int" />
-    <Property Name="ProductPrice" Type="int" />
-    <Property Name="TotalAmount" Type="int" Nullable="false" />
-    <Property Name="Payed" Type="int" Nullable="false" />
-    <Property Name="Own" Type="int" Nullable="false" />
+    <Property Name="TruckWeight" Type="float" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProductWeight" Type="float" Nullable="false" />
+    <Property Name="ProductPrice" Type="float" />
+    <Property Name="TotalAmount" Type="float" Nullable="false" />
+    <Property Name="Payed" Type="float" Nullable="false" />
+    <Property Name="Own" Type="float" Nullable="false" />
     <Property Name="Paid" Type="bit" Nullable="false" />
-    <Property Name="TotalWeight" Type="int" Nullable="false" />
+    <Property Name="TotalWeight" Type="float" Nullable="false" />
     <Property Name="isDelete" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="ProductIP">
@@ -133,15 +134,15 @@
     <Property Name="Date" Type="date" />
     <Property Name="MSKH" Type="int" />
     <Property Name="MSXE" Type="text" />
-    <Property Name="TruckWeight" Type="int" />
+    <Property Name="TruckWeight" Type="float" Nullable="false" />
     <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
-    <Property Name="ProductWeight" Type="int" />
-    <Property Name="ProductPrice" Type="int" />
-    <Property Name="TotalAmount" Type="int" />
-    <Property Name="Payed" Type="int" Nullable="false" />
-    <Property Name="Own" Type="int" Nullable="false" />
+    <Property Name="ProductWeight" Type="float" Nullable="false" />
+    <Property Name="ProductPrice" Type="float" Nullable="false" />
+    <Property Name="TotalAmount" Type="float" Nullable="false" />
+    <Property Name="Payed" Type="float" Nullable="false" />
+    <Property Name="Own" Type="float" Nullable="false" />
     <Property Name="Paid" Type="bit" Nullable="false" />
-    <Property Name="TotalWeight" Type="int" Nullable="false" />
+    <Property Name="TotalWeight" Type="float" Nullable="false" />
     <Property Name="isDelete" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Timekeeping">
@@ -157,13 +158,13 @@
     <Property Name="Type" Type="int" />
     <Property Name="TotalWeight" Type="int" />
     <Property Name="AdvancePayment" Type="float" />
-    <Property Name="Note" Type="nvarchar" MaxLength="200" />
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="isDelete" Type="bit" Nullable="false" />
     <Property Name="Food" Type="float" Nullable="false" />
     <Property Name="Punish" Type="float" Nullable="false" />
     <Property Name="Bunus" Type="float" Nullable="false" />
     <Property Name="isRest" Type="bit" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="OverTime" Type="float" Nullable="false" />
   </EntityType>
   <EntityType Name="TypeofCustomer">
@@ -187,7 +188,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="LicencePlate" Type="nchar" MaxLength="10" />
-    <Property Name="Weight" Type="int" />
+    <Property Name="Weight" Type="float" />
     <Property Name="MSKH" Type="int" Nullable="false" />
     <Property Name="isDelete" Type="bit" Nullable="false" />
   </EntityType>

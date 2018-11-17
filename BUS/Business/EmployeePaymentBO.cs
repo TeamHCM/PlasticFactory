@@ -15,7 +15,7 @@ namespace BUS.Business
             int count=GetData(u => u.isDelete == false || u.isDelete == true).Count();
             if(count==0)
             {
-                sqlQuery("DBCC CHECKIDENT (‘EmployeePayment’, RESEED, 1)");
+                sqlQuery("DBCC CHECKIDENT (‘EmployeePayment’, RESEED, 0)");
                 return 1;
             }
             else
