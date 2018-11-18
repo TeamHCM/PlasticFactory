@@ -76,48 +76,20 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         {
             if (txtMSNV.Text == string.Empty)
             {
-                var listDB = preferceProductPriceBO.GetData(u => u.Name.Trim() == "Sản phẩm");
-                foreach (var item in listDB)
-                {
-                    txtMoneyOfProduct.Items.Add(item.Price);
-                }
                 txtMoneyOfProduct.Text = preferceProductPriceBO.GetData(u => u.Name.Trim() == "Sản phẩm").First().Price.ToString();
-
-                listDB = preferceProductPriceBO.GetData(u => u.Name.Trim() == "Thời gian");
-                foreach (var item in listDB)
-                {
-                    txtMoneyOfTime.Items.Add(item.Price);
-                }
                 txtMoneyOfTime.Text = preferceProductPriceBO.GetData(u => u.Name.Trim() == "Thời gian").First().Price.ToString();
             }
             else
             {
                 var listP = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == txtMSNV.Text
                 & u.MonthOfPay == int.Parse(txtMonth.Text) && u.YearOfPay == int.Parse(txtYear.Text));
-                if(listP.Count==0)
+                if (listP.Count == 0)
                 {
-                    txtMoneyOfProduct.Items.Clear();
-                    txtMoneyOfTime.Items.Clear();
-                    var listDB = preferceProductPriceBO.GetData(u => u.Name.Trim() == "Sản phẩm");
-                    foreach (var item in listDB)
-                    {
-                        txtMoneyOfProduct.Items.Add(item.Price);
-                    }
                     txtMoneyOfProduct.Text = preferceProductPriceBO.GetData(u => u.Name.Trim() == "Sản phẩm").First().Price.ToString();
-
-                    listDB = preferceProductPriceBO.GetData(u => u.Name.Trim() == "Thời gian");
-                    foreach (var item in listDB)
-                    {
-                        txtMoneyOfTime.Items.Add(item.Price);
-                    }
                     txtMoneyOfTime.Text = preferceProductPriceBO.GetData(u => u.Name.Trim() == "Thời gian").First().Price.ToString();
                 }
                 else
                 {
-                    txtMoneyOfProduct.Items.Clear();
-                    txtMoneyOfTime.Items.Clear();
-                    txtMoneyOfProduct.Items.Add(listP.First().ProductPrice);
-                    txtMoneyOfTime.Items.Add(listP.First().TimePrice);
                     txtMoneyOfProduct.Text = listP.First().ProductPrice.ToString();
                     txtMoneyOfTime.Text = listP.First().TimePrice.ToString();
                 }
@@ -155,7 +127,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         private void loadTotalOFDetail()
         {
             payment = new Payment();
-            double Time = Math.Round((double)listTime.Sum(u => u.Time),1);
+            double Time = Math.Round((double)listTime.Sum(u => u.Time), 1);
             double Product = (double)listTime.Sum(u => long.Parse(u.TotalWeight.ToString()));
             payment.cash = (int)listTime.Sum(u => u.AdvancePayment);
             payment.payed = listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).Sum(u => u.PAY);
@@ -168,6 +140,19 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             txtBonus.Text = payment.bonus.ToString();
             txtPunish.Text = payment.punish.ToString();
             txtFood.Text = payment.food.ToString();
+            //kiểm tra pay đã thanh toán trước đó chưa rồi thì không cho phép chỉnh sửa giá trị tiền sản phẩm và thời gian
+            if (listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).Count() != 0)
+            {
+                txtMoneyOfProduct.Text = listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).First().ProductPrice.ToString("#,###");
+                txtMoneyOfTime.Text = listEpay.Where(u => u.MonthOfPay == Month && u.YearOfPay == Year).First().TimePrice.ToString("#,###");
+                txtMoneyOfProduct.Enabled = false;
+                txtMoneyOfTime.Enabled = false;
+            }
+            else
+            {
+                txtMoneyOfProduct.Enabled = true;
+                txtMoneyOfTime.Enabled = true;
+            }
             if (panelWage.Enabled == true)
             {
                 var listWage = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == MSNV && u.DATE.Value.Month == MonthDS && u.DATE.Value.Year == YearDS && u.MonthOfPay == Month && u.YearOfPay == Year);
@@ -292,7 +277,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                 dataDS.Rows[i].Cells[3].Value = employeeBO.GetNameByID(item.MSNV);
                 dataDS.Rows[i].Cells[4].Value = item.Wage;
                 dataDS.Rows[i].Cells[5].Value = item.Cash;
-                dataDS.Rows[i].Cells[6].Value = listTimekeep.Sum(u=>u.Food);
+                dataDS.Rows[i].Cells[6].Value = listTimekeep.Sum(u => u.Food);
                 dataDS.Rows[i].Cells[7].Value = listTimekeep.Sum(u => u.Bunus);
                 dataDS.Rows[i].Cells[8].Value = listTimekeep.Sum(u => u.Punish);
                 dataDS.Rows[i].Cells[9].Value = item.NEBT;
@@ -398,10 +383,14 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                     txtTime.Text = "0";
                     txtWage.Text = employeeWageBO.GetData(u => u.ID != 0).First().Wage.ToString();
                     panelWage.Visible = true;
+                    txtMoneyOfProduct.Visible = false;
+                    txtMoneyOfTime.Visible = false;
                 }
                 else
                 {
                     panelWage.Visible = false;
+                    txtMoneyOfProduct.Visible = true;
+                    txtMoneyOfTime.Visible = true;
                 }
                 loadPrice();
                 loadTotalOFDetail();
@@ -628,8 +617,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             int ID = int.Parse(txtID.Text.Substring(2));
             Payment Editpayment = new Payment();
             double Time = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == MSNV && u.Date.Value.Month == int.Parse(txtMonth.Text) && u.Date.Value.Year == int.Parse(txtYear.Text)).Sum(u => u.Time);
-            int Product = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == MSNV && u.Date.Value.Month == int.Parse(txtMonth.Text) && u.Date.Value.Year == int.Parse(txtYear.Text)).Sum(u => u.TotalWeight).Value;
-            Editpayment.cash = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == MSNV && u.Date.Value.Month == int.Parse(txtMonth.Text) && u.Date.Value.Year == int.Parse(txtYear.Text)).Sum(u => u.AdvancePayment).Value;
+            double Product = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == MSNV && u.Date.Value.Month == int.Parse(txtMonth.Text) && u.Date.Value.Year == int.Parse(txtYear.Text)).Sum(u => u.TotalWeight);
+            Editpayment.cash = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == MSNV && u.Date.Value.Month == int.Parse(txtMonth.Text) && u.Date.Value.Year == int.Parse(txtYear.Text)).Sum(u => u.AdvancePayment);
             Editpayment.payed = employeePaymentBO.GetData(u => u.isDelete == false && u.MSNV == txtMSNV.Text).Where(u => u.DATE.Value.Month == Month && u.DATE.Value.Year == Year && u.MonthOfPay == int.Parse(txtMonth.Text) && u.YearOfPay == int.Parse(txtYear.Text) && u.ID != ID).Sum(u => u.PAY);
 
             //GetTime month ago =>Debt
@@ -815,7 +804,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if(double.Parse(txtWage.Text)>0)
+                if (double.Parse(txtWage.Text) > 0)
                 {
                     loadTotalOFDetail();
                     btnThem.Focus();
@@ -829,7 +818,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
 
         private void DVprintDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            e.Graphics.DrawString("Helloworld", new Font("Arial", 12, FontStyle.Regular),Brushes.AliceBlue,new Point(25,0));
+            e.Graphics.DrawString("Helloworld", new Font("Arial", 12, FontStyle.Regular), Brushes.AliceBlue, new Point(25, 0));
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -850,15 +839,15 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                     ptime.TimeEnd = item.TimeEnd != string.Empty ? item.TimeEnd : "X";
                     ptime.TimeStart = item.TimeStart != string.Empty ? item.TimeStart : "X";
                     ptime.Time = item.Time;
-                    ptime.Weight = item.Weight.Value;
-                    ptime.Type = item.Type.Value;
-                    ptime.TotalWeight = item.TotalWeight.Value;
+                    ptime.Weight = item.Weight;
+                    ptime.Type = item.Type;
+                    ptime.TotalWeight = item.TotalWeight;
                     ptime.Food = item.Food;
                     ptime.Bunus = item.Bunus;
                     ptime.Punish = item.Punish;
                     ptime.Date = item.Date.Value;
                     ptime.Note = item.Note;
-                    ptime.AdvancePayment = item.AdvancePayment.Value;
+                    ptime.AdvancePayment = item.AdvancePayment;
                     if (item.isRest == true)
                     {
                         ptime.isRest = "Yes";
@@ -873,6 +862,36 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
                 {
                     frmprint.ShowDialog();
                 }
+            }
+        }
+
+        private void txtMoneyOfTime_Leave(object sender, EventArgs e)
+        {
+            double money = Math.Round((double)txtMoneyOfTime.Value);
+            txtMoneyOfTime.Text = money.ToString();
+            loadTotalOFDetail();
+        }
+
+        private void txtMoneyOfProduct_Leave(object sender, EventArgs e)
+        {
+            double money = Math.Round((double)txtMoneyOfProduct.Value);
+            txtMoneyOfProduct.Text = money.ToString();
+            loadTotalOFDetail();
+        }
+
+        private void txtMoneyOfTime_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtMoneyOfProduct.Focus();
+            }
+        }
+
+        private void txtMoneyOfProduct_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+            {
+                btnThem.Focus();
             }
         }
     }

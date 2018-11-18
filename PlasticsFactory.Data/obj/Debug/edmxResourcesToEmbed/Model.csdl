@@ -168,10 +168,10 @@
     <Property Name="TimeStart" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="TimeEnd" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Time" Type="Double" Nullable="false" />
-    <Property Name="Weight" Type="Int32" />
-    <Property Name="Type" Type="Int32" />
-    <Property Name="TotalWeight" Type="Int32" />
-    <Property Name="AdvancePayment" Type="Double" />
+    <Property Name="Weight" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="TotalWeight" Type="Double" Nullable="false" />
+    <Property Name="AdvancePayment" Type="Double" Nullable="false" />
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="isDelete" Type="Boolean" Nullable="false" />
     <Property Name="Food" Type="Double" Nullable="false" />

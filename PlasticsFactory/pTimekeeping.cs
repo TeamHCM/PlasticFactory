@@ -16,7 +16,7 @@ namespace PlasticsFactory
         public double Time { get; set; }
         public int Weight { get; set; }
         public int Type { get; set; }
-        public int TotalWeight { get; set; }
+        public double TotalWeight { get; set; }
         public double AdvancePayment { get; set; }
         public string Note { get; set; }
         public int Id { get; set; }

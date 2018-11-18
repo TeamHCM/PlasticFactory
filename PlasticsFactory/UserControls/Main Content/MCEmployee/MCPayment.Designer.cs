@@ -31,8 +31,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MCPaymentEmployee));
             this.txtID = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -40,7 +40,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.txtNoteMoney = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.txtMoneyOfProduct = new System.Windows.Forms.ComboBox();
             this.txtDate = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
@@ -79,7 +78,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.Debt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Timekeep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtMoneyOfTime = new System.Windows.Forms.ComboBox();
             this.txtTime = new System.Windows.Forms.Label();
             this.txtProduct = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -111,6 +109,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.label12 = new System.Windows.Forms.Label();
             this.btnPrint = new System.Windows.Forms.Button();
             this.DVprintDocument = new System.Drawing.Printing.PrintDocument();
+            this.txtMoneyOfTime = new DevExpress.XtraEditors.CalcEdit();
+            this.txtMoneyOfProduct = new DevExpress.XtraEditors.CalcEdit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataDetailWork)).BeginInit();
@@ -122,6 +122,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             ((System.ComponentModel.ISupportInitialize)(this.txtPay.Properties)).BeginInit();
             this.panelWage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtWage.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMoneyOfTime.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMoneyOfProduct.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtID
@@ -189,15 +191,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.btnEdit.Visible = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             this.btnEdit.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnEdit_KeyUp);
-            // 
-            // txtMoneyOfProduct
-            // 
-            this.txtMoneyOfProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMoneyOfProduct.FormattingEnabled = true;
-            this.txtMoneyOfProduct.Location = new System.Drawing.Point(705, 60);
-            this.txtMoneyOfProduct.Name = "txtMoneyOfProduct";
-            this.txtMoneyOfProduct.Size = new System.Drawing.Size(102, 24);
-            this.txtMoneyOfProduct.TabIndex = 185;
             // 
             // txtDate
             // 
@@ -429,14 +422,14 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             // 
             // dataDS
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataDS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataDS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MSTT,
@@ -455,8 +448,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.dataDS.Name = "dataDS";
             this.dataDS.ReadOnly = true;
             this.dataDS.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataDS.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataDS.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataDS.Size = new System.Drawing.Size(795, 244);
             this.dataDS.TabIndex = 159;
             this.dataDS.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDS_CellDoubleClick);
@@ -537,15 +530,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.Timekeep.Name = "Timekeep";
             this.Timekeep.ReadOnly = true;
             this.Timekeep.Width = 50;
-            // 
-            // txtMoneyOfTime
-            // 
-            this.txtMoneyOfTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMoneyOfTime.FormattingEnabled = true;
-            this.txtMoneyOfTime.Location = new System.Drawing.Point(705, 33);
-            this.txtMoneyOfTime.Name = "txtMoneyOfTime";
-            this.txtMoneyOfTime.Size = new System.Drawing.Size(100, 24);
-            this.txtMoneyOfTime.TabIndex = 188;
             // 
             // txtTime
             // 
@@ -814,7 +798,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             // 
             this.panelWage.Controls.Add(this.txtWage);
             this.panelWage.Controls.Add(this.label12);
-            this.panelWage.Location = new System.Drawing.Point(542, 33);
+            this.panelWage.Location = new System.Drawing.Point(542, 28);
             this.panelWage.Name = "panelWage";
             this.panelWage.Size = new System.Drawing.Size(287, 52);
             this.panelWage.TabIndex = 214;
@@ -857,10 +841,34 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             // 
             this.DVprintDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.DVprintDocument_PrintPage);
             // 
+            // txtMoneyOfTime
+            // 
+            this.txtMoneyOfTime.Location = new System.Drawing.Point(705, 34);
+            this.txtMoneyOfTime.Name = "txtMoneyOfTime";
+            this.txtMoneyOfTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtMoneyOfTime.Size = new System.Drawing.Size(100, 20);
+            this.txtMoneyOfTime.TabIndex = 216;
+            this.txtMoneyOfTime.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMoneyOfTime_KeyUp);
+            this.txtMoneyOfTime.Leave += new System.EventHandler(this.txtMoneyOfTime_Leave);
+            // 
+            // txtMoneyOfProduct
+            // 
+            this.txtMoneyOfProduct.Location = new System.Drawing.Point(705, 62);
+            this.txtMoneyOfProduct.Name = "txtMoneyOfProduct";
+            this.txtMoneyOfProduct.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtMoneyOfProduct.Size = new System.Drawing.Size(100, 20);
+            this.txtMoneyOfProduct.TabIndex = 217;
+            this.txtMoneyOfProduct.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMoneyOfProduct_KeyUp);
+            this.txtMoneyOfProduct.Leave += new System.EventHandler(this.txtMoneyOfProduct_Leave);
+            // 
             // MCPaymentEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txtMoneyOfProduct);
+            this.Controls.Add(this.txtMoneyOfTime);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.panelWage);
             this.Controls.Add(this.txtBonus);
@@ -885,14 +893,12 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.Controls.Add(this.label15);
             this.Controls.Add(this.txtProduct);
             this.Controls.Add(this.txtTime);
-            this.Controls.Add(this.txtMoneyOfTime);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.txtMoneyOfProduct);
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dataDetailWork);
@@ -926,6 +932,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
             this.panelWage.ResumeLayout(false);
             this.panelWage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtWage.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMoneyOfTime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMoneyOfProduct.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -940,7 +948,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.ComboBox txtMoneyOfProduct;
         private System.Windows.Forms.DateTimePicker txtDate;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label laBill;
@@ -958,7 +965,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataDS;
         private System.Windows.Forms.Label txtDayWork;
-        private System.Windows.Forms.ComboBox txtMoneyOfTime;
         private System.Windows.Forms.Label txtTime;
         private System.Windows.Forms.Label txtProduct;
         private System.Windows.Forms.Label label15;
@@ -1010,5 +1016,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCEmployee
         private System.Windows.Forms.DataGridViewTextBoxColumn Timekeep;
         private System.Windows.Forms.Button btnPrint;
         private System.Drawing.Printing.PrintDocument DVprintDocument;
+        private CalcEdit txtMoneyOfTime;
+        private CalcEdit txtMoneyOfProduct;
     }
 }

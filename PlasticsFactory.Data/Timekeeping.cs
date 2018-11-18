@@ -19,10 +19,10 @@ namespace PlasticsFactory.Data
         public string TimeStart { get; set; }
         public string TimeEnd { get; set; }
         public double Time { get; set; }
-        public Nullable<int> Weight { get; set; }
-        public Nullable<int> Type { get; set; }
-        public Nullable<int> TotalWeight { get; set; }
-        public Nullable<double> AdvancePayment { get; set; }
+        public int Weight { get; set; }
+        public int Type { get; set; }
+        public double TotalWeight { get; set; }
+        public double AdvancePayment { get; set; }
         public int Id { get; set; }
         public bool isDelete { get; set; }
         public double Food { get; set; }

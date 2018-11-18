@@ -40,6 +40,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             //txtNgay.Text = DateTime.Now.Day.ToString();
             //txtThang.Text = DateTime.Now.Month.ToString();
             //txtNam.Text = DateTime.Now.Year.ToString();
+            txtWeightAdd.Text = "0";
             tempMSNV = "";
             dateByMSNV = "";
             txtHoten.Focus();
@@ -61,22 +62,27 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 dataDS.Rows[i].Cells[6].Value = item.Time;
                 dataDS.Rows[i].Cells[7].Value = item.Weight;
                 dataDS.Rows[i].Cells[8].Value = item.Type;
-                dataDS.Rows[i].Cells[9].Value = item.TotalWeight;
-                dataDS.Rows[i].Cells[10].Value = item.AdvancePayment;
-                dataDS.Rows[i].Cells[11].Value = item.Food;
-                dataDS.Rows[i].Cells[12].Value = item.Punish;
-                dataDS.Rows[i].Cells[13].Value = item.Bunus;
-                dataDS.Rows[i].Cells[14].Value = item.Note;
+                dataDS.Rows[i].Cells[9].Value = item.TotalWeight - item.Weight * item.Type;
+                dataDS.Rows[i].Cells[10].Value = item.TotalWeight;
+                dataDS.Rows[i].Cells[11].Value = item.AdvancePayment;
+                dataDS.Rows[i].Cells[12].Value = item.Food;
+                dataDS.Rows[i].Cells[13].Value = item.Punish;
+                dataDS.Rows[i].Cells[14].Value = item.Bunus;
+                dataDS.Rows[i].Cells[15].Value = item.Note;
                 if (item.isRest == true)
                 {
-                    dataDS.Rows[i].Cells[15].Value = "Yes";
+                    dataDS.Rows[i].Cells[16].Value = "Yes";
                 }
                 else
                 {
-                    dataDS.Rows[i].Cells[15].Value = "No";
+                    dataDS.Rows[i].Cells[16].Value = "No";
                 }
                 i++;
             }
+            dataDS.CurrentCell = dataDS.Rows[i].Cells[0];
+            dataDS.CurrentRow.Selected = true;
+            txtTotalTime.Text = list.Sum(u => u.Time) != 0 ? list.Sum(u => u.Time).ToString("#,###") : "0";
+            lbTotalWeight.Text= list.Sum(u => u.TotalWeight) != 0 ? list.Sum(u => u.TotalWeight).ToString("#,###") : "0";
         }
 
         public float Interval(string timeStart, string timeEnd)
@@ -126,7 +132,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             else
             {
                 timekeeping.Weight = int.Parse(txtWeight.Text);
-                timekeeping.TotalWeight = (int.Parse(txtWeight.Text) * int.Parse(txtTypeWeight.Text));
+                timekeeping.TotalWeight = (int.Parse(txtWeight.Text) * int.Parse(txtTypeWeight.Text))+double.Parse(txtWeightAdd.Text);
             }
             timekeeping.Type = int.Parse(txtTypeWeight.Text);
             if (txtCashAdvance.Text.Equals(""))
@@ -857,6 +863,10 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             {
                 txtTypeWeight.Focus();
             }
+            if (e.KeyCode == Keys.Down)
+            {
+                txtWeightAdd.Focus();
+            }
             if (e.KeyCode == Keys.Right)
             {
                 txtFood.Focus();
@@ -989,12 +999,13 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                                 txtOvertime.Text = dataDS.Rows[e.RowIndex].Cells[5].Value.ToString();
                                 txtWeight.Text = dataDS.Rows[e.RowIndex].Cells[7].Value.ToString();
                                 txtTypeWeight.Text = dataDS.Rows[e.RowIndex].Cells[8].Value.ToString();
-                                txtCashAdvance.Text = dataDS.Rows[e.RowIndex].Cells[10].Value.ToString();
-                                txtFood.Text = dataDS.Rows[e.RowIndex].Cells[11].Value.ToString();
-                                txtPunish.Text = dataDS.Rows[e.RowIndex].Cells[12].Value.ToString();
-                                txtBonus.Text = dataDS.Rows[e.RowIndex].Cells[13].Value.ToString();
-                                txtNote.Text = dataDS.Rows[e.RowIndex].Cells[14].Value.ToString();
-                                if (dataDS.Rows[e.RowIndex].Cells[15].Value.ToString() == "Yes")
+                                txtWeightAdd.Text = dataDS.Rows[e.RowIndex].Cells[9].Value.ToString();
+                                txtCashAdvance.Text = dataDS.Rows[e.RowIndex].Cells[11].Value.ToString();
+                                txtFood.Text = dataDS.Rows[e.RowIndex].Cells[12].Value.ToString();
+                                txtPunish.Text = dataDS.Rows[e.RowIndex].Cells[13].Value.ToString();
+                                txtBonus.Text = dataDS.Rows[e.RowIndex].Cells[14].Value.ToString();
+                                txtNote.Text = dataDS.Rows[e.RowIndex].Cells[15].Value.ToString();
+                                if (dataDS.Rows[e.RowIndex].Cells[16].Value.ToString() == "Yes")
                                 {
                                     checkRest.Checked = true;
                                 }
@@ -1007,6 +1018,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                             catch
                             {
                             }
+                            dataDS.CurrentCell = dataDS.Rows[e.RowIndex].Cells[0];
+                            dataDS.CurrentRow.Selected = true;
                             txtNgay.Enabled = false;
                             txtThang.Enabled = false;
                             txtNam.Enabled = false;
@@ -1100,12 +1113,12 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 bool IsExistPayment = employeePaymentBO.isExist(txtMSNV.Text, int.Parse(txtThang.Text), int.Parse(txtNam.Text));
                 if (!IsExistPayment)
                 {
-                    if (IsFieldEmployeeByDateInDB || IsFieldEmployeeByDateInList)
-                    {
-                        MessageBox.Show("Nhân viên đã nãy đã được chấm công vào này rồi. Vui lòng kiểm tra lại");
-                    }
-                    else
-                    {
+                    //if (IsFieldEmployeeByDateInDB || IsFieldEmployeeByDateInList)
+                    //{
+                    //    MessageBox.Show("Nhân viên đã nãy đã được chấm công vào này rồi. Vui lòng kiểm tra lại");
+                    //}
+                    //else
+                    //{
                         int Type = employeeBO.GetData(u => u.isDelete == false && u.MSNV == txtMSNV.Text).First().Type.Value;
                         //theo thang
                         if (Type == 1)
@@ -1157,7 +1170,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                                 txtHoten.Focus();
                             }
                         }
-                    }
+                    //}
                 }
                 else
                 {
@@ -1193,7 +1206,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             else
             {
                 timekeeping.Weight = int.Parse(txtWeight.Text);
-                timekeeping.TotalWeight = (int.Parse(txtWeight.Text) * int.Parse(txtTypeWeight.Text));
+                timekeeping.TotalWeight = (int.Parse(txtWeight.Text) * int.Parse(txtTypeWeight.Text))+double.Parse(txtWeightAdd.Text);
             }
             timekeeping.Type = int.Parse(txtTypeWeight.Text);
             if (txtCashAdvance.Text.Equals(""))
@@ -1273,6 +1286,18 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             if (e.KeyCode == Keys.Enter)
             {
                 txtWeight.Focus();
+            }
+            if (e.KeyCode == Keys.Right)
+            {
+                txtWeightAdd.Focus();
+            }
+            if (e.KeyCode == Keys.Left)
+            {
+                txtPunish.Focus();
+            }
+            if (e.KeyCode == Keys.Up)
+            {
+                txtThoigianKT.Focus();
             }
         }
 
@@ -1412,5 +1437,76 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             }
         }
 
+        private void txtWeightAdd_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string result = "";
+                List<string> arrList = new List<string>();
+                int phannguyen = 0;
+                int money = 0;
+                bool checkNum = int.TryParse(txtWeightAdd.Text, out money);
+                if (checkNum == false)
+                {
+                    string[] str = txtWeightAdd.Text.Split(',');
+                    string resStr = "";
+                    foreach (var item in str)
+                    {
+                        resStr += item;
+                    }
+                    money = int.Parse(resStr);
+                }
+                do
+                {
+                    phannguyen = money % 1000;
+                    money = money / 1000;
+                    if (money != 0)
+                    {
+                        arrList.Add("," + phannguyen.ToString("d3"));
+                    }
+                    if (money == 0)
+                    {
+                        arrList.Add(phannguyen.ToString());
+                    }
+                }
+                while (money != 0);
+                for (int i = arrList.Count - 1; i >= 0; i--)
+                {
+                    result += arrList[i];
+                }
+                txtWeightAdd.Text = result;
+                txtWeightAdd.SelectionStart = result.Length;
+            }
+            catch
+            { }
+        }
+
+        private void txtWeightAdd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!Char.IsDigit(e.KeyChar)&&!Char.IsControl(e.KeyChar)&&e.KeyChar!=','&&e.KeyChar!='.')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtWeightAdd_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+            {
+                txtCashAdvance.Focus();
+            }
+            if (e.KeyCode == Keys.Right)
+            {
+                txtFood.Focus();
+            }
+            if (e.KeyCode == Keys.Left)
+            {
+                txtOvertime.Focus();
+            }
+            if (e.KeyCode == Keys.Up)
+            {
+                txtWeight.Focus();
+            }
+        }
     }
 }

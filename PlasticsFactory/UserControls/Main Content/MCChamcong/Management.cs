@@ -19,7 +19,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
         public Timekeeping tempDelete = new Timekeeping();
         private EmployeeBO employeeBO = new EmployeeBO();
         public double totalCashAdvance = 0;
-        public int totalWeight = 0;
+        public double totalWeight = 0;
         private string tempMSNV = "";
 
         public delegate void Transport(string EmployeeName, string MSNV, DateTime Date);
@@ -99,8 +99,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 {
                     dataDS.Rows[i].Cells[15].Value = "No";
                 }
-                totalCashAdvance += item.AdvancePayment.Value;
-                totalWeight += item.TotalWeight.Value;
+                totalCashAdvance += item.AdvancePayment;
+                totalWeight += item.TotalWeight;
                 i++;
             }
             lbCashAdvance.Text = totalCashAdvance == 0 ? "0" : string.Format("{0:0,0 (VNĐ)}", totalCashAdvance);
@@ -192,10 +192,10 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                         dataDS.Rows[i].Cells[1].Value = timekeepingBO.GetNameEmployee(item.MSNV);
                         dataDS.Rows[i].Cells[2].Value = ListDB.First().Date.Value.Month + "/" + ListDB.First().Date.Value.Year;
                         dataDS.Rows[i].Cells[3].Value = ListDB.Sum(u => u.Time);
-                        dataDS.Rows[i].Cells[4].Value = ListDB.Sum(u => u.Weight) == 0 ? "0" : ListDB.Sum(u => u.Weight).Value.ToString("#,###");
+                        dataDS.Rows[i].Cells[4].Value = ListDB.Sum(u => u.Weight) == 0 ? "0" : ListDB.Sum(u => u.Weight).ToString("#,###");
                         dataDS.Rows[i].Cells[5].Value = ListDB.First().Type;
-                        dataDS.Rows[i].Cells[6].Value = ListDB.Sum(u => u.TotalWeight) == 0 ? "0" : ListDB.Sum(u => u.TotalWeight).Value.ToString("#,###");
-                        dataDS.Rows[i].Cells[7].Value = ListDB.Sum(u => u.AdvancePayment).Value == 0 ? "0" : ListDB.Sum(u => u.AdvancePayment).Value.ToString("#,###");
+                        dataDS.Rows[i].Cells[6].Value = ListDB.Sum(u => u.TotalWeight) == 0 ? "0" : ListDB.Sum(u => u.TotalWeight).ToString("#,###");
+                        dataDS.Rows[i].Cells[7].Value = ListDB.Sum(u => u.AdvancePayment) == 0 ? "0" : ListDB.Sum(u => u.AdvancePayment).ToString("#,###");
                         dataDS.Rows[i].Cells[8].Value = ListDB.Sum(u => u.Food) == 0 ? "0" : ListDB.Sum(u => u.Food).ToString("#,###");
                         dataDS.Rows[i].Cells[9].Value = ListDB.Sum(u => u.Punish) == 0 ? "0" : ListDB.Sum(u => u.Punish).ToString("#,###");
                         dataDS.Rows[i].Cells[10].Value = ListDB.Sum(u => u.Bunus) == 0 ? "0" : ListDB.Sum(u => u.Bunus).ToString("#,###");
@@ -838,15 +838,15 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                     ptime.TimeStart = item.TimeStart != string.Empty ? item.TimeStart : "X";
                     ptime.Overtime = item.OverTime;
                     ptime.Time = item.Time;
-                    ptime.Weight = item.Weight.Value;
-                    ptime.Type = item.Type.Value;
-                    ptime.TotalWeight = item.TotalWeight.Value;
+                    ptime.Weight = item.Weight;
+                    ptime.Type = item.Type;
+                    ptime.TotalWeight = item.TotalWeight;
                     ptime.Food = item.Food;
                     ptime.Bunus = item.Bunus;
                     ptime.Punish = item.Punish;
                     ptime.Date = item.Date.Value;
                     ptime.Note = item.Note;
-                    ptime.AdvancePayment = item.AdvancePayment.Value;
+                    ptime.AdvancePayment = item.AdvancePayment;
                     if (item.isRest == true)
                     {
                         ptime.isRest = "Yes";
@@ -872,7 +872,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 {
                     IEnumerable<Timekeeping> listDB = timekeepingBO
                         .GetData(u => u.isDelete == false && u.MSNV == txtMSNV.Text
-                        && u.Date.Value.Month == int.Parse(txtMonth.Text) && u.Date.Value.Year == int.Parse(txtYear.Text) && u.AdvancePayment.Value != 0);
+                        && u.Date.Value.Month == int.Parse(txtMonth.Text) && u.Date.Value.Year == int.Parse(txtYear.Text) && u.AdvancePayment != 0);
                     LoadDataGird(listDB);
                 }
             }

@@ -66,7 +66,7 @@ namespace PlasticsFactory
             txtWeight.Text = temp.Weight.ToString();
             txtTypeWeight.Text = temp.Type.ToString();
             txtNote.Text = temp.Note;
-            txtCashAdvance.Text = temp.AdvancePayment.Value.ToString();
+            txtCashAdvance.Text = temp.AdvancePayment.ToString();
         }
 
         #region Event Time

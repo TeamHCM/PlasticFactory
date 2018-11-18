@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLayout));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.toolEmployee = new System.Windows.Forms.ToolStripMenuItem();
             this.chấmCôngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,9 +95,11 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(1364, 749);
             this.Controls.Add(this.menuStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Name = "frmLayout";
-            this.Text = "Plastic Factory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Quản lý xưởng nhựa";
             this.Load += new System.EventHandler(this.frmLayout_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();

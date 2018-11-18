@@ -154,10 +154,10 @@
     <Property Name="TimeStart" Type="text" />
     <Property Name="TimeEnd" Type="text" />
     <Property Name="Time" Type="float" Nullable="false" />
-    <Property Name="Weight" Type="int" />
-    <Property Name="Type" Type="int" />
-    <Property Name="TotalWeight" Type="int" />
-    <Property Name="AdvancePayment" Type="float" />
+    <Property Name="Weight" Type="int" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="TotalWeight" Type="float" Nullable="false" />
+    <Property Name="AdvancePayment" Type="float" Nullable="false" />
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="isDelete" Type="bit" Nullable="false" />
     <Property Name="Food" Type="float" Nullable="false" />
