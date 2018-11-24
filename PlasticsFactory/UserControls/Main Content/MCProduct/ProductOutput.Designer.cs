@@ -54,17 +54,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.btnRemove = new System.Windows.Forms.Button();
             this.dataDS = new System.Windows.Forms.DataGridView();
-            this.MSDH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MSNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HOVATEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NGAYNHAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MSXE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TTXE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TTHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.THANHTIEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtHoten = new System.Windows.Forms.ComboBox();
@@ -76,6 +65,23 @@
             this.txtTotalWeight = new System.Windows.Forms.Label();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
+            this.txtTypeWeight = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtWeight = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.MSDH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MSNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HOVATEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NGAYNHAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MSXE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TTXE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TTHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeSack = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSack = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.THANHTIEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -168,6 +174,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox1.Controls.Add(this.txtTypeWeight);
+            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtPrice);
             this.groupBox1.Controls.Add(this.txtProductName);
             this.groupBox1.Controls.Add(this.label1);
@@ -184,9 +192,9 @@
             this.txtPrice.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtPrice.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.txtPrice.FormattingEnabled = true;
-            this.txtPrice.Location = new System.Drawing.Point(55, 78);
+            this.txtPrice.Location = new System.Drawing.Point(43, 78);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(205, 21);
+            this.txtPrice.Size = new System.Drawing.Size(139, 21);
             this.txtPrice.TabIndex = 62;
             this.txtPrice.Tag = "";
             this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
@@ -197,9 +205,9 @@
             this.txtProductName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtProductName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.txtProductName.FormattingEnabled = true;
-            this.txtProductName.Location = new System.Drawing.Point(55, 37);
+            this.txtProductName.Location = new System.Drawing.Point(43, 37);
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(205, 21);
+            this.txtProductName.Size = new System.Drawing.Size(241, 21);
             this.txtProductName.TabIndex = 61;
             this.txtProductName.Tag = "";
             this.txtProductName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtProductName_KeyUp);
@@ -209,7 +217,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(52, 63);
+            this.label1.Location = new System.Drawing.Point(40, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 55;
@@ -219,7 +227,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(52, 24);
+            this.label5.Location = new System.Drawing.Point(40, 24);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 13);
             this.label5.TabIndex = 54;
@@ -248,6 +256,8 @@
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox4.Controls.Add(this.txtWeight);
+            this.groupBox4.Controls.Add(this.label14);
             this.groupBox4.Controls.Add(this.txtProductWeight);
             this.groupBox4.Controls.Add(this.txtAll);
             this.groupBox4.Controls.Add(this.label12);
@@ -266,7 +276,7 @@
             this.txtProductWeight.Location = new System.Drawing.Point(58, 79);
             this.txtProductWeight.Name = "txtProductWeight";
             this.txtProductWeight.ReadOnly = true;
-            this.txtProductWeight.Size = new System.Drawing.Size(205, 20);
+            this.txtProductWeight.Size = new System.Drawing.Size(110, 20);
             this.txtProductWeight.TabIndex = 1001;
             // 
             // txtAll
@@ -285,9 +295,9 @@
             // 
             this.txtMSKH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtMSKH.FormattingEnabled = true;
-            this.txtMSKH.Location = new System.Drawing.Point(205, 31);
+            this.txtMSKH.Location = new System.Drawing.Point(174, 31);
             this.txtMSKH.Name = "txtMSKH";
-            this.txtMSKH.Size = new System.Drawing.Size(65, 21);
+            this.txtMSKH.Size = new System.Drawing.Size(96, 21);
             this.txtMSKH.TabIndex = 2;
             this.txtMSKH.SelectedIndexChanged += new System.EventHandler(this.txtMSKH_SelectedIndexChanged);
             this.txtMSKH.TextChanged += new System.EventHandler(this.txtMSKH_TextChanged);
@@ -360,6 +370,8 @@
             this.TTXE,
             this.TENHANG,
             this.TTHang,
+            this.TypeSack,
+            this.txtSack,
             this.SDT,
             this.Price,
             this.THANHTIEN});
@@ -370,78 +382,6 @@
             this.dataDS.TabIndex = 118;
             this.dataDS.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDS_CellDoubleClick);
             this.dataDS.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataDS_CellEnter);
-            // 
-            // MSDH
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MSDH.DefaultCellStyle = dataGridViewCellStyle6;
-            this.MSDH.HeaderText = "MSDH";
-            this.MSDH.Name = "MSDH";
-            this.MSDH.ReadOnly = true;
-            // 
-            // MSNV
-            // 
-            this.MSNV.HeaderText = "MSKH";
-            this.MSNV.Name = "MSNV";
-            this.MSNV.ReadOnly = true;
-            // 
-            // HOVATEN
-            // 
-            this.HOVATEN.HeaderText = "Họ và tên";
-            this.HOVATEN.Name = "HOVATEN";
-            this.HOVATEN.ReadOnly = true;
-            this.HOVATEN.Width = 150;
-            // 
-            // NGAYNHAP
-            // 
-            this.NGAYNHAP.HeaderText = "Ngày nhập";
-            this.NGAYNHAP.Name = "NGAYNHAP";
-            this.NGAYNHAP.ReadOnly = true;
-            this.NGAYNHAP.Width = 150;
-            // 
-            // MSXE
-            // 
-            this.MSXE.HeaderText = "MSXE";
-            this.MSXE.Name = "MSXE";
-            this.MSXE.ReadOnly = true;
-            this.MSXE.Width = 120;
-            // 
-            // TTXE
-            // 
-            this.TTXE.HeaderText = "Trọng tải xe";
-            this.TTXE.Name = "TTXE";
-            this.TTXE.ReadOnly = true;
-            // 
-            // TENHANG
-            // 
-            this.TENHANG.HeaderText = "Tên hàng";
-            this.TENHANG.Name = "TENHANG";
-            this.TENHANG.ReadOnly = true;
-            // 
-            // TTHang
-            // 
-            this.TTHang.HeaderText = "Trọng tải hàng";
-            this.TTHang.Name = "TTHang";
-            this.TTHang.ReadOnly = true;
-            // 
-            // SDT
-            // 
-            this.SDT.HeaderText = "TT Xe vs Hàng";
-            this.SDT.Name = "SDT";
-            this.SDT.ReadOnly = true;
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Đơn hàng";
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            // 
-            // THANHTIEN
-            // 
-            this.THANHTIEN.HeaderText = "Thành tiền";
-            this.THANHTIEN.Name = "THANHTIEN";
-            this.THANHTIEN.ReadOnly = true;
-            this.THANHTIEN.Width = 150;
             // 
             // groupBox3
             // 
@@ -462,7 +402,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(173, 37);
+            this.label7.Location = new System.Drawing.Point(171, 15);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(26, 13);
             this.label7.TabIndex = 71;
@@ -570,6 +510,130 @@
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
+            // txtTypeWeight
+            // 
+            this.txtTypeWeight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtTypeWeight.FormattingEnabled = true;
+            this.txtTypeWeight.Location = new System.Drawing.Point(188, 79);
+            this.txtTypeWeight.Name = "txtTypeWeight";
+            this.txtTypeWeight.Size = new System.Drawing.Size(96, 21);
+            this.txtTypeWeight.TabIndex = 72;
+            this.txtTypeWeight.SelectedIndexChanged += new System.EventHandler(this.txtTypeWeight_SelectedIndexChanged);
+            this.txtTypeWeight.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTypeWeight_KeyUp);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(185, 63);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(48, 13);
+            this.label11.TabIndex = 73;
+            this.label11.Text = "Loại bao";
+            // 
+            // txtWeight
+            // 
+            this.txtWeight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtWeight.Enabled = false;
+            this.txtWeight.Location = new System.Drawing.Point(174, 78);
+            this.txtWeight.Name = "txtWeight";
+            this.txtWeight.ReadOnly = true;
+            this.txtWeight.Size = new System.Drawing.Size(89, 20);
+            this.txtWeight.TabIndex = 1003;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(171, 62);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(41, 13);
+            this.label14.TabIndex = 1002;
+            this.label14.Text = "Số bao";
+            // 
+            // MSDH
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MSDH.DefaultCellStyle = dataGridViewCellStyle6;
+            this.MSDH.HeaderText = "MSDH";
+            this.MSDH.Name = "MSDH";
+            this.MSDH.ReadOnly = true;
+            // 
+            // MSNV
+            // 
+            this.MSNV.HeaderText = "MSKH";
+            this.MSNV.Name = "MSNV";
+            this.MSNV.ReadOnly = true;
+            // 
+            // HOVATEN
+            // 
+            this.HOVATEN.HeaderText = "Họ và tên";
+            this.HOVATEN.Name = "HOVATEN";
+            this.HOVATEN.ReadOnly = true;
+            this.HOVATEN.Width = 150;
+            // 
+            // NGAYNHAP
+            // 
+            this.NGAYNHAP.HeaderText = "Ngày nhập";
+            this.NGAYNHAP.Name = "NGAYNHAP";
+            this.NGAYNHAP.ReadOnly = true;
+            this.NGAYNHAP.Width = 150;
+            // 
+            // MSXE
+            // 
+            this.MSXE.HeaderText = "MSXE";
+            this.MSXE.Name = "MSXE";
+            this.MSXE.ReadOnly = true;
+            this.MSXE.Width = 120;
+            // 
+            // TTXE
+            // 
+            this.TTXE.HeaderText = "Trọng tải xe";
+            this.TTXE.Name = "TTXE";
+            this.TTXE.ReadOnly = true;
+            // 
+            // TENHANG
+            // 
+            this.TENHANG.HeaderText = "Tên hàng";
+            this.TENHANG.Name = "TENHANG";
+            this.TENHANG.ReadOnly = true;
+            // 
+            // TTHang
+            // 
+            this.TTHang.HeaderText = "Trọng tải hàng";
+            this.TTHang.Name = "TTHang";
+            this.TTHang.ReadOnly = true;
+            // 
+            // TypeSack
+            // 
+            this.TypeSack.HeaderText = "Loại";
+            this.TypeSack.Name = "TypeSack";
+            this.TypeSack.ReadOnly = true;
+            // 
+            // txtSack
+            // 
+            this.txtSack.HeaderText = "Số bao";
+            this.txtSack.Name = "txtSack";
+            this.txtSack.ReadOnly = true;
+            // 
+            // SDT
+            // 
+            this.SDT.HeaderText = "TT Xe vs Hàng";
+            this.SDT.Name = "SDT";
+            this.SDT.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Đơn giá";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // THANHTIEN
+            // 
+            this.THANHTIEN.HeaderText = "Thành tiền";
+            this.THANHTIEN.Name = "THANHTIEN";
+            this.THANHTIEN.ReadOnly = true;
+            this.THANHTIEN.Width = 150;
+            // 
             // ProductOutput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -628,17 +692,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.DataGridView dataDS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MSDH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MSNV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HOVATEN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NGAYNHAP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MSXE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TTXE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TENHANG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TTHang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn THANHTIEN;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox txtHoten;
@@ -654,5 +707,22 @@
         private System.Windows.Forms.TextBox txtProductWeight;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.ComboBox txtTypeWeight;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtWeight;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MSDH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MSNV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HOVATEN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NGAYNHAP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MSXE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TTXE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TENHANG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TTHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeSack;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtSack;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn THANHTIEN;
     }
 }

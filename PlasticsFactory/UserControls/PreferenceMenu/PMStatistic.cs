@@ -31,5 +31,12 @@ namespace PlasticsFactory.UserControls.PreferenceMenu
             frmLayout.panelContents.Controls.Clear();
             frmLayout.panelContents.Controls.Add(mcStatistic);
         }
+
+        private void btnQuantity_Click(object sender, EventArgs e)
+        {
+            MCQuantity mcQuantity = new MCQuantity();
+            frmLayout.panelContents.Controls.Clear();
+            frmLayout.panelContents.Controls.Add(mcQuantity);
+        }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PlasticFactoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PlasticFactoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="ID" />
@@ -15,6 +15,29 @@
           <Property Name="Phone" Type="nchar" MaxLength="15" />
           <Property Name="Type" Type="int" Nullable="false" />
           <Property Name="isDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DatailQuantity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Sack" Type="float" Nullable="false" />
+          <Property Name="Type" Type="float" Nullable="false" />
+          <Property Name="Weight" Type="float" Nullable="false" />
+          <Property Name="isDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DetailSackofQuantity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Sack" Type="float" Nullable="false" />
+          <Property Name="Type" Type="float" Nullable="false" />
+          <Property Name="isDelete" Type="bit" Nullable="false" />
+          <Property Name="Shirt" Type="int" Nullable="false" />
+          <Property Name="Weight" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -149,6 +172,22 @@
           <Property Name="Paid" Type="bit" Nullable="false" />
           <Property Name="TotalWeight" Type="float" Nullable="false" />
           <Property Name="isDelete" Type="bit" Nullable="false" />
+          <Property Name="sack" Type="int" Nullable="false" />
+          <Property Name="TypeSack" Type="int" />
+        </EntityType>
+        <EntityType Name="Quantity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="TotalSack" Type="float" Nullable="false" />
+          <Property Name="TotalWeight" Type="float" Nullable="false" />
+          <Property Name="TotalOuputWeight" Type="float" Nullable="false" />
+          <Property Name="TotalInventory" Type="float" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="isDelete" Type="bit" Nullable="false" />
+          <Property Name="TotalOutputSack" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="Timekeeping">
           <Key>
@@ -296,6 +335,8 @@
         <Function Name="AutoIdEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="PlasticFactoryModelStoreContainer">
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DatailQuantity" EntityType="Self.DatailQuantity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetailSackofQuantity" EntityType="Self.DetailSackofQuantity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeePayment" EntityType="Self.EmployeePayment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeeType" EntityType="Self.EmployeeType" Schema="dbo" store:Type="Tables" />
@@ -307,6 +348,7 @@
           <EntitySet Name="ProductIP" EntityType="Self.ProductIP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductOP" EntityType="Self.ProductOP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductOutput" EntityType="Self.ProductOutput" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quantity" EntityType="Self.Quantity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Timekeeping" EntityType="Self.Timekeeping" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeofCustomer" EntityType="Self.TypeofCustomer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeWeight" EntityType="Self.TypeWeight" Schema="dbo" store:Type="Tables" />
@@ -344,8 +386,7 @@
             <End Role="Truck" EntitySet="Truck" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PlasticFactoryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -363,6 +404,29 @@
           <NavigationProperty Name="ProductInputs" Relationship="Self.FK_ProductInput_Customer" FromRole="Customer" ToRole="ProductInput" />
           <NavigationProperty Name="ProductOutputs" Relationship="Self.FK_ProductOutput_Customer" FromRole="Customer" ToRole="ProductOutput" />
           <NavigationProperty Name="Trucks" Relationship="Self.FK_Truck_Truck" FromRole="Customer" ToRole="Truck" />
+        </EntityType>
+        <EntityType Name="DatailQuantity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Sack" Type="Double" Nullable="false" />
+          <Property Name="Type" Type="Double" Nullable="false" />
+          <Property Name="Weight" Type="Double" Nullable="false" />
+          <Property Name="isDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DetailSackofQuantity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Sack" Type="Double" Nullable="false" />
+          <Property Name="Type" Type="Double" Nullable="false" />
+          <Property Name="isDelete" Type="Boolean" Nullable="false" />
+          <Property Name="Shirt" Type="Int32" Nullable="false" />
+          <Property Name="Weight" Type="Double" Nullable="false" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -505,8 +569,24 @@
           <Property Name="Paid" Type="Boolean" Nullable="false" />
           <Property Name="TotalWeight" Type="Double" Nullable="false" />
           <Property Name="isDelete" Type="Boolean" Nullable="false" />
+          <Property Name="sack" Type="Int32" Nullable="false" />
+          <Property Name="TypeSack" Type="Int32" />
           <NavigationProperty Name="Customer" Relationship="Self.FK_ProductOutput_Customer" FromRole="ProductOutput" ToRole="Customer" />
           <NavigationProperty Name="PaymentOutputs" Relationship="Self.FK_PaymentOutput_ProductOutput" FromRole="ProductOutput" ToRole="PaymentOutput" />
+        </EntityType>
+        <EntityType Name="Quantity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="TotalSack" Type="Double" Nullable="false" />
+          <Property Name="TotalWeight" Type="Double" Nullable="false" />
+          <Property Name="TotalOuputWeight" Type="Double" Nullable="false" />
+          <Property Name="TotalInventory" Type="Double" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isDelete" Type="Boolean" Nullable="false" />
+          <Property Name="TotalOutputSack" Type="Double" Nullable="false" />
         </EntityType>
         <EntityType Name="Timekeeping">
           <Key>
@@ -655,6 +735,8 @@
         </Association>
         <EntityContainer Name="PlasticFactoryEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="DatailQuantities" EntityType="Self.DatailQuantity" />
+          <EntitySet Name="DetailSackofQuantities" EntityType="Self.DetailSackofQuantity" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
           <EntitySet Name="EmployeePayments" EntityType="Self.EmployeePayment" />
           <EntitySet Name="EmployeeTypes" EntityType="Self.EmployeeType" />
@@ -666,6 +748,7 @@
           <EntitySet Name="ProductIPs" EntityType="Self.ProductIP" />
           <EntitySet Name="ProductOPs" EntityType="Self.ProductOP" />
           <EntitySet Name="ProductOutputs" EntityType="Self.ProductOutput" />
+          <EntitySet Name="Quantities" EntityType="Self.Quantity" />
           <EntitySet Name="Timekeepings" EntityType="Self.Timekeeping" />
           <EntitySet Name="TypeofCustomers" EntityType="Self.TypeofCustomer" />
           <EntitySet Name="TypeWeights" EntityType="Self.TypeWeight" />
@@ -719,6 +802,31 @@
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DatailQuantities">
+            <EntityTypeMapping TypeName="PlasticFactoryModel.DatailQuantity">
+              <MappingFragment StoreEntitySet="DatailQuantity">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Sack" ColumnName="Sack" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetailSackofQuantities">
+            <EntityTypeMapping TypeName="PlasticFactoryModel.DetailSackofQuantity">
+              <MappingFragment StoreEntitySet="DetailSackofQuantity">
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Sack" ColumnName="Sack" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+                <ScalarProperty Name="Shirt" ColumnName="Shirt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -863,6 +971,23 @@
                 <ScalarProperty Name="Own" ColumnName="Own" />
                 <ScalarProperty Name="Paid" ColumnName="Paid" />
                 <ScalarProperty Name="TotalWeight" ColumnName="TotalWeight" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+                <ScalarProperty Name="sack" ColumnName="sack" />
+                <ScalarProperty Name="TypeSack" ColumnName="TypeSack" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quantities">
+            <EntityTypeMapping TypeName="PlasticFactoryModel.Quantity">
+              <MappingFragment StoreEntitySet="Quantity">
+                <ScalarProperty Name="TotalOutputSack" ColumnName="TotalOutputSack" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="TotalSack" ColumnName="TotalSack" />
+                <ScalarProperty Name="TotalWeight" ColumnName="TotalWeight" />
+                <ScalarProperty Name="TotalOuputWeight" ColumnName="TotalOuputWeight" />
+                <ScalarProperty Name="TotalInventory" ColumnName="TotalInventory" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="isDelete" ColumnName="isDelete" />
               </MappingFragment>
             </EntityTypeMapping>

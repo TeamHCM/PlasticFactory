@@ -13,6 +13,31 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="DatailQuantities">
+      <EntityTypeMapping TypeName="PlasticFactoryModel.DatailQuantity">
+        <MappingFragment StoreEntitySet="DatailQuantity">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Sack" ColumnName="Sack" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetailSackofQuantities">
+      <EntityTypeMapping TypeName="PlasticFactoryModel.DetailSackofQuantity">
+        <MappingFragment StoreEntitySet="DetailSackofQuantity">
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Sack" ColumnName="Sack" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="Shirt" ColumnName="Shirt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Employees">
       <EntityTypeMapping TypeName="PlasticFactoryModel.Employee">
         <MappingFragment StoreEntitySet="Employee">
@@ -154,6 +179,23 @@
           <ScalarProperty Name="Own" ColumnName="Own" />
           <ScalarProperty Name="Paid" ColumnName="Paid" />
           <ScalarProperty Name="TotalWeight" ColumnName="TotalWeight" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="sack" ColumnName="sack" />
+          <ScalarProperty Name="TypeSack" ColumnName="TypeSack" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quantities">
+      <EntityTypeMapping TypeName="PlasticFactoryModel.Quantity">
+        <MappingFragment StoreEntitySet="Quantity">
+          <ScalarProperty Name="TotalOutputSack" ColumnName="TotalOutputSack" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="TotalSack" ColumnName="TotalSack" />
+          <ScalarProperty Name="TotalWeight" ColumnName="TotalWeight" />
+          <ScalarProperty Name="TotalOuputWeight" ColumnName="TotalOuputWeight" />
+          <ScalarProperty Name="TotalInventory" ColumnName="TotalInventory" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
           <ScalarProperty Name="isDelete" ColumnName="isDelete" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -9,7 +9,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
     public partial class ProductOutput : UserControl
     {
         #region Generate Field
-
+        private TypeWeightBO typeWeightBO = new TypeWeightBO();
         private List<Data.ProductOutput> list = new List<Data.ProductOutput>();
         private Data.ProductOutput product = new Data.ProductOutput();
         private ProductOBO productBO = new ProductOBO();
@@ -24,6 +24,23 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
         #endregion Generate Field
 
         #region Support
+        public void loadTypeWeight()
+        {
+            try
+            {
+                var listDB = typeWeightBO.GetData(u => u.KG != 0).OrderByDescending(u => u.KG);
+                txtTypeWeight.Items.Clear();
+                foreach (var item in listDB)
+                {
+                    txtTypeWeight.Items.Add(item.KG);
+                }
+                txtTypeWeight.Text = listDB.First().KG.ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Vui lòng thêm loại bao vào hệ thống trông 'Tùy chọn'");
+            }
+        }
 
         public int SplitMSKH(string MSKH)
         {
@@ -83,6 +100,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
             product.ProductPrice = double.Parse(txtPrice.Text);
             product.TruckWeight = double.Parse(txtTruckofWeight.Text);
             product.ProductWeight = double.Parse(txtProductWeight.Text);
+            product.TypeSack = int.Parse(txtTypeWeight.Text);
+            product.sack = int.Parse(txtWeight.Text);
             product.TotalWeight = double.Parse(txtTruckofWeight.Text) + double.Parse(txtProductWeight.Text);
             product.TotalAmount = double.Parse(txtProductWeight.Text) * double.Parse(txtPrice.Text);
             product.ProductPrice = double.Parse(txtPrice.Text);
@@ -137,6 +156,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
                     dataDS.Rows[i].Cells[8].Style.BackColor = System.Drawing.Color.Salmon;
                     dataDS.Rows[i].Cells[9].Style.BackColor = System.Drawing.Color.Salmon;
                     dataDS.Rows[i].Cells[10].Style.BackColor = System.Drawing.Color.Salmon;
+                    dataDS.Rows[i].Cells[11].Style.BackColor = System.Drawing.Color.Salmon;
                 }
                 dataDS.Rows[i].Cells[0].Value = "XH" + item.ID.ToString("D6");
                 dataDS.Rows[i].Cells[1].Value = "KH" + item.MSKH.Value.ToString("D6");
@@ -146,9 +166,11 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
                 dataDS.Rows[i].Cells[5].Value = item.TruckWeight;
                 dataDS.Rows[i].Cells[6].Value = item.ProductName;
                 dataDS.Rows[i].Cells[7].Value = item.ProductWeight;
-                dataDS.Rows[i].Cells[8].Value = item.TotalWeight;
-                dataDS.Rows[i].Cells[9].Value = item.ProductPrice;
-                dataDS.Rows[i].Cells[10].Value = item.TotalAmount;
+                dataDS.Rows[i].Cells[8].Value = item.TypeSack;
+                dataDS.Rows[i].Cells[9].Value = item.sack;
+                dataDS.Rows[i].Cells[10].Value = item.TotalWeight;
+                dataDS.Rows[i].Cells[11].Value = item.ProductPrice;
+                dataDS.Rows[i].Cells[12].Value = item.TotalAmount;
                 i++;
             }
             if (i > 0)
@@ -178,11 +200,13 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
                         txtHoten.Text = dataDS.Rows[r].Cells[2].Value.ToString();
                         txtDate.Text = DateTime.Parse(dataDS.Rows[r].Cells[3].Value.ToString()).ToString();
                         txtProductName.Text = dataDS.Rows[r].Cells[6].Value.ToString();
+                        txtWeight.Text = dataDS.Rows[r].Cells[9].Value.ToString();
+                        txtTypeWeight.Text = dataDS.Rows[r].Cells[8].Value.ToString();
                         txtLicencePlate.Text = dataDS.Rows[r].Cells[4].Value.ToString();
                         txtTruckofWeight.Text = dataDS.Rows[r].Cells[5].Value.ToString();
                         txtProductWeight.Text = dataDS.Rows[r].Cells[7].Value.ToString();
-                        txtAll.Text = dataDS.Rows[r].Cells[8].Value.ToString();
-                        txtPrice.Text = dataDS.Rows[r].Cells[9].Value.ToString();
+                        txtAll.Text = dataDS.Rows[r].Cells[10].Value.ToString();
+                        txtPrice.Text = dataDS.Rows[r].Cells[11].Value.ToString();
                         flagRow = 1;
                         btnRemove.Enabled = false;
                         btnThem.Visible = false;
@@ -229,6 +253,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
         private void ProductOutput_Load(object sender, EventArgs e)
         {
             productID = productBO.GetID();
+            loadTypeWeight();
             loadCustomerName();
             loadProduct();
             txtHoten.Focus();
@@ -511,6 +536,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
                     double truckWeight = double.Parse(txtTruckofWeight.Text);
                     double result = all - truckWeight;
                     txtProductWeight.Text = result.ToString();
+                    txtWeight.Text = Math.Round((result / int.Parse(txtTypeWeight.Text))).ToString();
                 }
 
                 catch { }
@@ -649,7 +675,8 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
                     product.MSXE = txtLicencePlate.Text;
                     product.Date = txtDate.Value.Date;
                     product.ProductName = txtProductName.Text;
-
+                    product.sack = int.Parse(txtWeight.Text);
+                    product.TypeSack = int.Parse(txtTypeWeight.Text);
                     product.ProductPrice = double.Parse(txtPrice.Text);
                     product.TruckWeight = double.Parse(txtTruckofWeight.Text);
                     product.ProductWeight = double.Parse(txtProductWeight.Text);
@@ -713,5 +740,26 @@ namespace PlasticsFactory.UserControls.Main_Content.MCProduct
         }
 
         #endregion button
+
+        private void txtTypeWeight_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                double all = double.Parse(txtAll.Text);
+                double truckWeight = double.Parse(txtTruckofWeight.Text);
+                double result = all - truckWeight;
+                txtProductWeight.Text = result.ToString();
+                txtWeight.Text = Math.Round((result / int.Parse(txtTypeWeight.Text))).ToString();
+            }
+            catch { }
+        }
+
+        private void txtTypeWeight_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+            {
+                txtLicencePlate.Focus();
+            }
+        }
     }
 }

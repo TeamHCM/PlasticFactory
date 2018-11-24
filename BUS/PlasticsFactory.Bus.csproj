@@ -69,6 +69,8 @@
   <ItemGroup>
     <Compile Include="Business\CustomerBO.cs" />
     <Compile Include="Business\CustomerTypeBO.cs" />
+    <Compile Include="Business\DetailQuantityBO.cs" />
+    <Compile Include="Business\DetailSackofQuantityBO.cs" />
     <Compile Include="Business\EmployeeBO.cs" />
     <Compile Include="Business\EmployeePaymentBO.cs" />
     <Compile Include="Business\EmployeeWageBO.cs" />
@@ -79,11 +81,14 @@
     <Compile Include="Business\ProductInputBO.cs" />
     <Compile Include="Business\ProductOBO.cs" />
     <Compile Include="Business\ProductOutputBO.cs" />
+    <Compile Include="Business\QuantityBO.cs" />
     <Compile Include="Business\TimekeepingBO.cs" />
     <Compile Include="Business\TruckBO.cs" />
     <Compile Include="Business\TypeWeightBO.cs" />
     <Compile Include="Interface\ICustomer.cs" />
     <Compile Include="Interface\ICustomerType.cs" />
+    <Compile Include="Interface\IDetailQuantity.cs" />
+    <Compile Include="Interface\IDetailSackofQuantity.cs" />
     <Compile Include="Interface\IEmployee.cs" />
     <Compile Include="Interface\IEmployeePayment.cs" />
     <Compile Include="Interface\IEmployeeWage.cs" />
@@ -93,6 +98,7 @@
     <Compile Include="Interface\IProductInput.cs" />
     <Compile Include="Interface\IProductO.cs" />
     <Compile Include="Interface\IProductOutput.cs" />
+    <Compile Include="Interface\IQuantity.cs" />
     <Compile Include="Interface\ITimekeeping.cs" />
     <Compile Include="Interface\ITruck.cs" />
     <Compile Include="Interface\IPaymentOutput.cs" />

@@ -11,6 +11,29 @@
     <Property Name="Type" Type="int" Nullable="false" />
     <Property Name="isDelete" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="DatailQuantity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Sack" Type="float" Nullable="false" />
+    <Property Name="Type" Type="float" Nullable="false" />
+    <Property Name="Weight" Type="float" Nullable="false" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DetailSackofQuantity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Sack" Type="float" Nullable="false" />
+    <Property Name="Type" Type="float" Nullable="false" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
+    <Property Name="Shirt" Type="int" Nullable="false" />
+    <Property Name="Weight" Type="float" Nullable="false" />
+  </EntityType>
   <EntityType Name="Employee">
     <Key>
       <PropertyRef Name="MSNV" />
@@ -144,6 +167,22 @@
     <Property Name="Paid" Type="bit" Nullable="false" />
     <Property Name="TotalWeight" Type="float" Nullable="false" />
     <Property Name="isDelete" Type="bit" Nullable="false" />
+    <Property Name="sack" Type="int" Nullable="false" />
+    <Property Name="TypeSack" Type="int" />
+  </EntityType>
+  <EntityType Name="Quantity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="TotalSack" Type="float" Nullable="false" />
+    <Property Name="TotalWeight" Type="float" Nullable="false" />
+    <Property Name="TotalOuputWeight" Type="float" Nullable="false" />
+    <Property Name="TotalInventory" Type="float" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
+    <Property Name="TotalOutputSack" Type="float" Nullable="false" />
   </EntityType>
   <EntityType Name="Timekeeping">
     <Key>
@@ -291,6 +330,8 @@
   <Function Name="AutoIdEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="PlasticFactoryModelStoreContainer">
     <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DatailQuantity" EntityType="Self.DatailQuantity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetailSackofQuantity" EntityType="Self.DetailSackofQuantity" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EmployeePayment" EntityType="Self.EmployeePayment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EmployeeType" EntityType="Self.EmployeeType" Schema="dbo" store:Type="Tables" />
@@ -302,6 +343,7 @@
     <EntitySet Name="ProductIP" EntityType="Self.ProductIP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProductOP" EntityType="Self.ProductOP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProductOutput" EntityType="Self.ProductOutput" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Quantity" EntityType="Self.Quantity" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Timekeeping" EntityType="Self.Timekeeping" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TypeofCustomer" EntityType="Self.TypeofCustomer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TypeWeight" EntityType="Self.TypeWeight" Schema="dbo" store:Type="Tables" />

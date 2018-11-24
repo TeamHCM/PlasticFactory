@@ -37,9 +37,6 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             //txtFood.ResetText();
             txtNote.ResetText();
             txtOvertime.Text = "0";
-            //txtNgay.Text = DateTime.Now.Day.ToString();
-            //txtThang.Text = DateTime.Now.Month.ToString();
-            //txtNam.Text = DateTime.Now.Year.ToString();
             txtWeightAdd.Text = "0";
             tempMSNV = "";
             dateByMSNV = "";
@@ -82,7 +79,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             dataDS.CurrentCell = dataDS.Rows[i].Cells[0];
             dataDS.CurrentRow.Selected = true;
             txtTotalTime.Text = list.Sum(u => u.Time) != 0 ? list.Sum(u => u.Time).ToString("#,###") : "0";
-            lbTotalWeight.Text= list.Sum(u => u.TotalWeight) != 0 ? list.Sum(u => u.TotalWeight).ToString("#,###") : "0";
+            lbTotalWeight.Text = list.Sum(u => u.TotalWeight) != 0 ? list.Sum(u => u.TotalWeight).ToString("#,###") : "0";
         }
 
         public float Interval(string timeStart, string timeEnd)
@@ -131,8 +128,9 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             }
             else
             {
+                MessageBox.Show(double.Parse(txtWeightAdd.Text).ToString());
                 timekeeping.Weight = int.Parse(txtWeight.Text);
-                timekeeping.TotalWeight = (int.Parse(txtWeight.Text) * int.Parse(txtTypeWeight.Text))+double.Parse(txtWeightAdd.Text);
+                timekeeping.TotalWeight = (int.Parse(txtWeight.Text) * int.Parse(txtTypeWeight.Text)) + txtWeightAdd.Text.Trim() != "" ? double.Parse(txtWeightAdd.Text) : 0;
             }
             timekeeping.Type = int.Parse(txtTypeWeight.Text);
             if (txtCashAdvance.Text.Equals(""))
@@ -1113,63 +1111,57 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                 bool IsExistPayment = employeePaymentBO.isExist(txtMSNV.Text, int.Parse(txtThang.Text), int.Parse(txtNam.Text));
                 if (!IsExistPayment)
                 {
-                    //if (IsFieldEmployeeByDateInDB || IsFieldEmployeeByDateInList)
-                    //{
-                    //    MessageBox.Show("Nhân viên đã nãy đã được chấm công vào này rồi. Vui lòng kiểm tra lại");
-                    //}
-                    //else
-                    //{
-                        int Type = employeeBO.GetData(u => u.isDelete == false && u.MSNV == txtMSNV.Text).First().Type.Value;
-                        //theo thang
-                        if (Type == 1)
+                    int Type = employeeBO.GetData(u => u.isDelete == false && u.MSNV == txtMSNV.Text).First().Type.Value;
+                    //theo thang
+                    if (Type == 1)
+                    {
+                        if (txtCashAdvance.Text == string.Empty && txtFood.Text == string.Empty && txtNote.Text == string.Empty && txtBonus.Text == string.Empty && txtPunish.Text == string.Empty)
                         {
-                            if (txtCashAdvance.Text == string.Empty && txtFood.Text == string.Empty && txtNote.Text == string.Empty && txtBonus.Text == string.Empty && txtPunish.Text == string.Empty)
+                            MessageBox.Show("Vui lòng kiểm tra lại thông tin làm việc");
+                        }
+                        else
+                        {
+                            timekeeping = ObjectTimekeeping();
+                            timekeepingBO.Add(timekeeping);
+                            int day = int.Parse(txtNgay.Text);
+                            int dayofMonth = System.DateTime.DaysInMonth(int.Parse(txtNam.Text), int.Parse(txtThang.Text));
+                            txtNgay.Text = day + 1 < dayofMonth ? (day + 1).ToString() : day.ToString();
+                            LoadAutoRefreshInformation();
+                            txtHoten.Focus();
+                        }
+                    }
+                    //theo ngay
+                    else
+                    {
+                        if ((txtThoigianKT.Text.Equals("") || txtThoigianBD.Text.Equals("")) && txtWeight.Text.Equals(""))
+                        {
+                            //code giúp kiểm tra  lỗi nuế ở treên rỗng mà trường họcw nhập check vào nghỉ thì ok vẫn cho thêm vài chấm công
+                            if (checkRest.Checked)
+                            {
+                                timekeeping = ObjectTimekeeping();
+                                timekeepingBO.Add(timekeeping);
+                                int day = int.Parse(txtNgay.Text);
+                                int dayofMonth = System.DateTime.DaysInMonth(int.Parse(txtNam.Text), int.Parse(txtThang.Text));
+                                txtNgay.Text = day + 1 < dayofMonth ? (day + 1).ToString() : day.ToString();
+                                LoadAutoRefreshInformation();
+                                txtHoten.Focus();
+                            }
+                            else
                             {
                                 MessageBox.Show("Vui lòng kiểm tra lại thông tin làm việc");
                             }
-                            else
-                            {
-                                timekeeping = ObjectTimekeeping();
-                                timekeepingBO.Add(timekeeping);
-                                int day = int.Parse(txtNgay.Text);
-                                int dayofMonth = System.DateTime.DaysInMonth(int.Parse(txtNam.Text), int.Parse(txtThang.Text));
-                                txtNgay.Text = day + 1 < dayofMonth ? (day + 1).ToString() : day.ToString();
-                                LoadAutoRefreshInformation();
-                                txtHoten.Focus();
-                            }
                         }
-                        //theo ngay
                         else
                         {
-                            if ((txtThoigianKT.Text.Equals("") || txtThoigianBD.Text.Equals("")) && txtWeight.Text.Equals(""))
-                            {
-                                //code giúp kiểm tra  lỗi nuế ở treên rỗng mà trường họcw nhập check vào nghỉ thì ok vẫn cho thêm vài chấm công
-                                if (checkRest.Checked)
-                                {
-                                    timekeeping = ObjectTimekeeping();
-                                    timekeepingBO.Add(timekeeping);
-                                    int day = int.Parse(txtNgay.Text);
-                                    int dayofMonth = System.DateTime.DaysInMonth(int.Parse(txtNam.Text), int.Parse(txtThang.Text));
-                                    txtNgay.Text = day + 1 < dayofMonth ? (day + 1).ToString() : day.ToString();
-                                    LoadAutoRefreshInformation();
-                                    txtHoten.Focus();
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Vui lòng kiểm tra lại thông tin làm việc");
-                                }
-                            }
-                            else
-                            {
-                                timekeeping = ObjectTimekeeping();
-                                timekeepingBO.Add(timekeeping);
-                                int day = int.Parse(txtNgay.Text);
-                                int dayofMonth = System.DateTime.DaysInMonth(int.Parse(txtNam.Text), int.Parse(txtThang.Text));
-                                txtNgay.Text = day + 1 < dayofMonth ? (day + 1).ToString() : day.ToString();
-                                LoadAutoRefreshInformation();
-                                txtHoten.Focus();
-                            }
+                            timekeeping = ObjectTimekeeping();
+                            timekeepingBO.Add(timekeeping);
+                            int day = int.Parse(txtNgay.Text);
+                            int dayofMonth = System.DateTime.DaysInMonth(int.Parse(txtNam.Text), int.Parse(txtThang.Text));
+                            txtNgay.Text = day + 1 < dayofMonth ? (day + 1).ToString() : day.ToString();
+                            LoadAutoRefreshInformation();
+                            txtHoten.Focus();
                         }
+                    }
                     //}
                 }
                 else
@@ -1206,7 +1198,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
             else
             {
                 timekeeping.Weight = int.Parse(txtWeight.Text);
-                timekeeping.TotalWeight = (int.Parse(txtWeight.Text) * int.Parse(txtTypeWeight.Text))+double.Parse(txtWeightAdd.Text);
+                timekeeping.TotalWeight = (int.Parse(txtWeight.Text) * int.Parse(txtTypeWeight.Text)) + double.Parse(txtWeightAdd.Text);
             }
             timekeeping.Type = int.Parse(txtTypeWeight.Text);
             if (txtCashAdvance.Text.Equals(""))
@@ -1483,7 +1475,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
 
         private void txtWeightAdd_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(!Char.IsDigit(e.KeyChar)&&!Char.IsControl(e.KeyChar)&&e.KeyChar!=','&&e.KeyChar!='.')
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != '.')
             {
                 e.Handled = true;
             }
@@ -1491,7 +1483,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
 
         private void txtWeightAdd_KeyUp(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode==Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 txtCashAdvance.Focus();
             }

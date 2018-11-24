@@ -32,6 +32,8 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelInput = new System.Windows.Forms.Panel();
             this.txtInputResidue = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -82,6 +84,22 @@
             this.label25 = new System.Windows.Forms.Label();
             this.chartStatistic = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.dataDS = new System.Windows.Forms.DataGridView();
+            this.MSDH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MSNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HOVATEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NGAYNHAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MSXE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TTXE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TTHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.THANHTIEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelInput.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -95,6 +113,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureInputPercent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartStatistic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDS)).BeginInit();
             this.SuspendLayout();
             // 
             // panelInput
@@ -674,10 +695,158 @@
             this.pictureBox7.TabIndex = 100;
             this.pictureBox7.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(41, 623);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(245, 25);
+            this.label2.TabIndex = 104;
+            this.label2.Text = "CHI TIẾT SẢN LƯỢNG";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Location = new System.Drawing.Point(47, 651);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1241, 29);
+            this.panel1.TabIndex = 107;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(1261, 1);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 99;
+            this.pictureBox3.TabStop = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(3, 6);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(95, 16);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "DACH SÁCH";
+            // 
+            // dataDS
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataDS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataDS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MSDH,
+            this.MSNV,
+            this.HOVATEN,
+            this.NGAYNHAP,
+            this.MSXE,
+            this.TTXE,
+            this.TENHANG,
+            this.TTHang,
+            this.SDT,
+            this.Price,
+            this.THANHTIEN});
+            this.dataDS.Location = new System.Drawing.Point(47, 677);
+            this.dataDS.Name = "dataDS";
+            this.dataDS.ReadOnly = true;
+            this.dataDS.Size = new System.Drawing.Size(1241, 291);
+            this.dataDS.TabIndex = 106;
+            // 
+            // MSDH
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MSDH.DefaultCellStyle = dataGridViewCellStyle2;
+            this.MSDH.HeaderText = "MSDH";
+            this.MSDH.Name = "MSDH";
+            this.MSDH.ReadOnly = true;
+            // 
+            // MSNV
+            // 
+            this.MSNV.HeaderText = "MSKH";
+            this.MSNV.Name = "MSNV";
+            this.MSNV.ReadOnly = true;
+            // 
+            // HOVATEN
+            // 
+            this.HOVATEN.HeaderText = "Họ và tên";
+            this.HOVATEN.Name = "HOVATEN";
+            this.HOVATEN.ReadOnly = true;
+            this.HOVATEN.Width = 150;
+            // 
+            // NGAYNHAP
+            // 
+            this.NGAYNHAP.HeaderText = "Ngày nhập";
+            this.NGAYNHAP.Name = "NGAYNHAP";
+            this.NGAYNHAP.ReadOnly = true;
+            this.NGAYNHAP.Width = 150;
+            // 
+            // MSXE
+            // 
+            this.MSXE.HeaderText = "MSXE";
+            this.MSXE.Name = "MSXE";
+            this.MSXE.ReadOnly = true;
+            this.MSXE.Width = 120;
+            // 
+            // TTXE
+            // 
+            this.TTXE.HeaderText = "Trọng tải xe";
+            this.TTXE.Name = "TTXE";
+            this.TTXE.ReadOnly = true;
+            // 
+            // TENHANG
+            // 
+            this.TENHANG.HeaderText = "Tên hàng";
+            this.TENHANG.Name = "TENHANG";
+            this.TENHANG.ReadOnly = true;
+            // 
+            // TTHang
+            // 
+            this.TTHang.HeaderText = "Trọng tải hàng";
+            this.TTHang.Name = "TTHang";
+            this.TTHang.ReadOnly = true;
+            // 
+            // SDT
+            // 
+            this.SDT.HeaderText = "TT Xe vs Hàng";
+            this.SDT.Name = "SDT";
+            this.SDT.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Đơn hàng";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // THANHTIEN
+            // 
+            this.THANHTIEN.HeaderText = "Thành tiền";
+            this.THANHTIEN.Name = "THANHTIEN";
+            this.THANHTIEN.ReadOnly = true;
+            this.THANHTIEN.Width = 150;
+            // 
             // MCStatisticHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoScrollMargin = new System.Drawing.Size(0, 50);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.dataDS);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.chartStatistic);
             this.Controls.Add(this.txtMonth);
             this.Controls.Add(this.txtYear);
@@ -690,7 +859,7 @@
             this.Controls.Add(this.panelOutput);
             this.Controls.Add(this.panelInput);
             this.Name = "MCStatisticHome";
-            this.Size = new System.Drawing.Size(1364, 652);
+            this.Size = new System.Drawing.Size(1347, 652);
             this.Load += new System.EventHandler(this.MCStatisticHome_Load);
             this.panelInput.ResumeLayout(false);
             this.panelInput.PerformLayout();
@@ -709,6 +878,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureInputPercent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartStatistic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataDS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -765,5 +938,21 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureOutputPercent;
         private System.Windows.Forms.PictureBox pictureInputPercent;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridView dataDS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MSDH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MSNV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HOVATEN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NGAYNHAP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MSXE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TTXE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TENHANG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TTHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn THANHTIEN;
     }
 }

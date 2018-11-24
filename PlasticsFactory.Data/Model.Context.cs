@@ -28,6 +28,8 @@ namespace PlasticsFactory.Data
         }
     
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<DatailQuantity> DatailQuantities { get; set; }
+        public virtual DbSet<DetailSackofQuantity> DetailSackofQuantities { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<EmployeePayment> EmployeePayments { get; set; }
         public virtual DbSet<EmployeeType> EmployeeTypes { get; set; }
@@ -39,6 +41,7 @@ namespace PlasticsFactory.Data
         public virtual DbSet<ProductIP> ProductIPs { get; set; }
         public virtual DbSet<ProductOP> ProductOPs { get; set; }
         public virtual DbSet<ProductOutput> ProductOutputs { get; set; }
+        public virtual DbSet<Quantity> Quantities { get; set; }
         public virtual DbSet<Timekeeping> Timekeepings { get; set; }
         public virtual DbSet<TypeofCustomer> TypeofCustomers { get; set; }
         public virtual DbSet<TypeWeight> TypeWeights { get; set; }

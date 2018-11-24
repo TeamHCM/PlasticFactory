@@ -34,6 +34,8 @@ namespace PlasticsFactory.Data
         public bool Paid { get; set; }
         public double TotalWeight { get; set; }
         public bool isDelete { get; set; }
+        public int sack { get; set; }
+        public Nullable<int> TypeSack { get; set; }
     
         public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

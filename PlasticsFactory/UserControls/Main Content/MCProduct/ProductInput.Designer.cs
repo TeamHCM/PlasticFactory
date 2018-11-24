@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductInput));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -56,6 +56,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtTruckofWeight = new System.Windows.Forms.TextBox();
             this.btnSaveTruck = new System.Windows.Forms.Button();
             this.txtLicencePlate = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -75,7 +76,6 @@
             this.txtTotalWeight = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtTruckofWeight = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDS)).BeginInit();
@@ -133,14 +133,14 @@
             // 
             // dataDS
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataDS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataDS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MSDH,
@@ -164,8 +164,8 @@
             // 
             // MSDH
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MSDH.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MSDH.DefaultCellStyle = dataGridViewCellStyle2;
             this.MSDH.HeaderText = "MSDH";
             this.MSDH.Name = "MSDH";
             this.MSDH.ReadOnly = true;
@@ -339,6 +339,16 @@
             this.groupBox2.TabIndex = 109;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Xe";
+            // 
+            // txtTruckofWeight
+            // 
+            this.txtTruckofWeight.Location = new System.Drawing.Point(53, 76);
+            this.txtTruckofWeight.Name = "txtTruckofWeight";
+            this.txtTruckofWeight.Size = new System.Drawing.Size(205, 20);
+            this.txtTruckofWeight.TabIndex = 59;
+            this.txtTruckofWeight.TextChanged += new System.EventHandler(this.txtTruckofWeight_TextChanged);
+            this.txtTruckofWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTruckofWeight_KeyPress);
+            this.txtTruckofWeight.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTruckofWeight_KeyUp);
             // 
             // btnSaveTruck
             // 
@@ -559,16 +569,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(258, 40);
             this.panel2.TabIndex = 128;
-            // 
-            // txtTruckofWeight
-            // 
-            this.txtTruckofWeight.Location = new System.Drawing.Point(53, 76);
-            this.txtTruckofWeight.Name = "txtTruckofWeight";
-            this.txtTruckofWeight.Size = new System.Drawing.Size(205, 20);
-            this.txtTruckofWeight.TabIndex = 59;
-            this.txtTruckofWeight.TextChanged += new System.EventHandler(this.txtTruckofWeight_TextChanged);
-            this.txtTruckofWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTruckofWeight_KeyPress);
-            this.txtTruckofWeight.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTruckofWeight_KeyUp);
             // 
             // ProductInput
             // 

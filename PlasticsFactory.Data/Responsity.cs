@@ -52,7 +52,7 @@ namespace PlasticsFactory.Data
             }
             catch
             {
-                return false;
+                throw;
             }
         }
         public bool Add(IList<T> item)

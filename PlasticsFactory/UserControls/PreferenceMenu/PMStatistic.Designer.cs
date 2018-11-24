@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PMStatistic));
             this.btnStatistic = new System.Windows.Forms.Button();
             this.btnConfiguration = new System.Windows.Forms.Button();
+            this.btnQuantity = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnStatistic
@@ -61,21 +62,41 @@
             this.btnConfiguration.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfiguration.ForeColor = System.Drawing.SystemColors.Control;
             this.btnConfiguration.Image = ((System.Drawing.Image)(resources.GetObject("btnConfiguration.Image")));
-            this.btnConfiguration.Location = new System.Drawing.Point(93, 4);
+            this.btnConfiguration.Location = new System.Drawing.Point(174, 0);
             this.btnConfiguration.Name = "btnConfiguration";
             this.btnConfiguration.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnConfiguration.Size = new System.Drawing.Size(75, 67);
+            this.btnConfiguration.Size = new System.Drawing.Size(75, 73);
             this.btnConfiguration.TabIndex = 6;
             this.btnConfiguration.Text = "Thông số";
             this.btnConfiguration.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnConfiguration.UseVisualStyleBackColor = true;
             this.btnConfiguration.Click += new System.EventHandler(this.btnConfiguration_Click);
             // 
+            // btnQuantity
+            // 
+            this.btnQuantity.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnQuantity.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnQuantity.FlatAppearance.BorderSize = 0;
+            this.btnQuantity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuantity.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnQuantity.Image = ((System.Drawing.Image)(resources.GetObject("btnQuantity.Image")));
+            this.btnQuantity.Location = new System.Drawing.Point(93, 3);
+            this.btnQuantity.Name = "btnQuantity";
+            this.btnQuantity.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnQuantity.Size = new System.Drawing.Size(75, 67);
+            this.btnQuantity.TabIndex = 7;
+            this.btnQuantity.Text = "Sản lượng";
+            this.btnQuantity.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnQuantity.UseVisualStyleBackColor = true;
+            this.btnQuantity.Click += new System.EventHandler(this.btnQuantity_Click);
+            // 
             // PMStatistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.Controls.Add(this.btnQuantity);
             this.Controls.Add(this.btnConfiguration);
             this.Controls.Add(this.btnStatistic);
             this.Name = "PMStatistic";
@@ -87,5 +108,6 @@
         #endregion
         private System.Windows.Forms.Button btnStatistic;
         private System.Windows.Forms.Button btnConfiguration;
+        private System.Windows.Forms.Button btnQuantity;
     }
 }
