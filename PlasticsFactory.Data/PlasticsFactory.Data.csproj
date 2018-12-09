@@ -135,6 +135,9 @@
     <Compile Include="Quantity.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="QuantityNotDetail.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Responsity.cs" />
     <Compile Include="Timekeeping.cs">
       <DependentUpon>Model.tt</DependentUpon>

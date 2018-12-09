@@ -157,51 +157,54 @@ namespace PlasticsFactory.UserControls.Main_Content.MCChamcong
                     var ListDB = timekeepingBO.GetData(u => u.isDelete == false && u.MSNV == item.MSNV && u.Date.Value.Month == date.Month && u.Date.Value.Year == date.Year).ToList();
                     if (ListDB.Count != 0)
                     {
-                        dataDS.Rows.Add();
-                        if (i % 2 == 0)
+                        foreach (var itemType in ListDB.Select(u=>u.Type).Distinct())
                         {
-                            dataDS.Rows[i].Cells[0].Style.BackColor = System.Drawing.Color.Gainsboro;
-                            dataDS.Rows[i].Cells[1].Style.BackColor = System.Drawing.Color.Gainsboro;
-                            dataDS.Rows[i].Cells[2].Style.BackColor = System.Drawing.Color.Gainsboro;
-                            dataDS.Rows[i].Cells[3].Style.BackColor = System.Drawing.Color.Gainsboro;
-                            dataDS.Rows[i].Cells[4].Style.BackColor = System.Drawing.Color.Gainsboro;
-                            dataDS.Rows[i].Cells[5].Style.BackColor = System.Drawing.Color.Gainsboro;
-                            dataDS.Rows[i].Cells[6].Style.BackColor = System.Drawing.Color.Gainsboro;
-                            dataDS.Rows[i].Cells[7].Style.BackColor = System.Drawing.Color.Gainsboro;
-                            dataDS.Rows[i].Cells[8].Style.BackColor = System.Drawing.Color.Gainsboro;
-                            dataDS.Rows[i].Cells[9].Style.BackColor = System.Drawing.Color.Gainsboro;
-                            dataDS.Rows[i].Cells[10].Style.BackColor = System.Drawing.Color.Gainsboro;
-                            dataDS.Rows[i].Cells[11].Style.BackColor = System.Drawing.Color.Gainsboro;
+                            dataDS.Rows.Add();
+                            if (i % 2 == 0)
+                            {
+                                dataDS.Rows[i].Cells[0].Style.BackColor = System.Drawing.Color.Gainsboro;
+                                dataDS.Rows[i].Cells[1].Style.BackColor = System.Drawing.Color.Gainsboro;
+                                dataDS.Rows[i].Cells[2].Style.BackColor = System.Drawing.Color.Gainsboro;
+                                dataDS.Rows[i].Cells[3].Style.BackColor = System.Drawing.Color.Gainsboro;
+                                dataDS.Rows[i].Cells[4].Style.BackColor = System.Drawing.Color.Gainsboro;
+                                dataDS.Rows[i].Cells[5].Style.BackColor = System.Drawing.Color.Gainsboro;
+                                dataDS.Rows[i].Cells[6].Style.BackColor = System.Drawing.Color.Gainsboro;
+                                dataDS.Rows[i].Cells[7].Style.BackColor = System.Drawing.Color.Gainsboro;
+                                dataDS.Rows[i].Cells[8].Style.BackColor = System.Drawing.Color.Gainsboro;
+                                dataDS.Rows[i].Cells[9].Style.BackColor = System.Drawing.Color.Gainsboro;
+                                dataDS.Rows[i].Cells[10].Style.BackColor = System.Drawing.Color.Gainsboro;
+                                dataDS.Rows[i].Cells[11].Style.BackColor = System.Drawing.Color.Gainsboro;
+                            }
+                            else
+                            {
+                                dataDS.Rows[i].Cells[0].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                                dataDS.Rows[i].Cells[1].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                                dataDS.Rows[i].Cells[2].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                                dataDS.Rows[i].Cells[3].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                                dataDS.Rows[i].Cells[4].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                                dataDS.Rows[i].Cells[5].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                                dataDS.Rows[i].Cells[6].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                                dataDS.Rows[i].Cells[7].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                                dataDS.Rows[i].Cells[8].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                                dataDS.Rows[i].Cells[9].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                                dataDS.Rows[i].Cells[10].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                                dataDS.Rows[i].Cells[11].Style.BackColor = System.Drawing.Color.WhiteSmoke;
+                            }
+                            dataDS.Rows[i].Cells[0].Value = item.MSNV;
+                            dataDS.Rows[i].Cells[1].Value = timekeepingBO.GetNameEmployee(item.MSNV);
+                            dataDS.Rows[i].Cells[2].Value = ListDB.First().Date.Value.Month + "/" + ListDB.First().Date.Value.Year;
+                            dataDS.Rows[i].Cells[3].Value = ListDB.Sum(u => u.Time);
+                            dataDS.Rows[i].Cells[4].Value = ListDB.Where(u => u.Type == itemType).Sum(u => u.Weight) == 0 ? "0" : ListDB.Where(u => u.Type == itemType).Sum(u => u.Weight).ToString("#,###");
+                            dataDS.Rows[i].Cells[5].Value = itemType;//Type sack
+                            dataDS.Rows[i].Cells[6].Value = ListDB.Where(u=>u.Type==itemType).Sum(u => u.TotalWeight) == 0 ? "0" : ListDB.Where(u => u.Type == itemType).Sum(u => u.TotalWeight).ToString("#,###");
+                            dataDS.Rows[i].Cells[7].Value = ListDB.Sum(u => u.AdvancePayment) == 0 ? "0" : ListDB.Sum(u => u.AdvancePayment).ToString("#,###");
+                            dataDS.Rows[i].Cells[8].Value = ListDB.Sum(u => u.Food) == 0 ? "0" : ListDB.Sum(u => u.Food).ToString("#,###");
+                            dataDS.Rows[i].Cells[9].Value = ListDB.Sum(u => u.Punish) == 0 ? "0" : ListDB.Sum(u => u.Punish).ToString("#,###");
+                            dataDS.Rows[i].Cells[10].Value = ListDB.Sum(u => u.Bunus) == 0 ? "0" : ListDB.Sum(u => u.Bunus).ToString("#,###");
+                            dataDS.Rows[i].Cells[11].Value = ListDB.Count() - ListDB.Count(u => u.isRest == true);
+                            i++;
                         }
-                        else
-                        {
-                            dataDS.Rows[i].Cells[0].Style.BackColor = System.Drawing.Color.WhiteSmoke;
-                            dataDS.Rows[i].Cells[1].Style.BackColor = System.Drawing.Color.WhiteSmoke;
-                            dataDS.Rows[i].Cells[2].Style.BackColor = System.Drawing.Color.WhiteSmoke;
-                            dataDS.Rows[i].Cells[3].Style.BackColor = System.Drawing.Color.WhiteSmoke;
-                            dataDS.Rows[i].Cells[4].Style.BackColor = System.Drawing.Color.WhiteSmoke;
-                            dataDS.Rows[i].Cells[5].Style.BackColor = System.Drawing.Color.WhiteSmoke;
-                            dataDS.Rows[i].Cells[6].Style.BackColor = System.Drawing.Color.WhiteSmoke;
-                            dataDS.Rows[i].Cells[7].Style.BackColor = System.Drawing.Color.WhiteSmoke;
-                            dataDS.Rows[i].Cells[8].Style.BackColor = System.Drawing.Color.WhiteSmoke;
-                            dataDS.Rows[i].Cells[9].Style.BackColor = System.Drawing.Color.WhiteSmoke;
-                            dataDS.Rows[i].Cells[10].Style.BackColor = System.Drawing.Color.WhiteSmoke;
-                            dataDS.Rows[i].Cells[11].Style.BackColor = System.Drawing.Color.WhiteSmoke;
-                        }
-                        dataDS.Rows[i].Cells[0].Value = item.MSNV;
-                        dataDS.Rows[i].Cells[1].Value = timekeepingBO.GetNameEmployee(item.MSNV);
-                        dataDS.Rows[i].Cells[2].Value = ListDB.First().Date.Value.Month + "/" + ListDB.First().Date.Value.Year;
-                        dataDS.Rows[i].Cells[3].Value = ListDB.Sum(u => u.Time);
-                        dataDS.Rows[i].Cells[4].Value = ListDB.Sum(u => u.Weight) == 0 ? "0" : ListDB.Sum(u => u.Weight).ToString("#,###");
-                        dataDS.Rows[i].Cells[5].Value = ListDB.First().Type;
-                        dataDS.Rows[i].Cells[6].Value = ListDB.Sum(u => u.TotalWeight) == 0 ? "0" : ListDB.Sum(u => u.TotalWeight).ToString("#,###");
-                        dataDS.Rows[i].Cells[7].Value = ListDB.Sum(u => u.AdvancePayment) == 0 ? "0" : ListDB.Sum(u => u.AdvancePayment).ToString("#,###");
-                        dataDS.Rows[i].Cells[8].Value = ListDB.Sum(u => u.Food) == 0 ? "0" : ListDB.Sum(u => u.Food).ToString("#,###");
-                        dataDS.Rows[i].Cells[9].Value = ListDB.Sum(u => u.Punish) == 0 ? "0" : ListDB.Sum(u => u.Punish).ToString("#,###");
-                        dataDS.Rows[i].Cells[10].Value = ListDB.Sum(u => u.Bunus) == 0 ? "0" : ListDB.Sum(u => u.Bunus).ToString("#,###");
-                        dataDS.Rows[i].Cells[11].Value = ListDB.Count() - ListDB.Count(u => u.isRest == true);
                     }
-                    i++;
                 }
                 lbCashAdvance.Text = listData.Sum(u => u.AdvancePayment) == 0 ? "0" : string.Format("{0:0,0 (VNĐ)}", listData.Sum(u => u.AdvancePayment));
                 lbTotalWeight.Text = listData.Sum(u => u.TotalWeight) == 0 ? "0" : string.Format("{0:0,0 (KG)}", listData.Sum(u => u.TotalWeight));

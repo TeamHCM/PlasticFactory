@@ -81,7 +81,7 @@ namespace PlasticsFactory.Data
                 }
                 catch
                 {
-                    return false;
+                    throw;
                 }
         }
         public bool Delete(int ID)

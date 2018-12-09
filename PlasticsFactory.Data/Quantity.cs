@@ -14,6 +14,12 @@ namespace PlasticsFactory.Data
     
     public partial class Quantity
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Quantity()
+        {
+            this.QuantityNotDetails = new HashSet<QuantityNotDetail>();
+        }
+    
         public int Id { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public double TotalSack { get; set; }
@@ -21,7 +27,12 @@ namespace PlasticsFactory.Data
         public double TotalOuputWeight { get; set; }
         public double TotalInventory { get; set; }
         public string Note { get; set; }
-        public bool isDelete { get; set; }
         public double TotalOutputSack { get; set; }
+        public bool IsEdit { get; set; }
+        public bool isDelete { get; set; }
+        public double InventoryNotMonth { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<QuantityNotDetail> QuantityNotDetails { get; set; }
     }
 }

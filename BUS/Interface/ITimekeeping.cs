@@ -16,7 +16,7 @@ namespace BUS.Interface
 
         bool checkNameEmployee(string Name);
 
-        bool IsEmployeeByDateDB(string MSNV, string Date);
+        bool IsEmployeeByDateDB(string MSNV, string Date,string timeStart);
 
         int GetIdByMSNVDate(string MSNV, DateTime date);
     }

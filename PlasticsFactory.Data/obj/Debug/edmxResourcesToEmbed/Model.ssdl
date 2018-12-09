@@ -181,8 +181,20 @@
     <Property Name="TotalOuputWeight" Type="float" Nullable="false" />
     <Property Name="TotalInventory" Type="float" Nullable="false" />
     <Property Name="Note" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="isDelete" Type="bit" Nullable="false" />
     <Property Name="TotalOutputSack" Type="float" Nullable="false" />
+    <Property Name="IsEdit" Type="bit" Nullable="false" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
+    <Property Name="InventoryNotMonth" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="QuantityNotDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="Weight" Type="float" Nullable="false" />
+    <Property Name="QuantityID" Type="int" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Timekeeping">
     <Key>
@@ -190,8 +202,8 @@
     </Key>
     <Property Name="MSNV" Type="char" MaxLength="10" Nullable="false" />
     <Property Name="Date" Type="date" />
-    <Property Name="TimeStart" Type="text" />
-    <Property Name="TimeEnd" Type="text" />
+    <Property Name="TimeStart" Type="varchar" MaxLength="50" />
+    <Property Name="TimeEnd" Type="varchar" MaxLength="50" />
     <Property Name="Time" Type="float" Nullable="false" />
     <Property Name="Weight" Type="int" Nullable="false" />
     <Property Name="Type" Type="int" Nullable="false" />
@@ -344,6 +356,7 @@
     <EntitySet Name="ProductOP" EntityType="Self.ProductOP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProductOutput" EntityType="Self.ProductOutput" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Quantity" EntityType="Self.Quantity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuantityNotDetail" EntityType="Self.QuantityNotDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Timekeeping" EntityType="Self.Timekeeping" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TypeofCustomer" EntityType="Self.TypeofCustomer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TypeWeight" EntityType="Self.TypeWeight" Schema="dbo" store:Type="Tables" />

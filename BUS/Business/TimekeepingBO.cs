@@ -106,13 +106,13 @@ namespace BUS.Business
                 return db.TypeWeights.ToList();
             }
         }
-        public bool IsEmployeeByDateDB(string MSNV, string Date)
+        public bool IsEmployeeByDateDB(string MSNV, string Date,string timeStart)
         {
             using (var db = new PlasticFactoryEntities())
             {
                 DateTime dateTime = DateTime.Parse(Date);
-                int result = db.Timekeepings.Count(u =>u.isDelete==false&& u.MSNV == MSNV && u.Date == dateTime);
-                if(result==1)
+                int result = db.Timekeepings.Count(u =>u.isDelete==false&& u.MSNV == MSNV && u.Date == dateTime&&u.TimeStart==timeStart);
+                if(result!=0)
                 {
                     return true;
                 }
@@ -133,13 +133,13 @@ namespace BUS.Business
                 throw;
             }
         }
-        public bool isDelete(string msnv,DateTime date)
+        public bool isDelete(string msnv,DateTime date, string timeStart)
         {
             try
             {
                 using (var db = new PlasticFactoryEntities())
                 {
-                    Timekeeping timekeeping = db.Timekeepings.Where(u =>u.isDelete==false&&u.MSNV == msnv && u.Date == date).Single();
+                    Timekeeping timekeeping = db.Timekeepings.Where(u =>u.isDelete==false&&u.MSNV == msnv && u.Date == date&&u.TimeStart==timeStart).First();
                     timekeeping.isDelete = true;
                     db.SaveChanges();
                 }

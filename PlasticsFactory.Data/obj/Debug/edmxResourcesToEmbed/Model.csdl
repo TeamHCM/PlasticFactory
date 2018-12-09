@@ -195,8 +195,11 @@
     <Property Name="TotalOuputWeight" Type="Double" Nullable="false" />
     <Property Name="TotalInventory" Type="Double" Nullable="false" />
     <Property Name="Note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="isDelete" Type="Boolean" Nullable="false" />
     <Property Name="TotalOutputSack" Type="Double" Nullable="false" />
+    <Property Name="IsEdit" Type="Boolean" Nullable="false" />
+    <Property Name="isDelete" Type="Boolean" Nullable="false" />
+    <Property Name="InventoryNotMonth" Type="Double" Nullable="false" />
+    <NavigationProperty Name="QuantityNotDetails" Relationship="PlasticFactoryModel.FK_QuantityNotDetail_Quantity" FromRole="Quantity" ToRole="QuantityNotDetail" />
   </EntityType>
   <EntityType Name="Timekeeping">
     <Key>
@@ -204,8 +207,8 @@
     </Key>
     <Property Name="MSNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="Date" Type="DateTime" Precision="0" />
-    <Property Name="TimeStart" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="TimeEnd" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TimeStart" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TimeEnd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Time" Type="Double" Nullable="false" />
     <Property Name="Weight" Type="Int32" Nullable="false" />
     <Property Name="Type" Type="Int32" Nullable="false" />
@@ -396,5 +399,33 @@
       <End Role="PaymentOutput" EntitySet="PaymentOutputs" />
     </AssociationSet>
     <FunctionImport Name="AutoIdEmployee" ReturnType="Collection(String)" />
+    <EntitySet Name="QuantityNotDetails" EntityType="PlasticFactoryModel.QuantityNotDetail" />
+    <AssociationSet Name="FK_QuantityNotDetail_Quantity" Association="PlasticFactoryModel.FK_QuantityNotDetail_Quantity">
+      <End Role="Quantity" EntitySet="Quantities" />
+      <End Role="QuantityNotDetail" EntitySet="QuantityNotDetails" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="QuantityNotDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="Weight" Type="Double" Nullable="false" />
+    <Property Name="QuantityID" Type="Int32" />
+    <NavigationProperty Name="Quantity" Relationship="PlasticFactoryModel.FK_QuantityNotDetail_Quantity" FromRole="QuantityNotDetail" ToRole="Quantity" />
+    <Property Name="isDelete" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_QuantityNotDetail_Quantity">
+    <End Type="PlasticFactoryModel.Quantity" Role="Quantity" Multiplicity="0..1" />
+    <End Type="PlasticFactoryModel.QuantityNotDetail" Role="QuantityNotDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quantity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="QuantityNotDetail">
+        <PropertyRef Name="QuantityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

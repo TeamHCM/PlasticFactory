@@ -128,6 +128,12 @@
     <Compile Include="frmEditProduct.Designer.cs">
       <DependentUpon>frmEditProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInventation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInventation.Designer.cs">
+      <DependentUpon>frmInventation.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLayout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,7 +260,6 @@
     <Compile Include="UserControls\Main Content\MCStatistic\MCStatisticHome.Designer.cs">
       <DependentUpon>MCStatisticHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Main Content\MCStatistic\panel.cs" />
     <Compile Include="UserControls\PreferenceMenu\PMChamcong.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -296,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditProduct.resx">
       <DependentUpon>frmEditProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInventation.resx">
+      <DependentUpon>frmInventation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLayout.resx">
       <DependentUpon>frmLayout.cs</DependentUpon>

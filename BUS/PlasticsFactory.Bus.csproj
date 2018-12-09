@@ -82,6 +82,7 @@
     <Compile Include="Business\ProductOBO.cs" />
     <Compile Include="Business\ProductOutputBO.cs" />
     <Compile Include="Business\QuantityBO.cs" />
+    <Compile Include="Business\QuantityNotDetailBO.cs" />
     <Compile Include="Business\TimekeepingBO.cs" />
     <Compile Include="Business\TruckBO.cs" />
     <Compile Include="Business\TypeWeightBO.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="Interface\ITruck.cs" />
     <Compile Include="Interface\IPaymentOutput.cs" />
     <Compile Include="Interface\ITypeWeight.cs" />
+    <Compile Include="Interface\IQuantityNotDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

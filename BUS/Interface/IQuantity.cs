@@ -9,5 +9,6 @@ namespace BUS.Interface
 {
     interface IQuantity:IResponsity<Quantity>
     {
+        bool Update(Quantity quantity);
     }
 }

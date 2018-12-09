@@ -186,8 +186,20 @@
           <Property Name="TotalOuputWeight" Type="float" Nullable="false" />
           <Property Name="TotalInventory" Type="float" Nullable="false" />
           <Property Name="Note" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="isDelete" Type="bit" Nullable="false" />
           <Property Name="TotalOutputSack" Type="float" Nullable="false" />
+          <Property Name="IsEdit" Type="bit" Nullable="false" />
+          <Property Name="isDelete" Type="bit" Nullable="false" />
+          <Property Name="InventoryNotMonth" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QuantityNotDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Weight" Type="float" Nullable="false" />
+          <Property Name="QuantityID" Type="int" />
+          <Property Name="isDelete" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Timekeeping">
           <Key>
@@ -195,8 +207,8 @@
           </Key>
           <Property Name="MSNV" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="Date" Type="date" />
-          <Property Name="TimeStart" Type="text" />
-          <Property Name="TimeEnd" Type="text" />
+          <Property Name="TimeStart" Type="varchar" MaxLength="50" />
+          <Property Name="TimeEnd" Type="varchar" MaxLength="50" />
           <Property Name="Time" Type="float" Nullable="false" />
           <Property Name="Weight" Type="int" Nullable="false" />
           <Property Name="Type" Type="int" Nullable="false" />
@@ -349,6 +361,7 @@
           <EntitySet Name="ProductOP" EntityType="Self.ProductOP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductOutput" EntityType="Self.ProductOutput" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Quantity" EntityType="Self.Quantity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuantityNotDetail" EntityType="Self.QuantityNotDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Timekeeping" EntityType="Self.Timekeeping" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeofCustomer" EntityType="Self.TypeofCustomer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeWeight" EntityType="Self.TypeWeight" Schema="dbo" store:Type="Tables" />
@@ -585,8 +598,11 @@
           <Property Name="TotalOuputWeight" Type="Double" Nullable="false" />
           <Property Name="TotalInventory" Type="Double" Nullable="false" />
           <Property Name="Note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="isDelete" Type="Boolean" Nullable="false" />
           <Property Name="TotalOutputSack" Type="Double" Nullable="false" />
+          <Property Name="IsEdit" Type="Boolean" Nullable="false" />
+          <Property Name="isDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InventoryNotMonth" Type="Double" Nullable="false" />
+          <NavigationProperty Name="QuantityNotDetails" Relationship="PlasticFactoryModel.FK_QuantityNotDetail_Quantity" FromRole="Quantity" ToRole="QuantityNotDetail" />
         </EntityType>
         <EntityType Name="Timekeeping">
           <Key>
@@ -594,8 +610,8 @@
           </Key>
           <Property Name="MSNV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="Date" Type="DateTime" Precision="0" />
-          <Property Name="TimeStart" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="TimeEnd" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TimeStart" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TimeEnd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Time" Type="Double" Nullable="false" />
           <Property Name="Weight" Type="Int32" Nullable="false" />
           <Property Name="Type" Type="Int32" Nullable="false" />
@@ -786,7 +802,35 @@
             <End Role="PaymentOutput" EntitySet="PaymentOutputs" />
           </AssociationSet>
           <FunctionImport Name="AutoIdEmployee" ReturnType="Collection(String)" />
+          <EntitySet Name="QuantityNotDetails" EntityType="PlasticFactoryModel.QuantityNotDetail" />
+          <AssociationSet Name="FK_QuantityNotDetail_Quantity" Association="PlasticFactoryModel.FK_QuantityNotDetail_Quantity">
+            <End Role="Quantity" EntitySet="Quantities" />
+            <End Role="QuantityNotDetail" EntitySet="QuantityNotDetails" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="QuantityNotDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="Weight" Type="Double" Nullable="false" />
+          <Property Name="QuantityID" Type="Int32" />
+          <NavigationProperty Name="Quantity" Relationship="PlasticFactoryModel.FK_QuantityNotDetail_Quantity" FromRole="QuantityNotDetail" ToRole="Quantity" />
+          <Property Name="isDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_QuantityNotDetail_Quantity">
+          <End Type="PlasticFactoryModel.Quantity" Role="Quantity" Multiplicity="0..1" />
+          <End Type="PlasticFactoryModel.QuantityNotDetail" Role="QuantityNotDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quantity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="QuantityNotDetail">
+              <PropertyRef Name="QuantityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -820,13 +864,13 @@
           <EntitySetMapping Name="DetailSackofQuantities">
             <EntityTypeMapping TypeName="PlasticFactoryModel.DetailSackofQuantity">
               <MappingFragment StoreEntitySet="DetailSackofQuantity">
-                <ScalarProperty Name="Weight" ColumnName="Weight" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Sack" ColumnName="Sack" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="isDelete" ColumnName="isDelete" />
                 <ScalarProperty Name="Shirt" ColumnName="Shirt" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -980,7 +1024,7 @@
           <EntitySetMapping Name="Quantities">
             <EntityTypeMapping TypeName="PlasticFactoryModel.Quantity">
               <MappingFragment StoreEntitySet="Quantity">
-                <ScalarProperty Name="TotalOutputSack" ColumnName="TotalOutputSack" />
+                <ScalarProperty Name="InventoryNotMonth" ColumnName="InventoryNotMonth" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="TotalSack" ColumnName="TotalSack" />
@@ -988,6 +1032,8 @@
                 <ScalarProperty Name="TotalOuputWeight" ColumnName="TotalOuputWeight" />
                 <ScalarProperty Name="TotalInventory" ColumnName="TotalInventory" />
                 <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="TotalOutputSack" ColumnName="TotalOutputSack" />
+                <ScalarProperty Name="IsEdit" ColumnName="IsEdit" />
                 <ScalarProperty Name="isDelete" ColumnName="isDelete" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1044,6 +1090,17 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="AutoIdEmployee" FunctionName="PlasticFactoryModel.Store.AutoIdEmployee" />
+          <EntitySetMapping Name="QuantityNotDetails">
+            <EntityTypeMapping TypeName="PlasticFactoryModel.QuantityNotDetail">
+              <MappingFragment StoreEntitySet="QuantityNotDetail">
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+                <ScalarProperty Name="QuantityID" ColumnName="QuantityID" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

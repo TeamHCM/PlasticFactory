@@ -29,16 +29,33 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MCQuantity));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label19 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
             this.dataDS = new System.Windows.Forms.DataGridView();
+            this.dgvID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvShift1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvShift2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTotalWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvOutput = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvOuputKG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTotalQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gInventoryNow = new System.Windows.Forms.GroupBox();
+            this.gInventorynAgo = new System.Windows.Forms.GroupBox();
             this.txtDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnInventory = new System.Windows.Forms.Button();
+            this.lbInventionNotMonth = new System.Windows.Forms.Label();
+            this.gPreference = new System.Windows.Forms.GroupBox();
+            this.radShift = new System.Windows.Forms.RadioButton();
+            this.radOutput = new System.Windows.Forms.RadioButton();
             this.label8 = new System.Windows.Forms.Label();
             this.txtNote = new System.Windows.Forms.RichTextBox();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -55,22 +72,12 @@
             this.txtType1 = new System.Windows.Forms.ComboBox();
             this.txtSack1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.radShift = new System.Windows.Forms.RadioButton();
-            this.radOutput = new System.Windows.Forms.RadioButton();
-            this.gPreference = new System.Windows.Forms.GroupBox();
-            this.dgvID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvShift1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvShift2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvTotalWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvOutput = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvOuputKG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvTotalQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gQuantity = new System.Windows.Forms.GroupBox();
+            this.gOutput = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDS)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.gPreference.SuspendLayout();
             this.SuspendLayout();
@@ -119,14 +126,14 @@
             // 
             // dataDS
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataDS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataDS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataDS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvID,
@@ -145,9 +152,79 @@
             this.dataDS.Size = new System.Drawing.Size(1287, 224);
             this.dataDS.TabIndex = 108;
             // 
+            // dgvID
+            // 
+            this.dgvID.HeaderText = "ID";
+            this.dgvID.Name = "dgvID";
+            this.dgvID.ReadOnly = true;
+            this.dgvID.Width = 50;
+            // 
+            // dgvDate
+            // 
+            this.dgvDate.HeaderText = "Ngày";
+            this.dgvDate.Name = "dgvDate";
+            this.dgvDate.ReadOnly = true;
+            this.dgvDate.Width = 170;
+            // 
+            // dgvShift1
+            // 
+            this.dgvShift1.HeaderText = "Ca I (bao)";
+            this.dgvShift1.Name = "dgvShift1";
+            this.dgvShift1.ReadOnly = true;
+            this.dgvShift1.Width = 150;
+            // 
+            // dgvShift2
+            // 
+            this.dgvShift2.HeaderText = "Ca II (bao)";
+            this.dgvShift2.Name = "dgvShift2";
+            this.dgvShift2.ReadOnly = true;
+            this.dgvShift2.Width = 150;
+            // 
+            // TotalWeight
+            // 
+            this.TotalWeight.HeaderText = "Tổng bao";
+            this.TotalWeight.Name = "TotalWeight";
+            this.TotalWeight.ReadOnly = true;
+            // 
+            // dgvTotalWeight
+            // 
+            this.dgvTotalWeight.HeaderText = "Tổng KG";
+            this.dgvTotalWeight.Name = "dgvTotalWeight";
+            this.dgvTotalWeight.ReadOnly = true;
+            // 
+            // dgvOutput
+            // 
+            this.dgvOutput.HeaderText = "Xuất (bao)";
+            this.dgvOutput.Name = "dgvOutput";
+            this.dgvOutput.ReadOnly = true;
+            this.dgvOutput.Width = 150;
+            // 
+            // dgvOuputKG
+            // 
+            this.dgvOuputKG.HeaderText = "Xuất KG";
+            this.dgvOuputKG.Name = "dgvOuputKG";
+            this.dgvOuputKG.ReadOnly = true;
+            // 
+            // dgvTotalQuantity
+            // 
+            this.dgvTotalQuantity.HeaderText = "Tổng kho";
+            this.dgvTotalQuantity.Name = "dgvTotalQuantity";
+            this.dgvTotalQuantity.ReadOnly = true;
+            // 
+            // dgvNote
+            // 
+            this.dgvNote.HeaderText = "Ghi chú";
+            this.dgvNote.Name = "dgvNote";
+            this.dgvNote.ReadOnly = true;
+            this.dgvNote.Width = 200;
+            // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox1.Controls.Add(this.gOutput);
+            this.groupBox1.Controls.Add(this.gQuantity);
+            this.groupBox1.Controls.Add(this.gInventoryNow);
+            this.groupBox1.Controls.Add(this.gInventorynAgo);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(35, 466);
             this.groupBox1.Name = "groupBox1";
@@ -155,6 +232,28 @@
             this.groupBox1.TabIndex = 115;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thống kê";
+            // 
+            // gInventoryNow
+            // 
+            this.gInventoryNow.BackColor = System.Drawing.Color.Pink;
+            this.gInventoryNow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gInventoryNow.Location = new System.Drawing.Point(830, 21);
+            this.gInventoryNow.Name = "gInventoryNow";
+            this.gInventoryNow.Size = new System.Drawing.Size(250, 97);
+            this.gInventoryNow.TabIndex = 1;
+            this.gInventoryNow.TabStop = false;
+            this.gInventoryNow.Text = "Tồn tháng này";
+            // 
+            // gInventorynAgo
+            // 
+            this.gInventorynAgo.BackColor = System.Drawing.Color.Tan;
+            this.gInventorynAgo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gInventorynAgo.Location = new System.Drawing.Point(30, 21);
+            this.gInventorynAgo.Name = "gInventorynAgo";
+            this.gInventorynAgo.Size = new System.Drawing.Size(250, 97);
+            this.gInventorynAgo.TabIndex = 0;
+            this.gInventorynAgo.TabStop = false;
+            this.gInventorynAgo.Text = "Tồn tháng trước";
             // 
             // txtDate
             // 
@@ -175,6 +274,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnInventory);
+            this.groupBox2.Controls.Add(this.lbInventionNotMonth);
             this.groupBox2.Controls.Add(this.gPreference);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.txtNote);
@@ -200,6 +301,62 @@
             this.groupBox2.TabIndex = 117;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Nhập thông tin";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // btnInventory
+            // 
+            this.btnInventory.Location = new System.Drawing.Point(51, 117);
+            this.btnInventory.Name = "btnInventory";
+            this.btnInventory.Size = new System.Drawing.Size(160, 23);
+            this.btnInventory.TabIndex = 139;
+            this.btnInventory.Text = "Bao tồn tháng trước";
+            this.btnInventory.UseVisualStyleBackColor = true;
+            this.btnInventory.Visible = false;
+            this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
+            // 
+            // lbInventionNotMonth
+            // 
+            this.lbInventionNotMonth.AutoSize = true;
+            this.lbInventionNotMonth.Location = new System.Drawing.Point(48, 102);
+            this.lbInventionNotMonth.Name = "lbInventionNotMonth";
+            this.lbInventionNotMonth.Size = new System.Drawing.Size(158, 13);
+            this.lbInventionNotMonth.TabIndex = 138;
+            this.lbInventionNotMonth.Text = "Bao tồn(Nếu chưa nhập chi tiết)";
+            this.lbInventionNotMonth.Visible = false;
+            // 
+            // gPreference
+            // 
+            this.gPreference.Controls.Add(this.radShift);
+            this.gPreference.Controls.Add(this.radOutput);
+            this.gPreference.Location = new System.Drawing.Point(46, 67);
+            this.gPreference.Name = "gPreference";
+            this.gPreference.Size = new System.Drawing.Size(165, 38);
+            this.gPreference.TabIndex = 136;
+            this.gPreference.TabStop = false;
+            this.gPreference.Text = "Tùy chọn";
+            // 
+            // radShift
+            // 
+            this.radShift.AutoSize = true;
+            this.radShift.Location = new System.Drawing.Point(15, 15);
+            this.radShift.Name = "radShift";
+            this.radShift.Size = new System.Drawing.Size(38, 17);
+            this.radShift.TabIndex = 134;
+            this.radShift.TabStop = true;
+            this.radShift.Text = "Ca";
+            this.radShift.UseVisualStyleBackColor = true;
+            this.radShift.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // radOutput
+            // 
+            this.radOutput.AutoSize = true;
+            this.radOutput.Location = new System.Drawing.Point(78, 15);
+            this.radOutput.Name = "radOutput";
+            this.radOutput.Size = new System.Drawing.Size(47, 17);
+            this.radOutput.TabIndex = 135;
+            this.radOutput.TabStop = true;
+            this.radOutput.Text = "Xuất";
+            this.radOutput.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -343,105 +500,27 @@
             this.label2.TabIndex = 118;
             this.label2.Text = "Loại";
             // 
-            // radShift
+            // gQuantity
             // 
-            this.radShift.AutoSize = true;
-            this.radShift.Location = new System.Drawing.Point(15, 15);
-            this.radShift.Name = "radShift";
-            this.radShift.Size = new System.Drawing.Size(38, 17);
-            this.radShift.TabIndex = 134;
-            this.radShift.TabStop = true;
-            this.radShift.Text = "Ca";
-            this.radShift.UseVisualStyleBackColor = true;
-            this.radShift.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.gQuantity.BackColor = System.Drawing.Color.LightGreen;
+            this.gQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gQuantity.Location = new System.Drawing.Point(296, 21);
+            this.gQuantity.Name = "gQuantity";
+            this.gQuantity.Size = new System.Drawing.Size(250, 97);
+            this.gQuantity.TabIndex = 2;
+            this.gQuantity.TabStop = false;
+            this.gQuantity.Text = "Sản lượng";
             // 
-            // radOutput
+            // gOutput
             // 
-            this.radOutput.AutoSize = true;
-            this.radOutput.Location = new System.Drawing.Point(78, 15);
-            this.radOutput.Name = "radOutput";
-            this.radOutput.Size = new System.Drawing.Size(47, 17);
-            this.radOutput.TabIndex = 135;
-            this.radOutput.TabStop = true;
-            this.radOutput.Text = "Xuất";
-            this.radOutput.UseVisualStyleBackColor = true;
-            // 
-            // gPreference
-            // 
-            this.gPreference.Controls.Add(this.radShift);
-            this.gPreference.Controls.Add(this.radOutput);
-            this.gPreference.Location = new System.Drawing.Point(46, 67);
-            this.gPreference.Name = "gPreference";
-            this.gPreference.Size = new System.Drawing.Size(165, 38);
-            this.gPreference.TabIndex = 136;
-            this.gPreference.TabStop = false;
-            this.gPreference.Text = "Tùy chọn";
-            // 
-            // dgvID
-            // 
-            this.dgvID.HeaderText = "ID";
-            this.dgvID.Name = "dgvID";
-            this.dgvID.ReadOnly = true;
-            this.dgvID.Width = 50;
-            // 
-            // dgvDate
-            // 
-            this.dgvDate.HeaderText = "Ngày";
-            this.dgvDate.Name = "dgvDate";
-            this.dgvDate.ReadOnly = true;
-            this.dgvDate.Width = 170;
-            // 
-            // dgvShift1
-            // 
-            this.dgvShift1.HeaderText = "Ca I (bao)";
-            this.dgvShift1.Name = "dgvShift1";
-            this.dgvShift1.ReadOnly = true;
-            this.dgvShift1.Width = 150;
-            // 
-            // dgvShift2
-            // 
-            this.dgvShift2.HeaderText = "Ca II (bao)";
-            this.dgvShift2.Name = "dgvShift2";
-            this.dgvShift2.ReadOnly = true;
-            this.dgvShift2.Width = 150;
-            // 
-            // TotalWeight
-            // 
-            this.TotalWeight.HeaderText = "Tổng bao";
-            this.TotalWeight.Name = "TotalWeight";
-            this.TotalWeight.ReadOnly = true;
-            // 
-            // dgvTotalWeight
-            // 
-            this.dgvTotalWeight.HeaderText = "Tổng KG";
-            this.dgvTotalWeight.Name = "dgvTotalWeight";
-            this.dgvTotalWeight.ReadOnly = true;
-            // 
-            // dgvOutput
-            // 
-            this.dgvOutput.HeaderText = "Xuất (bao)";
-            this.dgvOutput.Name = "dgvOutput";
-            this.dgvOutput.ReadOnly = true;
-            this.dgvOutput.Width = 150;
-            // 
-            // dgvOuputKG
-            // 
-            this.dgvOuputKG.HeaderText = "Xuất KG";
-            this.dgvOuputKG.Name = "dgvOuputKG";
-            this.dgvOuputKG.ReadOnly = true;
-            // 
-            // dgvTotalQuantity
-            // 
-            this.dgvTotalQuantity.HeaderText = "Tổng kho";
-            this.dgvTotalQuantity.Name = "dgvTotalQuantity";
-            this.dgvTotalQuantity.ReadOnly = true;
-            // 
-            // dgvNote
-            // 
-            this.dgvNote.HeaderText = "Ghi chú";
-            this.dgvNote.Name = "dgvNote";
-            this.dgvNote.ReadOnly = true;
-            this.dgvNote.Width = 200;
+            this.gOutput.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gOutput.Location = new System.Drawing.Point(562, 21);
+            this.gOutput.Name = "gOutput";
+            this.gOutput.Size = new System.Drawing.Size(250, 97);
+            this.gOutput.TabIndex = 3;
+            this.gOutput.TabStop = false;
+            this.gOutput.Text = "SL Xuất";
             // 
             // MCQuantity
             // 
@@ -459,6 +538,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDS)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.gPreference.ResumeLayout(false);
@@ -508,5 +588,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvOuputKG;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTotalQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvNote;
+        private System.Windows.Forms.Label lbInventionNotMonth;
+        private System.Windows.Forms.GroupBox gInventoryNow;
+        private System.Windows.Forms.GroupBox gInventorynAgo;
+        private System.Windows.Forms.Button btnInventory;
+        private System.Windows.Forms.GroupBox gOutput;
+        private System.Windows.Forms.GroupBox gQuantity;
     }
 }

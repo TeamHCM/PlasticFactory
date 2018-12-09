@@ -15,17 +15,62 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
     public partial class MCQuantity : UserControl
     {
         #region Generate Field
+        Label[] lbSackNow;
+        Label[] lbSackAgo;
+        Label[] lbQuantity;
+        Label[] lbOutput;
         QuantityBO quantityBO = new QuantityBO();
         TimekeepingBO timekeepingBO = new TimekeepingBO();
         ProductOutputBO productOutputBO = new ProductOutputBO();
         DetailQuantityBO detailQuantityBO = new DetailQuantityBO();
         DetailSackofQuantityBO detailSackofQuantityBO = new DetailSackofQuantityBO();
+        QuantityNotDetailBO quantityNotDetailBO = new QuantityNotDetailBO();
         TypeWeightBO typeWeightBO = new TypeWeightBO();
         private int Month = 0;
         private int Year = 0;
         #endregion
 
         #region Support 
+        private void EnableInventionNotMonth()
+        {
+            if (txtDate.Value.Day == 1)
+            {
+                if (Month != 1)
+                {
+                    var listDB = quantityBO.GetData(u => u.isDelete == false && u.Date.Value.Month == Month - 1 && u.Date.Value.Year == Year);
+                    if (listDB.Count() != 0)
+                    {
+                        btnInventory.Visible = false;
+                        btnInventory.Visible = false;
+                    }
+                    else
+                    {
+                        btnInventory.Visible = true;
+                        btnInventory.Visible = true;
+                    }
+                }
+                else
+                {
+                    var listDB = quantityBO.GetData(u => u.isDelete == false && u.Date.Value.Month == 12 && u.Date.Value.Year == Year - 1);
+                    if (listDB.Count() != 0)
+                    {
+                        btnInventory.Visible = false;
+                        btnInventory.Visible = false;
+                    }
+                    else
+                    {
+                        btnInventory.Visible = true;
+                        btnInventory.Visible = true;
+                    }
+                }
+            }
+            else
+            {
+                btnInventory.Visible = false;
+                btnInventory.Visible = false;
+            }
+        }
+
         private void loadDG()
         {
             Month = txtDate.Value.Month;
@@ -70,37 +115,89 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
                 dataDS.Rows[r].Cells[9].Value = item.Note;
                 r++;
             }
+            var listDS = typeWeightBO.GetData(u => u.Type != 0).Select(u => u.KG).OrderByDescending(u => u.Value);
+            int i = 0;
+            lbSackNow = new Label[listDS.Count()];
+            lbSackAgo = new Label[listDS.Count()];
+            lbQuantity = new Label[listDS.Count()];
+            lbOutput = new Label[listDS.Count()];
+            gInventoryNow.Controls.Clear();
+            gInventorynAgo.Controls.Clear();
+            gQuantity.Controls.Clear();
+            gOutput.Controls.Clear();
+            foreach (var item in listDS)
+            {
+                try
+                {
+                    var listID = quantityBO.GetData(u => u.isDelete == false && u.Date.Value.Day == 1 && u.Date.Value.Month == Month && u.Date.Value.Year == Year);
+                    int quanity_ID = listID.Count != 0 ? listID.First().Id : 0;
+                    var listShift = detailSackofQuantityBO.GetData(u => u.isDelete == false && u.Type == item && u.Date.Month == Month && u.Date.Year == Year);
+                    var listShiftAgo = detailSackofQuantityBO.GetData(u => u.isDelete == false && u.Type == item && u.Date.Month == Month - 1 && u.Date.Year == Year);
+                    var listOutput = detailQuantityBO.GetData(u => u.isDelete == false && u.Type == item && u.Date.Month == Month && u.Date.Year == Year);
+                    double totalSackNow = listShift.Sum(u => u.Sack) + listShiftAgo.Sum(u => u.Sack) + quantityNotDetailBO.GetData(u => u.isDelete == false && u.QuantityID == quanity_ID && u.Type == item).Sum(u => u.Weight) - listOutput.Sum(u => u.Sack);
+                    //region lbSackNow
+                    lbSackNow[i] = new Label();
+                    lbSackNow[i].Location = new Point(25, 16 + (i * 25));
+                    string text = "Bao (" + item.ToString() + "): " + totalSackNow;
+                    lbSackNow[i].Text = text;
+                    gInventoryNow.Controls.Add(lbSackNow[i]);
+                    //region lbSackAgo
+                    double totalSackAgo = listShiftAgo.Sum(u => u.Sack) + quantityNotDetailBO.GetData(u => u.isDelete == false && u.QuantityID == quanity_ID && u.Type == item).Sum(u => u.Weight);
+                    lbSackAgo[i] = new Label();
+                    lbSackAgo[i].Location = new Point(25, 16 + (i * 25));
+                    text = "Bao (" + item.ToString() + "): " + totalSackAgo;
+                    lbSackAgo[i].Text = text;
+                    gInventorynAgo.Controls.Add(lbSackAgo[i]);
+                    //region lbQuanity
+                    double totalSackQuantity = listShift.Sum(u => u.Sack) + listShiftAgo.Sum(u => u.Sack) + quantityNotDetailBO.GetData(u => u.isDelete == false && u.QuantityID == quanity_ID && u.Type == item).Sum(u => u.Weight);
+                    lbQuantity[i] = new Label();
+                    lbQuantity[i].Location = new Point(25, 16 + (i * 25));
+                    text = "Bao (" + item.ToString() + "): " + totalSackQuantity;
+                    lbQuantity[i].Text = text;
+                    gQuantity.Controls.Add(lbQuantity[i]);
+                    //region lbOuputSack
+                    lbOutput[i] = new Label();
+                    lbOutput[i].Location = new Point(25, 16 + (i * 25));
+                    text = "Bao (" + item.ToString() + "): " + listOutput.Sum(u => u.Sack);
+                    lbOutput[i].Text = text;
+                    gOutput.Controls.Add(lbOutput[i]);
+                    i++;
+                }
+                catch
+                { }
+            }
         }
 
         private void addDB()
         {
             //Quantity
-            if (!IsDateofQuantity(txtDate.Value))
+            //if (!IsDateofQuantity(txtDate.Value))
+            //{
+            Quantity quantity = new Quantity();
+            quantity.Date = txtDate.Value;
+            quantity.Note = txtNote.Text;
+            quantity.IsEdit = true;
+            if (quantityBO.GetData(u => u.isDelete == false && u.Date.Value.Month == Month && u.Date.Value.Year == Year).Count() == 0)
             {
-                Quantity quantity = new Quantity();
-                quantity.Date = txtDate.Value;
-                quantity.Note = txtNote.Text;
-                if (quantityBO.GetData(u =>u.isDelete==false&&u.Date.Value.Month == Month && u.Date.Value.Year == Year).Count() == 0)
+                if (txtDate.Value.Month != 1)
                 {
-                    if (txtDate.Value.Month != 1)
+                    var listTon = quantityBO.GetData(u => u.isDelete == false && u.Date.Value.Month == Month - 1 && u.Date.Value.Year == Year);
+                    if (listTon.Count != 0)
                     {
-                        var listTon = quantityBO.GetData(u => u.isDelete == false && u.Date.Value.Month == Month - 1 && u.Date.Value.Year == Year);
-                        if (listTon.Count != 0)
-                        {
-                            quantity.TotalInventory = listTon.Last().TotalInventory;
-                        }
-                    }
-                    else
-                    {
-                        var listTon = quantityBO.GetData(u => u.isDelete == false && u.Date.Value.Month == 12 && u.Date.Value.Year == Year-1);
-                        if (listTon.Count != 0)
-                        {
-                            quantity.TotalInventory = listTon.Last().TotalInventory;
-                        }
+                        quantity.TotalInventory = listTon.Last().TotalInventory;
                     }
                 }
-                quantityBO.Add(quantity);
+                else
+                {
+                    var listTon = quantityBO.GetData(u => u.isDelete == false && u.Date.Value.Month == 12 && u.Date.Value.Year == Year - 1);
+                    if (listTon.Count != 0)
+                    {
+                        quantity.TotalInventory = listTon.Last().TotalInventory;
+                    }
+                }
             }
+            quantityBO.Update(quantity);
+            //}
             //DetailQuantity xuats hàng theo ca;
             if (gPreference.Visible == false || radOutput.Checked)
             {
@@ -141,6 +238,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
                         DetailShift2.Weight = double.Parse(txtSack2.Text) * double.Parse(txtType2.Text);
                         detailSackofQuantityBO.Add(DetailShift2);
                     }
+
                 }
             }
         }
@@ -157,11 +255,59 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
 
         private bool Validation()
         {
-            if (txtSack1.Text == "" && txtSack2.Text == "" && txtOutput.Text == "")
+            if (txtSack1.Text == "" && txtSack2.Text == "" && txtOutput.Text == "" && txtNote.Text == "")
             {
                 return false;
+
             }
             return true;
+        }
+
+        private void addAutoDBofQuantity()
+        {
+            int numDay = DateTime.DaysInMonth(Year, Month);
+            if (quantityBO.GetData(u => u.isDelete == false && u.Date.Value.Month == Month && u.Date.Value.Year == Year).Count() == 0)
+            {
+                for (int i = 1; i <= numDay; i++)
+                {
+                    Data.Quantity quantity = new Quantity();
+                    quantity.Date = DateTime.Parse(i + "/" + Month + "/" + Year);
+                    quantity.Note = "'";
+                    quantityBO.Add(quantity);
+                }
+
+                //Nếu tồn tại tháng trước đó Thì phải update lại tòn kho nhập tay của ngày 1 đó lại bằng 0
+                if (Month != 12)
+                {
+                    var listDB = quantityBO.GetData(u => u.isDelete == false && u.Date.Value.Day == 1 && u.Date.Value.Month == Month + 1 && u.Date.Value.Year == Year);
+                    if (listDB.Count() != 0)
+                    {
+                        MessageBox.Show(listDB.First().Id.ToString());
+                        var listQ=quantityNotDetailBO.GetData(u => u.QuantityID == listDB.First().Id);
+                        foreach(var item in listQ)
+                        {
+                            item.isDelete = true;
+                            bool check=quantityNotDetailBO.Update(item);
+                            MessageBox.Show(check.ToString());
+                        }
+                    }
+                }
+                if (Month == 1)
+                {
+                    var listDB = quantityBO.GetData(u => u.isDelete == false && u.Date.Value.Day == 1 && u.Date.Value.Month == 1 && u.Date.Value.Year == Year + 1);
+                    if (listDB.Count() != 0)
+                    {
+                        var listQ = quantityNotDetailBO.GetData(u =>u.QuantityID == listDB.First().Id);
+                        MessageBox.Show(listDB.First().Id.ToString());
+                        foreach (var item in listQ)
+                        {
+                            item.isDelete = true;
+                            bool check=quantityNotDetailBO.Update(item);
+                            MessageBox.Show(check.ToString());
+                        }
+                    }
+                }
+            }
         }
         #endregion
         public MCQuantity()
@@ -199,6 +345,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
                 txtTypeOuput.Enabled = true;
                 txtOutput.Enabled = true;
             }
+            EnableInventionNotMonth();
             loadDG();
         }
 
@@ -206,6 +353,7 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
         {
             if (Validation())
             {
+                addAutoDBofQuantity();
                 addDB();
                 loadDG();
             }
@@ -219,6 +367,33 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
         {
             Month = txtDate.Value.Month;
             Year = txtDate.Value.Year;
+            EnableInventionNotMonth();
+            if (Month != 1)
+            {
+                var listQuanity = quantityBO.GetData(u => u.isDelete == false && u.Date.Value.Month == Month - 1 && u.Date.Value.Year == Year);
+                //show txtInventory month ago
+                if (listQuanity.Count == 0)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+                var listQuanity = quantityBO.GetData(u => u.isDelete == false && u.Date.Value.Month == 12 && u.Date.Value.Year == Year - 1);
+                //show txtInventory
+                if (listQuanity.Count == 0)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
             bool check = IsDateofQuantity(txtDate.Value);
             if (check == true)
             {
@@ -277,5 +452,20 @@ namespace PlasticsFactory.UserControls.Main_Content.MCStatistic
             }
         }
 
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnInventory_Click(object sender, EventArgs e)
+        {
+            int ID = 0;
+            var listID = quantityBO.GetData(u => u.isDelete == false && u.Date.Value.Day == 1 && u.Date.Value.Month == Month && u.Date.Value.Year == Year);
+            ID = listID.Count != 0 ? listID.First().Id : 0;
+            MessageBox.Show(ID.ToString());
+            frmInventation frm = new frmInventation(ID);
+            frm.ShowDialog();
+            loadDG();
+        }
     }
 }
